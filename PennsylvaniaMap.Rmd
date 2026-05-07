@@ -1,0 +1,20 @@
+---
+title: "Pennsylvania Map"
+output: html_document
+---
+
+```{r}
+
+library(leaflet)
+library(sf)
+
+CensusTracts <- sf::read_sf("./CensusTracts/tl_2025_42_tract.shp")
+
+map <- leaflet::leaflet() |> 
+  leaflet::addTiles() |>
+  leaflet::setView(lng = -77.86, lat = 40.79, zoom = 14) |>
+  leaflet::addPolygons(data = CensusTracts)
+
+map
+
+```

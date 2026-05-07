@@ -1,0 +1,193 @@
+---
+title: "Data Wrangling"
+output: html_document
+---
+
+```{r setup}
+
+# import packages ----
+library(dplyr)
+library(data.table)
+library(lubridate)
+library(ellmer)
+library(sentimentr)
+
+# TODO: include fuzzy matching with agrap package
+
+```
+
+```{r data-import}
+
+# import tabula table for pennsylvania house redistricting comments ----
+tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
+  dplyr::select(-X) |>
+  dplyr::rename(CommunityName = "Community.Name") |>
+  dplyr::mutate(
+    Description = paste0(CommunityName, ": ", Description),
+    Date = lubridate::dmy(x = Date)
+  )
+
+```
+
+```{r ellmer-implementation}
+
+# initialize chat object ----
+chat <- ellmer::chat_openai() # model gpt-4.1
+
+# compile comment data ----
+commentData <- purrr::map2(
+  .x = as.character(tabulaPAHouse$Date[1:5]),
+  .y = tabulaPAHouse$Description[1:5],
+  .f = \(date, description) {
+    
+    ## gather mentioned locations ----
+    chatOutput <- chat$chat_structured(
+      description,
+      type = ellmer::type_object(
+        
+        ### comment clarity ----
+        commentClarity = ellmer::type_number(
+          description = paste0(
+            "Clarity of this Pennsylvania commenter's description ",
+            "of a community of interest scaled from 0 to 1. ",
+            "Clarity should be based on how specific the commenter's mentioned ",
+            "locations are and how clearly they state their desire to include or ",
+            "exclude those locations from a community of interest. ",
+            "A score of 0 indicates no clarity, ",
+            "while a score of 1 indicates complete clarity."
+          )
+        ),
+    
+        ### locations to be kept together ----
+        LocationsIncluded = ellmer::type_object(
+          
+          # geonames locations
+          Geonames = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "Find options from the following database: https://www.geonames.org/ ",
+              "that best match any location names that this Pennsylvania commenter ",
+              "mentions should be kept together in a community of interest. ",
+              "Should be exclusive and brief. "
+            )
+          ),
+      
+          # neighborhoods
+          Neighborhoods = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any neighborhoods that this Pennsylvania commenter mentions ",
+              "should be kept together in a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          ),
+      
+          # cities
+          Cities = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any cities, villages, and townships ",
+              "that this Pennsylvania commenter mentions ",
+              "should be kept together in a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          ),
+      
+          # county regions
+          # TODO: make more restrictive (modifier, county name)
+          CountyRegions = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any regions of counties that this Pennsylvania commenter mentions ",
+              "should be kept together in a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          ),
+      
+          # counties
+          # TODO: restrict to provided list of counties
+          Counties = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any counties that this Pennsylvania commenter mentions ",
+              "should be kept together in a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          )
+        ),
+    
+        ## locations to be excluded ----
+        LocationsExcluded = ellmer::type_object(
+          
+          # geonames locations
+          Geonames = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "Find options from the following database: https://www.geonames.org/ ",
+              "that best match any location names that this Pennsylvania commenter ",
+              "mentions should be kept separated from a community of interest. ",
+              "Should be exclusive and brief. "
+            )
+          ),
+      
+          # neighborhoods
+          Neighborhoods = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any neighborhoods that this Pennsylvania commenter mentions ",
+              "should be kept separated from a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          ),
+      
+          # cities
+          Cities = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any cities, villages, and townships ",
+              "that this Pennsylvania commenter mentions ",
+              "should be kept together in a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          ),
+      
+          # county regions
+          CountyRegions = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any regions of counties that this Pennsylvania commenter mentions ",
+              "should be kept separated from a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          ),
+      
+          # counties
+          Counties = ellmer::type_array(
+            items = ellmer::type_string(),
+            description = paste0(
+              "List of any counties that this Pennsylvania commenter mentions ",
+              "should be kept separated from a community of interest. ",
+              "Should be exclusive and brief."
+            )
+          )
+        )
+      )
+    )
+    
+    ## compile information for an individual comment ----
+    commentInformation <- list(
+      Date = date,
+      Characters = nchar(description),
+      Sentiment = sentimentr::sentiment(text.var = description) |>
+        dplyr::pull(sentiment) |> mean(),
+      Clarity = chatOutput$commentClarity,
+      LocationsIncluded = chatOutput$LocationsIncluded,
+      LocationsExcluded = chatOutput$LocationsExcluded
+    )
+    
+    ## return comment information ----
+    return(commentInformation)
+  }
+)
+
+```
