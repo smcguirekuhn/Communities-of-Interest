@@ -16,7 +16,30 @@ library(sentimentr)
 
 ```
 
-```{r data-import}
+```{r us-data-import}
+
+# import pennsylvania geonames ----
+pennsylvaniaGeoNames <- readRDS(file = "./Data/PennsylvaniaGeoNames.rds")
+
+# import us geonames (source data too large for github) ----
+# pennsylvaniaGeoNames <- read.delim("./Data/US/US.txt", header = FALSE) |>
+#   stats::setNames(
+#     nm = c(
+#       "Geonameid", "Name", "Asciiname", "AlternateNames",
+#       "Latitude", "Longitude",
+#       "FeatureClass", "FeatureCode",
+#       "CountryCode", "CC2",
+#       "Admin1Code", "Admin2Code", "Admin3Code", "Admin4Code",
+#       "Population", "Elevation", "Dem", "Timezone",
+#       "ModificationDate"
+#     )
+#   ) |>
+#   dplyr::filter(CountryCode == "US", Admin1Code == "PA") |>
+#   dplyr::select(-c(CC2, Admin4Code, Dem, Timezone, ModificationDate))
+
+```
+
+```{r pa-data-import}
 
 # import tabula table for pennsylvania house redistricting comments ----
 tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
