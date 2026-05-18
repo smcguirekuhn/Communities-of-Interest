@@ -1,6 +1,10 @@
 ---
-title: "Data Wrangling"
-output: html_document
+title: "Commenter COI Extraction Pipeline"
+author: Spencer Kuhn
+output:
+  pdf_document: default
+bibliography: "../../Dropbox/Literature Reviews/references.bib"
+link-citations: yes
 ---
 
 ```{r setup}
@@ -19,7 +23,9 @@ library(sentimentr)
 
 ```
 
-```{r us-data-import}
+The GeoNames database compiles place names alongside their corresponding point or polygon geometries at all administrative levels around the world [@GeoNames]. Pennsylvania GeoNames locations serve as the building block unit of each commenter's community of interest.
+
+```{r geonames-data-import}
 
 # import pennsylvania geonames ----
 pennsylvaniaGeoNames <- readRDS(file = "./Data/PennsylvaniaGeoNames.rds")
@@ -42,7 +48,9 @@ pennsylvaniaGeoNames <- readRDS(file = "./Data/PennsylvaniaGeoNames.rds")
 
 ```
 
-```{r pa-data-import}
+Public testimony data was gathered from the Redistricting Data Hub, which has compiled comments from the 2020 redistricting cycle for 14 individual states [@RedistrictingDataHubPublicTestimony]. Tabula, a software capable of converting PDFs to csv files, was used to process comments about Pennsylvania state house boundaries and commenter communities of interest.
+
+```{r pa-commenter-data-import}
 
 # import tabula table for pennsylvania house redistricting comments ----
 tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
@@ -54,6 +62,8 @@ tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
   )
 
 ```
+
+The ellmer package in R was used to interact with off-the-shelf LLM chat features and extract structured data [@ellmer], including comment sentiment, comment clarity, the locations the commenter mentions should be included in their community of interest, and the locations the commenter mentions should be excluded from their community of interest. Comment sentiment and clarity are both scaled to range from 0 to 1, with 0 representing negative sentiment and unclear comments while 1 represents positive sentiment and clear comments. The date of each comment was available from the original dataset. Ellmer was then used to estimate the complete set of Pennsylvania counties contained within each commenter's mentioned locations. Potential GeoNames entries were filtered to each set of counties, and the filtered list was converted into a registered tool used by Ellmer to reconcile mentioned locations with matches from the GeoNames database. 
 
 ```{r initialize-chat}
 
@@ -198,3 +208,5 @@ commentData <- commentData |>
   )
 
 ```
+
+# References
