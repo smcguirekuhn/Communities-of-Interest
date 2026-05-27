@@ -3,7 +3,7 @@ title: "Institutional Response to Public Testimony on Redistricting Communities 
 author: Spencer Kuhn
 output:
   pdf_document: default
-bibliography: bibliography: ["../../Literature Reviews/articles.bib", "../../Literature Reviews/books.bib", "../../Literature Reviews/datasets.bib", "../../Literature Reviews/software.bib"]
+bibliography: ["../../Dropbox/Literature Reviews/articles.bib", "../../Dropbox/Literature Reviews/books.bib", "../../Dropbox/Literature Reviews/datasets.bib", "../../Dropbox/Literature Reviews/software.bib"]
 link-citations: yes
 ---
 
@@ -11,4 +11,6 @@ The GeoNames database compiles place names alongside their corresponding point o
 
 Public testimony data was gathered from the Redistricting Data Hub, which has compiled comments from the 2020 redistricting cycle for 14 individual states [@RedistrictingDataHubPublicTestimony]. Tabula, a software capable of converting PDFs to csv files, was used to process comments about Pennsylvania state house boundaries and commenter communities of interest.
 
-The ellmer package in R was used to interact with off-the-shelf LLM chat features and extract structured data [@ellmer], including comment sentiment, comment clarity, the locations the commenter mentions should be included in their community of interest, and the locations the commenter mentions should be excluded from their community of interest. Comment sentiment and clarity are both scaled to range from 0 to 1, with 0 representing negative sentiment and unclear comments while 1 represents positive sentiment and clear comments. The date of each comment was available from the original dataset. Ellmer was then used to estimate the complete set of Pennsylvania counties contained within each commenter's mentioned locations. Potential GeoNames entries were filtered to each set of counties, and the filtered list was converted into a registered tool used by Ellmer to reconcile mentioned locations with matches from the GeoNames database. 
+The `ellmer` package in R was used to interact with off-the-shelf LLM chat features and extract structured data [@ellmer], including comment sentiment, comment clarity, and every specific location mentioned within a comment. Comment sentiment and clarity are both scaled to range from 0 to 1, with 0 representing negative sentiment and unclear comments while 1 represents positive sentiment and clear comments. The date of each comment was available from the original dataset. The `ellmer` package was then used to estimate the complete set of Pennsylvania counties contained within each commenter's mentioned locations.
+
+For each comment, potential GeoNames entries were filtered to the corresponding set of identified counties, and the filtered list was matched using the `stringdist` package in R to the comment's specific location mentions [@stringdist]. Lastly, `ellmer` was again used to group these locations into distinct communities of interest based on the commenter's specifications. 
