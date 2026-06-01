@@ -61,7 +61,7 @@ tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
 ```{r initialize-chat}
 
 # initialize chat object ----
-chat <- ellmer::chat_openai() # model gpt-4.1
+chat <- ellmer::chat_openrouter() # Using model = "gpt-4o"
 
 ```
 
@@ -82,38 +82,54 @@ commentData <- purrr::map2(
       type = ellmer::type_object(
     
         ### locations included in the community of interest ----
-        LocationsMentioned = ellmer::type_object(
-          Location = ellmer::type_array(
-            items = ellmer::type_string(),
-            description = paste(
-              "List of all specific locations that this Pennsylvania commenter mentions,",
-              "including landmarks, neighborhoods, townships, boroughs, and counties.",
-              "Order locations by their appearance in the comment.",
-              "Return only the identifiable, administrative name of the location.",
-              "For example, if 'western suburbs of the city of Lancaster' is mentioned,",
-              "return only 'City of Lancaster'.",
-              "Locations should thus read like the following examples:",
-              "Fishtown Neighborhood, State College, Bucks County"
-            )
+        LocationsMentioned = ellmer::type_array(
+          description = paste(
+            "List of all specific locations that this Pennsylvania commenter mentions,",
+            "including landmarks, neighborhoods, townships, boroughs, and counties.",
+            "Order locations by their appearance in the comment."
           ),
-          LocationDescription = ellmer::type_array(
-            items = ellmer::type_string(),
-            description = paste(
-              "Mentioned areas of each location that this Pennsylvania commenter mentions.",
-              "If it can be assumed that all of the location is being mentioned, return 'All'.",
-              "Otherwise, return something like 'western suburbs'",
-              "if the commenter mentions 'western suburbs of Lancaster.",
-              "Order areas by their appearance in the comment."
-            )
-          ),
-          Counties = ellmer::type_array(
-            items = ellmer::type_string(),
-            description = paste(
-              "An estimate of the Pennsylvania counties corresponding to each location",
-              "that this Pennsylvania commenter mentions.",
-              "Order counties by their appearance in the comment.",
-              "Format county names like the following examples:",
-              "Centre County, Delaware County, Beaver County"
+          items = ellmer::type_object(
+            
+            #### location name ----
+            Location = ellmer::type_string(
+              description = paste(
+                "The identifiable, administrative name of the location.",
+                "For example, if 'western suburbs of the city of Lancaster' is mentioned,",
+                "return only 'City of Lancaster'.",
+                "The location should thus read like the following examples:",
+                "Fishtown Neighborhood, State College, Bucks County."
+              )
+            ),
+            
+            #### location description (subareas) ----
+            LocationDescription = ellmer::type_string(
+              description = paste(
+                "Mentioned subareas of the location.",
+                "If it can be assumed that all of the location is being mentioned, return 'NA'.",
+                "Otherwise, return something like 'western suburbs'",
+                "if the commenter mentions 'western suburbs of Lancaster'."
+              )
+            ),
+            
+            #### location counties ----
+            Counties = ellmer::type_array(
+              items = ellmer::type_string(),
+              description = paste(
+                "An estimate of the Pennsylvania counties most closely corresponding to the location",
+                "that this Pennsylvania commenter mentions.",
+                "Format county names like the following examples:",
+                "Centre County, Delaware County, Beaver County"
+              )
+            ),
+            
+            #### location group ----
+            Group = ellmer::type_number(
+              description = paste(
+                "This Pennsylvania commenter is requesting that certain locations",
+                "be grouped into various communities of interest.",
+                "Return the group number of the location according to the commenter's specifications,",
+                "starting with 1 for the first location mentioned in the comment."
+              )
             )
           )
         ),
@@ -143,6 +159,7 @@ commentData <- purrr::map2(
       )
     )
     
+    ## add date, original comment, and character count ----
     chatOutput$Date <- date
     chatOutput$OriginalComment <- description
     chatOutput$Characters <- nchar(description)
@@ -160,21 +177,21 @@ commentData <- purrr::map2(
 commentData <- commentData |>
   purrr::map(
     .f = \(commentInfo) {
-      if (length(commentInfo$LocationsMentioned$Location) > 0) {
+      if (nrow(commentInfo$LocationsMentioned) > 0) {
         
         ## gather geonames matches for all mentioned locations in a comment ----
         geoNamesMatches <- purrr::map2(
           .x = commentInfo$LocationsMentioned$Location,
           .y = commentInfo$LocationsMentioned$Counties,
           .f = \(location, counties) {
-            print(paste("Gathering Matches for", location, "in", counties))
+            print(paste("Gathering Matches for", location, "in", counties |> paste(collapse = ", ")))
             
             ### assign candidate county fips codes for an individual location ----
             countyFIPSCodes <- tigris::fips_codes |>
               dplyr::filter(state == "PA", county %in% counties) |>
               dplyr::pull(county_code) |>
               as.numeric()
-            print(paste("Counties Found:", countyFIPSCodes))
+            print(paste("Counties Found:", paste(countyFIPSCodes, collapse = ", ")))
             
             ### filter possible geonames matches to candidate counties ----
             countyGeoNames <- pennsylvaniaGeoNames |>
@@ -191,8 +208,9 @@ commentData <- commentData |>
                 )
               ) |>
               dplyr::slice_min(order_by = MatchDistance) |>
-              dplyr::filter(MatchDistance <= 0.3) |>
+              dplyr::filter(MatchDistance <= 0.35) |>
               dplyr::pull(Name)
+            if (length(geoNames) == 0) geoNames <- NA
             print(paste("Matched GeoNames:", geoNames))
             cat("\n")
             
@@ -213,44 +231,3 @@ commentData <- commentData |>
   )
 
 ```
-
-```{r group-locations}
-
-# group geonames locations into distinct communities of interest ----
-commentData <- commentData |>
-  purrr::map(
-    .f = \(commentInfo) {
-      
-      ## pause system to limit token rate ----
-      Sys.sleep(time = 10)
-      
-      ## assign community group numbers ----
-      if (length(commentInfo$LocationsMentioned$GeoNames) > 0) {
-        communityGroups <- chat$chat_structured(
-          commentInfo$OriginalComment,
-          type = ellmer::type_array(
-            items = ellmer::type_integer(),
-            description = paste(
-              "This Pennsylvania commenter is requesting that certain locations",
-              "be grouped into various communities of interest.",
-              "Return the group number of each of the following locations",
-              "according to the commenter's specifications:",
-              paste(commentInfo$LocationsMentioned$GeoNames, collapse = ", ")
-            )
-          )
-        )
-      } else {
-        communityGroups <- integer(0)
-      }
-      
-      ## add community group numbers to comment information ----
-      commentInfo$LocationsMentioned$CommunityGroup <- communityGroups
-      
-      ## return comment information ----
-      return(commentInfo)
-    }
-  )
-
-```
-
-# References
