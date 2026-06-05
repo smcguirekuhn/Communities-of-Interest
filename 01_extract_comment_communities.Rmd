@@ -79,16 +79,18 @@ tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
 ```{r initialize-chat}
 
 # initialize chat object ----
-chat <- ellmer::chat_openrouter() # Using model = "gpt-4o"
+chat <- ellmer::chat_openrouter() # model = "qwen3.6-27b"
 
 ```
 
 ```{r gather-comment-data}
 
+keyCommentIDs <- c(2, 10, 18, 20, 35, 41)
+
 # compile comment data ----
 commentData <- purrr::map2(
-  .x = as.character(tabulaPAHouse$Date),
-  .y = tabulaPAHouse$Description,
+  .x = as.character(tabulaPAHouse$Date[keyCommentIDs]),
+  .y = tabulaPAHouse$Description[keyCommentIDs],
   .f = \(date, description) {
     
     ## pause system to limit token rate ----
@@ -102,16 +104,16 @@ commentData <- purrr::map2(
         ### locations included in the community of interest ----
         LocationsMentioned = ellmer::type_array(
           description = paste(
-            "List of all individual locations that this Pennsylvania commenter mentions,",
+            "All individual geographic locations that this Pennsylvania commenter mentions,",
             "including landmarks, neighborhoods, townships, boroughs, school districts, counties, etc.",
             "Order locations by their appearance in the comment."
           ),
           items = ellmer::type_object(
             
             #### location name ----
-            Location = ellmer::type_string(
+            Name = ellmer::type_string(
               description = paste(
-                "The full, identifiable, administrative name of the location.",
+                "The identifiable, administrative name of the location.",
                 "For example, if 'western suburbs of the city of Lancaster' is mentioned,",
                 "return only 'City of Lancaster'.",
                 "The location should thus read like the following examples:",
@@ -119,13 +121,34 @@ commentData <- purrr::map2(
               )
             ),
             
-            #### location description (subareas) ----
-            LocationExtent = ellmer::type_string(
+            #### location administrative level ----
+            AdminLevel = ellmer::type_string(
               description = paste(
-                "Mentioned extent or subareas, if specified, of the location.",
-                "If the commenter is referring to the entire location, return 'NA'.",
-                "Otherwise, return something like 'western suburbs'",
-                "if the commenter mentions 'western suburbs of Lancaster'."
+                "Administrative level of the location.",
+                "Options include 'neighborhood', 'township', 'borough', 'city',",
+                "'school district', 'county', 'region', or 'other'.",
+                "Individual buildings, landmarks, roads, etc should be classified as 'other'."
+              )
+            ),
+            
+            #### location extent (full/partial) ----
+            Extent = ellmer::type_integer(
+              description = paste(
+                "Indicator of whether the commenter mentions the full extent of the location",
+                "(i.e. 'Bucks County') or a portion of the location (i.e. 'Lower Montgomery County').",
+                "Return 1 for a full location mention and 0 for a partial location mention."
+              )
+            ),
+            
+            #### location description ----
+            Description = ellmer::type_string(
+              description = paste(
+                "Portions or subareas of the mentioned location, if applicable.",
+                "If the commenter refers to the location in its entirety, return 'NA'.",
+                "Subareas include cardinal direction specifications (i.e. 'North Philadelphia'),",
+                "relative location references (i.e. 'Outskirts of Pittsburgh'),",
+                "or colloquial references (i.e. 'Downtown Erie').",
+                "Keep descriptions brief."
               )
             ),
             
@@ -170,7 +193,7 @@ commentData <- purrr::map2(
             "Clarity should be based on how specific the commenter's mentioned",
             "locations are and how clearly they state their desire to include or",
             "exclude those locations from a community of interest.",
-            "A score of 0 indicates no clarity,",
+            "A score of 0 indicates no clarity regarding specific locations or communities,",
             "while a score of 1 indicates complete clarity."
           )
         )
@@ -186,6 +209,10 @@ commentData <- purrr::map2(
     return(chatOutput)
   }
 )
+
+```
+
+```{r save-comment-data}
 
 # save comment data ----
 saveRDS(object = commentData, file = "./Data/CommentData.rds")
