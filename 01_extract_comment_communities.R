@@ -1,68 +1,23 @@
----
-title: "Commenter COI Extraction Pipeline"
-author: Spencer Kuhn
-output:
-  pdf_document: default
-bibliography: "../../Dropbox/Literature Reviews/references.bib"
-link-citations: yes
----
 
-```{r setup}
+# Script 01: Extract Communities of Interest Information from Public Comments
 
 # reset global environment ----
 rm(list = ls())
 
 # import packages ----
 library(dplyr)
-library(tidyr)
+library(purrr)
 library(data.table)
 library(lubridate)
 library(ellmer)
-library(tigris)
-library(stringdist)
 
-```
-
-```{r geonames-data-import}
-
-# import pennsylvania geonames ----
-pennsylvaniaGeoNames <- readRDS(file = "./Data/PennsylvaniaGeoNames.rds") |>
-  dplyr::mutate(Name = paste(Name, Asciiname, AlternateNames, sep = ",")) |>
-  tidyr::separate_longer_delim(cols = Name, delim = ",") |>
-  dplyr::filter(Name != "") |>
-  dplyr::distinct()
-
-# import us geonames (source data too large for github) ----
-# pennsylvaniaGeoNames <- read.delim("./Data/US/US.txt", header = FALSE) |>
-#   stats::setNames(
-#     nm = c(
-#       "Geonameid", "Name", "Asciiname", "AlternateNames",
-#       "Latitude", "Longitude",
-#       "FeatureClass", "FeatureCode",
-#       "CountryCode", "CC2",
-#       "Admin1Code", "Admin2Code", "Admin3Code", "Admin4Code",
-#       "Population", "Elevation", "Dem", "Timezone",
-#       "ModificationDate"
-#     )
-#   ) |>
-#   dplyr::filter(CountryCode == "US", Admin1Code == "PA") |>
-#   dplyr::select(-c(CC2, Admin4Code, Dem, Timezone, ModificationDate))
-
-```
-
-```{r school-districts-import}
-
-# import pennsylvania school districts ----
-pennsylvaniaSchoolDistricts <- tigris::school_districts(state = "PA") |>
-  sf::st_drop_geometry() |>
-  dplyr::select(Name = NAME)
-
-```
-
-```{r pa-commenter-data-import}
+# assign import and export destinations ----
+dataPath <- "./Data/"
+commentsFilename <- "TabulaPAHouse.csv"
+commentDataFilename <- "CommentDataPartial.rds"
 
 # import tabula table for pennsylvania house redistricting comments ----
-tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
+comments <- read.csv(file = file.path(dataPath, commentsFilename)) |>
   dplyr::select(-X) |>
   dplyr::rename(CommunityName = "Community.Name") |>
   dplyr::mutate(
@@ -74,23 +29,15 @@ tabulaPAHouse <- read.csv(file = "./Data/TabulaPAHouse.csv") |>
     Date = lubridate::dmy(x = Date)
   )
 
-```
-
-```{r initialize-chat}
-
 # initialize chat object ----
 chat <- ellmer::chat_openrouter() # model = "qwen3.6-27b"
-
-```
-
-```{r gather-comment-data}
 
 keyCommentIDs <- c(2, 10, 18, 20, 35, 41)
 
 # compile comment data ----
 commentData <- purrr::map2(
-  .x = as.character(tabulaPAHouse$Date[keyCommentIDs]),
-  .y = tabulaPAHouse$Description[keyCommentIDs],
+  .x = as.character(comments$Date[keyCommentIDs]),
+  .y = comments$Description[keyCommentIDs],
   .f = \(date, description) {
     
     ## pause system to limit token rate ----
@@ -100,7 +47,7 @@ commentData <- purrr::map2(
     chatOutput <- chat$chat_structured(
       description,
       type = ellmer::type_object(
-    
+        
         ### locations included in the community of interest ----
         LocationsMentioned = ellmer::type_array(
           description = paste(
@@ -210,77 +157,5 @@ commentData <- purrr::map2(
   }
 )
 
-```
-
-```{r save-comment-data}
-
 # save comment data ----
-saveRDS(object = commentData, file = "./Data/CommentData.rds")
-
-```
-
-```{r match-geonames}
-
-# match geonames to comment data ----
-commentData <- commentData |>
-  purrr::map(
-    .f = \(commentInfo) {
-      if (nrow(commentInfo$LocationsMentioned) > 0) {
-        
-        ## gather geonames matches for all mentioned locations in a comment ----
-        geoNamesMatches <- purrr::map2(
-          .x = commentInfo$LocationsMentioned$Location,
-          .y = commentInfo$LocationsMentioned$Counties,
-          .f = \(location, counties) {
-            print(paste("Gathering Matches for", location, "in", counties |> paste(collapse = ", ")))
-            
-            ### assign candidate county fips codes for an individual location ----
-            countyFIPSCodes <- tigris::fips_codes |>
-              dplyr::filter(state == "PA", county %in% counties) |>
-              dplyr::pull(county_code) |>
-              as.numeric()
-            print(paste("Counties Found:", paste(countyFIPSCodes, collapse = ", ")))
-            
-            ### filter possible geonames matches to candidate counties ----
-            countyGeoNames <- pennsylvaniaGeoNames |>
-              dplyr::filter(
-                is.na(Admin2Code) | Admin2Code %in% countyFIPSCodes,
-                FeatureClass %in% c("P", "A", "L")
-              ) |>
-              dplyr::select(Name) |>
-              dplyr::bind_rows(pennsylvaniaSchoolDistricts)
-            print(paste("Number of Possible GeoNames Matches:", nrow(countyGeoNames)))
-            
-            ### match location mentions to their closest geonames candidates ----
-            geoNames <- countyGeoNames |>
-              dplyr::mutate(
-                JaccardDistance = stringdist::stringdist(
-                  a = Name,
-                  b = location,
-                  method = "jaccard"
-                )
-              ) |>
-              dplyr::slice_min(order_by = JaccardDistance, n = 5) |>
-              dplyr::pull(Name) |>
-              paste(collapse = ", ")
-            if (length(geoNames) == 0) geoNames <- NA
-            print(paste("Matched GeoNames:", geoNames))
-            cat("\n")
-            
-            ### return geonames location matches ----
-            return(geoNames)
-          }
-        ) |> purrr::list_c()
-      } else {
-        geoNamesMatches <- character(0)
-      }
-      
-      ## add geonames location matches to comment information ----
-      commentInfo$LocationsMentioned$GeoNames <- geoNamesMatches
-      
-      ## return comment information ----
-      return(commentInfo)
-    }
-  )
-
-```
+saveRDS(object = commentData, file = file.path(dataPath, commentDataFilename))
