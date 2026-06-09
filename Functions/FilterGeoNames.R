@@ -2,23 +2,26 @@ filterGeoNames <- function(
     geoNames,
     countyFIPSCodes,
     adminLevel = c(
-      "neighborhood",
-      "township",
-      "borough",
-      "city",
-      "school district",
-      "county",
-      "region",
+      "Neighborhood",
+      "Township",
+      "Borough",
+      "City",
+      "SchoolDistrict",
+      "County",
+      "Region",
       "other"
     ),
     schoolDistricts = NULL
   ) {
   
+  # check admin level argument ----
+  match.arg(adminLevel)
+  
   # gather appropriate set of geonames locations ----
-  if (adminLevel == "school district") {
+  if (adminLevel == "SchoolDistrict") {
     
     ## assign school district names if location is a school district ----
-    geoNamesSubset <- data.frame(Name = schoolDistricts)
+    geoNamesSubset <- schoolDistricts
     
   } else if (adminLevel == "other") {
     
@@ -32,12 +35,12 @@ filterGeoNames <- function(
     ## assign feature code based on valid administrative level ----
     featureCode <- switch(
       EXPR = adminLevel,
-      "neighborhood" = "PPL",
-      "township" = "ADM3",
-      "borough" = "ADM3",
-      "city" = "ADM3",
-      "county" = "ADM2",
-      "region" = "RGNE"
+      "Neighborhood" = "PPL",
+      "Township" = "ADM3",
+      "Borough" = "ADM3",
+      "City" = "ADM3",
+      "County" = "ADM2",
+      "Region" = "RGNE"
     )
     
     ## overwrite feature code for erroneous admin level assignments ----
@@ -45,7 +48,7 @@ filterGeoNames <- function(
     
     ## assign filtered geonames ----
     geoNamesSubset <- geoNames |>
-      dplyr::filter(Admin2Code %in% countyFIPSCodes, FeatureCode == featureCode) |>
+      dplyr::filter(Admin2Code %in% countyFIPSCodes, FeatureCode %in% featureCode) |>
       dplyr::select(Name)
   }
   

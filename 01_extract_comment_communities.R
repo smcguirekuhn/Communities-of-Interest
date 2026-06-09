@@ -30,12 +30,13 @@ comments <- read.csv(file = file.path(dataPath, commentsFilename)) |>
   )
 
 # initialize chat object ----
-chat <- ellmer::chat_openrouter() # model = "qwen3.6-27b"
+chat <- ellmer::chat_openrouter(model = "anthropic/claude-haiku-4.5")
 
-keyCommentIDs <- c(2, 10, 18, 20, 35, 41)
+keyCommentIDs <- 1:25
 
 # compile comment data ----
 commentData <- purrr::map2(
+  .progress = TRUE,
   .x = as.character(comments$Date[keyCommentIDs]),
   .y = comments$Description[keyCommentIDs],
   .f = \(date, description) {
@@ -53,7 +54,8 @@ commentData <- purrr::map2(
           description = paste(
             "All individual geographic locations that this Pennsylvania commenter mentions,",
             "including landmarks, neighborhoods, townships, boroughs, school districts, counties, etc.",
-            "Order locations by their appearance in the comment."
+            "Order locations by their appearance in the comment.",
+            "Only return clearly-identified locations."
           ),
           items = ellmer::type_object(
             
@@ -64,17 +66,71 @@ commentData <- purrr::map2(
                 "For example, if 'western suburbs of the city of Lancaster' is mentioned,",
                 "return only 'City of Lancaster'.",
                 "The location should thus read like the following examples:",
-                "Fishtown Neighborhood, State College, Bucks County."
+                "Fishtown, State College, Bucks County."
               )
             ),
             
-            #### location administrative level ----
-            AdminLevel = ellmer::type_string(
-              description = paste(
+            #### location administrative level -----
+            AdminLevel = ellmer::type_object(
+              .description = paste(
                 "Administrative level of the location.",
-                "Options include 'neighborhood', 'township', 'borough', 'city',",
-                "'school district', 'county', 'region', or 'other'.",
-                "Individual buildings, landmarks, roads, etc should be classified as 'other'."
+                "Must be exclusive and decisive."
+              ),
+              
+              ##### neighborhood indicator ----
+              Neighborhood = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a neighborhood of a city.",
+                  "Return 0 if the location is not a neighborhood and 1 if the location is a neighborhood."
+                )
+              ),
+              
+              ##### township indicator ----
+              Township = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a township.",
+                  "Return 0 if the location is not a township and 1 if the location is a township."
+                )
+              ),
+              
+              ##### borough indicator ----
+              Borough = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a borough.",
+                  "Return 0 if the location is not a borough and 1 if the location is a borough."
+                )
+              ),
+              
+              ##### city indicator ----
+              City = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a city (not a township or borough).",
+                  "Return 0 if the location is not a city and 1 if the location is a city."
+                )
+              ),
+              
+              ##### school district indicator ----
+              SchoolDistrict = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a school district.",
+                  "Return 0 if the location is not a school district and 1 if the location is a school district."
+                )
+              ),
+              
+              ##### county indicator ----
+              County = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a county.",
+                  "Return 0 if the location is not a county and 1 if the location is a county."
+                )
+              ),
+              
+              ##### region indicator ----
+              Region = ellmer::type_integer(
+                description = paste(
+                  "Binary indicator of whether the mentioned location is likely a region of Pennsylvania.",
+                  "Return 0 if the location is not a region and 1 if the location is a region."
+                )
               )
             ),
             
@@ -100,7 +156,7 @@ commentData <- purrr::map2(
             ),
             
             #### location counties ----
-            Counties = ellmer::type_array(
+            SurroundingCounties = ellmer::type_array(
               items = ellmer::type_string(),
               description = paste(
                 "An estimate of the Pennsylvania counties most closely corresponding to the location",
@@ -123,7 +179,7 @@ commentData <- purrr::map2(
         ),
         
         ### comment sentiment ----
-        commentSentiment = ellmer::type_number(
+        Sentiment = ellmer::type_number(
           description = paste0(
             "Positive/Negative sentiment of this Pennsylvania commenter's description ",
             "of a community of interest scaled from 0 to 1. ",
@@ -133,7 +189,7 @@ commentData <- purrr::map2(
         ),
         
         ### comment clarity ----
-        commentClarity = ellmer::type_number(
+        Clarity = ellmer::type_number(
           description = paste(
             "Clarity of this Pennsylvania commenter's description",
             "of a community of interest scaled from 0 to 1.",
@@ -156,6 +212,42 @@ commentData <- purrr::map2(
     return(chatOutput)
   }
 )
+
+# simplify location administrative levels ----
+commentData <- commentData |>
+  purrr::map(
+    .f = \(commentInfo) {
+      
+      ## assigned locations mentioned ----
+      LocationsMentioned <- commentInfo$LocationsMentioned
+      
+      ## find designated administrative level ----
+      if (nrow(LocationsMentioned) > 0) {
+        adminLevels <- 1:nrow(LocationsMentioned) |>
+          purrr::map(
+            .f = \(locationID) {
+              adminLevel <- LocationsMentioned$AdminLevel |>
+                dplyr::slice(locationID) |>
+                dplyr::select(dplyr::where(~any(.x == 1))) |>
+                names()
+              if (length(adminLevel) == 0) adminLevel <- "other"
+              return(adminLevel)
+            }
+          )
+      } else {
+        adminLevels <- list()
+      }
+      
+      ## format designated administrative level ----
+      LocationsMentioned$AdminLevel <- adminLevels
+      
+      ## update comment information ----
+      commentInfo$LocationsMentioned <- LocationsMentioned
+      
+      ## return comment information ----
+      return(commentInfo)
+    }
+  )
 
 # save comment data ----
 saveRDS(object = commentData, file = file.path(dataPath, commentDataFilename))

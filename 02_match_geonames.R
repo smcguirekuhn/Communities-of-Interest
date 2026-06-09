@@ -7,6 +7,7 @@ rm(list = ls())
 # import packages ----
 library(dplyr)
 library(tidyr)
+library(purrr)
 library(tigris)
 library(sf)
 library(stringdist)
@@ -18,9 +19,10 @@ source(file = list.files(path = "./Functions/", full.names = TRUE))
 dataPath <- "./Data/"
 usGeoNamesFilename <- "US.txt"
 paGeoNamesFilename <- "PAGeoNames.rds"
+paSchoolDistrictsFilename <- "PASchoolDistricts.rds"
 commentDataFilename <- "CommentDataPartial.rds"
 
-# import pennsylvania geonames (source data too large for github) ----
+# # import pennsylvania geonames (source data too large for github) ----
 # paGeoNames <- read.delim(
 #   file = file.path(dataPath, usGeoNamesFilename),
 #   header = FALSE
@@ -39,7 +41,7 @@ commentDataFilename <- "CommentDataPartial.rds"
 #   dplyr::filter(CountryCode == "US", Admin1Code == "PA") |>
 #   dplyr::select(-c(CC2, Admin4Code, Dem, Timezone, ModificationDate))
 # 
-# # save pennsylvania geonames
+# # save pennsylvania geonames ----
 # saveRDS(object = paGeoNames, file = file.path(dataPath, paGeoNamesFilename))
 
 # import pennsylvania geonames ----
@@ -52,11 +54,16 @@ paGeoNames <- paGeoNames |>
   dplyr::filter(Name != "") |>
   dplyr::distinct()
 
+# # import pennsylvania school districts (census web connection may fail) ----
+# paSchoolDistricts <- tigris::school_districts(state = "PA", year = 2020) |>
+#   sf::st_drop_geometry() |>
+#   dplyr::select(Name = NAME)
+# 
+# # save pennsylvania school districts ----
+# saveRDS(object = paSchoolDistricts, file = file.path(dataPath, paSchoolDistrictsFilename))
+
 # import pennsylvania school districts ----
-paSchoolDistricts <- tigris::school_districts(state = "PA", year = 2020) |>
-  sf::st_drop_geometry() |>
-  dplyr::select(Name = NAME)
-paSchoolDistricts <- character(0)
+paSchoolDistricts <- readRDS(file = file.path(dataPath, paSchoolDistrictsFilename))
 
 # import comment data ----
 commentData <- readRDS(file = file.path(dataPath, commentDataFilename))
@@ -64,6 +71,7 @@ commentData <- readRDS(file = file.path(dataPath, commentDataFilename))
 # match geonames to comment data ----
 commentData <- commentData |>
   purrr::map(
+    .progress = TRUE,
     .f = \(commentInfo) {
       if (nrow(commentInfo$LocationsMentioned) > 0) {
         
@@ -72,10 +80,14 @@ commentData <- commentData |>
           .x = 1:nrow(commentInfo$LocationsMentioned),
           .f = \(locationID) {
             
-            ### assign location details ----
+            ### assign location name ----
             location <- commentInfo$LocationsMentioned$Name[locationID]
-            adminLevel <- commentInfo$LocationsMentioned$AdminLevel[locationID]
-            counties <- commentInfo$LocationsMentioned$Counties[locationID]
+            
+            ### assign location admin level ----
+            adminLevels <- commentInfo$LocationsMentioned$AdminLevel[locationID]
+            
+            ### assign surrounding counties ----
+            counties <- commentInfo$LocationsMentioned$SurroundingCounties[locationID]
             
             ### assign candidate county fips codes for an individual location ----
             countyFIPSCodes <- tigris::fips_codes |>
@@ -84,12 +96,21 @@ commentData <- commentData |>
               as.numeric()
             
             ### filter possible geonames matches to candidate counties ----
-            geoNamesSubset <- paGeoNames |>
-              filterGeoNames(
-                countyFIPSCodes = countyFIPSCodes,
-                adminLevel = adminLevel,
-                schoolDistricts = paSchoolDistricts
-              )
+            geoNamesSubset <- adminLevels |>
+              purrr::list_c() |>
+              purrr::map(
+                .f = \(adminLevel) {
+                  geoNamesSet <- paGeoNames |>
+                    filterGeoNames(
+                      countyFIPSCodes = countyFIPSCodes,
+                      adminLevel = adminLevel,
+                      schoolDistricts = paSchoolDistricts
+                    )
+                  return(geoNamesSet)
+                }
+              ) |>
+              purrr::list_rbind() |>
+              dplyr::distinct()
             
             ### match location mentions to their closest geonames candidates ----
             geoNames <- geoNamesSubset |>
