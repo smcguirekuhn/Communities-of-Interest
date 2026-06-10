@@ -23,6 +23,7 @@ figurePath <- "./Figures/"
 commentDataFilename <- "CommentDataPartial.rds"
 adminLevelPieChartFilename <- "AdminLevelPieChart.png"
 commentMetricsFigureFilename <- "CommentMetricsFigure.png"
+countyMentionsMapFilename <- "CountyMentionsMap.png"
 
 # import comment data ----
 commentData <- readRDS(file = file.path(dataPath, commentDataFilename))
@@ -69,7 +70,8 @@ adminLevelPieChart <- locationData |>
 # save admin level pie chart ----
 ggplot2::ggsave(
   filename = file.path(figurePath, adminLevelPieChartFilename),
-  plot = adminLevelPieChart
+  plot = adminLevelPieChart,
+  bg = "#FFFFFF"
 )
 
 # create sentiment histogram ----
@@ -132,4 +134,46 @@ commentMetricsFigure <- (sentimentHistogram + clarityHistogram) /
 ggplot2::ggsave(
   filename = file.path(figurePath, commentMetricsFigureFilename),
   plot = commentMetricsFigure
+)
+
+# import pennsylvania counties shapefile ----
+paCounties <- tigris::counties(state = "PA") |>
+  dplyr::select(County = NAMELSAD)
+
+# create county mentions map ----
+countyMentionsMap <- locationData |>
+  dplyr::select(CommentID, County = SurroundingCounties) |>
+  tidyr::unnest_longer(County) |>
+  dplyr::group_by(County) |>
+  dplyr::summarise(Comments = length(unique(CommentID))) |>
+  dplyr::right_join(paCounties, by = "County") |>
+  tidyr::replace_na(replace = list(Comments = 0)) |>
+  sf::st_as_sf() |>
+  ggplot2::ggplot() +
+  ggplot2::geom_sf(mapping = ggplot2::aes(fill = Comments), color = NA) +
+  ggplot2::scale_fill_gradient(low = "#EEEEEE", high = "#132B43") +
+  ggplot2::labs(
+    title = paste(
+      "Number of Comments Mentioning Locations in\n",
+      "Each Pennsylvania County"
+    )
+  ) +
+  ggplot2::theme_void() +
+  ggplot2::theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title.position = "top",
+    legend.justification = "center",
+    plot.title = ggplot2::element_text(
+      hjust = 0.5,
+      face = "bold",
+      size = 14
+    )
+  )
+  
+# save county mentions map ----
+ggplot2::ggsave(
+  filename = file.path(figurePath, countyMentionsMapFilename),
+  plot = countyMentionsMap,
+  bg = "#FFFFFF"
 )
