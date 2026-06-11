@@ -29,20 +29,18 @@ comments <- read.csv(file = file.path(dataPath, commentsFilename)) |>
     Date = lubridate::dmy(x = Date)
   )
 
-# initialize chat object ----
-chat <- ellmer::chat_openrouter(model = "anthropic/claude-haiku-4.5")
-
-keyCommentIDs <- 1:25
-
 # compile comment data ----
 commentData <- purrr::map2(
   .progress = TRUE,
-  .x = as.character(comments$Date[keyCommentIDs]),
-  .y = comments$Description[keyCommentIDs],
-  .f = \(date, description) {
+  .x = as.character(comments$Date),
+  .y = comments$Description,
+  .f = purrr::safely(\(date, description) {
     
     ## pause system to limit token rate ----
     Sys.sleep(time = 5)
+    
+    ## initialize chat object ----
+    chat <- ellmer::chat_openrouter(model = "mistralai/mistral-large")
     
     ## gather individual comment data and mentioned locations ----
     chatOutput <- chat$chat_structured(
@@ -172,7 +170,7 @@ commentData <- purrr::map2(
                 "This Pennsylvania commenter is requesting that certain locations",
                 "be grouped into various communities of interest.",
                 "Return the group number of the location according to the commenter's specifications,",
-                "starting with 1 for the first location mentioned in the comment."
+                "starting with 1 for the first set of associated locations."
               )
             )
           )
@@ -210,8 +208,18 @@ commentData <- purrr::map2(
     
     ## return comment information ----
     return(chatOutput)
-  }
+  })
 )
+
+# extract comment errors ----
+commentDataErrors <- commentData |>
+  purrr::map(.f = \(commentInfo) commentInfo$error) |>
+  purrr::list_c()
+cli::cli_inform(message = c(">" = paste0("Erroneous Comment Count: ", length(commentDataErrors))))
+
+# extract valid results ----
+commentData <- commentData |>
+  purrr::map(.f = \(commentInfo) commentInfo$result)
 
 # simplify location administrative levels ----
 commentData <- commentData |>
