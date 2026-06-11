@@ -38,7 +38,7 @@ adminLevels <- c(
   "School District" = "#132B43",
   "County" = "#425568",
   "Region" = "#717F8E",
-  "Other" = "#EEEEEE"
+  "Other" = "#AAAAAA"
 )
 
 # compile location data ----
@@ -59,6 +59,12 @@ adminLevelPieChart <- locationData |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Source, fill = AdminLevel)) +
   ggplot2::geom_bar(width = 1) +
   ggplot2::coord_polar(theta = "y", start = 0) +
+  ggplot2::geom_text(
+    stat = "count", 
+    mapping = ggplot2::aes(x = 1.25, label = ggplot2::after_stat(count)), 
+    position = ggplot2::position_stack(vjust = 0.5),
+    color = "#FFFFFF"
+  ) +
   ggplot2::scale_fill_manual(values = adminLevels) +
   ggplot2::labs(
     title = "Location Mentions by Administrative Level",
@@ -79,7 +85,7 @@ sentimentHistogram <- commentData |>
   purrr::map(.f = \(commentInfo) data.frame(Sentiment = commentInfo$Sentiment)) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Sentiment)) +
-  ggplot2::geom_histogram(fill = "#132B43", binwidth = 0.05) +
+  ggplot2::geom_histogram(fill = "#132B43", binwidth = 0.1) +
   ggplot2::labs(
     x = "Comment Sentiment",
     y = "Frequency",
@@ -93,7 +99,7 @@ clarityHistogram <- commentData |>
   purrr::map(.f = \(commentInfo) data.frame(Clarity = commentInfo$Clarity)) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Clarity)) +
-  ggplot2::geom_histogram(fill = "#132B43", binwidth = 0.05) +
+  ggplot2::geom_histogram(fill = "#132B43", binwidth = 0.1) +
   ggplot2::labs(
     x = "Comment Clarity",
     y = "Frequency",
