@@ -14,7 +14,7 @@ library(ellmer)
 # assign import and export destinations ----
 dataPath <- "./Data/"
 commentsFilename <- "TabulaPAHouse.csv"
-commentDataFilename <- "CommentDataPartial.rds"
+commentDataFilename <- "CommentDataHouse.rds"
 
 # import tabula table for pennsylvania house redistricting comments ----
 comments <- read.csv(file = file.path(dataPath, commentsFilename)) |>

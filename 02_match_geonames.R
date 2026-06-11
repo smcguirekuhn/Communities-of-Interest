@@ -20,7 +20,7 @@ dataPath <- "./Data/"
 usGeoNamesFilename <- "US.txt"
 paGeoNamesFilename <- "PAGeoNames.rds"
 paSchoolDistrictsFilename <- "PASchoolDistricts.rds"
-commentDataFilename <- "CommentDataPartial.rds"
+commentDataFilename <- "CommentDataHouse.rds"
 
 # # import pennsylvania geonames (source data too large for github) ----
 # paGeoNames <- read.delim(

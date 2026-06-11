@@ -20,7 +20,7 @@ source(file = list.files(path = "./Functions/", full.names = TRUE))
 # assign import and export destinations ----
 dataPath <- "./Data/"
 figurePath <- "./Figures/"
-commentDataFilename <- "CommentDataPartial.rds"
+commentDataFilename <- "CommentDataHouse.rds"
 adminLevelPieChartFilename <- "AdminLevelPieChart.png"
 commentMetricsFigureFilename <- "CommentMetricsFigure.png"
 countyMentionsMapFilename <- "CountyMentionsMap.png"
@@ -87,9 +87,9 @@ sentimentHistogram <- commentData |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Sentiment)) +
   ggplot2::geom_histogram(fill = "#132B43", binwidth = 0.1) +
   ggplot2::labs(
-    x = "Comment Sentiment",
-    y = "Frequency",
-    title = "Comment Sentiment Scores"
+    x = "Sentiment",
+    y = "Comments",
+    title = "Sentiment Scores"
   ) +
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
@@ -101,9 +101,9 @@ clarityHistogram <- commentData |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Clarity)) +
   ggplot2::geom_histogram(fill = "#132B43", binwidth = 0.1) +
   ggplot2::labs(
-    x = "Comment Clarity",
-    y = "Frequency",
-    title = "Comment Clarity Scores"
+    x = "Clarity",
+    y = "Comments",
+    title = "Clarity Scores"
   ) +
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
@@ -113,18 +113,32 @@ characterLengthHistogram <- commentData |>
   purrr::map(.f = \(commentInfo) data.frame(Characters = commentInfo$Characters)) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Characters)) +
-  ggplot2::geom_histogram(fill = "#C49324", binwidth = 50) +
+  ggplot2::geom_histogram(fill = "#C49324", binwidth = 75) +
   ggplot2::labs(
-    x = "Comment Character Length",
-    y = "Frequency",
-    title = "Comment Character Lengths"
+    x = "Character Length",
+    y = "Comments",
+    title = "Character Lengths"
+  ) +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
+
+# create location counts histogram ----
+locationCountsHistogram <- commentData |>
+  purrr::map(.f = \(commentInfo) data.frame(Locations = nrow(commentInfo$LocationsMentioned))) |>
+  purrr::list_rbind(names_to = "CommentID") |>
+  ggplot2::ggplot(mapping = ggplot2::aes(x = Locations)) +
+  ggplot2::geom_histogram(fill = "#C49324", binwidth = 1) +
+  ggplot2::labs(
+    x = "Locations",
+    y = "Comments",
+    title = "Unique Locations Mentioned"
   ) +
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
 # compile histograms into single figure ----
 commentMetricsFigure <- (sentimentHistogram + clarityHistogram) /
-  characterLengthHistogram +
+  (characterLengthHistogram + locationCountsHistogram) +
   patchwork::plot_annotation(
     title = paste0("Comment Metrics: Pennsylvania House Testimony"),
     theme = ggplot2::theme(
