@@ -65,6 +65,10 @@ paGeoNames <- paGeoNames |>
 # import pennsylvania school districts ----
 paSchoolDistricts <- readRDS(file = file.path(dataPath, paSchoolDistrictsFilename))
 
+# import pennsylvania counties shapefile ----
+paCounties <- tigris::counties(state = "PA") |>
+  dplyr::select(County = NAMELSAD)
+
 # import comment data ----
 commentData <- readRDS(file = file.path(dataPath, commentDataFilename))
 
@@ -87,9 +91,15 @@ commentData <- commentData |>
             adminLevels <- commentInfo$LocationsMentioned$AdminLevel[locationID]
             
             ### assign surrounding counties ----
-            counties <- commentInfo$LocationsMentioned$SurroundingCounties[locationID]
+            commentCounties <- paCounties |>
+              dplyr::filter(County %in% unlist(commentInfo$LocationsMentioned$SurroundingCounties[locationID]))
+            counties <- paCounties |>
+              sf::st_filter(y = commentCounties, .predicate = sf::st_touches) |>
+              dplyr::bind_rows(commentCounties) |>
+              sf::st_drop_geometry() |>
+              dplyr::pull(County)
             
-            ### assign candidate county fips codes for an individual location ----
+            ### assign surrounding county fips codes for an individual location ----
             countyFIPSCodes <- tigris::fips_codes |>
               dplyr::filter(state == "PA", county %in% counties) |>
               dplyr::pull(county_code) |>
