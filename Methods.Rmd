@@ -14,15 +14,21 @@ link-citations: yes
 The GeoNames database compiles place names alongside their corresponding point or polygon geometries at all administrative levels around the world [@GeoNames].
 Pennsylvania GeoNames locations, alongside school district names from the `tigris` package in R [@tigris], serve as the building block unit of each commenter's community of interest.
 Public testimony data was gathered from the Redistricting Data Hub, which has compiled comments from the 2020 redistricting cycle for 14 individual states [@RedistrictingDataHubPublicTestimony].
-Tabula, a software capable of converting PDFs to csv files, was used to process comments about Pennsylvania state house boundaries and commenter communities of interest.
-Comments were combined with a specified community name each commenter was asked to provide.
+One set of comments was submitted to the Pennsylvania House Committee on State Government.
+These comments, submitted anonymously, are written by individuals with no obvious organizational affiliations who were prompted to specifically discuss communities of interest.
+Comment sets were processed first using Tabula, a software capable of converting PDFs to csv files.
+Comment description strings, the basis for structured data extraction, were combined with the specified community name that each commenter was asked to provide.
 
 ## Ellmer Pipeline
 
 The `ellmer` package in R was used to interact with off-the-shelf LLM chat features and extract structured data from public testimony comments for Pennsylvania [@ellmer].
 Barrie, Palmer, and Spirling [-@BarriePalmerSpirling2025] recommend the use of open-weight Large Language Models (LLMs), which allow for more consistent replication of coding and classification tasks compared to the more fragile but advanced proprietary frontier LLMs.
-Therefore, we make use of an OpenRouter "GPT-4o" model combined with an `ellmer` schema to gather comment sentiment, comment clarity, and every specific location mentioned within a comment.
+Therefore, we make use of the "Mistral Large 2.0" model, available on OpenRouter (https://openrouter.ai/), combined with an `ellmer` schema to gather comment sentiment, comment clarity, and every specific location mentioned within a comment.
+Mistral Large 2.0 was chosen for its strengths in named entity recognition and structured data extraction from administrative texts (https://mistral.ai/industry/public-sector/).
 Specific locations were defined by a schema of their own consisting of the location name, its administrative level, a binary indicator of whether the commenter mentions some or all of the location, additional descriptors or mentioned subareas, an estimate of the Pennsylvania counties corresponding to the location, and the community boundary group of the location based on the commenter's specification.
+
+Administrative levels were simplified from a series of prompts for binary indicators of whether each location was one of seven key levels for Pennsylvania, including neighborhoods, townships, boroughs, cities, school districts, counties and regions.
+Expanding the administrative level `ellmer` prompts into a more specific, structured set increased replicability and robustness to both model selection and iteration.
 
 Community boundary groups illustrated commenter distinctions between communities without making assumptions about the commenter's location of residence.
 For instance, if a commenter stated that State College and Boalsburg, two adjacent municipalities in Central Pennsylvania, be kept together, but Bellefonte, the nearby county seat of Centre County, be placed in a separate congressional district, State College and Boalsburg would be given a group assignment of 1 (provided one of the locations was the first one mentioned in the comment), and Bellefonte would be given a group assignment of 2.
@@ -31,10 +37,11 @@ The date of each comment was available from the original dataset, and comment ch
 
 ## GeoNames Matching
 
-For each mentioned location in every comment, potential GeoNames location matches were filtered to the "P", "L" and "A" feature class designations (see http://www.geonames.org/export/codes.html) as well as the corresponding set of identified counties for that location.
-This set of potential matches was combined with all of the available Pennsylvania school district names as well as any alternate names for each GeoNames location and all GeoNames locations without a county level designation, meaning the location is larger than a single county.
-This combined list was referenced against the comment's specific location mentions gathered by `ellmer` using the `stringdist` package [@stringdist].
-Matches with the lowest jaccard distances from `stringdist` were assumed to be the GeoNames equivalent.
+For each mentioned location in every comment, potential GeoNames location matches, including alternate location names, were filtered to the appropriate administrative level, if applicable ("RGNE" for regions, "ADM2" for counties, "ADM3" for townships, boroughs, and cities, "PPL" for neighborhoods, and no filtering for locations outside the specifically prompted administrative levels).
+Potential GeoNames matches were also filtered to the set of counties pertaining to the location based on its corresponding `ellmer` prompt responses, as well as any adjacent counties, in order to embed matching within a local context and prevent the inclusion of repeated place names.
+For school districts, the potential set of matches was restricted to the names of all unified school districts in Pennsylvania, as available through the `tigris` package.
+Candidate location matches were then referenced against the comment's specific location mentions gathered by `ellmer` using the `stringdist` package [@stringdist].
+Matches with the lowest jaccard distances from `stringdist` were assumed to be each location's GeoNames equivalent.
 
 \newpage
 # References
