@@ -8,12 +8,14 @@ rm(list = ls())
 library(dplyr)
 library(purrr)
 library(data.table)
+library(jsonlite)
 library(lubridate)
 library(ellmer)
 
 # assign import and export destinations ----
 dataPath <- "./Data/"
 commentsFilename <- "TabulaPAHouse.csv"
+handCodingFilename <- "HandCodedCommentsPre.json"
 commentDataFilename <- "CommentDataHouse.rds"
 
 # import tabula table for pennsylvania house redistricting comments ----
@@ -256,6 +258,20 @@ commentData <- commentData |>
       return(commentInfo)
     }
   )
+
+# create empty json file for hand-coding comments ----
+set.seed(seed = 1998)
+commentsSample <- purrr::map(
+  .x = sample(1:length(commentData), size = 15, replace = FALSE),
+  .f = \(commentID) {
+    commentInfo <- commentData[[commentID]]
+    commentInfo$LocationsMentioned <- commentInfo$LocationsMentioned |> dplyr::filter(FALSE)
+    commentInfo$Sentiment <- NA
+    commentInfo$Clarity <- NA
+    commentInfo$ID <- commentID
+    return(commentInfo)
+  }
+) |> jsonlite::write_json(path = file.path(dataPath, handCodingFilename), pretty = TRUE)
 
 # save comment data ----
 saveRDS(object = commentData, file = file.path(dataPath, commentDataFilename))

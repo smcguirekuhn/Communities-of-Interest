@@ -1,0 +1,242 @@
+[
+  {
+    "LocationsMentioned": {
+      "Name": ["York County", "Camp Hill", "Newberry Township", "Lebanon County", "Dauphin County", "Cumberland County"],
+      "AdminLevel": ["County", "Borough", "Township", "County", "County", "County"],
+      "Extent": [0, 1, 1, 1, 1, 1],
+      "Description": ["Northern", "NA", "NA", "NA", "NA", "NA"],
+      "Surrounding Counties": ["York County", "York County", "Lebanon County", "Dauphin County", "Cumberland County"],
+      "Group": [1, 1, 1, 2, 2, 2]
+    },
+    "Sentiment": [0.2],
+    "Clarity": [0.8],
+    "Date": ["2021-08-09"],
+    "OriginalComment": ["Northern York-Camp Hill: Those of us who live in Newberry Township, York County currently have a state senator who lives and represents ALL of Lebanon County. To visit us he has to drive thru Lebanon County, Dauphin County and Cumberland County before he reaches York County. How can someone who lives that far away truly represent those he has nothing in common with? We feel like bastard children in our state Senate."],
+    "Characters": [419],
+    "ID": [82]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Nortwest Pennsylvania", "Erie", "New Castle"],
+      "AdminLevel": ["Region", "City", "City"],
+      "Extent": [1, 1, 1],
+      "Description": ["NA", "NA", "NA"],
+      "Surrounding Counties": ["Erie County, Crawford County, Mercer County, Venango County, Lawrence County", "Erie County", "Lawrence County"],
+      "Group": [1, 1, 1]
+    },
+    "Sentiment": [0.6],
+    "Clarity": [0.7],
+    "Date": ["2021-09-27"],
+    "OriginalComment": ["Northwest Pennsylvania: North to south from Erie to New Castle."],
+    "Characters": [63],
+    "ID": [137]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["York County"],
+      "AdminLevel": ["County"],
+      "Extent": [1],
+      "Description": ["NA"],
+      "Surrounding Counties": ["York County"],
+      "Group": [1]
+    },
+    "Sentiment": [0.7],
+    "Clarity": [0.1],
+    "Date": ["2021-08-06"],
+    "OriginalComment": ["Country living people: Collection of \"country folks\" AND some newcomers from York county/MD"],
+    "Characters": [91],
+    "ID": [39]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Northeastern Pennsylvania"],
+      "AdminLevel": ["Region"],
+      "Extent": [1],
+      "Description": ["NA"],
+      "Surrounding Counties": ["Susquehanna County", "Wayne County", "Pike County", "Bradford County", "Wyoming County", "Lackawanna County", "Monroe County", "Sullivan County", "Luzerne County", "Carbon County"],
+      "Group": [1]
+    },
+    "Sentiment": [0.5],
+    "Clarity": [0.6],
+    "Date": ["2021-08-05"],
+    "OriginalComment": ["NEPA: This should be the new congressional district"],
+    "Characters": [51],
+    "ID": [30]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Bucks County", "Montgomery County"],
+      "AdminLevel": ["County", "County"],
+      "Extent": [0, 0],
+      "Description": ["Upper", "Upper"],
+      "Surrounding Counties": ["Bucks County", "Montgomery County"],
+      "Group": [1, 1]
+    },
+    "Sentiment": [0.6],
+    "Clarity": [0.8],
+    "Date": ["2021-08-06"],
+    "OriginalComment": ["Bucks/Montgomery: Portions of Upper Bucks and Upper Montgomery Counties are represented."],
+    "Characters": [88],
+    "ID": [53]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Montgomery County", "Delaware County"],
+      "AdminLevel": ["County", "County"],
+      "Extent": [1, 1],
+      "Description": ["NA", "NA"],
+      "Surrounding Counties": ["Montgomery County", "Delaware County"],
+      "Group": [1, 1]
+    },
+    "Sentiment": [0.5],
+    "Clarity": [0.7],
+    "Date": ["2021-08-04"],
+    "OriginalComment": ["Montco & Delco: Eastern suburbs of Philadelphia"],
+    "Characters": [47],
+    "ID": [29]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["York"],
+      "AdminLevel": ["City"],
+      "Extent": [0],
+      "Description": ["Southern"],
+      "Surrounding Counties": ["York County"],
+      "Group": [1]
+    },
+    "Sentiment": [0.8],
+    "Clarity": [0.6],
+    "Date": ["2021-08-10"],
+    "OriginalComment": ["Southern York Shopping Community: Community that Supports its local Shops"],
+    "Characters": [73],
+    "ID": [88]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Carlisle", "Colonial Park", "Harrisburg"],
+      "AdminLevel": ["Borough", "Neighborhood", "City"],
+      "Extent": [1, 1, 1],
+      "Description": ["NA", "NA", "NA"],
+      "Surrounding Counties": ["Cumberland County", "Dauphin County", "Dauphin County"],
+      "Group": [1, 1, 1]
+    },
+    "Sentiment": [0.8],
+    "Clarity": [0.9],
+    "Date": ["2021-08-06"],
+    "OriginalComment": ["community of interest: From Carlisle in the West to Colonial Park and Harrisburg in the East I have medical care, work & shop"],
+    "Characters": [125],
+    "ID": [61]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Delaware County", "Prospect Park", "Norwood", "Folcroft", "Springfield", "Media", "Chester"],
+      "AdminLevel": ["County", "Borough", "Borough", "Borough", "Township", "Borough", "City"],
+      "Extent": [1, 1, 1, 1, 1, 1, 1],
+      "Description": ["NA", "NA", "NA", "NA", "NA", "NA", "NA"],
+      "Surrounding Counties": ["Delaware County", "Delaware County", "Delaware County", "Delaware County", "Delaware County", "Delaware County", "Delaware County"],
+      "Group": [1, 1, 1, 1, 1, 1, 1]
+    },
+    "Sentiment": [0.8],
+    "Clarity": [0.9],
+    "Date": ["2021-11-03"],
+    "OriginalComment": ["Delco: This reflects points of personal interest within my community. The greater Delaware County area stretches from my homes (Prospect Park/Norwood/Folcroft)to Springfield where I frequently commute to shop as do many that I know in the area. Included in this area is Media, where I work and Chester where I volunteer and attend Philadelphia Union games. This area mirrors Delaware County, where the district represents me as is in the current Congressional Map."],
+    "Characters": [464],
+    "ID": [150]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Karns City Area School District"],
+      "AdminLevel": ["SchoolDistrict"],
+      "Extent": [1],
+      "Description": ["NA"],
+      "Surrounding Counties": ["Butler County, Armstrong County, Clarion County"],
+      "Group": [1]
+    },
+    "Sentiment": [0.9],
+    "Clarity": [0.9],
+    "Date": ["2021-08-22"],
+    "OriginalComment": ["Karns City Area School District: This collection of people are a part of the Karns City Area School District, or are just outside the school district and still have children that go to Karns City High School or related elementary schools. Our community takes pride in what high school they went to, or where their kids go to, so it makes sense for them to all be within the same Representative or Senator in Harrisburg."],
+    "Characters": [419],
+    "ID": [116]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Clarion Borough", "Clarion County", "Clarion University", "Clarion Hospital", "Downtown Clarion"],
+      "AdminLevel": ["Borough", "County", "Other", "Other", "Neighborhood"],
+      "Extent": [1, 1, 1, 1, 1],
+      "Description": ["NA", "NA", "NA", "NA", "NA"],
+      "Surrounding Counties": ["Clarion County", "Clarion County", "Clarion County", "Clarion County", "Clarion County"],
+      "Group": [1, 1, 1, 1, 1]
+    },
+    "Sentiment": [0.2],
+    "Clarity": [0.8],
+    "Date": ["2021-08-04"],
+    "OriginalComment": ["Clarion Borough, Clarion County, Pa. 16214: Small college town in an economically declining community. Many challenges. Clarion University is one of the final large employers, as is the local Hospital. The Downtown is in decline, as are the roads in Clarion Borough. It my hope that the University does not continue to downsize. It would be devastating for our community."],
+    "Characters": [371],
+    "ID": [27]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": [],
+      "AdminLevel": [],
+      "Extent": [],
+      "Description": [],
+      "Surrounding Counties": [],
+      "Group": []
+    },
+    "Sentiment": [0.7],
+    "Clarity": [0.1],
+    "Date": ["2021-08-09"],
+    "OriginalComment": ["SweeneyRegular: I frequent shops, church, and services in this zone of Pennsylvania"],
+    "Characters": [83],
+    "ID": [84]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Philadelphia", "Bucks County", "Montgomery County"],
+      "AdminLevel": ["City", "County", "County"],
+      "Extent": [0, 0, 1],
+      "Description": ["Northern Suburbs", "North Central", "NA"],
+      "Surrounding Counties": ["Philadelphia County, Bucks County, Montgomery County", "Bucks County", "Montgomery County"],
+      "Group": [1, 1, 1]
+    },
+    "Sentiment": [0.6],
+    "Clarity": [0.7],
+    "Date": ["2021-08-06"],
+    "OriginalComment": ["North Phila. Suburb: Area from taking in north central Bucks County and Montgomery County."],
+    "Characters": [90],
+    "ID": [59]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Chambersburg", "St. Thomas Township", "Hamilton Township", "Greene Township", "Guilford Township"],
+      "AdminLevel": ["Borough", "Township", "Township", "Township", "Township"],
+      "Extent": [1, 1, 1, 1, 1],
+      "Description": ["NA", "NA", "NA", "NA", "NA"],
+      "Surrounding Counties": ["Franklin County", "Franklin County", "Franklin County", "Franklin County", "Franklin County"],
+      "Group": [1, 1, 1, 1, 1]
+    },
+    "Sentiment": [0.5],
+    "Clarity": [0.8],
+    "Date": ["2021-08-05"],
+    "OriginalComment": ["Chamberasburg - Chambersburg West: St. Thomas Twp., Hamilton Twp, Chambersburg Boro, Greene Twp., Guilford Twp."],
+    "Characters": [111],
+    "ID": [33]
+  },
+  {
+    "LocationsMentioned": {
+      "Name": ["Delaware County", "Prospect Park", "Norwood", "Folcroft", "Springfield", "Media", "Chester"],
+      "AdminLevel": ["County", "Borough", "Borough", "Borough", "Township", "Borough", "City"],
+      "Extent": [1, 1, 1, 1, 1, 1, 1],
+      "Description": ["NA", "NA", "NA", "NA", "NA", "NA", "NA"],
+      "Surrounding Counties": ["Delaware County", "Delaware County", "Delaware County", "Delaware County", "Delaware County", "Delaware County", "Delaware County"],
+      "Group": [1, 1, 1, 1, 1, 1, 1]
+    },
+    "Sentiment": [null],
+    "Clarity": [null],
+    "Date": ["2021-11-03"],
+    "OriginalComment": ["Delco: This reflects points of personal interest within my community. The greater Delaware County area stretches from my homes (Prospect Park/Norwood/Folcroft)to Springfield where I frequently commute to shop as do many that I know in the area. Included in this area is Media, where I work and Chester where I volunteer and attend Philadelphia Union games. This area mirrors Delaware County, where the district represents me as is in the current Congressional Map."],
+    "Characters": [464],
+    "ID": [149]
+  }
+]
