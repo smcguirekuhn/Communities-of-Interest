@@ -1,38 +1,29 @@
 
-# Script 01: Extract Communities of Interest Information from Public Comments
+# Script 02a: Extract COI Information from Pennsylvania House Comments Data
 
 # reset global environment ----
 rm(list = ls())
 
 # import packages ----
-library(dplyr)
 library(purrr)
-library(data.table)
-library(jsonlite)
-library(lubridate)
+library(dplyr)
 library(ellmer)
+library(jsonlite)
+
+# source helper functions ----
+list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
-dataPath <- "./Data/"
-commentsFilename <- "TabulaPAHouse.csv"
+dataPath <- "./Data/Pennsylvania"
+paHouseCommentsFilename <- "PAHouseComments.rds"
+paHouseCommentDataFilename <- "PAHouseCommentData.rds"
 handCodingFilename <- "HandCodedCommentsPre.json"
-commentDataFilename <- "CommentDataHouse.rds"
 
-# import tabula table for pennsylvania house redistricting comments ----
-comments <- read.csv(file = file.path(dataPath, commentsFilename)) |>
-  dplyr::select(-X) |>
-  dplyr::rename(CommunityName = "Community.Name") |>
-  dplyr::mutate(
-    Description = gsub(
-      pattern = "\n",
-      replacement = " ",
-      x = paste0(CommunityName, ": ", Description)
-    ),
-    Date = lubridate::dmy(x = Date)
-  )
+# import pennsylvania house comments ----
+paHouseComments <- readRDS(file = file.path(dataPath, paHouseCommentsFilename))
 
 # compile comment data ----
-commentData <- purrr::map2(
+paHouseCommentData <- purrr::map2(
   .progress = TRUE,
   .x = as.character(comments$Date),
   .y = comments$Description,
@@ -214,17 +205,17 @@ commentData <- purrr::map2(
 )
 
 # extract comment errors ----
-commentDataErrors <- commentData |>
+paHouseCommentDataErrors <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) commentInfo$error) |>
   purrr::list_c()
-cli::cli_inform(message = c(">" = paste0("Erroneous Comment Count: ", length(commentDataErrors))))
+cli::cli_inform(message = c(">" = paste0("Erroneous Comment Count: ", length(paHouseCommentDataErrors))))
 
 # extract valid results ----
-commentData <- commentData |>
+paHouseCommentData <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) commentInfo$result)
 
 # simplify location administrative levels ----
-commentData <- commentData |>
+paHouseCommentData <- paHouseCommentData |>
   purrr::map(
     .f = \(commentInfo) {
       
@@ -259,12 +250,15 @@ commentData <- commentData |>
     }
   )
 
+# save comment data ----
+saveRDS(object = paHouseCommentData, file = file.path(dataPath, paHouseCommentDataFilename))
+
 # create empty json file for hand-coding comments ----
 set.seed(seed = 1998)
 commentsSample <- purrr::map(
-  .x = sample(1:length(commentData), size = 15, replace = FALSE),
+  .x = sample(1:length(paHouseCommentData), size = 15, replace = FALSE),
   .f = \(commentID) {
-    commentInfo <- commentData[[commentID]]
+    commentInfo <- paHouseCommentData[[commentID]]
     commentInfo$LocationsMentioned <- commentInfo$LocationsMentioned |> dplyr::filter(FALSE)
     commentInfo$Sentiment <- NA
     commentInfo$Clarity <- NA
@@ -272,6 +266,3 @@ commentsSample <- purrr::map(
     return(commentInfo)
   }
 ) |> jsonlite::write_json(path = file.path(dataPath, handCodingFilename), pretty = TRUE)
-
-# save comment data ----
-saveRDS(object = commentData, file = file.path(dataPath, commentDataFilename))

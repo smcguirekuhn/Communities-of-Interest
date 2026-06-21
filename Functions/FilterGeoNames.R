@@ -5,6 +5,7 @@ filterGeoNames <- function(
       "Neighborhood",
       "Township",
       "Borough",
+      "Town",
       "City",
       "SchoolDistrict",
       "County",
@@ -38,6 +39,7 @@ filterGeoNames <- function(
       "Neighborhood" = "PPL",
       "Township" = "ADM3",
       "Borough" = "ADM3",
+      "Town" = "ADM3",
       "City" = "ADM3",
       "County" = "ADM2",
       "Region" = "RGNE"

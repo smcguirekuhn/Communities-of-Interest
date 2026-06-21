@@ -1,26 +1,26 @@
 
-# Script 02: Match Location Mentions to GeoNames Entries
+# Script 03a: Match Pennsylvania House Comment Data Location Mentions to GeoNames Entries
 
 # reset global environment ----
 rm(list = ls())
 
 # import packages ----
+library(purrr)
 library(dplyr)
 library(tidyr)
-library(purrr)
 library(tigris)
 library(sf)
 library(stringdist)
 
 # source helper functions ----
-source(file = list.files(path = "./Functions/", full.names = TRUE))
+list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
-dataPath <- "./Data/"
+dataPath <- "./Data/Pennsylvania"
 usGeoNamesFilename <- "US.txt"
 paGeoNamesFilename <- "PAGeoNames.rds"
 paSchoolDistrictsFilename <- "PASchoolDistricts.rds"
-commentDataFilename <- "CommentDataHouse.rds"
+paHouseCommentDataFilename <- "PAHouseCommentData.rds"
 
 # # import pennsylvania geonames (source data too large for github) ----
 # paGeoNames <- read.delim(
@@ -70,10 +70,10 @@ paCounties <- tigris::counties(state = "PA") |>
   dplyr::select(County = NAMELSAD)
 
 # import comment data ----
-commentData <- readRDS(file = file.path(dataPath, commentDataFilename))
+paHouseCommentData <- readRDS(file = file.path(dataPath, paHouseCommentDataFilename))
 
 # match geonames to comment data ----
-commentData <- commentData |>
+paHouseCommentData <- paHouseCommentData |>
   purrr::map(
     .progress = TRUE,
     .f = \(commentInfo) {
@@ -153,4 +153,4 @@ commentData <- commentData |>
   )
 
 # save comment data ----
-saveRDS(object = commentData, file = file.path(dataPath, commentDataFilename))
+saveRDS(object = paHouseCommentData, file = file.path(dataPath, paHouseCommentDataFilename))

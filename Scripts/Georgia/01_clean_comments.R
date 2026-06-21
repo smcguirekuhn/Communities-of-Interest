@@ -1,4 +1,6 @@
 
+# Script 01a: Clean Georgia Web Comments Data
+
 # reset global environment ----
 rm(list = ls())
 
@@ -9,7 +11,7 @@ library(stringr)
 library(lubridate)
 
 # assign import and export destinations ----
-dataPath <- "./Data/"
+dataPath <- "../../Data/Georgia/"
 gaWebCommentsRawFilename <- "GA_Web_Comments_030922.txt"
 gaWebCommentsProcessedFilename <- "GAWebComments.rds"
 
@@ -48,6 +50,48 @@ gaWebComments <- readr::read_lines(file = file.path(dataPath, gaWebCommentsRawFi
 
 # save processed georgia web comments ----
 saveRDS(object = gaWebComments, file = file.path(dataPath, gaWebCommentsProcessedFilename))
+
+gaCounties <- tigris::counties(state = "GA") |>
+  dplyr::select(County = NAMELSAD)
+countyCommentCounts <- gaWebComments |>
+  dplyr::group_by(County) |>
+  dplyr::summarise(Count = dplyr::n()) |>
+  dplyr::mutate(
+    County = stringr::str_replace(
+      string = County,
+      pattern = "Athens-Clarke County",
+      replacement = "Clarke County"
+    )
+  ) |>
+  dplyr::mutate(
+    County = stringr::str_replace(
+      string = County,
+      pattern = "Macon-Bibb County",
+      replacement = "Macon County"
+    )
+  ) |>
+  dplyr::right_join(gaCounties) |>
+  tidyr::replace_na(replace = list(Count = 0)) |>
+  sf::st_as_sf() |>
+  ggplot2::ggplot() +
+  ggplot2::geom_sf(mapping = ggplot2::aes(fill = log1p(Count)), color = NA) +
+  ggplot2::scale_fill_gradient(low = "#EEEEEE", high = "#132B43") +
+  ggplot2::labs(
+    title = "Number of Commenters from Each Georgia County",
+    fill = "Logged Commenter Count"
+  ) +
+  ggplot2::theme_void() +
+  ggplot2::theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title.position = "top",
+    legend.justification = "center",
+    plot.title = ggplot2::element_text(
+      hjust = 0.5,
+      face = "bold",
+      size = 14
+    )
+  )
 
 ## initialize chat object ----
 chat <- ellmer::chat_openrouter(model = "mistralai/mistral-large")

@@ -1,13 +1,13 @@
 
-# Script 03: Summarize and Visualize Location Mentions
+# Script 04a: Summarize and Visualize Pennsylvania House Comment Data Location Mentions
 
 # reset global environment ----
 rm(list = ls())
 
 # import packages ----
+library(purrr)
 library(dplyr)
 library(tidyr)
-library(purrr)
 library(snakecase)
 library(ggplot2)
 library(patchwork)
@@ -15,18 +15,18 @@ library(tigris)
 library(sf)
 
 # source helper functions ----
-source(file = list.files(path = "./Functions/", full.names = TRUE))
+list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
-dataPath <- "./Data/"
-figurePath <- "./Figures/"
-commentDataFilename <- "CommentDataHouse.rds"
+dataPath <- "./Data/Pennsylvania"
+figurePath <- "./Figures/Pennsylvania"
+paHouseCommentDataFilename <- "PAHouseCommentData.rds"
 adminLevelPieChartFilename <- "AdminLevelPieChart.png"
 commentMetricsFigureFilename <- "CommentMetricsFigure.png"
 countyMentionsMapFilename <- "CountyMentionsMap.png"
 
 # import comment data ----
-commentData <- readRDS(file = file.path(dataPath, commentDataFilename))
+paHouseCommentData <- readRDS(file = file.path(dataPath, paHouseCommentDataFilename))
 
 # set admin level color scheme ----
 adminLevels <- c(
@@ -42,7 +42,7 @@ adminLevels <- c(
 )
 
 # compile location data ----
-locationData <- commentData |>
+locationData <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) commentInfo$LocationsMentioned) |>
   purrr::list_rbind(names_to = "CommentID") |>
   dplyr::rowwise() |>
@@ -81,7 +81,7 @@ ggplot2::ggsave(
 )
 
 # create sentiment histogram ----
-sentimentHistogram <- commentData |>
+sentimentHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Sentiment = commentInfo$Sentiment)) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Sentiment)) +
@@ -95,7 +95,7 @@ sentimentHistogram <- commentData |>
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
 # create clarity histogram ----
-clarityHistogram <- commentData |>
+clarityHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Clarity = commentInfo$Clarity)) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Clarity)) +
@@ -109,7 +109,7 @@ clarityHistogram <- commentData |>
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
 # create character length histogram ----
-characterLengthHistogram <- commentData |>
+characterLengthHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Characters = commentInfo$Characters)) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Characters)) +
@@ -123,7 +123,7 @@ characterLengthHistogram <- commentData |>
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
 # create location counts histogram ----
-locationCountsHistogram <- commentData |>
+locationCountsHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Locations = nrow(commentInfo$LocationsMentioned))) |>
   purrr::list_rbind(names_to = "CommentID") |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = Locations)) +

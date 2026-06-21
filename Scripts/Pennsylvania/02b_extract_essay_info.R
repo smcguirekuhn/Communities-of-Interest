@@ -1,23 +1,25 @@
 
-# Script 01b: Extract Communities of Interest Information from Testimony Essays
+# Script 02b: Extract COI Information from Pennsylvania House Essay Data
 
 # reset global environment ----
 rm(list = ls())
 
 # import packages ----
-library(dplyr)
 library(purrr)
-library(data.table)
+library(dplyr)
 library(lubridate)
 library(ellmer)
 
-# assign import and export destinations ----
-dataPath <- "./Data/"
-essayLookupFilename <- "PAHouseEssayLookup.csv"
-essayDataFilename <- "EssayDataHouse.rds"
+# source helper functions ----
+list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
-# import lookup table for pennsylvania house redistricting essays ----
-essays <- read.csv(file = file.path(dataPath, essayLookupFilename)) |>
+# assign import and export destinations ----
+dataPath <- "./Data/Pennsylvania"
+paHouseEssaysLookupFilename <- "PAHouseEssaysLookup.csv"
+paHouseEssayDataFilename <- "PAHouseEssayData.rds"
+
+# import lookup table for pennsylvania house essays ----
+essays <- read.csv(file = file.path(dataPath, paHouseEssaysLookupFilename)) |>
   dplyr::mutate(Date = lubridate::dmy(x = Date))
 
 # compile essay data ----
@@ -245,4 +247,4 @@ essayData <- essayData |>
   )
 
 # save essay data ----
-saveRDS(object = essayData, file = file.path(dataPath, essayDataFilename))
+saveRDS(object = essayData, file = file.path(dataPath, paHouseEssayDataFilename))
