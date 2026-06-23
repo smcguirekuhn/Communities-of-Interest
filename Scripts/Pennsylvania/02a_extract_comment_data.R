@@ -25,8 +25,8 @@ paHouseComments <- readRDS(file = file.path(dataPath, paHouseCommentsFilename))
 # compile comment data ----
 paHouseCommentData <- purrr::map2(
   .progress = TRUE,
-  .x = as.character(comments$Date),
-  .y = comments$Description,
+  .x = as.character(paHouseComments$Date),
+  .y = paHouseComments$Description,
   .f = purrr::safely(\(date, description) {
     
     ## pause system to limit token rate ----

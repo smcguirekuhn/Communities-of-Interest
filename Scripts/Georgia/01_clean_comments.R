@@ -1,5 +1,5 @@
 
-# Script 01a: Clean Georgia Web Comments Data
+# Script 01: Clean Georgia Web Comments Data
 
 # reset global environment ----
 rm(list = ls())
@@ -11,7 +11,7 @@ library(stringr)
 library(lubridate)
 
 # assign import and export destinations ----
-dataPath <- "../../Data/Georgia/"
+dataPath <- "./Data/Georgia/"
 gaWebCommentsRawFilename <- "GA_Web_Comments_030922.txt"
 gaWebCommentsProcessedFilename <- "GAWebComments.rds"
 
@@ -92,19 +92,3 @@ countyCommentCounts <- gaWebComments |>
       size = 14
     )
   )
-
-## initialize chat object ----
-chat <- ellmer::chat_openrouter(model = "mistralai/mistral-large")
-
-## gather individual comment data and mentioned locations ----
-chatOutput <- chat$chat_structured(
-  gaWebComments$Comment[268],
-  type = ellmer::type_integer(
-    description = paste(
-      "Binary indicator of whether this Georgia commenter is",
-      "discussing a redistricting community of interest.",
-      "Return 1 if the commenter is discussing a community of interest,",
-      "and return 0 if the commenter is discussing a different redistricting concern or otherwise."
-    )
-  )
-)

@@ -10,13 +10,15 @@ extractCommentInfo <- function(
       "SchoolDistrict",
       "County",
       "Region"
-    )
+    ),
+    model = "mistralai/mistral-large"
   ) {
   
   # check arguments ----
   stopifnot(is.character(description))
   stopifnot(state %in% state.name)
   match.arg(adminLevels, several.ok = TRUE)
+  stopifnot(is.character(model))
   
   # assign administrative level arguments ----
   adminLevelArguments <- adminLevels |>
@@ -41,6 +43,9 @@ extractCommentInfo <- function(
       ),
       after = 0
     )
+  
+  ## initialize chat object ----
+  chat <- ellmer::chat_openrouter(model = model)
   
   # extract comment information ----
   commentInfo <- chat$chat_structured(
@@ -106,10 +111,11 @@ extractCommentInfo <- function(
           ### location group ----
           Group = ellmer::type_number(
             description = glue::glue(
-              "This {state} commenter is requesting that certain locations",
-              "be grouped into various communities of interest.",
+              "This {state} commenter is requesting that their mentioned locations",
+              "be kept together or separated into various community of interest groups.",
               "Return the group number of the location according to the commenter's specifications,",
-              "starting with 1 for the first set of associated locations."
+              "starting with 1 for the first set of associated locations.",
+              "Locations the commenter requests be separated should be assigned to different groups."
             )
           )
         )
