@@ -2,14 +2,36 @@ extractCommentInfo <- function(
     description,
     state,
     adminLevels = c(
+      "Landmark",
+      "School",
       "Neighborhood",
       "Township",
       "Borough",
       "Town",
       "City",
-      "SchoolDistrict",
+      "School District",
       "County",
-      "Region"
+      "Legislative District",
+      "Region",
+      "NA"
+    ),
+    cardinalDirections = c(
+      "Northern",
+      "Northeastern",
+      "Eastern",
+      "Southeastern",
+      "Southern",
+      "Southwestern",
+      "Western",
+      "Northwestern",
+      "Central",
+      "NA"
+    ),
+    districtTypes = c(
+      "State House",
+      "State Senate",
+      "Congressional",
+      "NA"
     ),
     model = "mistralai/mistral-large"
   ) {
@@ -18,31 +40,9 @@ extractCommentInfo <- function(
   stopifnot(is.character(description))
   stopifnot(state %in% state.name)
   match.arg(adminLevels, several.ok = TRUE)
+  match.arg(cardinalDirections, several.ok = TRUE)
+  match.arg(districtTypes, several.ok = TRUE)
   stopifnot(is.character(model))
-  
-  # assign administrative level arguments ----
-  adminLevelArguments <- adminLevels |>
-    purrr::map(
-      .f = \(adminLevel) {
-        adminLevel <- adminLevel |> snakecase::to_title_case() |> stringr::str_to_lower()
-        adminLevelArgument <- ellmer::type_integer(
-          description = glue::glue(
-            "Binary indicator of whether the mentioned location is likely a {adminLevel}.",
-            "Return 0 if the location is not a {adminLevel} and 1 if the location is a {adminLevel}."
-          )
-        )
-      }
-    ) |>
-    purrr::set_names(nm = adminLevels) |>
-    append(
-      values = list(
-        .description = glue::glue(
-          "Administrative level of the location.",
-          "Must be exclusive and decisive."
-        )
-      ),
-      after = 0
-    )
   
   ## initialize chat object ----
   chat <- ellmer::chat_openrouter(model = model)
@@ -73,25 +73,34 @@ extractCommentInfo <- function(
             )
           ),
           
-          ### location administrative level -----
-          AdminLevel = do.call(what = ellmer::type_object, args = adminLevelArguments),
-          
-          ### location extent (full/partial) ----
-          Extent = ellmer::type_integer(
+          ### location type -----
+          AdminLevel = ellmer::type_enum(
+            values = adminLevels,
             description = glue::glue(
-              "Indicator of whether the commenter mentions the full extent of the location",
-              "(i.e. 'Washington County') or a portion of the location (i.e. 'Lower Jackson County').",
-              "Return 1 for a full location mention and 0 for a partial location mention."
+              "Best estimate of the type or administrative level of the location.",
+              "Must be exclusive and decisive.",
+              "If the location's administrative level is unclear, return 'NA'."
+            )
+          ),
+          
+          ### cardinal direction subarea extent ----
+          CardinalDirectionSubarea = ellmer::type_enum(
+            values = cardinalDirections,
+            description = glue::glue(
+              "Cardinal Direction subareas of the location, if any are mentioned by the commenter.",
+              "For example, if 'Northern Washington County' is mentioned, return 'Northern'.",
+              "If the commenter refers to the entirety of the location (i.e. 'Washington County'),",
+              "return 'NA'."
             )
           ),
           
           ### location description ----
           Description = ellmer::type_string(
             description = glue::glue(
-              "Portions or subareas of the mentioned location, if applicable.",
-              "If the commenter refers to the location in its entirety, return 'NA'.",
-              "Subareas include cardinal direction specifications (i.e. 'North Springfield'),",
-              "relative location references (i.e. 'Outskirts of Springfield'),",
+              "Vernacular portions or subareas of the mentioned location, if applicable.",
+              "If the commenter refers to the location in its entirety,",
+              "or if they refer to a cardinal direction subarea of the location, return 'NA'.",
+              "Subareas include relative location references (i.e. 'Outskirts of Springfield'),",
               "or colloquial references (i.e. 'Downtown Springfield').",
               "Keep descriptions brief."
             )
@@ -108,13 +117,23 @@ extractCommentInfo <- function(
             )
           ),
           
+          ### district types ----
+          DistrictTypes = ellmer::type_array(
+            items = type_enum(values = districtTypes),
+            description = glue::glue(
+              "List the types of legislative districts being discussed by this {state} commenter",
+              "when mentioning the location in their redistricting specifications.",
+              "If it is unclear which district types are being talked about, return 'NA'."
+            )
+          ),
+          
           ### location group ----
           Group = ellmer::type_number(
             description = glue::glue(
-              "This {state} commenter is requesting that their mentioned locations",
-              "be kept together or separated into various community of interest groups.",
-              "Return the group number of the location according to the commenter's specifications,",
-              "starting with 1 for the first set of associated locations.",
+              "Based on communities of interest, this {state} commenter is requesting that the",
+              "locations they mention either be kept together or separated into various legislative districts.",
+              "Return a group number of the location according to the commenter's",
+              "desired redistricting outcome, starting with 1 for the first set of associated locations.",
               "Locations the commenter requests be separated should be assigned to different groups."
             )
           )

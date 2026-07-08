@@ -24,7 +24,7 @@ gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename)) |>
 # add comment screening column ----
 gaWebCommentData <- purrr::map(
   .progress = TRUE,
-  .x = 1:nrow(gaWebComments),
+  .x = 2,
   .f = purrr::safely(\(webCommentID) {
     
     ## pause system to limit token rate ----
@@ -40,7 +40,18 @@ gaWebCommentData <- purrr::map(
     commentInfo <- extractCommentInfo(
       description = webComment$Comment,
       state = "Georgia",
-      adminLevels = c("Neighborhood", "Town", "City", "SchoolDistrict", "County", "Region")
+      adminLevels = c(
+        "Landmark",
+        "School",
+        "Neighborhood",
+        "Town",
+        "City",
+        "School District",
+        "County",
+        "Legislative District",
+        "Region",
+        "NA"
+      )
     )
     
     ## append comment information ----
@@ -60,42 +71,6 @@ cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCou
 
 # extract valid results ----
 gaWebCommentData <- gaWebCommentData |> purrr::map(.f = \(webComment) webComment$result)
-
-# simplify location administrative levels ----
-gaWebCommentData <- gaWebCommentData |>
-  purrr::map(
-    .f = \(commentInfo) {
-      
-      ## assigned locations mentioned ----
-      LocationsMentioned <- commentInfo$LocationsMentioned
-      
-      ## find designated administrative level ----
-      if (nrow(LocationsMentioned) > 0) {
-        adminLevels <- 1:nrow(LocationsMentioned) |>
-          purrr::map(
-            .f = \(locationID) {
-              adminLevel <- LocationsMentioned$AdminLevel |>
-                dplyr::slice(locationID) |>
-                dplyr::select(dplyr::where(~any(.x == 1))) |>
-                names()
-              if (length(adminLevel) == 0) adminLevel <- "other"
-              return(adminLevel)
-            }
-          )
-      } else {
-        adminLevels <- list()
-      }
-      
-      ## format designated administrative level ----
-      LocationsMentioned$AdminLevel <- adminLevels
-      
-      ## update comment information ----
-      commentInfo$LocationsMentioned <- LocationsMentioned
-      
-      ## return comment information ----
-      return(commentInfo)
-    }
-  )
 
 # save comment data ----
 saveRDS(object = gaWebCommentData, file = file.path(dataPath, gaWebCommentDataFilename))
