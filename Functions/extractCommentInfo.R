@@ -121,9 +121,9 @@ extractCommentInfo <- function(
           DistrictTypes = ellmer::type_array(
             items = type_enum(values = districtTypes),
             description = glue::glue(
-              "List the types of legislative districts being discussed by this {state} commenter",
+              "List the types of legislative districts likely being discussed by this {state} commenter",
               "when mentioning the location in their redistricting specifications.",
-              "If it is unclear which district types are being talked about, return 'NA'."
+              "Return 'NA' unless it is very clear that a specific type of district is being discussed."
             )
           ),
           
@@ -134,7 +134,11 @@ extractCommentInfo <- function(
               "locations they mention either be kept together or separated into various legislative districts.",
               "Return a group number of the location according to the commenter's",
               "desired redistricting outcome, starting with 1 for the first set of associated locations.",
-              "Locations the commenter requests be separated should be assigned to different groups."
+              "Locations that the commenter suggests be separated should be assigned to different groups",
+              "(i.e. 'Springfield should not be in the same district as Washington County'),",
+              "as should locations that the commenter expresses frustration about currently being together",
+              "(i.e. 'Grouping Springfield and Washington County is ridiculous').",
+              "Scrutinize location group number assignments closely."
             )
           )
         )

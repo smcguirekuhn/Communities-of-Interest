@@ -24,7 +24,7 @@ gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename)) |>
 # add comment screening column ----
 gaWebCommentData <- purrr::map(
   .progress = TRUE,
-  .x = 2,
+  .x = 1:nrow(gaWebComments),
   .f = purrr::safely(\(webCommentID) {
     
     ## pause system to limit token rate ----

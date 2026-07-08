@@ -30,31 +30,26 @@ gaWebCommentData <- readRDS(file = file.path(dataPath, gaWebCommentDataFilename)
 
 # set admin level color scheme ----
 adminLevels <- c(
-  "Neighborhood" = "#9C751C",
-  "Town" = "#C49324",
+  "Landmark" = "#9C751C",
+  "School" = "#9C751C",
+  "Neighborhood" = "#C49324",
+  "Town" = "#DBBE7B",
   "City" = "#DBBE7B",
   "School District" = "#132B43",
   "County" = "#425568",
-  "Region" = "#717F8E",
-  "Other" = "#AAAAAA"
+  "Legislative District" = "#7a8895",
+  "Region" = "#b3bbc2",
+  "NA" = "#999999"
 )
 
 # compile location data ----
 locationData <- gaWebCommentData |>
   purrr::map(.f = \(commentInfo) commentInfo$LocationsMentioned) |>
-  purrr::list_rbind(names_to = "CommentID") |>
-  dplyr::rowwise() |>
-  dplyr::mutate(
-    AdminLevel = AdminLevel |>
-      snakecase::to_title_case() |>
-      paste(collapse = ", ") |>
-      factor(levels = names(adminLevels)),
-    Source = factor(x = "Web")
-  )
+  purrr::list_rbind(names_to = "CommentID")
 
 # create admin level pie chart ----
 adminLevelPieChart <- locationData |>
-  ggplot2::ggplot(mapping = ggplot2::aes(x = Source, fill = AdminLevel)) +
+  ggplot2::ggplot(mapping = ggplot2::aes(x = "", fill = AdminLevel)) +
   ggplot2::geom_bar(width = 1) +
   ggplot2::coord_polar(theta = "y", start = 0) +
   ggplot2::geom_text(
