@@ -1,5 +1,5 @@
 
-# Script 05: Summarize and Visualize Georgia House Comment Data Location Mentions
+# Script 04: Summarize and Visualize Georgia House Comment Data Location Mentions
 
 # reset global environment ----
 rm(list = ls())

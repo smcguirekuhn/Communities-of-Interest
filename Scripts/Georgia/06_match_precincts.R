@@ -1,5 +1,5 @@
 
-# Script 05: Match Georgia Web Comment Data Location Mentions to Precincts
+# Script 06: Match Georgia Web Comment Data Location Mentions to Precincts
 
 # reset global environment ----
 rm(list = ls())
