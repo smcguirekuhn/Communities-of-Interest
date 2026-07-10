@@ -19,8 +19,12 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
 dataPath <- "./Data/Georgia"
+tablePath <- "./Tables/Georgia"
 figurePath <- "./Figures/Georgia"
 gaWebCommentDataFilename <- "GAWebCommentData.rds"
+groupCountTableFilename <- "GroupCountTable.rds"
+districtTypeTableFilename <- "DistrictTypeTable.rds"
+cardinalDirectionSubareaTableFilename <- "CardinalDirectionSubareaTable.rds"
 adminLevelPieChartFilename <- "AdminLevelPieChart.png"
 commentMetricsFigureFilename <- "CommentMetricsFigure.png"
 countyMentionsMapFilename <- "CountyMentionsMap.png"
@@ -47,7 +51,69 @@ locationData <- gaWebCommentData |>
   purrr::map(.f = \(commentInfo) commentInfo$LocationsMentioned) |>
   purrr::list_rbind(names_to = "CommentID")
 
-# create admin level pie chart ----
+# tables ----
+
+## group count table ----
+locationData |>
+  dplyr::group_by(CommentID) |>
+  dplyr::summarise(GroupCount = length(unique(Group))) |>
+  dplyr::ungroup() |>
+  dplyr::group_by(GroupCount) |>
+  dplyr::summarise(CommentCount = dplyr::n()) |>
+  dplyr::rename(
+    "Unique Location Groups" = GroupCount,
+    "Comment Count" = CommentCount
+  ) |>
+  saveRDS(file = file.path(tablePath, groupCountTableFilename))
+
+## district type table ----
+locationData |>
+  dplyr::select(CommentID, DistrictTypes) |>
+  tidyr::unnest_longer(col = DistrictTypes) |>
+  dplyr::group_by(DistrictTypes) |>
+  dplyr::summarise(CommentCount = length(unique(CommentID))) |>
+  dplyr::rename(
+    "District Type" = DistrictTypes,
+    "Comment Count" = CommentCount
+  ) |>
+  saveRDS(file = file.path(tablePath, districtTypeTableFilename))
+
+## cardinal direction subarea table ----
+locationData |>
+  dplyr::mutate(
+    CardinalDirectionSubarea = dplyr::case_when(
+      CardinalDirectionSubarea == "NA" ~ "Full Area",
+      .default = CardinalDirectionSubarea
+    )
+  ) |>
+  dplyr::mutate(
+    CardinalDirectionSubarea = factor(
+      x = CardinalDirectionSubarea,
+      levels = c(
+        "Full Area",
+        "Northern",
+        "Northeastern",
+        "Eastern",
+        "Southeastern",
+        "Southern",
+        "Southwestern",
+        "Western",
+        "Northwestern",
+        "Central"
+      )
+    )
+  ) |>
+  dplyr::group_by(CardinalDirectionSubarea) |>
+  dplyr::summarise(LocationCount = dplyr::n()) |>
+  dplyr::rename(
+    "Cardinal Direction Subarea" = CardinalDirectionSubarea,
+    "Mentioned Locations" = LocationCount
+  ) |>
+  saveRDS(file = file.path(tablePath, cardinalDirectionSubareaTableFilename))
+
+# figures ----
+
+## create admin level pie chart ----
 adminLevelPieChart <- locationData |>
   ggplot2::ggplot(mapping = ggplot2::aes(x = "", fill = AdminLevel)) +
   ggplot2::geom_bar(width = 1) +
@@ -66,14 +132,14 @@ adminLevelPieChart <- locationData |>
   ggplot2::theme_void() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# save admin level pie chart ----
+## save admin level pie chart ----
 ggplot2::ggsave(
   filename = file.path(figurePath, adminLevelPieChartFilename),
   plot = adminLevelPieChart,
   bg = "#FFFFFF"
 )
 
-# create sentiment histogram ----
+## create sentiment histogram ----
 sentimentHistogram <- gaWebCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Sentiment = commentInfo$Sentiment)) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -87,7 +153,7 @@ sentimentHistogram <- gaWebCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# create clarity histogram ----
+## create clarity histogram ----
 clarityHistogram <- gaWebCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Clarity = commentInfo$Clarity)) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -101,7 +167,7 @@ clarityHistogram <- gaWebCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# create character length histogram ----
+## create character length histogram ----
 characterLengthHistogram <- gaWebCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Characters = commentInfo$Characters)) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -115,7 +181,7 @@ characterLengthHistogram <- gaWebCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# create location counts histogram ----
+## create location counts histogram ----
 locationCountsHistogram <- gaWebCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Locations = nrow(commentInfo$LocationsMentioned))) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -129,7 +195,7 @@ locationCountsHistogram <- gaWebCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# compile histograms into single figure ----
+## compile histograms into single figure ----
 commentMetricsFigure <- (sentimentHistogram + clarityHistogram) /
   (characterLengthHistogram + locationCountsHistogram) +
   patchwork::plot_annotation(
@@ -143,17 +209,17 @@ commentMetricsFigure <- (sentimentHistogram + clarityHistogram) /
     )
   )
 
-# save comment metrics figure ----
+## save comment metrics figure ----
 ggplot2::ggsave(
   filename = file.path(figurePath, commentMetricsFigureFilename),
   plot = commentMetricsFigure
 )
 
-# import georgia counties shapefile ----
+## import georgia counties shapefile ----
 gaCounties <- tigris::counties(state = "GA") |>
   dplyr::select(County = NAMELSAD)
 
-# create county mentions map ----
+## create county mentions map ----
 countyMentionsMap <- locationData |>
   dplyr::select(CommentID, County = SurroundingCounties) |>
   tidyr::unnest_longer(County) |>
@@ -185,7 +251,7 @@ countyMentionsMap <- locationData |>
     )
   )
   
-# save county mentions map ----
+## save county mentions map ----
 ggplot2::ggsave(
   filename = file.path(figurePath, countyMentionsMapFilename),
   plot = countyMentionsMap,
