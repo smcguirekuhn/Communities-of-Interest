@@ -11,6 +11,7 @@ library(tidyr)
 library(stringr)
 library(tigris)
 library(sf)
+library(geomander)
 
 # source helper functions ----
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
@@ -18,8 +19,15 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 # assign import and export destinations ----
 dataPath <- "./Data/Georgia"
 usGeoNamesFilename <- "./Data/US.txt"
+gaPrecinctsFilename <- "/ga_2024_gen_prec/ga_2024_gen_all_prec/ga_2024_gen_all_prec.shp"
 gaGeoNamesFilename <- "GAGeoNames.rds"
 gaLocationMatchesFilename <- "GALocationMatches.rds"
+
+# import georgia precincts shapefile ----
+gaPrecincts <- sf::st_read(dsn = file.path(dataPath, gaPrecinctsFilename)) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::select(UNIQUE_ID)
 
 # import georgia geonames (source data too large for github) ----
 # gaGeoNames <- utils::read.delim(file = file.path(usGeoNamesFilename), header = FALSE) |>
@@ -73,7 +81,11 @@ gaNeighborhoods <- gaGeoNames |>
   dplyr::mutate(AdminLevel = "Neighborhood")
 
 ## municipality matches ----
+
+### import shapefile ----
 gaMunicipalities <- tigris::places(state = "GA", cb = TRUE) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
   dplyr::select(Name = NAME) |>
   dplyr::mutate(
     Name = stringr::str_replace(
@@ -84,15 +96,44 @@ gaMunicipalities <- tigris::places(state = "GA", cb = TRUE) |>
     AdminLevel = "Municipality"
   )
 
+### match precincts ----
+gaMunicipalityPrecincts <- gaPrecincts |>
+  sf::st_join(y = gaMunicipalities, join = sf::st_intersects) |>
+  sf::st_drop_geometry() |>
+  tidyr::nest(Precincts = UNIQUE_ID) |>
+  tidyr::drop_na()
+
 ## school district matches ----
+
+### import shapefile ----
 gaSchoolDistricts <- tigris::school_districts(state = "GA", year = 2020) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
   dplyr::select(Name = NAME) |>
   dplyr::mutate(AdminLevel = "School District")
 
+### match precincts ----
+gaSchoolDistrictPrecincts <- gaPrecincts |>
+  sf::st_join(y = gaSchoolDistricts, join = sf::st_intersects) |>
+  sf::st_drop_geometry() |>
+  tidyr::nest(Precincts = UNIQUE_ID) |>
+  tidyr::drop_na()
+
 ## county matches ----
+
+### import shapefile ----
 gaCounties <- tigris::counties(state = "GA") |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
   dplyr::select(Name = NAMELSAD) |>
   dplyr::mutate(AdminLevel = "County")
+
+### match precincts ----
+gaCountyPrecincts <- gaPrecincts |>
+  sf::st_join(y = gaCounties, join = sf::st_intersects) |>
+  sf::st_drop_geometry() |>
+  tidyr::nest(Precincts = UNIQUE_ID) |>
+  tidyr::drop_na()
 
 ## legislative district matches ----
 
@@ -108,13 +149,9 @@ gaRegions <- gaGeoNames |>
 
 # combine location matches into singular data frame ----
 gaLocationMatches <- dplyr::bind_rows(
-  gaLandmarks,
-  gaSchools,
-  gaNeighborhoods,
-  gaMunicipalities,
-  gaSchoolDistricts,
-  gaCounties,
-  gaRegions
+  gaMunicipalityPrecincts,
+  gaSchoolDistrictPrecincts,
+  gaCountyPrecincts
 )
 
 # save location matches data ----
