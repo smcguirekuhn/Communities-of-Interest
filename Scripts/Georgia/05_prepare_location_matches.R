@@ -98,10 +98,20 @@ gaMunicipalities <- tigris::places(state = "GA", cb = TRUE) |>
 
 ### match precincts ----
 gaMunicipalityPrecincts <- gaPrecincts |>
-  sf::st_join(y = gaMunicipalities, join = sf::st_intersects) |>
+  dplyr::mutate(
+    Name = gaMunicipalities[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaMunicipalities,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "Municipality",
+  ) |>
   sf::st_drop_geometry() |>
-  tidyr::nest(Precincts = UNIQUE_ID) |>
-  tidyr::drop_na()
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID)
 
 ## school district matches ----
 
@@ -114,10 +124,20 @@ gaSchoolDistricts <- tigris::school_districts(state = "GA", year = 2020) |>
 
 ### match precincts ----
 gaSchoolDistrictPrecincts <- gaPrecincts |>
-  sf::st_join(y = gaSchoolDistricts, join = sf::st_intersects) |>
+  dplyr::mutate(
+    Name = gaSchoolDistricts[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaSchoolDistricts,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "School District",
+  ) |>
   sf::st_drop_geometry() |>
-  tidyr::nest(Precincts = UNIQUE_ID) |>
-  tidyr::drop_na()
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID)
 
 ## county matches ----
 
@@ -130,10 +150,20 @@ gaCounties <- tigris::counties(state = "GA") |>
 
 ### match precincts ----
 gaCountyPrecincts <- gaPrecincts |>
-  sf::st_join(y = gaCounties, join = sf::st_intersects) |>
+  dplyr::mutate(
+    Name = gaCounties[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaCounties,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "County",
+  ) |>
   sf::st_drop_geometry() |>
-  tidyr::nest(Precincts = UNIQUE_ID) |>
-  tidyr::drop_na()
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID)
 
 ## legislative district matches ----
 
