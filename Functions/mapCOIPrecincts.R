@@ -18,21 +18,31 @@ mapCOIPrecincts <- function(
   # add precinct ids ----
   locationsMentioned <- commentInfo$LocationsMentioned |>
     dplyr::mutate(
-      Precincts = purrr::pmap(
-        .l = list(Name, AdminLevel),
-        .f = \(location, adminLevel) {
+      Match = purrr::pmap(
+        .l = list(Name, AdminLevel, SurroundingCounties),
+        .f = \(location, adminLevel, surroundingCounties) {
           matchLocation(
             location = location,
             adminLevel = adminLevel |> as.character(),
-            locationMatches = locationMatches
-          ) |> tidyr::unnest(cols = Precincts) |> dplyr::pull(UNIQUE_ID)
+            locationMatches = locationMatches,
+            surroundingCounties = surroundingCounties
+          ) |>
+            tidyr::unnest(cols = Precincts) |>
+            dplyr::select(
+              Precincts = UNIQUE_ID,
+              Match,
+              JaccardDistance,
+              JaroWinklerDistance
+            ) |>
+            tibble::as_tibble()
         }
       )
     )
   
   # add polygon geometry ----
   locationsMentioned <- locationsMentioned |>
-    tidyr::unnest_longer(Precincts) |>
+    tidyr::unnest(cols = Match) |>
+    dplyr::filter(JaccardDistance < 0.3 | JaroWinklerDistance < 0.3) |>
     dplyr::left_join(
       y = precinctBoundaries |> dplyr::select(UNIQUE_ID),
       by = c("Precincts" = "UNIQUE_ID")
@@ -45,7 +55,8 @@ mapCOIPrecincts <- function(
     dplyr::group_by(Name) |>
     dplyr::summarise(
       Precincts = dplyr::n(),
-      Group = unique(Group)
+      Group = unique(Group),
+      Match = unique(Match)
     ) |>
     ggplot2::ggplot() +
     ggplot2::geom_sf(
@@ -54,9 +65,13 @@ mapCOIPrecincts <- function(
       color = "#AAAAAA",
       linewidth = 0.5
     ) +
-    ggplot2::geom_sf_text(
-      mapping = ggplot2::aes(label = Name),
-      fun.geometry = sf::st_centroid
+    ggrepel::geom_label_repel(
+      mapping = ggplot2::aes(label = Match, geometry = geometry),
+      stat = "sf_coordinates",
+      min.segment.length = 0,
+      box.padding = 0.5,
+      max.overlaps = Inf,
+      alpha = 0.3
     ) +
     ggplot2::scale_fill_brewer(palette = "Dark2") +
     ggplot2::labs(

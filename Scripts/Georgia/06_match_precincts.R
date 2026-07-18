@@ -11,6 +11,7 @@ library(tidyr)
 library(tigris)
 library(sf)
 library(stringdist)
+library(ggrepel)
 
 # source helper functions ----
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)

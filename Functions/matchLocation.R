@@ -14,34 +14,28 @@ matchLocation <- function(
       "Region",
       "NA"
     ),
-    # surroundingCounties,
+    surroundingCounties,
     locationMatches
   ) {
   
   # check arguments ----
   stopifnot(is.character(location))
   match.arg(adminLevel)
-  # stopifnot(all(is.character(surroundingCounties)))
+  stopifnot(all(is.character(surroundingCounties)))
   stopifnot(is.data.frame(locationMatches))
-  stopifnot(all(c("Name", "AdminLevel", "Precincts") %in% names(locationMatches)))
+  stopifnot(all(c("Name", "AdminLevel", "Precincts", "Counties") %in% names(locationMatches)))
   
   # simplify municipal admin level assignments ----
   if (adminLevel %in% c("Township", "Borough", "Town", "City")) adminLevel <- "Municipality"
   
-  # # contextualize location match candidates to surrounding counties ----
-  # allCounties <- tigris::counties(state = "GA")
-  # locationContext <- allCounties |> dplyr::filter(NAMELSAD %in% surroundingCounties)
-  # locationContext <- locationContext |>
-  #   dplyr::bind_rows(allCounties |> sf::st_filter(y = locationContext, .predicate = sf::st_touches)) |>
-  #   dplyr::distinct() |>
-  #   sf::st_union()
-  # locationContext <- sf::st_sf(geometry = locationContext, Name = "Context")
+  # remove "county" from the ends of surrounding county names ----
+  surroundingCounties <- surroundingCounties |> stringr::str_remove(pattern = " County$")
   
   # identify best location match by string distance ----
   locationMatch <- locationMatches |>
     dplyr::filter(
-      AdminLevel == adminLevel
-      # lengths(sf::st_intersects(x = locationMatches, y = locationContext)) > 0
+      AdminLevel == adminLevel,
+      purrr::map_lgl(.x = Counties, .f = \(counties) any(counties[["County"]] %in% surroundingCounties))
     ) |>
     dplyr::mutate(
       JaccardDistance = stringdist::stringdist(a = Name, b = location, method = "jaccard"),
