@@ -21,13 +21,21 @@ dataPath <- "./Data/Georgia"
 usGeoNamesFilename <- "./Data/US.txt"
 gaPrecinctsFilename <- "/ga_2024_gen_prec/ga_2024_gen_all_prec/ga_2024_gen_all_prec.shp"
 gaGeoNamesFilename <- "GAGeoNames.rds"
+gaCityNeighborhoodsPath <- "/CityNeighborhoods/"
 gaLocationMatchesFilename <- "GALocationMatches.rds"
+
+# import county fips codes from tigris ----
+gaFIPSCodes <- tigris::fips_codes |>
+  dplyr::filter(state == "GA") |>
+  dplyr::select(Code = county_code, County = county) |>
+  dplyr::mutate(Code = as.numeric(Code)) |>
+  dplyr::mutate(County = stringr::str_remove(string = County, pattern = " County$"))
 
 # import georgia precincts shapefile ----
 gaPrecincts <- sf::st_read(dsn = file.path(dataPath, gaPrecinctsFilename)) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
-  dplyr::select(UNIQUE_ID)
+  dplyr::select(UNIQUE_ID, County)
 
 # import georgia geonames (source data too large for github) ----
 # gaGeoNames <- utils::read.delim(file = file.path(usGeoNamesFilename), header = FALSE) |>
@@ -58,6 +66,9 @@ gaGeoNames <- gaGeoNames |>
   dplyr::filter(Name != "") |>
   dplyr::distinct()
 
+# add county names to georgia geonames ----
+gaGeoNames <- gaGeoNames |> dplyr::left_join(y = gaFIPSCodes, by = c("Admin2Code" = "Code"))
+
 # clean shapefile data for each administrative level ----
 
 ## landmark matches ----
@@ -67,18 +78,88 @@ gaLandmarks <- tigris::landmarks(state = "GA", type = "area") |>
   dplyr::mutate(AdminLevel = "Landmark")
 
 ## school matches ----
+
+### filter geonames ----
 gaSchools <- gaGeoNames |>
   dplyr::filter(FeatureCode == "SCH") |>
   sf::st_as_sf(coords = c("Longitude", "Latitude"), crs = "NAD83") |>
-  dplyr::select(Name) |>
+  dplyr::select(Name, County) |>
   dplyr::mutate(AdminLevel = "School")
 
+### match precincts ----
+gaSchoolPrecincts <- gaSchools |>
+  dplyr::mutate(
+    UNIQUE_ID = gaPrecincts[["UNIQUE_ID"]][
+      geomander::geo_match(
+        from = gaSchools,
+        to = gaPrecincts,
+        method = "point",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ]
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(UNIQUE_ID) |>
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
+
 ## neighborhood matches ----
-gaNeighborhoods <- gaGeoNames |>
+
+### assemble city neighborhoods ----
+gaCityNeighborhoods <- file.path(dataPath, gaCityNeighborhoodsPath) |>
+  list.files(full.names = TRUE) |>
+  purrr::map(.f = \(cityNeighborhoodData) readRDS(cityNeighborhoodData)) |>
+  purrr::list_rbind() |>
+  dplyr::select(Name = nbhd_name, Code = county) |>
+  dplyr::mutate(Code = as.numeric(Code)) |>
+  dplyr::group_by(Name, Code) |>
+  dplyr::summarise(Name = unique(Name), Code = unique(Code)) |>
+  dplyr::left_join(gaFIPSCodes, by = "Code", keep = FALSE)
+
+### match precincts ----
+gaCityNeighborhoodPrecincts <- gaPrecincts |>
+  dplyr::mutate(
+    Name = gaCityNeighborhoods[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaCityNeighborhoods,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "Neighborhood",
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
+
+### filter geonames ----
+gaPointNeighborhoods <- gaGeoNames |>
   dplyr::filter(FeatureCode == "PPL", Population == 0) |>
   sf::st_as_sf(coords = c("Longitude", "Latitude"), crs = "NAD83") |>
-  dplyr::select(Name) |>
+  dplyr::select(Name, County) |>
   dplyr::mutate(AdminLevel = "Neighborhood")
+
+### match precincts ----
+gaPointNeighborhoodPrecincts <- gaPointNeighborhoods |>
+  dplyr::mutate(
+    UNIQUE_ID = gaPrecincts[["UNIQUE_ID"]][
+      geomander::geo_match(
+        from = gaPointNeighborhoods,
+        to = gaPrecincts,
+        method = "point",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ]
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(UNIQUE_ID) |>
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
+
+# combine city neighborhood and geonames neighborhood precincts ----
+gaNeighborhoodPrecincts <- dplyr::bind_rows(
+  gaCityNeighborhoodPrecincts,
+  gaPointNeighborhoodPrecincts
+) |> dplyr::distinct(Name, AdminLevel, Counties, .keep_all = TRUE)
 
 ## municipality matches ----
 
@@ -111,7 +192,7 @@ gaMunicipalityPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
-  tidyr::nest(Precincts = UNIQUE_ID)
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
 
 ## school district matches ----
 
@@ -137,7 +218,7 @@ gaSchoolDistrictPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
-  tidyr::nest(Precincts = UNIQUE_ID)
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
 
 ## county matches ----
 
@@ -163,7 +244,7 @@ gaCountyPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
-  tidyr::nest(Precincts = UNIQUE_ID)
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
 
 ## legislative district matches ----
 
@@ -179,6 +260,8 @@ gaRegions <- gaGeoNames |>
 
 # combine location matches into singular data frame ----
 gaLocationMatches <- dplyr::bind_rows(
+  gaSchoolPrecincts,
+  gaNeighborhoodPrecincts,
   gaMunicipalityPrecincts,
   gaSchoolDistrictPrecincts,
   gaCountyPrecincts
