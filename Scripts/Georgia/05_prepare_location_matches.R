@@ -248,6 +248,78 @@ gaCountyPrecincts <- gaPrecincts |>
 
 ## legislative district matches ----
 
+### import state house district shapefile ----
+gaStateHouseDistricts <- tigris::state_legislative_districts(state = "GA", year = 2020, house = "lower") |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::select(Name = NAMELSAD) |>
+  dplyr::mutate(AdminLevel = "State House District")
+
+### match precincts ----
+gaStateHouseDistrictPrecincts <- gaPrecincts |>
+  dplyr::mutate(
+    Name = gaStateHouseDistricts[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaStateHouseDistricts,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "State House District",
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
+
+### import state senate district shapefile ----
+gaStateSenateDistricts <- tigris::state_legislative_districts(state = "GA", year = 2020, house = "upper") |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::select(Name = NAMELSAD) |>
+  dplyr::mutate(AdminLevel = "State Senate District")
+
+### match precincts ----
+gaStateSenateDistrictPrecincts <- gaPrecincts |>
+  dplyr::mutate(
+    Name = gaStateSenateDistricts[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaStateSenateDistricts,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "State Senate District",
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
+
+### import congressional district shapefile ----
+gaCongressionalDistricts <- tigris::congressional_districts(state = "GA", year = 2020) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::select(Name = NAMELSAD) |>
+  dplyr::mutate(AdminLevel = "Congressional District")
+
+### match precincts ----
+gaCongressionalDistrictPrecincts <- gaPrecincts |>
+  dplyr::mutate(
+    Name = gaCongressionalDistricts[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaCongressionalDistricts,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ],
+    AdminLevel = "Congressional District",
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  tidyr::nest(Precincts = UNIQUE_ID, Counties = County)
+
 ## region matches ----
 gaRegions <- gaGeoNames |>
   dplyr::filter(FeatureCode %in% c("RGN", "RGNH", "RGNE", "RGNL")) |>
@@ -264,7 +336,10 @@ gaLocationMatches <- dplyr::bind_rows(
   gaNeighborhoodPrecincts,
   gaMunicipalityPrecincts,
   gaSchoolDistrictPrecincts,
-  gaCountyPrecincts
+  gaCountyPrecincts,
+  gaStateHouseDistrictPrecincts,
+  gaStateSenateDistrictPrecincts,
+  gaCongressionalDistrictPrecincts
 )
 
 # save location matches data ----
