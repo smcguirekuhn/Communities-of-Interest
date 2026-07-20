@@ -41,7 +41,9 @@ adminLevels <- c(
   "City" = "#DBBE7B",
   "School District" = "#132B43",
   "County" = "#425568",
-  "Legislative District" = "#7a8895",
+  "State House District" = "#7a8895",
+  "State Senate District" = "#7a8895",
+  "Congressional District" = "#7a8895",
   "Region" = "#b3bbc2",
   "NA" = "#999999"
 )

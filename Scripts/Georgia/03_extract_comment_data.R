@@ -48,7 +48,9 @@ gaWebCommentData <- purrr::map(
         "City",
         "School District",
         "County",
-        "Legislative District",
+        "State House District",
+        "State Senate District",
+        "Congressional District",
         "Region",
         "NA"
       )

@@ -11,7 +11,9 @@ extractCommentInfo <- function(
       "City",
       "School District",
       "County",
-      "Legislative District",
+      "State House District",
+      "State Senate District",
+      "Congressional District",
       "Region",
       "NA"
     ),
@@ -134,10 +136,18 @@ extractCommentInfo <- function(
               "locations they mention either be kept together or separated into various legislative districts.",
               "Return a group number of the location according to the commenter's",
               "desired redistricting outcome, starting with 1 for the first set of associated locations.",
-              "Locations that the commenter suggests be separated should be assigned to different groups",
-              "(i.e. 'Springfield should not be in the same district as Washington County'),",
-              "as should locations that the commenter expresses frustration about currently being together",
-              "(i.e. 'Grouping Springfield and Washington County is ridiculous').",
+              "Interpret the commenter's request or concern, not the map they are referring to.",
+              "The following are examples of when two locations should receive the same group number:",
+              "'Why is Springfield in a different district than Washington County?',",
+              "'Please Keep Springfield together with Washington County',",
+              "'Don't split Springfield from Washington County', and",
+              "'Springfield should be reunited with Washington County'.",
+              "The following are examples of when two locations should receive the same group numbers:",
+              "'My community of Springfield has been thrown into the same district as Washington County',",
+              "'Why is Springfield in the same district as Washington County?',",
+              "'It is ridiculous that Springfield and Washington County are in the same district',",
+              "'I oppose the map that keeps Springfield in a district with Washington County', and",
+              "'Please separate Springfield from Washington County'.",
               "Scrutinize location group number assignments closely."
             )
           )
@@ -160,10 +170,12 @@ extractCommentInfo <- function(
           "Clarity of this {state} commenter's description",
           "of a community of interest scaled from 0 to 1.",
           "Clarity should be based on how specific the commenter's mentioned",
-          "locations are and how clearly they state their desire to include or",
-          "exclude those locations from a community of interest.",
-          "A score of 0 indicates no clarity regarding specific locations or communities,",
-          "while a score of 1 indicates complete clarity."
+          "locations are and how clearly they group or separate mentioned locations",
+          "in a way that can be interpreted by legislative boundary drawers.",
+          "A score of 0 indicates no clarity regarding specific locations or communities",
+          "(i.e. 'Please don't split cities or counties' or 'No redistricting'),",
+          "while a score of 1 indicates complete clarity",
+          "(i.e. 'Springfield should not be included in a district with Washington County')."
         )
       )
     )
