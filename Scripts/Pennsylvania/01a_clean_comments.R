@@ -16,12 +16,12 @@ paHouseCommentsProcessedFilename <- "PAHouseComments.rds"
 # clean and process tabula table for pennsylvania house redistricting comments ----
 paHouseComments <- read.csv(file = file.path(dataPath, paHouseCommentsRawFilename)) |>
   dplyr::select(-X) |>
-  dplyr::rename(CommunityName = "Community.Name") |>
+  dplyr::rename(CommunityName = "Community.Name", Comment = "Description") |>
   dplyr::mutate(
-    Description = gsub(
+    Comment = gsub(
       pattern = "\n",
       replacement = " ",
-      x = paste0(CommunityName, ": ", Description)
+      x = paste0(CommunityName, ": ", Comment)
     ),
     Date = lubridate::dmy(x = Date)
   )

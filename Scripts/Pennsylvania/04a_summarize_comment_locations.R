@@ -1,5 +1,5 @@
 
-# Script 04a: Summarize and Visualize Pennsylvania House Comment Data Location Mentions
+# Script 04: Summarize and Visualize Pennsylvania House Comment Data Location Mentions
 
 # reset global environment ----
 rm(list = ls())
@@ -19,8 +19,12 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
 dataPath <- "./Data/Pennsylvania"
+tablePath <- "./Tables/Pennsylvania"
 figurePath <- "./Figures/Pennsylvania"
 paHouseCommentDataFilename <- "PAHouseCommentData.rds"
+groupCountTableFilename <- "GroupCountTable.rds"
+districtTypeTableFilename <- "DistrictTypeTable.rds"
+cardinalDirectionSubareaTableFilename <- "CardinalDirectionSubareaTable.rds"
 adminLevelPieChartFilename <- "AdminLevelPieChart.png"
 commentMetricsFigureFilename <- "CommentMetricsFigure.png"
 countyMentionsMapFilename <- "CountyMentionsMap.png"
@@ -30,33 +34,91 @@ paHouseCommentData <- readRDS(file = file.path(dataPath, paHouseCommentDataFilen
 
 # set admin level color scheme ----
 adminLevels <- c(
-  "Neighborhood" = "#9C751C",
-  "Township" = "#C49324",
-  "Township, Borough" = "#C49324",
-  "Borough" = "#CFA84F",
+  "Landmark" = "#9C751C",
+  "School" = "#9C751C",
+  "Neighborhood" = "#C49324",
+  "Township" = "#DBBE7B",
+  "Borough" = "#DBBE7B",
   "City" = "#DBBE7B",
   "School District" = "#132B43",
   "County" = "#425568",
-  "Region" = "#717F8E",
-  "Other" = "#AAAAAA"
+  "State House District" = "#7a8895",
+  "State Senate District" = "#7a8895",
+  "Congressional District" = "#7a8895",
+  "Region" = "#b3bbc2",
+  "NA" = "#999999"
 )
 
 # compile location data ----
 locationData <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) commentInfo$LocationsMentioned) |>
-  purrr::list_rbind(names_to = "CommentID") |>
-  dplyr::rowwise() |>
-  dplyr::mutate(
-    AdminLevel = AdminLevel |>
-      snakecase::to_title_case() |>
-      paste(collapse = ", ") |>
-      factor(levels = names(adminLevels)),
-    Source = factor(x = "House")
-  )
+  purrr::list_rbind(names_to = "CommentID")
 
-# create admin level pie chart ----
+# tables ----
+
+## group count table ----
+locationData |>
+  dplyr::group_by(CommentID) |>
+  dplyr::summarise(GroupCount = length(unique(Group))) |>
+  dplyr::ungroup() |>
+  dplyr::group_by(GroupCount) |>
+  dplyr::summarise(CommentCount = dplyr::n()) |>
+  dplyr::rename(
+    "Unique Location Groups" = GroupCount,
+    "Comment Count" = CommentCount
+  ) |>
+  saveRDS(file = file.path(tablePath, groupCountTableFilename))
+
+## district type table ----
+locationData |>
+  dplyr::select(CommentID, DistrictTypes) |>
+  tidyr::unnest_longer(col = DistrictTypes) |>
+  dplyr::group_by(DistrictTypes) |>
+  dplyr::summarise(CommentCount = length(unique(CommentID))) |>
+  dplyr::rename(
+    "District Type" = DistrictTypes,
+    "Comment Count" = CommentCount
+  ) |>
+  saveRDS(file = file.path(tablePath, districtTypeTableFilename))
+
+## cardinal direction subarea table ----
+locationData |>
+  dplyr::mutate(
+    CardinalDirectionSubarea = dplyr::case_when(
+      CardinalDirectionSubarea == "NA" ~ "Full Area",
+      .default = CardinalDirectionSubarea
+    )
+  ) |>
+  dplyr::mutate(
+    CardinalDirectionSubarea = factor(
+      x = CardinalDirectionSubarea,
+      levels = c(
+        "Full Area",
+        "Northern",
+        "Northeastern",
+        "Eastern",
+        "Southeastern",
+        "Southern",
+        "Southwestern",
+        "Western",
+        "Northwestern",
+        "Central"
+      )
+    )
+  ) |>
+  dplyr::group_by(CardinalDirectionSubarea) |>
+  dplyr::summarise(LocationCount = dplyr::n()) |>
+  dplyr::rename(
+    "Cardinal Direction Subarea" = CardinalDirectionSubarea,
+    "Mentioned Locations" = LocationCount
+  ) |>
+  saveRDS(file = file.path(tablePath, cardinalDirectionSubareaTableFilename))
+
+# figures ----
+
+## create admin level pie chart ----
 adminLevelPieChart <- locationData |>
-  ggplot2::ggplot(mapping = ggplot2::aes(x = Source, fill = AdminLevel)) +
+  ggplot2::ggplot(mapping = ggplot2::aes(x = "", fill = AdminLevel)) +
   ggplot2::geom_bar(width = 1) +
   ggplot2::coord_polar(theta = "y", start = 0) +
   ggplot2::geom_text(
@@ -73,14 +135,14 @@ adminLevelPieChart <- locationData |>
   ggplot2::theme_void() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# save admin level pie chart ----
+## save admin level pie chart ----
 ggplot2::ggsave(
   filename = file.path(figurePath, adminLevelPieChartFilename),
   plot = adminLevelPieChart,
   bg = "#FFFFFF"
 )
 
-# create sentiment histogram ----
+## create sentiment histogram ----
 sentimentHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Sentiment = commentInfo$Sentiment)) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -94,7 +156,7 @@ sentimentHistogram <- paHouseCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# create clarity histogram ----
+## create clarity histogram ----
 clarityHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Clarity = commentInfo$Clarity)) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -108,7 +170,7 @@ clarityHistogram <- paHouseCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# create character length histogram ----
+## create character length histogram ----
 characterLengthHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Characters = commentInfo$Characters)) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -122,7 +184,7 @@ characterLengthHistogram <- paHouseCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# create location counts histogram ----
+## create location counts histogram ----
 locationCountsHistogram <- paHouseCommentData |>
   purrr::map(.f = \(commentInfo) data.frame(Locations = nrow(commentInfo$LocationsMentioned))) |>
   purrr::list_rbind(names_to = "CommentID") |>
@@ -136,11 +198,11 @@ locationCountsHistogram <- paHouseCommentData |>
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = "bold", size = 14))
 
-# compile histograms into single figure ----
+## compile histograms into single figure ----
 commentMetricsFigure <- (sentimentHistogram + clarityHistogram) /
   (characterLengthHistogram + locationCountsHistogram) +
   patchwork::plot_annotation(
-    title = paste0("Comment Metrics: Pennsylvania House Testimony"),
+    title = paste0("Comment Metrics: Pennsylvania House Comments"),
     theme = ggplot2::theme(
       plot.title = ggplot2::element_text(
         hjust = 0.5,
@@ -150,17 +212,17 @@ commentMetricsFigure <- (sentimentHistogram + clarityHistogram) /
     )
   )
 
-# save comment metrics figure ----
+## save comment metrics figure ----
 ggplot2::ggsave(
   filename = file.path(figurePath, commentMetricsFigureFilename),
   plot = commentMetricsFigure
 )
 
-# import pennsylvania counties shapefile ----
+## import georgia counties shapefile ----
 paCounties <- tigris::counties(state = "PA") |>
   dplyr::select(County = NAMELSAD)
 
-# create county mentions map ----
+## create county mentions map ----
 countyMentionsMap <- locationData |>
   dplyr::select(CommentID, County = SurroundingCounties) |>
   tidyr::unnest_longer(County) |>
@@ -170,13 +232,14 @@ countyMentionsMap <- locationData |>
   tidyr::replace_na(replace = list(Comments = 0)) |>
   sf::st_as_sf() |>
   ggplot2::ggplot() +
-  ggplot2::geom_sf(mapping = ggplot2::aes(fill = Comments), color = NA) +
+  ggplot2::geom_sf(mapping = ggplot2::aes(fill = log1p(Comments)), color = NA) +
   ggplot2::scale_fill_gradient(low = "#EEEEEE", high = "#132B43") +
   ggplot2::labs(
     title = paste(
       "Number of Comments Mentioning Locations in\n",
       "Each Pennsylvania County"
-    )
+    ),
+    fill = "Logged Comment Count"
   ) +
   ggplot2::theme_void() +
   ggplot2::theme(
@@ -190,8 +253,8 @@ countyMentionsMap <- locationData |>
       size = 14
     )
   )
-  
-# save county mentions map ----
+
+## save county mentions map ----
 ggplot2::ggsave(
   filename = file.path(figurePath, countyMentionsMapFilename),
   plot = countyMentionsMap,
