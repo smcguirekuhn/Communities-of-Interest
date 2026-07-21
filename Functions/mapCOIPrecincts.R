@@ -42,7 +42,13 @@ mapCOIPrecincts <- function(
   # add polygon geometry ----
   locationsMentioned <- locationsMentioned |>
     tidyr::unnest(cols = Match) |>
-    dplyr::filter(JaccardDistance < 0.3 | JaroWinklerDistance < 0.3) |>
+    dplyr::filter(
+      any(
+        JaccardDistance < 0.3,
+        JaroWinklerDistance < 0.3,
+        AdminLevel %in% c("State House District", "State Senate District", "Congressional District")
+      )
+    ) |>
     dplyr::left_join(
       y = precinctBoundaries |> dplyr::select(UNIQUE_ID),
       by = c("Precincts" = "UNIQUE_ID")

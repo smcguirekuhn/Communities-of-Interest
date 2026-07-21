@@ -10,7 +10,9 @@ matchLocation <- function(
       "City",
       "School District",
       "County",
-      "Legislative District",
+      "State House District",
+      "State Senate District",
+      "Congressional District",
       "Region",
       "NA"
     ),
@@ -35,7 +37,9 @@ matchLocation <- function(
   locationMatch <- locationMatches |>
     dplyr::filter(
       AdminLevel == adminLevel,
-      purrr::map_lgl(.x = Counties, .f = \(counties) any(counties[["County"]] %in% surroundingCounties))
+      purrr::map_lgl(
+        .x = Counties,
+        .f = \(counties) any(c(counties[["County"]], "NA") %in% surroundingCounties))
     ) |>
     dplyr::mutate(
       JaccardDistance = stringdist::stringdist(a = Name, b = location, method = "jaccard"),
