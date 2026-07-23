@@ -29,7 +29,7 @@ mapCOIPrecincts <- function(
           ) |>
             tidyr::unnest(cols = Precincts) |>
             dplyr::select(
-              Precincts = UNIQUE_ID,
+              Precincts = PrecinctID,
               Match,
               JaccardDistance,
               JaroWinklerDistance
@@ -50,8 +50,8 @@ mapCOIPrecincts <- function(
       )
     ) |>
     dplyr::left_join(
-      y = precinctBoundaries |> dplyr::select(UNIQUE_ID),
-      by = c("Precincts" = "UNIQUE_ID")
+      y = precinctBoundaries |> dplyr::select(PrecinctID),
+      by = c("Precincts" = "PrecinctID")
     ) |>
     sf::st_as_sf()
   

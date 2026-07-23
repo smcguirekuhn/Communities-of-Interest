@@ -30,9 +30,6 @@ matchLocation <- function(
   # simplify municipal admin level assignments ----
   if (adminLevel %in% c("Township", "Borough", "Town", "City")) adminLevel <- "Municipality"
   
-  # remove "county" from the ends of surrounding county names ----
-  surroundingCounties <- surroundingCounties |> stringr::str_remove(pattern = " County$")
-  
   # identify best location match by string distance ----
   locationMatch <- locationMatches |>
     dplyr::filter(
