@@ -6,9 +6,11 @@ rm(list = ls())
 
 # import packages ----
 library(rvest)
+library(httr2)
 library(purrr)
 library(dplyr)
 library(stringr)
+library(lubridate)
 
 # assign import and export destinations ----
 dataPath <- "./Data/Colorado/"
@@ -19,15 +21,36 @@ coWebCommentsProcessedFilename <- "COWebComments.rds"
 pageURL <- "/web/20210713125233/https://redistricting.colorado.gov/public_comments/"
 nextURL <- pageURL
 
+scrapeWebComment <- function(commentPageURL) {
+  tryCatch(
+    expr = {
+      scrapeRequest <- httr2::request(commentPageURL) |>
+        httr2::req_user_agent("COIResearchCrawler (smk7761@psu.edu)") |>
+        httr2::req_throttle(rate = 1) |>
+        httr2::req_retry(max_tries = 5, backoff = ~ 2^.x)
+      
+      scrapeResponse <- scrapeRequest |>
+        httr2::req_perform() |>
+        httr2::resp_body_html()
+      
+      return(scrapeResponse)
+    },
+    error = function(e) {
+      cli::cli_inform(message = glue::glue("Failed to fetch {commentPageURL}, Error: {e$message}"))
+      return(NULL)
+    }
+  )
+}
+
 # scrape web comments for colorado ----
 coWebComments <- purrr::map(
   .progress = TRUE,
-  .x = 1:5,
+  .x = 1:10,
   .f = purrr::safely(.f = \(pageID) {
     Sys.sleep(time = 1)
     
     ## scrape page html ----
-    pageHTML <- paste0("https://web.archive.org", nextURL) |> rvest::read_html()
+    pageHTML <- paste0("https://web.archive.org", nextURL) |> scrapeWebComment()
     
     ## scrape comment card elements ----
     commentElements <- pageHTML |>
@@ -55,7 +78,8 @@ coWebComments <- purrr::map(
     commenterDate <- commentElements |>
       rvest::html_elements(css = "p:nth-of-type(3)") |>
       rvest::html_text2() |>
-      stringr::str_remove(pattern = "Submittted: ")
+      stringr::str_remove(pattern = "Submittted: ") |>
+      lubridate::mdy()
     
     ## gather comment texts ----
     commentText <- commentElements |>
@@ -92,7 +116,8 @@ cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Page Count: {err
 # extract valid results ----
 coWebComments <- coWebComments |>
   purrr::map(.f = \(commentPage) commentPage$result) |>
-  purrr::list_rbind()
+  purrr::list_rbind(names_to = "PageID") |>
+  dplyr::distinct(Name, Commission, ZIPCode, Comment, .keep_all = TRUE)
 
 # save processed georgia web comments ----
 saveRDS(object = coWebComments, file = file.path(dataPath, coWebCommentsProcessedFilename))
