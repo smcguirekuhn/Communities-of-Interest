@@ -1,3 +1,4 @@
+
 mapCOIPrecincts <- function(
     commentInfo,
     locationMatches,
@@ -9,51 +10,15 @@ mapCOIPrecincts <- function(
   ) {
   
   # check arguments ----
-  stopifnot(is.data.frame(locationMatches))
-  stopifnot(all(c("Name", "AdminLevel", "Precincts") %in% names (locationMatches)))
-  stopifnot(all(c("sf", "data.frame") %in% class(precinctBoundaries)))
   stopifnot(length(titleFormat) == 1)
   stopifnot("character" %in% class(titleFormat))
   
-  # add precinct ids ----
-  locationsMentioned <- commentInfo$LocationsMentioned |>
-    dplyr::mutate(
-      Match = purrr::pmap(
-        .l = list(Name, AdminLevel, SurroundingCounties),
-        .f = \(location, adminLevel, surroundingCounties) {
-          matchLocation(
-            location = location,
-            adminLevel = adminLevel |> as.character(),
-            locationMatches = locationMatches,
-            surroundingCounties = surroundingCounties
-          ) |>
-            tidyr::unnest(cols = Precincts) |>
-            dplyr::select(
-              Precincts = PrecinctID,
-              Match,
-              JaccardDistance,
-              JaroWinklerDistance
-            ) |>
-            tibble::as_tibble()
-        }
-      )
-    )
-  
-  # add polygon geometry ----
-  locationsMentioned <- locationsMentioned |>
-    tidyr::unnest(cols = Match) |>
-    dplyr::filter(
-      any(
-        JaccardDistance < 0.3,
-        JaroWinklerDistance < 0.3,
-        AdminLevel %in% c("State House District", "State Senate District", "Congressional District")
-      )
-    ) |>
-    dplyr::left_join(
-      y = precinctBoundaries |> dplyr::select(PrecinctID),
-      by = c("Precincts" = "PrecinctID")
-    ) |>
-    sf::st_as_sf()
+  # match comment coi locations ----
+  locationsMentioned <- matchCOILocations(
+    commentInfo = commentInfo,
+    locationMatches = locationMatches,
+    precinctBoundaries = precinctBoundaries
+  )
   
   # create coi map ----
   coiMap <- locationsMentioned |>
@@ -86,7 +51,7 @@ mapCOIPrecincts <- function(
       y = "Latitude"
     ) +
     ggplot2::theme_minimal()
-    
+  
   # return coi map ----
   return(coiMap)
 }
