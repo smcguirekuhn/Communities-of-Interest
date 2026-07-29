@@ -12,40 +12,29 @@ library(dplyr)
 library(stringr)
 library(lubridate)
 
+# source helper functions ----
+list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
+
 # assign import and export destinations ----
 dataPath <- "./Data/Colorado/"
 coWebCommentsProcessedFilename <- "COWebComments.rds"
 
 # assign colorado comments url ----
 # 601 pages of archived comments, roughly 6006 comments
-pageURL <- "/web/20210713125233/https://redistricting.colorado.gov/public_comments/"
-nextURL <- pageURL
+baseURL <- "/web/20210713125233/https://redistricting.colorado.gov/public_comments/"
+lastURL <- "/web/20240605143234/https://redistricting.colorado.gov/public_comments?page=465"
+nextURL <- lastURL
 
-scrapeWebComment <- function(commentPageURL) {
-  tryCatch(
-    expr = {
-      scrapeRequest <- httr2::request(commentPageURL) |>
-        httr2::req_user_agent("COIResearchCrawler (smk7761@psu.edu)") |>
-        httr2::req_throttle(rate = 1) |>
-        httr2::req_retry(max_tries = 5, backoff = ~ 2^.x)
-      
-      scrapeResponse <- scrapeRequest |>
-        httr2::req_perform() |>
-        httr2::resp_body_html()
-      
-      return(scrapeResponse)
-    },
-    error = function(e) {
-      cli::cli_inform(message = glue::glue("Failed to fetch {commentPageURL}, Error: {e$message}"))
-      return(NULL)
-    }
-  )
-}
+# assign page ids to scrape ----
+pageIDProgress <- 1
+
+# # import previously scraped comments ----
+# previouslyScraped <- readRDS(file = file.path(dataPath, coWebCommentsProcessedFilename))
 
 # scrape web comments for colorado ----
 coWebComments <- purrr::map(
   .progress = TRUE,
-  .x = 1:10,
+  .x = 1:601,
   .f = purrr::safely(.f = \(pageID) {
     Sys.sleep(time = 1)
     
@@ -88,6 +77,7 @@ coWebComments <- purrr::map(
     
     ## compile comment information ----
     pageComments <- data.frame(
+      PageID = pageIDProgress,
       Name = commenterNames,
       Commission = commenterCommissionType,
       ZIPCode = commenterZIPCodes,
@@ -96,6 +86,7 @@ coWebComments <- purrr::map(
     )
     
     ## establish next page url ----
+    pageIDProgress <<- pageIDProgress + 1
     nextURL <<- paste0("https://web.archive.org", nextURL) |>
       rvest::read_html() |>
       rvest::html_element(css = "a[rel='next']") |>
@@ -116,8 +107,9 @@ cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Page Count: {err
 # extract valid results ----
 coWebComments <- coWebComments |>
   purrr::map(.f = \(commentPage) commentPage$result) |>
-  purrr::list_rbind(names_to = "PageID") |>
-  dplyr::distinct(Name, Commission, ZIPCode, Comment, .keep_all = TRUE)
+  purrr::list_rbind() |>
+  dplyr::distinct(Name, Commission, ZIPCode, Comment, .keep_all = TRUE) |>
+  dplyr::bind_rows(previouslyScraped)
 
-# save processed georgia web comments ----
+# save processed colorado web comments ----
 saveRDS(object = coWebComments, file = file.path(dataPath, coWebCommentsProcessedFilename))
