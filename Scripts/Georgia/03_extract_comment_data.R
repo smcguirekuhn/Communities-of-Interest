@@ -16,6 +16,7 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Georgia/"
 gaWebCommentsFilename <- "GAWebComments.rds"
 gaWebCommentDataFilename <- "GAWebCommentData.rds"
+groundTruthFileName <- "GroundTruth/GAGroundTruthComments.rds"
 
 # import georgia web comments and filter to coi comments ----
 gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename)) |>
@@ -73,6 +74,11 @@ cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCou
 
 # extract valid results ----
 gaWebCommentData <- gaWebCommentData |> purrr::map(.f = \(webComment) webComment$result)
+
+# # create sample of duplicates for ground truth coding ----
+# set.seed(seed = 1998)
+# gaWebCommentData[sample(x = 1:length(gaWebCommentData), size = 50, replace = FALSE)] |>
+#   saveRDS(file = file.path(dataPath, groundTruthFileName))
 
 # save comment data ----
 saveRDS(object = gaWebCommentData, file = file.path(dataPath, gaWebCommentDataFilename))
