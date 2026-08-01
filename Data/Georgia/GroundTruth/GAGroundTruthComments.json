@@ -1,0 +1,1696 @@
+[
+  {
+    "CommentID": [892],
+    "Date": ["2021-08-11"],
+    "Name": ["d. pharr"],
+    "County": ["Columbia County"],
+    "Comment": ["In the grand scheme of things, my request is just that our schools be rezoned so that our neighborhood (and the Williams Few Pkwy corridor) take advantage of schools with openings (Parkway Elem) in exchange for crowded schools (Lewiston Elem). This would afford for future growth which is bound to happen, and while these moves are upsetting to some, it is eventual, and would serve as a course correction. Thank you for serving, Lord knows the scrutiny isn't worth it at times, but we believe in our system of democracy and do not assume the worst in our elected officials/representatives. Thank you and stay safe/healthy!"],
+    "COI": [1],
+    "Characters": [623],
+    "LocationsMentioned": [
+      {
+        "Name": "Williams Few Parkway",
+        "AdminLevel": "Landmark",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "Corridor",
+        "SurroundingCounties": ["Columbia County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Parkway Elementary",
+        "AdminLevel": "School",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Columbia County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      },
+      {
+        "Name": "Lewiston Elementary",
+        "AdminLevel": "School",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Columbia County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [327],
+    "Date": ["2021-11-10"],
+    "Name": ["s. coleman"],
+    "County": ["Gwinnett County"],
+    "Comment": ["Dear Representative Rich I strongly disagree with your redistricting Map Showing Hog Mountain in HD105 hog Mountain has no interest in HD105 Your district should represent you demographically by a certain percent Sir."],
+    "COI": [1],
+    "Characters": [217],
+    "LocationsMentioned": [
+      {
+        "Name": "Hog Mountain",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "State House District 105",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.7]
+  },
+  {
+    "CommentID": [463],
+    "Date": ["2021-11-08"],
+    "Name": ["b. walker"],
+    "County": ["Cherokee County"],
+    "Comment": ["Cherokee needs four (4) house district seats and one (1) senator seat in the county."],
+    "COI": [1],
+    "Characters": [84],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cherokee County"],
+        "DistrictTypes": ["State House", "State Senate"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.3]
+  },
+  {
+    "CommentID": [447],
+    "Date": ["2021-11-08"],
+    "Name": ["m. knope"],
+    "County": ["DeKalb County"],
+    "Comment": ["I am very upset that this proposed map splits Dunwoody, a community where I have lived for years. Dunwoody is a close knit, cohesive community. It's like a small town. We have been in the same House District for more than a decade. Our population is still small enough to be kept together. Please keep us together as a community of interest."],
+    "COI": [1],
+    "Characters": [341],
+    "LocationsMentioned": [
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [123],
+    "Date": ["2021-11-18"],
+    "Name": ["l. mashburn"],
+    "County": ["Cherokee County"],
+    "Comment": ["Notice: Do NOT split up Cherokee County! Notice to Agent is Notice to Principal and Notice to Principal is Notice to Agent Whereas, I being one of the People of the county of Cherokee, as defined by the Constitution of the State of Georgia, sui Juris, hereby serve you this public notice so you can provide due care; We The People of Cherokee County would like to remind you that you are there to serve us & preserve our rights & liberties. We have made it known that the redistricting map you’ve proposed, is UNACCEPTABLE. We demand proper representation of the People of Cherokee County by having at least 4 State Representatives & 1 Senator WITHIN Cherokee County lines. We do NOT want any portion of Cherokee County represented by anyone who lives outside our county, district 6 especially! Remember your oath of office. We the People will utilize our Constitutional rights to hold you accountable for maladministration & seek remedy if you fail to comply with the Will of the People."],
+    "COI": [1],
+    "Characters": [988],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cherokee County"],
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "District 6",
+        "AdminLevel": "NA",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cobb County", "DeKalb County", "Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [687],
+    "Date": ["2021-10-11"],
+    "Name": ["j. p"],
+    "County": ["Fulton County"],
+    "Comment": ["Putting Forsyth County in the 6th district is a disgusting power grab. They have nothing in common with North Fulton. Totally different needs. Keep Lucy McBath in power and stop screwing Georgia over."],
+    "COI": [1],
+    "Characters": [200],
+    "LocationsMentioned": [
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Congressional District 6",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cobb County", "DeKalb County", "Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [419],
+    "Date": ["2021-11-09"],
+    "Name": ["s. levy"],
+    "County": ["DeKalb County"],
+    "Comment": ["I’ve been a Dunwoody resident for 15 years. I’ve enjoyed watching Dunwoody grow. The community has always had 1 representative. It doesn’t make sense to take out 2 small sections and split a city/community. It is my understanding that our population can be well represented by 1 Rep and keep Dunwoody whole. Please reconsider the changes to the map. This change removes the mayor from her Dist. and frankly does not make sense. It seems a very unnecessary change."],
+    "COI": [1],
+    "Characters": [463],
+    "LocationsMentioned": [
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": "NA",
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [736],
+    "Date": ["2021-09-28"],
+    "Name": ["n. hollingshed"],
+    "County": ["Paulding County"],
+    "Comment": ["Paulding County does not belong in the 14th district. Paulding is part of the 10 metro Atlanta counties. Most of the 14th is mountain people and part of metro Chattanooga. We have so much in common with Bartow County and would like to be a part of the 11th district. We share roads and and water with Bartow. Our airports work together.Please consider putting Paulding in the 11th."],
+    "COI": [1],
+    "Characters": [381],
+    "LocationsMentioned": [
+      {
+        "Name": "Paulding County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Paulding County", "Bartow County", "Cobb County", "Douglas County", "Fulton County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "14th District",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Dade County", "Walker County", "Catoosa County", "Whitfield County", "Murray County", "Fannin County", "Gilmer County", "Pickens County", "Floyd County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Metro Atlanta",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "DeKalb County", "Gwinnett County", "Cobb County", "Clayton County", "Douglas County", "Fayette County", "Henry County", "Rockdale County", "Paulding County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Bartow County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Bartow County", "Paulding County", "Gordon County", "Floyd County", "Polk County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "11th District",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Bartow County", "Cherokee County", "Cobb County", "Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [685],
+    "Date": ["2021-10-12"],
+    "Name": ["p. smith"],
+    "County": ["Gwinnett County"],
+    "Comment": ["I dislike the current redistricting proposal. I live in Gwinnett. The proposal puts a large portion of Gwinnett into the same district as Hall County. This is wrong. People where I live in Gwinnett have little in common with people in Hall county. Very disappointed in this. This is an evil plan. I'll campaign vigorously against the interests who proposed this plan. Representatives who are likely to be elected will live in Hall County... they won't know where Duluth is. Sincerely, Phil Smith"],
+    "COI": [1],
+    "Characters": [495],
+    "LocationsMentioned": [
+      {
+        "Name": "Gwinnett County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Hall County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Hall County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      },
+      {
+        "Name": "Duluth",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [239],
+    "Date": ["2021-11-11"],
+    "Name": ["j. osburn"],
+    "County": ["Coweta County"],
+    "Comment": ["There is no justifiable reason whatsoever to carve up Coweta County and lump us in with Fulton - you are blatantly redrawing these maps to change our elected representation in the future. Stop trying to destroy what’s left of the suburbs by making us guilty by association. Coweta is NOT Fulton! This is blatant gerrymandering and we vote NO!"],
+    "COI": [1],
+    "Characters": [342],
+    "LocationsMentioned": [
+      {
+        "Name": "Coweta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Coweta County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [760],
+    "Date": ["2021-09-13"],
+    "Name": ["l. mann"],
+    "County": ["Forsyth County"],
+    "Comment": ["Forsyth Counties inclusion in the 7th District does not fit the Consultative views and future of citizens. Please consider placing Forsyth, Dawson & Hall counties in a common District. Gwinnett has ample population and different culture for a District. Citizens in Forsyth want to maintain our unique lifestyle. Thank you for your hard work. L Mann Forsyth Co,"],
+    "COI": [1],
+    "Characters": [360],
+    "LocationsMentioned": [
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Hall County", "Gwinnett County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "7th District",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["NA"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Dawson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Hall County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Hall County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Hall County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Gwinnett County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 3
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [346],
+    "Date": ["2021-11-09"],
+    "Name": ["m. farr"],
+    "County": ["Fulton County"],
+    "Comment": ["I do not favor the redistricting plan for Cherokee County. Under this new plan, the lines for Rep Phillip’s district will reflect a 70-30% Democrat majority. This redistricting scheme does not accurately represent our community. The district lines must be drawn to accurately reflect the community of Cherokee County which is 80-20% Republican. You have the power to correct this injustice that goes against the will of the people. As you see daily, people are rising up to support elected officials who speak on behalf of their communities, and flipping seats of those who do not. We hope to be able to endorse you in the future rather than seek your replacement."],
+    "COI": [1],
+    "Characters": [664],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Pickens County", "Gordon County", "Bartow County", "Cobb County", "Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [282],
+    "Date": ["2021-11-10"],
+    "Name": ["j. rosenfelt"],
+    "County": ["DeKalb County"],
+    "Comment": ["Dunwoody is a very close knit, cohesive community. We have been in the same House District for more than a decade. Our population is still small enough to be kept together. Please keep us together as a community of interest. Thank you!"],
+    "COI": [1],
+    "Characters": [235],
+    "LocationsMentioned": [
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.8],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [676],
+    "Date": ["2021-10-15"],
+    "Name": ["j. p"],
+    "County": ["Fulton County"],
+    "Comment": ["Cobb County is exactly the size of one congressional district. Why not make Cobb its own district?"],
+    "COI": [1],
+    "Characters": [98],
+    "LocationsMentioned": [
+      {
+        "Name": "Cobb County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cherokee County", "Fulton County", "Douglas County", "Paulding County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [957],
+    "Date": ["2021-08-09"],
+    "Name": ["d. betts"],
+    "County": ["Montgomery County"],
+    "Comment": ["Toombs and Montgomery Counties in SE Georgia need to stay whole and together in the 156th seat. I've been involved for over 35 years in our community's economic development and the bedrock for our current success has been these communities working together and acting together in all areas. Please don't hamper our efforts. It would end up costing us and the state financially and emotionally. Thank you for your consideration and good luck with your challenging job."],
+    "COI": [1],
+    "Characters": [467],
+    "LocationsMentioned": [
+      {
+        "Name": "Toombs County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Montgomery County", "Tattnall County", "Jeff Davis County", "Wheeler County", "Appling County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "Montgomery County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Toombs County", "Wheeler County", "Treutlen County", "Jeff Davis County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.8],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [752],
+    "Date": ["2021-09-21"],
+    "Name": ["e. beal"],
+    "County": ["Clayton County"],
+    "Comment": ["To truly be a democracy, our counties should not be sliced and diced to achieve the election of a certain party. Our districts should reflect the demographics of our state. Please don’t carve up Clayton or any county."],
+    "COI": [1],
+    "Characters": [217],
+    "LocationsMentioned": [
+      {
+        "Name": "Clayton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Henry County", "DeKalb County", "Spalding County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.7]
+  },
+  {
+    "CommentID": [108],
+    "Date": ["2021-11-18"],
+    "Name": ["j. gore"],
+    "County": ["Gwinnett County"],
+    "Comment": ["It seems like most on here don't know or understand that the Republican party in Georgia has had a trifecta stronghold over the Governor's office, the Senate & the House for SEVENTEEN YEARS! The Republican party here also controls the Secretary of State & the Attorney General! In the Senate, it's 34-22 Repub-Dem. In the House of Reps it's 103-76 Repub-Dem. The new redistricting is absolutely gerrymandering and will still guarantee that Republicans stay in control another decade. I've lived in northern Gwinnett Co for over 20 years. Now I'll be voting in a district that comprises THIRTEEN northern counties that vote 80-20 Repub-Dem. So they decided to chop up Gwinnett and make it impossible for any Democrat to ever win in this new 9th district. Absolutely staggering. To all the Republicans on here angry about the redistricting in other counties, do your HW cause your party is still very much in power and these new maps guarantee it for many years to come."],
+    "COI": [1],
+    "Characters": [968],
+    "LocationsMentioned": [
+      {
+        "Name": "Gwinnett County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Hall County", "Jackson County", "Barrow County", "DeKalb County", "Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "9th District",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Habersham County", "Stephens County", "Franklin County", "Hart County", "Madison County", "Elbert County", "Lincoln County", "Wilkes County", "Oglethorpe County", "Clarke County", "Jackson County", "Banks County", "Hall County", "Forsyth County", "Dawson County", "Lumpkin County", "Union County", "Towns County", "White County", "Rabun County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [1225],
+    "Date": ["2021-06-28"],
+    "Name": ["j. brooks"],
+    "County": ["Fulton County"],
+    "Comment": ["My neighborhood (downtown Atlanta) is split among 3 different State House Districts. This is divisive and cumbersome. Let's keep all of Downtown Atlanta in one district because we all share the same priorities and needs...we don't want to be pitted against our neighbors, we want unity as a neighborhood. Please put all of downtown in the same district. Thank you."],
+    "COI": [1],
+    "Characters": [364],
+    "LocationsMentioned": [
+      {
+        "Name": "Downtown Atlanta",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [16],
+    "Date": ["2021-11-23"],
+    "Name": ["r. gillespie"],
+    "County": ["DeKalb County"],
+    "Comment": ["Georgia needs a nonpartisan approach to drawing districts. Any fool can see the proposed redistricting targets Lucy McBath. Redrawing the map to combine Sandy Springs and Alpharetta with Forsyth and Dawson Counties is ridiculous."],
+    "COI": [1],
+    "Characters": [229],
+    "LocationsMentioned": [
+      {
+        "Name": "Sandy Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Cobb County", "DeKalb County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Alpharetta",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Forsyth County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Hall County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Dawson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Dawson County", "Forsyth County", "Lumpkin County", "Hall County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [1148],
+    "Date": ["2021-07-06"],
+    "Name": ["j. williamson"],
+    "County": ["Unknown County"],
+    "Comment": ["My name is Keyes Williamson. I live at 180 Plum Nelly Road (In House District 117 and Senate District 046) I believe there should be a non-partisan commission appointed to draw up political districts in Georgia, because the party in power cannot be trusted to do it in a fair and equitable way. The Democrats did it unfairly in 2000 and the Republicans did it unfairly in 2006 and after the 2010 census. The fact of the matter is that any American who truly believes in Democracy, must reject the gerrymandering of political districts to benefit one political party over another. It is a direct violation of the principles upon which our country was built; and it contradicts good common sense. When Governor Nathan Deal signed the current Congressional redistricting map, he said \"\"The Legislature has drawn districts that are compact, that keep communities of interest together and that visually make sense.\"\" Athens, our community, is divided into two state districts, three state House districts, and two U.S. Congressional districts. Does this pass the smell test suggested by the Governor himself? No. We are the smallest county in the state, how does it make sense to divide it, if it is not intended to split our community's political voice for partisan reasons. As a result, our city cannot fairly select a representative to the state or U.S. legislatures that will represent the values of this community and to advocate for those issues that are important to the majority of our community members: better police policy, lower crime, better schools, less economic disparity, etc. We all know, because it is obvious, that Athens was split to manipulate the vote to predetermine the outcome of the election. If you look back at the results of past elections, you can see the swing from one party to another, not based on the qualifications of the candidates or the popularity of their platforms, the results are driven by the arbitrary and partisan districting maps. In the words of political professor Charles Bullock, the party in power was \"\"drawing Clarke County to benefit themselves.\"\" This is un-American. History is not on the side of those who defend legislative districts drawn to dilute the will of the people. It is clear that the founding fathers would frown upon the kinds of districts we have in Georgia. James Madison warned the Constitution Convention that state legislatures would \"\"mold their regulations to favor candidates they wished to succeed.\"\" He called this an \"\"abuse\"\" of power. President Harrison, in 1891, called the practice \"\"political robbery\"\" that suppressed \"\"popular suffrage.\"\" It was, he said, \"\"our chief national danger.\"\" The practice of splitting voters to predetermine elections, is, in short, at odds with our constitution and the values that make America unique. From the Declaration of Independence to the Constitution, elected democracy was constructed upon the principle that EVERY VOTE MATTERS. The current districts in Athens violate that sacred principle."],
+    "COI": [1],
+    "Characters": [3015],
+    "LocationsMentioned": [
+      {
+        "Name": "Athens",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Clarke County"],
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Clarke County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Clarke County"],
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [259],
+    "Date": ["2021-11-11"],
+    "Name": ["b. broich"],
+    "County": ["Coweta County"],
+    "Comment": ["We are not in favor of redistricting Coweta County. Do not change our county’s voice"],
+    "COI": [1],
+    "Characters": [84],
+    "LocationsMentioned": [
+      {
+        "Name": "Coweta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Fulton County", "Carroll County", "Heard County", "Meriwether County", "Spalding County", "Troup County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.7]
+  },
+  {
+    "CommentID": [1025],
+    "Date": ["2021-07-27"],
+    "Name": ["j. sneed"],
+    "County": ["Dougherty County"],
+    "Comment": ["Dougherty County needs all three of its state representatives and no changes to other seats."],
+    "COI": [1],
+    "Characters": [92],
+    "LocationsMentioned": [
+      {
+        "Name": "Dougherty County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Lee County", "Terrell County", "Calhoun County", "Baker County", "Mitchell County", "Worth County"],
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [350],
+    "Date": ["2021-11-09"],
+    "Name": ["l. stinson"],
+    "County": ["DeKalb County"],
+    "Comment": ["I have lived in Dunwoody for 13 years. I do not agree with the current redistricting map of HD79 as it is currently proposed because it undermines community that we have worked hard to create in the decade or so that we have been a City and in the same house district. Dunwoody is a very close knit, cohesive community. We still have few enough constituents here to be kept together in the same HD. It does not seem helpful to the taxpaying constituents or to the City at large, DeKalb, or metro areas to move us to a new district. It also does not seem customary or reasonable to do so, considering the above stated information. Please keep us together as a community of interest. Thank you for your time and for supporting the voices in Dunwoody and DeKalb."],
+    "COI": [1],
+    "Characters": [759],
+    "LocationsMentioned": [
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "DeKalb",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "HD79",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [1028],
+    "Date": ["2021-07-27"],
+    "Name": ["m. saunders"],
+    "County": ["Carroll County"],
+    "Comment": ["Good evening, and thank you for allowing me to speak. My name is Martha Saunders and I am here with 2 other women from Carroll County. We share several concerns about the redistricting process. Like many others, we are concerned about how the process will work. Will we, as citizens, be made aware of the rules and guidelines that will determine the outcomes? Will we be able to see drafts of maps as soon as they are drawn and be able to publicly react to the drafts? We are especially interested in how the districts for the Georgia House seats are drawn. Carroll County is currently represented by 4 different House representatives, only one of whom calls Carroll County home, and he also represents part of another county. So there is no House legislator whose sole responsibility is our county's welfare and interests. Compactness and the preservation of existing political communities are two of the criteria for drawing legislative districts. We ask that the Joint Apportionment and Redistricting Committee make the system transparent and allow all citizens to see and react to all the district maps that involve their counties-Congressional, State Senate, State House, and those within the county. We appreciate your taking time to hear our concerns. We know that you have a difficult task ahead of you."],
+    "COI": [1],
+    "Characters": [1311],
+    "LocationsMentioned": [
+      {
+        "Name": "Carroll County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Douglas County", "Haralson County", "Heard County", "Coweta County", "Fulton County", "Paulding County"],
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [1212],
+    "Date": ["2021-06-29"],
+    "Name": ["s. hastings"],
+    "County": ["Forsyth County"],
+    "Comment": ["Please keep Forsyth county all in either 7th district or 9th district."],
+    "COI": [1],
+    "Characters": [70],
+    "LocationsMentioned": [
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Hall County", "Dawson County", "Gwinnett County", "Fulton County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [141],
+    "Date": ["2021-11-18"],
+    "Name": ["m. salpeter"],
+    "County": ["Fulton County"],
+    "Comment": ["As a resident of the 6th District, I am extremely disappointed and upset to see the Republican's proposed map that now includes Dawson and Forsyth Counties and eliminates North Dekalb County as well as parts of North Fulton County from the 6th District. The proposed map creates a gerrymandered district that includes constituents without common interests. Citizens of Sandy Springs have no clear commonalities with citizens of Dawson and Forsyth. On the other hand, Sandy Springs and all of North Fulton share common interests with neighbors in Dekalb and Cobb. The proposed Republican map disenfranchises citizens living in the 6th District. The Census data does not require the major changes Republicans have proposed for CD 6. I support the Democrats' map that keeps North Dekalb in CD 6 and keeps all of North Fulton in the 6th District."],
+    "COI": [1],
+    "Characters": [842],
+    "LocationsMentioned": [
+      {
+        "Name": "Dawson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Dawson County", "Forsyth County", "Lumpkin County", "Hall County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Hall County", "Gwinnett County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Congressional District 6",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County", "Fulton County", "Gwinnett County", "Rockdale County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "DeKalb County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County", "Fulton County", "Gwinnett County", "Rockdale County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "DeKalb County", "Cobb County", "Forsyth County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Sandy Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Cobb County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cobb County", "Fulton County", "DeKalb County", "Douglas County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [859],
+    "Date": ["2021-08-15"],
+    "Name": ["r. gemmell"],
+    "County": ["Gwinnett County"],
+    "Comment": ["I just wanted to pass along my support for our northern Gwinnett county region staying in the 7th Congressional district. My understanding is we might merge with a part of Forsyth County that possesses similar demographics and public interests. That sounds like a logical plan that I would strongly support. I strongly oppose any concept or consideration of shifting us to the 6th district."],
+    "COI": [1],
+    "Characters": [390],
+    "LocationsMentioned": [
+      {
+        "Name": "Gwinnett County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Hall County", "Barrow County", "Jackson County", "DeKalb County", "Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Congressional District 7",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County", "Fulton County", "Gwinnett County", "Rockdale County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County", "Hall County", "Dawson County", "Cherokee County", "Fulton County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Congressional District 6",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County", "Fulton County", "Gwinnett County", "Rockdale County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.7],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [1272],
+    "Date": ["2021-06-24"],
+    "Name": ["v. holmes"],
+    "County": ["Fayette County"],
+    "Comment": ["My county, Fayette, was gerrymandered several years ago, resulting in a portion of the county, in which I live, becoming part of Congressional District 13, a District which consists of Douglas and parts of 5 counties, including a sliver of Fayette. The remainder of the Fayette is Congressional District 3. I hope that consideration will be given to reinstating the portion of Fayette County which is now District 13, to be reunited with District 3. As it stands now, our portion of District 13 has almost no representation from our Congressman David Scott, and any correspondence we have with him is basically ignored, although \"\"answered\"\" with boilerplate responses. We are much more aligned with Drew Ferguson, the Congressman from District 3, as we are much more conservative than the remainder of District 13. Please reunite Fayette County to become District 3 so our voices can be heard."],
+    "COI": [1],
+    "Characters": [894],
+    "LocationsMentioned": [
+      {
+        "Name": "Fayette County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Congressional District 13",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Douglas County", "Fayette County", "Other unnamed counties"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Douglas County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Douglas County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Congressional District 3",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Other unnamed counties"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [199],
+    "Date": ["2021-11-17"],
+    "Name": ["d. taggart"],
+    "County": ["Fulton County"],
+    "Comment": ["I was on the livestream of our fellow citizens, including a HUGE contingent of self-described Republicans from Coweta County, Peachtree City, and Fayetteville passionately take the (Republican) Committee members to task for splitting up their communities, & for refusing to give citizens enough time to give their feedback. There was plenty of outrage to go around, for everyone in Metro ATL. Peachtree City, Dunwoody are being split up, Lawrenceville, the county seat of Gwinnett County will be in Hall County's district, & Buckhead will be mostly in 2 literally Salamander shaped districts that look like they locked jaws in a death grip from opposing directions, then someone stepped on them, flattened them. Who can possibly represent both Buckhead & SW Atlanta??(HD60) Even Chastain Park (HD53)has been split up at Lake Forrest Rd! These communities deserve their respective appropriate representation. I learned in school that gerrymandering was evil, it was the opposite of democracy. It is."],
+    "COI": [1],
+    "Characters": [998],
+    "LocationsMentioned": [
+      {
+        "Name": "Coweta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Meriwether County", "Spalding County", "Fulton County", "Heard County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Peachtree City",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Fayetteville",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      },
+      {
+        "Name": "Lawrenceville",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["NA"],
+        "Group": 3
+      },
+      {
+        "Name": "Gwinnett County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Hall County", "Jackson County", "Barrow County", "DeKalb County", "Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 3
+      },
+      {
+        "Name": "Hall County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Banks County", "Jackson County", "Gwinnett County", "Lumpkin County", "Dawson County"],
+        "DistrictTypes": ["NA"],
+        "Group": 4
+      },
+      {
+        "Name": "Buckhead",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 5
+      },
+      {
+        "Name": "Southwest Atlanta",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "Southwestern",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      },
+      {
+        "Name": "Chastain Park",
+        "AdminLevel": "Landmark",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 6
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [746],
+    "Date": ["2021-09-22"],
+    "Name": ["m. rezak"],
+    "County": ["DeKalb County"],
+    "Comment": ["This community is Albany State University, which is a community of interest that should be kept together by the redistricting process. https://districtr.org/COI/52065"],
+    "COI": [1],
+    "Characters": [166],
+    "LocationsMentioned": [
+      {
+        "Name": "Albany State University",
+        "AdminLevel": "School",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Dougherty County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [386],
+    "Date": ["2021-11-09"],
+    "Name": ["e. judd"],
+    "County": ["Cherokee County"],
+    "Comment": ["Cherokee County NEEDS four (4) house district seats and one (1) senator seat in the county within our county border. This is imperative to Cherokee County residents!"],
+    "COI": [1],
+    "Characters": [165],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Pickens County", "Gordon County", "Bartow County", "Cobb County", "Fulton County"],
+        "DistrictTypes": ["State House", "State Senate"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [1038],
+    "Date": ["2021-07-26"],
+    "Name": ["a. chubb"],
+    "County": ["McIntosh County"],
+    "Comment": ["I was ill and unable to attend. We have larger population in mcintosh and glynn cty. We need more representation in congress"],
+    "COI": [1],
+    "Characters": [124],
+    "LocationsMentioned": [
+      {
+        "Name": "McIntosh County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Glynn County", "Liberty County", "Wayne County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Glynn County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["McIntosh County", "Brunswick County", "Camden County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.5],
+    "Clarity": [0.3]
+  },
+  {
+    "CommentID": [427],
+    "Date": ["2021-11-08"],
+    "Name": ["d. sumner"],
+    "County": ["DeKalb County"],
+    "Comment": ["I was very surprised to see that Dunwoody would be split Into 2 house districts. We have lives here almost 20 years and it’s been my understanding that we’ve only had one representative for Dunwoody. It is also my understanding that we are a small enough to have one representative. It’s also sad that our current mayor wouldn’t be represented by her current legislator and the large Dunwoody district under the proposed map. Thanjavur you."],
+    "COI": [1],
+    "Characters": [440],
+    "LocationsMentioned": [
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [144],
+    "Date": ["2021-11-18"],
+    "Name": ["g. houghton"],
+    "County": ["Cherokee County"],
+    "Comment": ["Do not split Cherokee County into 2 districts! Keep us as one!"],
+    "COI": [1],
+    "Characters": [62],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Pickens County", "Gordon County", "Bartow County", "Cobb County", "Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [737],
+    "Date": ["2021-09-28"],
+    "Name": ["m. fitzgerald"],
+    "County": ["Fulton County"],
+    "Comment": ["On the Congressional draft map, having a small thumbprint of the 7th district--crossing county and natural (river) boundaries into N. Fulton makes absolutely ZERO sense. There is NO community of interest of the Fulton voters have with Gwinnett! ZERO! To meet the numbers game, you are using a small section of Fulton voters as useless cannon fodder thus relegating them to voiceless purgatory for 10 years! PLEASE, reconsider bleeding the 7th District into Johns Creek/Fulton!"],
+    "COI": [1],
+    "Characters": [476],
+    "LocationsMentioned": [
+      {
+        "Name": "Congressional District 7",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["NA"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Gwinnett County", "Forsyth County", "Cobb County", "DeKalb County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Gwinnett County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County", "Fulton County", "DeKalb County", "Forsyth County", "Hall County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Johns Creek",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Gwinnett County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [1133],
+    "Date": ["2021-07-07"],
+    "Name": ["j. olive"],
+    "County": ["Athens-Clarke County"],
+    "Comment": ["A key requirement of re-districting is to keep \"\"Communities of Interest\"\" together so that their representative can ACTUALLY represent those interests. In the re-districting that occurred in 2011, Athens-Clarke County's two democratic House districts were gerrymandered into three districts, only one of which was contained wholly in ACC (118). The other two districts (117 & 119) were combined with rural counties adjacent to ACC, guaranteeing Republican victories in those two districts. For 7 years, no democrat would even run in those two districts as they knew it was a waste of money and effort. In 2017, both republican incumbents were appointed to state offices and a special election was called. For the first time in 7 years we had Democratic candidates willing to run and they won! Obviously, the rural Republican voters didn't bother to show up for that special election but did so in record numbers in 2018, once again, guaranteeing Republican victories for House districts 117 and 119. These victories were repeated in 2020 despite record turnouts from both parties. The representatives for HD 117 and 118 do NOT represent the values and interests of the 70% of ACC residents that did NOT vote for them. Athens is an urban district (the fifth largest urban area in Georgia with over 120,000 residents in the smallest county by geography in Georgia). The needs and values of this urban county are different from those of the other rural 60% of these two districts. I urge the two committees to return ACC to two House Districts, fully contained within ACC and to also adjust the Senate districts so that only one senator can fully represent the needs of ACC instead of having ACC split between two rural senate districts. Thank you for considering this request and I hope both committees can put Partisanship aside and let the voters choose their representatives instead of the party in power choosing their voters!"],
+    "COI": [1],
+    "Characters": [1929],
+    "LocationsMentioned": [
+      {
+        "Name": "Athens-Clarke County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Madison County", "Oconee County", "Oglethorpe County", "Barrow County", "Jackson County"],
+        "DistrictTypes": ["State House", "State Senate"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [405],
+    "Date": ["2021-11-09"],
+    "Name": ["a. rose"],
+    "County": ["Fayette County"],
+    "Comment": ["I live in Fayette County for a reason. Our county is being divided into four districts with each one of the four being a minority part of the larger district based on population is very upsetting to me and my neighbors Based on the proposed map, Fayette would be split into districts 68, 69, 73 and 74. The majority by population of those districts lies outside of Fayette County which dilutes the votes of Fayette county residents. No disrespect to other counties, but I do not think that what is best for Fayette County should be decided by residents of south Fulton, Spalding, Henry and Coweta counties. Please, you can do better."],
+    "COI": [1],
+    "Characters": [633],
+    "LocationsMentioned": [
+      {
+        "Name": "Fayette County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Spalding County", "Henry County", "Coweta County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Southern",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Coweta County", "Clayton County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      },
+      {
+        "Name": "Spalding County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Henry County", "Coweta County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      },
+      {
+        "Name": "Henry County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Spalding County", "Clayton County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      },
+      {
+        "Name": "Coweta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Fulton County", "Spalding County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [414],
+    "Date": ["2021-11-09"],
+    "Name": ["e. disner"],
+    "County": ["DeKalb County"],
+    "Comment": ["Dunwoody deserves to remain whole and represented by one person. Not split by the current restricting plan."],
+    "COI": [1],
+    "Characters": [107],
+    "LocationsMentioned": [
+      {
+        "Name": "Dunwoody",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [112],
+    "Date": ["2021-11-18"],
+    "Name": ["d. ivey"],
+    "County": ["Cobb County"],
+    "Comment": ["I can't really tell from the proposed and blatantly gerrymandered congressional map where either my house or U.S. Representative David Scott, my congressman, would end up, but there is absolutely no reason why Cobb, Forsyth, and Dawson should be in the same district. I do NOT want to end up in Barry Loudermilk's district!!! This is why the Voting Rights Act should be strengthened!!! What's worse, the new House of Representatives and State Senate maps aren't even that fair, despite what legislative Republicans might say!!!"],
+    "COI": [1],
+    "Characters": [527],
+    "LocationsMentioned": [
+      {
+        "Name": "Cobb County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cherokee County", "Fulton County", "Douglas County", "Paulding County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Forsyth County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Dawson County", "Hall County", "Gwinnett County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 2
+      },
+      {
+        "Name": "Dawson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Lumpkin County", "Hall County", "Cherokee County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 3
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [1027],
+    "Date": ["2021-07-27"],
+    "Name": ["m. wiley"],
+    "County": ["Macon-Bibb County"],
+    "Comment": ["Redistricting should be a nonpartisan, transparent process that is not used as a tool to keep one party in power. It's hard for Macon-Bibb to operate as one community when we are divided into five different House and three Senate districts."],
+    "COI": [1],
+    "Characters": [240],
+    "LocationsMentioned": [
+      {
+        "Name": "Macon-Bibb",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Monroe County", "Jones County", "Twiggs County", "Houston County", "Peach County", "Crawford County"],
+        "DistrictTypes": ["State House", "State Senate"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [1171],
+    "Date": ["2021-07-02"],
+    "Name": ["n. tisdale"],
+    "County": ["Athens-Clarke County"],
+    "Comment": ["Athens is currently divided into so many parts of districts that our needs and views are diluted such that we have less voice in state legislature. As the smallest county in Georgia, we do NOT need to be so divided. Please use logic to create districts so that voters with have someone to represent their views. Thanks."],
+    "COI": [1],
+    "Characters": [319],
+    "LocationsMentioned": [
+      {
+        "Name": "Athens-Clarke County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Madison County", "Oconee County", "Oglethorpe County", "Barrow County", "Jackson County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [1160],
+    "Date": ["2021-07-05"],
+    "Name": ["k. menke"],
+    "County": ["Athens-Clarke County"],
+    "Comment": ["Among the criteria for redistricting cited by the National Conference of State Legislatures is the adherence \"\"to pre-existing political subdivisions (such as city and county lines)\"\". I live in the smallest county in Georgia which was divided by the last redistricting into three Georgia House Districts, two Georgia State Senate Districts, and two US House Districts. It appears that the 2010 Redistricting was way off the mark in its maps for all three offices and, in fact, weakened our say in all of these elections of our leaders. I urge you this time to be fairer to our county and follow the above criteria."],
+    "COI": [1],
+    "Characters": [615],
+    "LocationsMentioned": [
+      {
+        "Name": "Athens-Clarke County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": [],
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.4],
+    "Clarity": [0.8]
+  },
+  {
+    "CommentID": [588],
+    "Date": ["2021-10-31"],
+    "Name": ["c. latham"],
+    "County": ["Coffee County"],
+    "Comment": ["Most Georgians know you all only care about the metro areas, but many of us do not like how you carve up our districts to benefit the metro areas. Every time you all redraw, our county has gone from the 1st district to the 12th and now you are proposing the 8th. Leave us alone down here and fix your own districts in metro areas. Let us stay where we have been!! Oh, and get rid of SB 202. You screwed up there as well!"],
+    "COI": [1],
+    "Characters": [420],
+    "LocationsMentioned": [
+      {
+        "Name": "Coffee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["NA"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.4]
+  },
+  {
+    "CommentID": [1040],
+    "Date": ["2021-07-26"],
+    "Name": ["f. pescatore"],
+    "County": ["Unknown County"],
+    "Comment": ["Having moved to Suwanee 5 years ago from Ohio, I saw that Suwanee was an area where I most felt at home. I come from the mid-west, with conservative mid-west values. I value low crime, good schools, beautiful parks. I like neighbors who feel the same way I do, and vote Republican. Many of my friends have lived here a lot longer than me and are extremely concerned with the downgrade of the schools and the rise in crime here. We do not want Democratic representation. We want a Republican Congressman who will represent our conservative values. Please consider North Gwinnett when redrawing the maps and align us or keep us in conservative territory! Thank you!"],
+    "COI": [1],
+    "Characters": [663],
+    "LocationsMentioned": [
+      {
+        "Name": "Suwanee",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "North Gwinnett",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "SurroundingCounties": ["Gwinnett County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.6],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [329],
+    "Date": ["2021-11-10"],
+    "Name": ["m. ball"],
+    "County": ["Fayette County"],
+    "Comment": ["VOTE NO TO REDISTRICTING FAYETTE COUNTY! Our ideas do not align the counties you want to redistrict our county with. Vote NO!!!"],
+    "COI": [1],
+    "Characters": [127],
+    "LocationsMentioned": [
+      {
+        "Name": "Fayette County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Clayton County", "Spalding County", "Coweta County", "Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.6]
+  },
+  {
+    "CommentID": [309],
+    "Date": ["2021-11-10"],
+    "Name": ["d. wilson"],
+    "County": ["Coweta County"],
+    "Comment": ["Please VOTE NO on the redistricting. Coweta county is a conservative county. Coweta County representation does not need to be in Fulton County. We need to be represented by someone who lives in Coweta County. I do not approve the current version of the house redistricting map! I am a resident of Coweta County, and I do not approve of the way the committee has carved up Coweta and Fayette counties. The districts now give too much weight to Atlanta interests, and will result in the interests of long time residents of North Central Georgia being swallowed up in big city politics! We have NOTHING in common with Fulton County, as anyone who has visited the small towns and surrounding countryside in Fayette and Coweta counties can plainly observe. The map, as-drawn, in no way will represent my interests as a small town Georgian. Please, do not do this. Thank you."],
+    "COI": [1],
+    "Characters": [869],
+    "LocationsMentioned": [
+      {
+        "Name": "Coweta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fayette County", "Fulton County", "Meriwether County", "Heard County", "Troup County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Coweta County", "Fayette County", "Clayton County", "DeKalb County", "Forsyth County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      },
+      {
+        "Name": "Fayette County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Coweta County", "Fulton County", "Clayton County", "Spalding County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "Atlanta",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "DeKalb County", "Clayton County", "Cobb County", "Gwinnett County"],
+        "DistrictTypes": ["NA"],
+        "Group": 2
+      },
+      {
+        "Name": "North Central Georgia",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Coweta County", "Fayette County", "Fulton County", "Douglas County", "Carroll County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.2],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [352],
+    "Date": ["2021-11-09"],
+    "Name": ["w. mullins"],
+    "County": ["Fulton County"],
+    "Comment": ["Dear Representative- I'm taking the time today to write to you that I do not favor the redistricting plan for Cherokee County. Under this new plan, the lines for Rep Phillip’s district will reflect a 70-30% Democrat majority which is excessive. This redistricting scheme does not accurately represent our community. The district lines must be drawn to accurately reflect the community of Cherokee County which is 80-20% Republican. You have the power to correct this injustice that goes against the will of the people. As you see daily, people are rising up to support elected officials who speak on behalf of their communities, and flipping seats of those who do not. We hope to be able to endorse you in the future rather than seek your replacement. Thank you!"],
+    "COI": [1],
+    "Characters": [762],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Cherokee County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [1048],
+    "Date": ["2021-07-25"],
+    "Name": ["a. russell"],
+    "County": ["Muscogee County"],
+    "Comment": ["we would like all of Muscogee to be in one district. it would be my idea for Muscogee, Harris, and Meriweather to all 3 move to the 2dd Congressional District. thank you for this meeting."],
+    "COI": [1],
+    "Characters": [187],
+    "LocationsMentioned": [
+      {
+        "Name": "Muscogee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Harris County", "Chattahoochee County", "Russell County", "Talbot County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Harris County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Muscogee County", "Talbot County", "Meriwether County", "Troup County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      },
+      {
+        "Name": "Meriwether County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Harris County", "Troup County", "Pike County", "Coweta County"],
+        "DistrictTypes": ["Congressional"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.6],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [366],
+    "Date": ["2021-11-09"],
+    "Name": ["w. gula"],
+    "County": ["Fulton County"],
+    "Comment": ["Please stop the unfair redistricting of Georgia House Representation Phillip Singleton House District in Coweta County 73. I have lived in Fulton County for 28 years, and I am a strong supporter of House Representative Phillip Singleton. Phillip is dedicated to election integrity in Georgia’s elections. He is a brilliant representative and represents all Georgia voters working to ensure their vote counts and is not nullified by an illegal vote. Georgia voters need this reassurance since so many voting irregularities occurred in 2020. This is a HUGE confidence issue of tens of thousands of Georgia voters and a full forensic audit will build trust. House Speaker David Ralston is attempting to unfairly redistrict Rep Singleton out of his seat. The new redistricting moves the Republican from District 73 that has an 80-20% Republican majority to District 67 that has a 70 -30% Democrat majority. Please address this issue and stop this vindictive retaliatory action by David Ralston."],
+    "COI": [1],
+    "Characters": [990],
+    "LocationsMentioned": [
+      {
+        "Name": "Coweta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Fulton County", "Heard County", "Meriwether County", "Troup County", "Fayette County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "Fulton County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["DeKalb County", "Clayton County", "Cobb County", "Douglas County", "Fayette County", "Coweta County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "State House District 73",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Coweta County"],
+        "DistrictTypes": ["State House"],
+        "Group": 1
+      },
+      {
+        "Name": "State House District 67",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Coweta County", "Douglas County", "Fulton County"],
+        "DistrictTypes": ["State House"],
+        "Group": 2
+      }
+    ],
+    "Sentiment": [0.3],
+    "Clarity": [0.9]
+  },
+  {
+    "CommentID": [165],
+    "Date": ["2021-11-18"],
+    "Name": ["p. miner"],
+    "County": ["Cherokee County"],
+    "Comment": ["I am absolutely opposed to the proposed gerrymandering of Cherokee County. Please stop."],
+    "COI": [1],
+    "Characters": [87],
+    "LocationsMentioned": [
+      {
+        "Name": "Cherokee County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "SurroundingCounties": ["Forsyth County", "Dawson County", "Pickens County", "Gordon County", "Bartow County", "Cobb County", "Fulton County"],
+        "DistrictTypes": ["NA"],
+        "Group": 1
+      }
+    ],
+    "Sentiment": [0.1],
+    "Clarity": [0.7]
+  }
+]
