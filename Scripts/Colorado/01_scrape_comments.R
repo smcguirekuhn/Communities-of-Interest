@@ -1,5 +1,5 @@
 
-# Script 01: Clean Georgia Web Comments Data
+# Script 01: Scrape Colorado Web Comments
 
 # reset global environment ----
 rm(list = ls())
