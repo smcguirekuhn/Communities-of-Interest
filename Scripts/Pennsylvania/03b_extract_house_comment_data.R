@@ -1,5 +1,5 @@
 
-# Script 02a: Extract COI Information from Pennsylvania House Comments Data
+# Script 03b: Extract COI Information from Pennsylvania House Comments Data
 
 # reset global environment ----
 rm(list = ls())

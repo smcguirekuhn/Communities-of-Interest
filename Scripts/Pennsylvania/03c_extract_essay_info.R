@@ -1,5 +1,5 @@
 
-# Script 02b: Extract COI Information from Pennsylvania House Essay Data
+# Script 03c: Extract COI Information from Pennsylvania House Essay Data
 
 # reset global environment ----
 rm(list = ls())
