@@ -16,31 +16,31 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Georgia/"
 gaWebCommentsFilename <- "GAWebComments.rds"
 gaWebCommentDataFilename <- "GAWebCommentData.rds"
-groundTruthFileName <- "GroundTruth/GAGroundTruthComments.rds"
 
 # import georgia web comments and filter to coi comments ----
-gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename)) |>
-  dplyr::filter(COI == 1)
+gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename))
 
 # add comment screening column ----
 gaWebCommentData <- purrr::map(
-  .progress = TRUE,
-  .x = 1:nrow(gaWebComments),
-  .f = purrr::safely(\(webCommentID) {
+  .progress = "Extracting Comment Information",
+  .x = unique(gaWebComments[["County"]]),
+  .f = purrr::safely(\(county) {
     
     ## pause system to limit token rate ----
     Sys.sleep(time = 1)
     
-    ## isolate individual comment ----
-    webComment <- gaWebComments |>
-      dplyr::slice(webCommentID) |>
-      dplyr::mutate(Characters = nchar(Comment)) |>
-      as.list()
+    ## isolate comments for an individual county ----
+    countyWebComments <- gaWebComments |>
+      dplyr::filter(COI == 1, County == county) |>
+      dplyr::mutate(Characters = nchar(Comment))
+    
+    ## define local context for comment data extraction ----
+    localContext <- glue::glue("{county}, Georgia")
     
     ## gather comment information ----
     commentInfo <- extractCommentInfo(
-      description = webComment$Comment,
-      state = "Georgia",
+      prompts = countyWebComments |> dplyr::pull(Comment) |> as.list(),
+      localContext = localContext,
       adminLevels = c(
         "Landmark",
         "School",
@@ -57,11 +57,12 @@ gaWebCommentData <- purrr::map(
       )
     )
     
-    ## append comment information ----
-    webComment <- webComment |> append(values = commentInfo)
+    ## bind comment information ----
+    countyWebComments <- countyWebComments |>
+      dplyr::bind_cols(commentInfo)
     
     ## return comment information ----
-    return(webComment)
+    return(countyWebComments)
   })
 )
 
@@ -72,8 +73,13 @@ errorCount <- sum(!sapply(X = gaWebCommentsErrors, FUN = is.null))
 errorIDs <- which(!sapply(X = gaWebCommentsErrors, FUN = is.null))
 cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCount}")))
 
-# extract valid results ----
-gaWebCommentData <- gaWebCommentData |> purrr::map(.f = \(webComment) webComment$result)
+# extract valid results and reformat on a location-wise basis ----
+gaWebCommentData <- gaWebCommentData |>
+  purrr::map(.f = \(webComment) webComment$result) |>
+  purrr::list_rbind() |>
+  dplyr::rename(CommenterName = Name) |>
+  tidyr::unnest(cols = "LocationsMentioned") |>
+  dplyr::arrange(as.numeric(CommentID))
 
 # # create sample of duplicates for ground truth coding ----
 # set.seed(seed = 1998)

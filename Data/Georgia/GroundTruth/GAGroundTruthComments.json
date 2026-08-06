@@ -1419,7 +1419,7 @@
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
-        "SurroundingCounties": [],
+        "SurroundingCounties": ["NA"],
         "DistrictTypes": ["State House", "State Senate", "Congressional"],
         "Group": 1
       }
