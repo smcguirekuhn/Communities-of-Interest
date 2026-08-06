@@ -4,9 +4,6 @@ screenCommentsForCOIs <- function(prompts, state, model = "mistralai/mistral-lar
   stopifnot(is.list(prompts))
   stopifnot(state %in% state.name)
   
-  ## initialize chat object ----
-  chat <- ellmer::chat_openrouter(model = model)
-  
   # evaluate whether description mentions a community of interest ----
   coiIndicators <- ellmer::parallel_chat_structured(
     chat = ellmer::chat_openrouter(model = model),
