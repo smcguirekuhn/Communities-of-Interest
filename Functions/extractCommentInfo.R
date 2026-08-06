@@ -107,7 +107,7 @@ extractCommentInfo <- function(
           
           ### district types ----
           DistrictTypes = ellmer::type_array(
-            items = type_enum(values = districtTypes),
+            items = ellmer::type_enum(values = districtTypes),
             description = ellmer::interpolate(
               "List the types of legislative districts likely being discussed by this commenter
               when mentioning the location in their redistricting specifications.
