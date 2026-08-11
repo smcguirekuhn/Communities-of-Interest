@@ -17,7 +17,7 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Colorado/"
 coWebCommentsFilename <- "COWebComments.rds"
 coWebCommentDataFilename <- "COWebCommentData.rds"
-coGroundTruthFilename <- "GroundTruth/COGroundTruthComments.json"
+coGroundTruthFilename <- "GroundTruth/COGroundTruthComparison.json"
 
 # import web comments ----
 coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
