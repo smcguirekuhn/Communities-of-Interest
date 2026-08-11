@@ -1,0 +1,2661 @@
+[
+  {
+    "CommentID": 78,
+    "CommenterName": "Jim and Jill Duvall",
+    "Date": "2021-04-05",
+    "Commission": "both",
+    "ZIPCode": "80107",
+    "Comment": "As your commission begins the process of redistricting for the State of Colorado, we would like to make some observations from Elbert County.  We are geographically just east of the metro area.  As a result of our location, a large majority (approximately 90%) of the residents of our county work in the metro area.  It is a relatively simple commute, particularly for the northwest corner of our county where about 75% of  Elbert County residents live.  Consequently, most of the population of Elbert County acquires their services from the metro area....shopping, medical care, transportation needs, etc.  We have very little medical care in our county; no hospitals or emergency medical locations.  Additionally, we have no renewable water resources which is causing concern as well levels (over 90% of residents are on well and septic as no infrastructure has been developed outside of the 3 small towns) are dropping.  Being able to perhaps develop intra-governmental agreements with neighboring counties to tap into their renewable water sources would be a great advantage to Elbert County.  For the reasons listed above, it would be appreciated if your commission would consider placing the northwest section of our county in legislative and Congressional districts with similar needs and interests to the adjoining counties.  Thank you for your consideration.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1367,
+    "Sentiment": 0.7,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Elbert County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northwestern",
+        "Description": "NA",
+        "DistrictTypes": ["State House", "State Senate", "Congressional"],
+        "LocationsToGroup": ["Douglas County", "Arapahoe County", "Adams County", "Jefferson County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Denver Metro Area",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Elbert County"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 330,
+    "CommenterName": "Jack Moyers",
+    "Date": "2021-05-29",
+    "Commission": "both",
+    "ZIPCode": "80601",
+    "Comment": "My concern would be that communities of interest would be divided by the redistricting in many areas of the state.\nHere is an example of what I am saying:  \nIf the state legislative district commission divides the house and/or senate districts between Larimer and Boulder counties it will divide those districts between two very different communities of interest.  This is an example that should be done in any area of the state.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 429,
+    "Sentiment": 0.4,
+    "Clarity": 0.7,
+    "LocationsMentioned": [
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House", "State Senate"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder County"]
+      },
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House", "State Senate"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Larimer County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 342,
+    "CommenterName": "Elizabeth A Geisleman",
+    "Date": "2021-06-02",
+    "Commission": "congressional",
+    "ZIPCode": "80004",
+    "Comment": "I currently live and built our business in congressional district 7. We choose Golden as our headquarters for our company as we are solidly in the supply chain between aerospace and their prime vendors. Proximity is important given the nature of the industry. Currently we provide services directly to Lockheed Martin, Ball Aerospace and many of their circuit board and plating vendors in the area. We also have an endless amount of potential talent coming from the school of mines near by to support these pursuits. We are also a provider products to NREL that does extensive work with NASA and Lockheed. I believe given that this industry is vital for Colorado, maintaining their presence in the same congressional district is vital. Colorado is the 2nd largest aerospace economy in the country and the future is very bright in that vertical. Any potential of disrupting the flow of funding or advocacy is far to dangerous to even consider splitting this entities into different congressional districts. On another note, we have chosen to raise our family in Arvada next door. Issues like secondary education, workforce housing and infrastructure in the district greatly impact these industries and the quality of life here in Colorado. Advocacy on these issues is equally important to maintain these large aerospace companies. Thank you for your time and attention. Liz Geisleman",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1382,
+    "Sentiment": 0.7,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Golden",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Arvada", "Colorado School of Mines", "National Renewable Energy Laboratory", "Congressional District 7"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Arvada",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Golden", "Colorado School of Mines", "National Renewable Energy Laboratory", "Congressional District 7"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado School of Mines",
+        "AdminLevel": "School",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Golden", "Arvada", "National Renewable Energy Laboratory", "Congressional District 7"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "National Renewable Energy Laboratory",
+        "AdminLevel": "Landmark",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Golden", "Arvada", "Colorado School of Mines", "Congressional District 7"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Congressional District 7",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Golden", "Arvada", "Colorado School of Mines", "National Renewable Energy Laboratory"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 349,
+    "CommenterName": "Cassie Tanner",
+    "Date": "2021-06-03",
+    "Commission": "both",
+    "ZIPCode": "80401",
+    "Comment": "My name is Cassie Tanner and I serve as the President on the West Metro Fire Protection District Board of Directors. West Metro Fire Rescue is a full service, all hazard fire and rescue agency that covers more than 108 square miles and serves nearly 280,000 residents. Our special district serves Wheat Ridge, Edgewater, Lakewood, and parts of unincorporated Jefferson County including Applewood, Dakota Ridge, and Ken Caryl. \n\nOur congressional districts should reflect our communities shared interests and the West Metro Fire Protection District is one of those shared interests. West Metro Fire should be deemed a community of interest in your consideration of congressional district lines and I would recommend the district be in one congressional district. Thank you.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 772,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "West Metro Fire Protection District",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Wheat Ridge", "Edgewater", "Lakewood", "Jefferson County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Wheat Ridge",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["West Metro Fire Protection District"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Edgewater",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["West Metro Fire Protection District"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Lakewood",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["West Metro Fire Protection District"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Jefferson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "Unincorporated",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["West Metro Fire Protection District", "Applewood", "Dakota Ridge", "Ken Caryl"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Applewood",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Jefferson County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Dakota Ridge",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Jefferson County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Ken Caryl",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Jefferson County"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 645,
+    "CommenterName": "Carolyn Culp",
+    "Date": "2021-06-13",
+    "Commission": "both",
+    "ZIPCode": "80487",
+    "Comment": "I am Carolyn Culp and I live in a rural area 10 miles outside of Steamboat.  We consistently have wildlife roaming through our property including bear, deer, mountain lions, elk, fox, among other small mammals.  We pass fields with cranes coming home to our property.  Routt County is predominately a rural county and the wildlife helps support the tourism industry in the county along with the open lands, parks, forests and lakes.  The economy is driven by ranchers, energy production, tourism, the ski area which leases forest service land and many \"ma and pa\" businesses.  It is important that we align our county with the others that have similar economies and concerns for the future of preservation of our land including water rights.  Ma and Pa businesses are far different with different issues and concerns from the larger corporate businesses that support the front range economies.  \nOur current districting is aligned with our surrounding rural counties and I believe that Routt County should stay in the same district.  I would respectfully request that you allow the county to remain united in it's rural roots and not move us into a district where our goals and values would compromise our rural way of life.  \n\nSincerely,\n\nCarolyn Culp",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1252,
+    "Sentiment": 0.7,
+    "Clarity": 0.7,
+    "LocationsMentioned": [
+      {
+        "Name": "Steamboat Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Routt County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Steamboat Springs"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 862,
+    "CommenterName": "Robert Lindgren",
+    "Date": "2021-06-18",
+    "Commission": "legislative",
+    "ZIPCode": "80031",
+    "Comment": "Hello, I am a resident of Westminster. I reside on the Jefferson County side of Westminster. Due to community connections to schools and other county services, I think there is a community of interest specific to each of the two counties that make up Westminster and I also think having legislative districts follow county lines fits with the needs of the community while respecting the communities of interest within Adams and Jefferson Counties. ",
+    "COI": 1,
+    "Characters": 448,
+    "Reviewed": 1,
+    "Sentiment": 0.7,
+    "Clarity": 0.6,
+    "LocationsMentioned": [
+      {
+        "Name": "Westminster",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Jefferson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Adams County"]
+      },
+      {
+        "Name": "Adams County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Jefferson County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 1073,
+    "CommenterName": "Bill Keever",
+    "Date": "2021-07-09",
+    "Commission": "congressional",
+    "ZIPCode": "80012",
+    "Comment": "Please include all of the City of Aurora in a single district; currently the Preliminary Colorado Congressional District Map doesn't include an eastern portion of the city (see attached, map). \n\nAlso, please see the attached City of Aurora City Council Resolution R2021-25 in support of municipal integrity.\n\nBest Regards\nBill Keever\nCity of Aurora\n\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 350,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Aurora",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 1221,
+    "CommenterName": "toby stauffer",
+    "Date": "2021-07-22",
+    "Commission": "legislative",
+    "ZIPCode": "80487",
+    "Comment": "routt county should not be included with moffatt and rio blanco for state reps- routt is more similar to vail/eagle and should be with another mountain area rather than a more western slope area. the ideals and character are too different in the current configuration. keep routt with vail/eagle or another similar mountain town",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 328,
+    "Sentiment": 0.5,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Eagle County", "Vail"],
+        "LocationsToSeparate": ["Moffat County", "Rio Blanco County"]
+      },
+      {
+        "Name": "Moffat County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County"]
+      },
+      {
+        "Name": "Rio Blanco County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County"]
+      },
+      {
+        "Name": "Vail",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Routt County", "Eagle County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Eagle County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Routt County", "Vail"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 1395,
+    "CommenterName": "Richard K Erdmann",
+    "Date": "2021-07-30",
+    "Commission": "legislative",
+    "ZIPCode": "80129",
+    "Comment": "Thanks for your work on this important function.  I am writing as a resident of the Wind Crest senior living community.  I respectfully request that the Wind Crest community be wholly included in one legislative district -- not two, as is currently proposed.\n\nIn the most recent preliminary map, I note that the Wind Crest campus is split between District 22 and District 33.  Wind Crest is a community of seniors who live, eat, and engage in activities throughout the campus.  Also, we are very active voters!  Splitting our community into two districts would create confusion among our people who are and want to continue to be engaged in political  activities.\n\nPlease consider keeping the Wind Crest campus entirely in one district.\n\nRegards,\nDick Erdmann\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 760,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Wind Crest Senior Living Community",
+        "AdminLevel": "Landmark",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 1435,
+    "CommenterName": "Anne Lowe",
+    "Date": "2021-08-02",
+    "Commission": "both",
+    "ZIPCode": "80487",
+    "Comment": "First of all, I think the proposed redistricting maps are very promising.  They reflect what appears to be a thoughtful process based on the guidelines the Commission was tasked to follow.  Also, there has been a concerted effort that I appreciate to provide opportunity for input from Colorado communities such as online commentary and public hearings.  My husband and I took the opportunity to attend the meeting in Steamboat Springs on July 23rd.  I did not speak at this event, but would like to comment on my concerns regarding a few of the objections made to the proposed redistricting brought up during the meeting. \n1. Many of the objections centered around the proposal to split Eagle County from Routt County and combine Moffat County with Routt County.  The objector's reasoning appeared to be based on what should be local issues (and should be dealt with at the local level).  These included such things as housing prices, wages, and climate action plans, rather than more important district issues such as the Western Slope geography, water, agriculture & mining, as well as relationships with the Forest Service and BLM.  \n2. The town of Steamboat Springs was represented as the focus for the entirety of Routt County although it is less than half of the population.  The other half of the more rural portion of Routt was disregarded in their arguments and in some cases factually misrepresented.\n3. There was an overemphasis on types of industry, i.e. ski resorts having to be in the same district.  This is not only impractical, but also disenfranchising to the rural aspects of the county.  Industries have associations, such as the National Ski Association, that are prevalent and perfectly able to communicate industry concerns and issues, without expecting the commission to prioritize grouping these types of industries together, especially when it's impractical to do so.\n\nIn summary, I'm in favor of the proposed redistricting plans that have been presented and heard nothing during the meeting that would justify changes. Thanks to all the commissioners for their hard work in this important matter.\nAnne Lowe\nResident of Unincorporated Routt County      ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 2180,
+    "Sentiment": 0.7,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Eagle County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Routt County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Eagle County"],
+        "LocationsToSeparate": ["Moffat County"]
+      },
+      {
+        "Name": "Moffat County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County"]
+      },
+      {
+        "Name": "Steamboat Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 1864,
+    "CommenterName": "Karen Herrera",
+    "Date": "2021-08-11",
+    "Commission": "both",
+    "ZIPCode": "80501",
+    "Comment": "These comments are directed to the Congressional Commission. I am speaking to you as a long-term member of the Longmont community, a bilingual Medicare counselor, and member of the Latin X community. I am not an expert on redistricting - I am coming to speak to you as a community member and as an advocate for Spanish-speaking older adults. Tonight, I plan to share with you my personal and professional observations and experiences living in Longmont, so that you can understand what it's like to live in my community. \nFirst, I'd like to describe one of the most common issues my clients come across regarding Medicaid. Most of the Spanish speaking older adults I speak with are struggling to make ends meet and once they hit age 65 the income eligibility guidelines to qualify for the Medicare Savings Program decreases. This means that even if they have been on Medicaid for years once they hit age 65 making the same monthly income they can no longer qualify for Medicaid. The MSP is a Medicaid program that helps Boulder County residents pay for the Medicare Part B premiums which are $148.50 per month this year. The max income to qualify for a single individual is $1,469 and $1,980 for a married couple. I am consistently told that they are barely able to pay for housing as it is and they ask me how are they going to survive after having almost $150 dollars per month taken out.  I have limited resources to refer them to- including section 8 housing for which there is a lengthy waiting list and limited housing as it. Our older adults in Longmont are struggling to pay for medications and medical care due to being slightly over income to qualify for State assistance. They are faced with having to choose between paying medications and buying food or paying for housing.  \nWhile this issue is common for folks at this socioeconomic level, it impacts the Latinx community uniquely. When Spanish-speaking older adults are in this position, they rely on their younger generations to support them, often living in multi-generational households. This experience is very specific to the Latinx community and affects us deeply. It is a part of our culture that can only be understood by those who have also experienced it. This is just one of many reasons that it is well past time for Colorado to have a Latinx congressperson. \nThe Latinx community has been overlooked and underserved for far too long. Latinx community members are not getting the services they need, especially our older adults. We need an advocate in Congress who is intimately familiar with what it is like to be Latinx in Colorado and in the US. That is why I am asking you, Commissioners, to focus on creating an 8th Congressional District that prioritizes the Latinx community. By including Longmont, Adams County, and Greeley in one congressional district, the Latinx community will finally have an opportunity to have a strong say in who represents us in Congress. While the concerns of each of these different Latinx communities are different, unifying us in one congressional district would provide us with the opportunity to fight for the issues that adversely affect our communities most deeply. It is beyond time for the Latinx community to have a representative - please give us that in this new 8th congressional district. \n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 3315,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Longmont",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Adams County", "Greeley"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Adams County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Longmont", "Greeley"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Greeley",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Longmont", "Adams County"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 2192,
+    "CommenterName": "Kathrine Jansen",
+    "Date": "2021-08-25",
+    "Commission": "congressional",
+    "ZIPCode": "80435",
+    "Comment": "Agree with the Redistricting Commission. Summit County shares an economic, geographic and cultural community of interest with the Western Slope, and that’s where our representation in the U.S. Congress and the Colorado Legislature should be. Colorado's Front Range is a densely populated urban area of our state. We are not an urban center and our voices expressing our local concerns get drowned out by the high populations of Denver and Boulder. We have more in common on a wide range of policy issues with our surrounding counties and the Western Slope such as tourism, transportation, water, forest management, education and health care. \n\nFor these reasons, I support including Summit County in the 3rd Congressional District separating us from Boulder and Jefferson counties. I support the proposed Colorado House District for Summit County. The proposed Colorado Senate District shares some of the characteristics of the House District but could be improved by including Park County with Summit County.          \n\nI thank the commission for its hard work on this issue. ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1077,
+    "Sentiment": 0.9,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Summit County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional", "State House", "State Senate"],
+        "LocationsToGroup": ["Western Slope", "Park County"],
+        "LocationsToSeparate": ["Boulder County", "Jefferson County"]
+      },
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Summit County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Front Range",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Summit County"]
+      },
+      {
+        "Name": "Denver",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Summit County"]
+      },
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Summit County"]
+      },
+      {
+        "Name": "Jefferson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Summit County"]
+      },
+      {
+        "Name": "Park County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State Senate"],
+        "LocationsToGroup": ["Summit County"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 2242,
+    "CommenterName": "Charlotte Gagne",
+    "Date": "2021-08-27",
+    "Commission": "both",
+    "ZIPCode": "80908",
+    "Comment": "\nTo Whom It May Concern:\n I am very concerned about the preliminary State House Map presented to the public.  The map as drawn makes little or no sense, discriminates against communities of color, and eliminates competitive districts, helping to demolish our free and fair democratic elections in El Paso County.\n\n        Why are former House Districts 17 and 18 being broken up?  Both House Districts are communities of interest.  House District 18 is already geographically connected from Manitou Springs to Old Colorado City to downtown Colorado Springs.  This area is comprised of older homes with similar interests and needs.  House District 17 is another community of interest, serving the needs of Southeastern Colorado Springs.  Destroying House District 17 is a disservice to the communities of color that lie within its boundaries.  Both of these districts are competitive.  Changing them would nullify that fact and certainly make them non-competitive.\n\n     Furthermore, I am mystified by your delineation of the boundaries of the proposed House District 49.  It comprises only half of the Tri-Lakes area, making absolutely no sense.  The Tri-Lakes area is another community of interest and should be kept together as a geographically contiguous district.  The Tri-Lakes area of Monument and Palmer Lake has totally different needs from Colorado Springs.   Colorado Springs should definitely not be apportioned to the proposed House District 49.\n\n      I hope that in the future this State House Map contains competitive districts and accommodates communities of interest, not blatant political opportunism and gerrymandering.  This is still a representative democracy, a republic, and public officials such as yourselves need to act in a forthright fashion and champion the democratic ideals of our republic.\n\nRespectfully submitted,\nCharlotte gagne\n\n\n\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1866,
+    "Sentiment": 0.2,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Manitou Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Old Colorado City", "Downtown Colorado Springs", "House District 18"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Old Colorado City",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Manitou Springs", "Downtown Colorado Springs", "House District 18"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Downtown Colorado Springs",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Manitou Springs", "Old Colorado City", "House District 18"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Southeastern Colorado Springs",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["House District 17"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Tri-Lakes area",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Monument", "Palmer Lake", "House District 49"],
+        "LocationsToSeparate": ["Colorado Springs"]
+      },
+      {
+        "Name": "Monument",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Tri-Lakes area", "Palmer Lake", "House District 49"],
+        "LocationsToSeparate": ["Colorado Springs"]
+      },
+      {
+        "Name": "Palmer Lake",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Tri-Lakes area", "Monument", "House District 49"],
+        "LocationsToSeparate": ["Colorado Springs"]
+      },
+      {
+        "Name": "Colorado Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Tri-Lakes area", "Monument", "Palmer Lake"]
+      },
+      {
+        "Name": "El Paso County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "House District 17",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Southeastern Colorado Springs"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "House District 18",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Manitou Springs", "Old Colorado City", "Downtown Colorado Springs"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "House District 49",
+        "AdminLevel": "State House District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State House"],
+        "LocationsToGroup": ["Tri-Lakes area", "Monument", "Palmer Lake"],
+        "LocationsToSeparate": ["Colorado Springs"]
+      }
+    ]
+  },
+  {
+    "CommentID": 2523,
+    "CommenterName": "Gretchen Dudney",
+    "Date": "2021-09-07",
+    "Commission": "congressional",
+    "ZIPCode": "80424",
+    "Comment": "This redrawn congressional map represents the fact that Summit County and its towns are blue. The county and town leaders are Democrats  and they want to be in Boulder’s district and make it more difficult for Boebert to be elected. We have more in common with Eagle than any other place, yet you put us in separate districts. Garfield  and other counties west have even less in common with Boulder than Summit does. That is why this is so transparently a political map. Not a good move in these divisive times.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 511,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Summit County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Eagle County"],
+        "LocationsToSeparate": ["Boulder County"]
+      },
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Summit County"]
+      },
+      {
+        "Name": "Eagle County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Summit County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Garfield County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 2584,
+    "CommenterName": "Adrienne Birt",
+    "Date": "2021-09-07",
+    "Commission": "both",
+    "ZIPCode": "80521",
+    "Comment": "I live in Fort Collins and would like Fort Collins to NOT join Weld County.  In Fort Collins, we are committed to ecosystem justice, equity, and urban issues such as homelessness and air quality. We should not be lumped in with people who have primarily rural interests. The interests of people in Fort Collins align more with the interests of those in Boulder County- we are both progressive university towns that benefit from tourism.  Please do not make Fort Collins part of Weld Co. ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 487,
+    "Sentiment": 0.4,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Fort Collins",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Boulder County"],
+        "LocationsToSeparate": ["Weld County"]
+      },
+      {
+        "Name": "Weld County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Fort Collins"]
+      },
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Fort Collins"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 2957,
+    "CommenterName": "Paul Abbey",
+    "Date": "2021-09-08",
+    "Commission": "congressional",
+    "ZIPCode": "80503",
+    "Comment": "The preliminary congressional map released in June is the best     and fairest plan to date.  Please do not divide the western slope.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 133,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3055,
+    "CommenterName": "Patti Hoke",
+    "Date": "2021-09-09",
+    "Commission": "congressional",
+    "ZIPCode": "81641",
+    "Comment": "Adding Boulder to District 3 effectively takes away the voice of rural Colorado.  The people of Boulder have nothing in common with the rural communities of western Colorado besides living in the same state and will effectively nullify any votes by rural citizens. This is totally unacceptable.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 294,
+    "Sentiment": 0.2,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Colorado"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Western",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3147,
+    "CommenterName": "N Villwock",
+    "Date": "2021-09-09",
+    "Commission": "both",
+    "ZIPCode": "80487",
+    "Comment": "Boulder and Larimer Counties have nothing in common with the Western Slope. And I include Jackson County that is technically Eastern Slope but has totally different needs then the front range. I see this as purely a political move to use the large population centers in those two counties to silence the voices of Rural Western Slope people!\n\nOur present political class is working against the people. If I was a representative, I would be very worried about the next election … of course unless you rig it like you did in 2020.\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 529,
+    "Sentiment": 0.2,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope", "Jackson County"]
+      },
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope", "Jackson County"]
+      },
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder County", "Larimer County"]
+      },
+      {
+        "Name": "Jackson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder County", "Larimer County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3150,
+    "CommenterName": "Kathy Doherty",
+    "Date": "2021-09-09",
+    "Commission": "congressional",
+    "ZIPCode": "80134",
+    "Comment": " \nRedistricting should be proactive with a view to the future. Douglas County continues to be one of the fastest growing counties in the US overall and is the 3rd fastest in Colorado with a population growth of 25.4% between 2010 and 2020. Therefore, developing a comprehensive redistricting plan on how to best serve current and future residents is important to the success of this county.\n\nI’ve been a resident of Douglas County for 22 years. Prior to that I was a resident of Elbert County for nine. I can tell you the way of life between both counties is markedly different. I understand Douglas County’s desire of keeping the rural feel; it’s the heritage of this county. However, that has changed a great deal over the decades. Today we may have subdivision with the name of a ranch, but that is not how people residing there live. Many of the subdivisions in Douglas County are bedroom communities with 51% of these residents working outside Douglas County. These families, with their needs are dependent on infrastructure and local government being in line with the other front range communities.\n\nConsider the educational/economic makeup of the majority of Douglas County residents. For all US counties Douglas County is 15th at 58.1% for populations age 25 and over with a college degree and ninth at 32.1% for the highest median household income of $119.730.\n\nIn addition, almost 92% of all Douglas County housing units are located in the urban-designated areas of the County, which includes the cities and towns, the Primary Urban Area which contains Highlands Ranch, and the Separated Urban Areas of The Pinery, Roxborough, and Castle Pines Village.\n\nDouglas County is in a critical need to be moved from CO District 4 to a district where it can be reflective of the now urban character of the area.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1812,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Douglas County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Highlands Ranch", "The Pinery", "Roxborough", "Castle Pines Village"],
+        "LocationsToSeparate": ["Elbert County"]
+      },
+      {
+        "Name": "Elbert County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Douglas County"]
+      },
+      {
+        "Name": "Highlands Ranch",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Douglas County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "The Pinery",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Douglas County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Roxborough",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Douglas County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Castle Pines Village",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Douglas County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado District 4",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Douglas County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3152,
+    "CommenterName": "Mindy Arbuckle",
+    "Date": "2021-09-09",
+    "Commission": "congressional",
+    "ZIPCode": "81601",
+    "Comment": "I do not approve of the 2nd Congressional redistricting. You are trying to combine very different communities with very different values, economies and priorities. Combining rural western slope Coloradan with the urban population centers of Boulder and Broomfield does not make sense. We have very different concerns when it comes to water resources, climates, wild fires and even ethnic populations. \nThis redistricting feels like you are taking power away from rural Coloradans by combining us with urban populations that have different economies and values. \nBoulder and Broomfield are urban front range cities and they do not mesh with the rural Mountain citizens and especially the western slope. \nI also do not appreciate it breaking up my county, Garfield. We should stay whole as we are one community out here. ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 819,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder", "Broomfield"]
+      },
+      {
+        "Name": "Boulder",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope"]
+      },
+      {
+        "Name": "Broomfield",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope"]
+      },
+      {
+        "Name": "Garfield County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3190,
+    "CommenterName": "Kevin Hronich",
+    "Date": "2021-09-09",
+    "Commission": "both",
+    "ZIPCode": "81137",
+    "Comment": "Residents of rural Colorado have unique interests and need representation in Congress whose constituency does not have divided priorities. Our voices deserve to be heard, undiluted by inclusion in a district with suburban and urban residents.\nWhether agriculture or energy production, public lands, water, natural resources, or cooperative businesses, most of our issues and needs in Congress differ from those of our Front Range urban and suburban friends and fellow Coloradans. We all care about education and transportation, but no rural county has (or will have) light rail, and no urban county will understand the needs of a small ranch operation.\nWe deserve representation in Congress that isn’t forced to choose between our needs and the issues that matter to suburbia.\nWhen the map drawing process starts, we ask that you start by drawing two whole rural districts from the 53 counties that are not part of the Front Range from Colorado Springs to Fort Collins. While these counties make up nearly three fourths of the state’s land mass, they are home to only a quarter of the population. Fortunately, that should be enough for two of our expected eight congressional districts.\nWe know you have to start drawing lines somewhere; how about a West Slope-oriented district and another that is an agricultural community of interest? Even without access to the census block level information for being fully prescriptive, we trust that if you start with a goal of two rural seats, one as a west slope community of interest and one concentrating on agriculture and energy production, you will be able to draw two seats that won’t dilute the voices of the many people living in vast stretches of rural Colorado. Please be certain that these vital – and vast – regions of Colorado garner the representation they need and deserve.\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1831,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Front Range", "Eastern Colorado"]
+      },
+      {
+        "Name": "Front Range",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Colorado Springs", "Fort Collins"],
+        "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Eastern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope", "Front Range"]
+      },
+      {
+        "Name": "Colorado Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Front Range"],
+        "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
+      },
+      {
+        "Name": "Fort Collins",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Front Range"],
+        "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3213,
+    "CommenterName": "Glenn Curtis",
+    "Date": "2021-09-09",
+    "Commission": "congressional",
+    "ZIPCode": "80439",
+    "Comment": "I have reviewed the US congressional redistricting map released by the Commission and their staff.  I am concerned about Congressional districts 2 and 3.  Rural western Colorado has been part of the same district for decades.  These rural counties have much in common with each other than any front range county.  \n\nThe new proposed 2nd district combines Boulder and Broomfield counties, as well as parts of Larimer County, with northwestern rural Colorado counties.  This combination clearly favors incumbent Joe Neguse over the current 3rd congressional representative Lauren Boebert, as Garfield County is now part of the 2nd district.  During the 2020 election cycle Neguse received 141,000 votes from Boulder and Broomfield counties representing 75% of those counties vote totals.  He also received 117,900 votes from all of Larimer County.  These voting numbers by themselves far out strip the total voters in Jackson, Routt, Garfield, Rio Blanco and Moffat counties, with combined voters participating in 2020 of 78,600.\n\nBased upon the proposed map Boulder County will elect the next representative for the 2nd.  I do not believe this is the intent of congressional redistricting, having a single county dominate all elections.  As an example, look at Proposition 114 in the 2020 election.  All northwestern counties voted against this Proposition.  Boulder County voted in favor of the Proposition with 132,600 votes representing 68% of the votes in Boulder County.  All the other counties combined in the proposed district, excluding Larimer, the no votes on this Proposition were 128,100.  Boulder County by itself would make all decisions for the new proposed district.  \n\nHaving grown up in rural Colorado, in the San Luis Valley, and attended college and lived in Boulder, I have the unique perspective of knowing the stark differences between rural Colorado and that of urban Boulder.   \n\nThe current 2nd district includes Boulder and Larimer counties.  Based upon the 2020 census these two counties have a population of 647,758, if these counties are combined with Gilpin, Clear Creek, Summit and the eastern portion of Eagle this would result in approximately 720,000 people.  Broomfield County would be included in the new 8th district along with other urban/suburban front range locations.  The 3rd Congressional district would be all western Colorado counties, excluding Summit and the eastern part of Eagle, and would include the San Luis Valley, Huerfano and Pueblo counties.\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 2498,
+    "Sentiment": 0.4,
+    "Clarity": 0.6,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Larimer County"],
+        "LocationsToSeparate": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County", "Moffat County"]
+      },
+      {
+        "Name": "Broomfield County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County", "Moffat County"]
+      },
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Boulder County"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Garfield County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Jackson County", "Routt County", "Rio Blanco County", "Moffat County"],
+        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+      },
+      {
+        "Name": "Jackson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Garfield County", "Routt County", "Rio Blanco County", "Moffat County"],
+        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+      },
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Garfield County", "Jackson County", "Rio Blanco County", "Moffat County"],
+        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+      },
+      {
+        "Name": "Rio Blanco County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Garfield County", "Jackson County", "Routt County", "Moffat County"],
+        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+      },
+      {
+        "Name": "Moffat County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County"],
+        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Northwestern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "San Luis Valley",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Huerfano County", "Pueblo County"],
+        "LocationsToSeparate": ["Summit County", "Eagle County"]
+      },
+      {
+        "Name": "Gilpin County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Boulder County", "Larimer County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Clear Creek County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Boulder County", "Larimer County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Summit County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Eastern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Boulder County", "Larimer County"],
+        "LocationsToSeparate": ["San Luis Valley", "Huerfano County", "Pueblo County"]
+      },
+      {
+        "Name": "Eagle County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Eastern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Boulder County", "Larimer County"],
+        "LocationsToSeparate": ["San Luis Valley", "Huerfano County", "Pueblo County"]
+      },
+      {
+        "Name": "Huerfano County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["San Luis Valley", "Pueblo County"],
+        "LocationsToSeparate": ["Summit County", "Eagle County"]
+      },
+      {
+        "Name": "Pueblo County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["San Luis Valley", "Huerfano County"],
+        "LocationsToSeparate": ["Summit County", "Eagle County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3235,
+    "CommenterName": "Donald Samuels",
+    "Date": "2021-09-09",
+    "Commission": "both",
+    "ZIPCode": "80498",
+    "Comment": "and I am registered voter in unincorporated Summit County for over 20 years, and am speaking on behalf of myself only. I was unable to stay in the Sept 9 zoom meeting until I was called upon. This comment is addressed to the staff who created the algorithms that generated the map. I am not going to say yea or nay on splitting counties, but if you do split a county, you should be careful not to split a zip code. A look at how Northern Summit County was split, it would appear that being inside the town of Silverthorne vs unincorporated. The software essentially made all districts equal population. The constitution says +/- 5% in population, and that flexibility should be written in. Others in the Sept 9 meeting also brought this up, but I will give an additional reason.  If I want to write to my congressman, Joe Neguse via the web, I have to put in my zip code. If in the same zip code there are two representatives, you now have put the onus on US Govt to make their software more flexible or put a stamp on and send through USPS. BTW, in the case of Summit/Grand on CO9, one post office in Summit handles deliveries into Grand.  In summary putting in a smoothing factor on the districts should be considered so that micro communities are not split up. I am attaching a blow up of the Silverthorne area so that you can see what I am talking about.   In summary what I would propose for the next map is a +/- 3% population variance and a micro smoothing algorithm added to the software that is generating the map.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1523,
+    "Sentiment": 0.5,
+    "Clarity": 0.7,
+    "LocationsMentioned": [
+      {
+        "Name": "Summit County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Silverthorne"],
+        "LocationsToSeparate": ["Grand County"]
+      },
+      {
+        "Name": "Silverthorne",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Summit County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Grand County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Summit County"]
+      },
+      {
+        "Name": "ZIP Code 80498",
+        "AdminLevel": "NA",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3274,
+    "CommenterName": "Tara Morton",
+    "Date": "2021-09-10",
+    "Commission": "congressional",
+    "ZIPCode": "80521",
+    "Comment": "The proposed District 4 map does not meet the stated goals of the commission to preserve communities of interest. Fort Collins’ economic and public policy concerns differ greatly from those of the vast eastern plains and the town of Castle Rock located 93 miles south. \n\nFort Collins is an urban community, the fourth largest in the state of Colorado, with a workforce that attracts established high-tech companies and innovative start-ups. Some of research done at schools within Colorado State University’s does link Fort Collins to companies in eastern Colorado. However, research done by a subsection of a large university is not a compelling reason to define congressional representation. Economic drivers of the Eastern plains including large-scale agriculture, animal husbandry, and mining are very different than Fort Collins’ economic interests.\n\nNorthern Colorado, with Fort Collins as Larimer County’s governmental seat, is also home to companies developing ground-breaking semi-conductor research and inventive engines, turbines, and control systems. Companies in Fort Collins are working to counter and address climate change through science and engineering. As Fort Collins’ metropolitan area has grown, it has become increasingly attractive to start-ups with ties to Denver, Boulder, Austin-Texas, and Silicon Valley. For similar reasons, our Northern Colorado airport will launch its first flights in years west to Southern California, not east to more agriculturally driven communities.\n\nCulturally, Fort Collins differs greatly from communities in the Eastern plains. Cycling, electric vehicle infrastructure, municipal public transit, brewing, and music are huge cultural drivers for our city. When new restaurants pop up in Fort Collins, because of shared regional economic interests it is common for them to have sister-restaurants in Denver and Boulder (see Snooze, Next Door, Jax Fish House, etc.). Our health care systems also create employment ties up and down the front range corridor. Being a city, Fort Collins deals with public policy issues like equity, diversity, wildfire mitigation, homelessness, housing affordability, and income inequality. By lumping Fort Collins together with the Eastern plains, our need for congressional representation to address such pressing issues is no longer prioritized.\n\nWhile I understand that the redistricting process is not an easy task, grouping Fort Collins with the eastern plains, an area spanning over 300 miles away, makes absolutely no sense. Please redraw the map with a better understanding of our overall economic needs, public policy concerns, culture, and community.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 2646,
+    "Sentiment": 0.4,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Fort Collins",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Larimer County", "Denver", "Boulder"],
+        "LocationsToSeparate": ["Eastern Colorado", "Castle Rock"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Eastern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Fort Collins"]
+      },
+      {
+        "Name": "Castle Rock",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Fort Collins"]
+      },
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fort Collins"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado State University",
+        "AdminLevel": "School",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fort Collins"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Denver",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fort Collins", "Boulder"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Boulder",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fort Collins", "Denver"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3437,
+    "CommenterName": "David Hoffman",
+    "Date": "2021-09-10",
+    "Commission": "both",
+    "ZIPCode": "80487",
+    "Comment": "It is totally ridiculous to lump Boulder and larimer counties with routt county et al.  Needs, interests, and economic health are totally different.  This will end the voice of those  counties west of the front range.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 217,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Larimer County"],
+        "LocationsToSeparate": ["Routt County"]
+      },
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Boulder County"],
+        "LocationsToSeparate": ["Routt County"]
+      },
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder County", "Larimer County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3477,
+    "CommenterName": "Sylvia McComber",
+    "Date": "2021-09-10",
+    "Commission": "both",
+    "ZIPCode": "81067",
+    "Comment": "Let it be known, I live in Otero county.  The proposed redistricting is putting Otero county in with a far different geographic system, economic system, environmental system, climate and life-style area than we presently are part of.  I do NOT agree with what is being proposed.  Our way of life and issues we face on the plains and prairie of Colorado is opposite of the recreational, mountainous , more populated counties  being proposed . Do NOT approve this redistricting !   Sylvia McComber",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 495,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Otero County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3500,
+    "CommenterName": "Tami",
+    "Date": "2021-09-10",
+    "Commission": "both",
+    "ZIPCode": "81648",
+    "Comment": "Are you serious? The new map is as unfair as can be. The districts should have the same interest in common. Boulder is as opposite as Rio Blanco county can be! They oppose the oil\nand gas industry!  They voted to introduce wolves to OUR backyard NOT theirs! I oppose this redistributing! ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Reviewed": 1,
+    "Characters": 288,
+    "Sentiment": 0.2,
+    "Clarity": 0.8,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Rio Blanco County"]
+      },
+      {
+        "Name": "Rio Blanco County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3564,
+    "CommenterName": "Emilia Pollauf",
+    "Date": "2021-09-12",
+    "Commission": "congressional",
+    "ZIPCode": "80301",
+    "Comment": "Boulder County should not be separated into two or three districts. It should remain in tact die to similar interests and pursuits across the entire community. This is true for several issues including environment, education, gun safety, transportation and housing. Our community must stay together to support progress of our shared interests. We must be enabled to honor our historical identity and advance our goals as a unified district. Do not split us apart!",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 463,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3646,
+    "CommenterName": "Ann Rounds",
+    "Date": "2021-09-13",
+    "Commission": "both",
+    "ZIPCode": "80027",
+    "Comment": "Please keep Boulder county intact so that our unity on guns, health, and preserving the environment will be preserved. It is important to keep our “community of shared interests” together. \n\nThank you,\nAnn Rounds\nSuperior",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 221,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3787,
+    "CommenterName": "Mary Beth Corsentino",
+    "Date": "2021-09-15",
+    "Commission": "congressional",
+    "ZIPCode": "81005",
+    "Comment": "Thank you Commission members and staff, for all your hard work.  I can only imagine how difficult this entire  process must be.  \n\nI am a registered voter in Pueblo County.  I write today in support of the latest Tafoya map.  This plan keeps Pueblo County whole and provides the necessary connection between Pueblo County and the San Luis Valley.  The Tafoya plan provides for a more compact district than the Coleman map.  The Tafoya map designs districts that maintain important communities of interest in Southern Colorado  such as water, culture and history.  I believe the Tafoya map provides opportunities for better government for Southern Colorado.  I believe it provides for  more competitive districts overall .  \n\nAll too often, those of us in southern Colorado feel left out.  Had it not been for the 1921 Pueblo flood, things might have been significantly different for Pueblo and the  state as a whole.\n\nPlease don't forget us.\n\nThank you\n\\Mary Beth Corsentino\nPueblo",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 981,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Pueblo County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["San Luis Valley"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "San Luis Valley",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Pueblo County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Southern",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Pueblo",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3815,
+    "CommenterName": "Kevin Grantham",
+    "Date": "2021-09-15",
+    "Commission": "congressional",
+    "ZIPCode": "81212",
+    "Comment": "I am writing in opposition to the current version of the Congressional maps that include Fremont County with the metro area Jefferson County. Fremont, as well as Park and Teller have no commonalities with Jefferson. Each are distinctly agricultural in nature and have rural mountain characteristics. In addition, Fremont has a mix of the mountain ranching community as well as the eastern plains farming community and the Arkansas River corridor. Fremont could fit well in either a eastern plains district (4) or a west slope (3) district. However, it has no business being lumped in with a metro area county.\n\nThank you,\n\nKevin Grantham\nFremont County Commissioner",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 665,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Fremont County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Park County", "Teller County"],
+        "LocationsToSeparate": ["Jefferson County"]
+      },
+      {
+        "Name": "Park County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fremont County", "Teller County"],
+        "LocationsToSeparate": ["Jefferson County"]
+      },
+      {
+        "Name": "Teller County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fremont County", "Park County"],
+        "LocationsToSeparate": ["Jefferson County"]
+      },
+      {
+        "Name": "Jefferson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "metro area",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Fremont County", "Park County", "Teller County"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Eastern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fremont County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Western",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fremont County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Arkansas River",
+        "AdminLevel": "Landmark",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "corridor",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Fremont County"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3871,
+    "CommenterName": "Sarajane Snowden",
+    "Date": "2021-09-16",
+    "Commission": "both",
+    "ZIPCode": "80479",
+    "Comment": "Really like the legislative map!! I am from South Routt and I appreciate being aligned with other communities with similar interests.\n\nFor the congressional map would like to see Boulder out of the district with Routt and especially south routt! Much of rural routt county have agricultural backgrounds, have worked in the coal mine or at one time was involved with the logging in our rural forests. \n\nI’m a ranch wife, and a 4th generation South Routt Native. \n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 462,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder"]
+      },
+      {
+        "Name": "Routt County",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Southern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Routt County"],
+        "LocationsToSeparate": ["Boulder"]
+      },
+      {
+        "Name": "Boulder",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 3898,
+    "CommenterName": "Beric Christiansen",
+    "Date": "2021-09-16",
+    "Commission": "congressional",
+    "ZIPCode": "81637",
+    "Comment": "My wife and I want Eagle county to remain in CD 3. The current proposal has us in CD 2 with Boulder. We have virtually nothing in common with Boulder so why put us with a county over 100 miles away? We are on the west side of the mountains so are more aligned with that area of the state. boulder can align with the Denver-Loveland-Ft. Collins- Aurora area where it has close proximity. Keep Eagle county in CD-3.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 413,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Eagle County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Congressional District 3"],
+        "LocationsToSeparate": ["Boulder County"]
+      },
+      {
+        "Name": "Congressional District 3",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Eagle County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Denver", "Loveland", "Fort Collins", "Aurora"],
+        "LocationsToSeparate": ["Eagle County"]
+      },
+      {
+        "Name": "Denver",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Boulder County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Loveland",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Boulder County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Fort Collins",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Boulder County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Aurora",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Boulder County"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4034,
+    "CommenterName": "Janet Miltner",
+    "Date": "2021-09-17",
+    "Commission": "both",
+    "ZIPCode": "81007",
+    "Comment": "I do not feel that we need redistricting. It isn’t fair to the rural areas to be lumped in with Boulder or the more populated areas. It needs to stay as it is so that the rural population voice will still be heard. City people and rural people don’t think the sam, they have totally different lives and should not be lumped together. All voices need to be heard. Thank you for allowing me this opportunity to voice my opinion. \n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 428,
+    "Sentiment": 0.3,
+    "Clarity": 0.6,
+    "LocationsMentioned": [
+      {
+        "Name": "Boulder",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Rural areas"]
+      },
+      {
+        "Name": "Rural Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4049,
+    "CommenterName": "Amy",
+    "Date": "2021-09-17",
+    "Commission": "congressional",
+    "ZIPCode": "80468",
+    "Comment": "I’m  a Routt County full time resident & home owner. I’ve lived here since purchasing my home in Oak Creek,CO in 2017.  I’m asking that we are not combined with Boulder for redistricting.  As a whole our community differs greatly & widely on all aspects of life & voting in comparison to those in Boulder. We’re hunters who don’t want wolves in our national forests. We’re ranchers & farmers who don’t need laws on how to take care of our live stock. We have small schools, churches & stores that don’t want government telling us what to do. Keep Routt County and Boulder Separate in Districting! ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 597,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Boulder"]
+      },
+      {
+        "Name": "Oak Creek",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Boulder",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4225,
+    "CommenterName": "Kathy Thornton",
+    "Date": "2021-09-18",
+    "Commission": "legislative",
+    "ZIPCode": "80549",
+    "Comment": "Keep all of Larimer County together, not just with Fort Collins or Loveland, but Berthoud and especially Wellington.  Please do not add Wellington to Weld County’s Districts.  Wellington residents use hospitals, schools, stores and churches in Larimer County, not in Weld County. Larimer County is more than Fort Collins And or Loveland. Please keep Larimer County while when considering these districts.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 404,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Fort Collins", "Loveland", "Berthoud", "Wellington"],
+        "LocationsToSeparate": ["Weld County"]
+      },
+      {
+        "Name": "Fort Collins",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Larimer County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Loveland",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Larimer County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Berthoud",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Larimer County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Wellington",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Larimer County"],
+        "LocationsToSeparate": ["Weld County"]
+      },
+      {
+        "Name": "Weld County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Larimer County", "Wellington"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4380,
+    "CommenterName": "Julie Worley",
+    "Date": "2021-09-20",
+    "Commission": "both",
+    "ZIPCode": "81050",
+    "Comment": "Congressional Redistricting:   The counties of Las Animas, Crowley and Otero need to be combined into Congressional District Four.  The communities of interest in LasAnimas, Crowley and Otero counties more specifically align with District Four than with District Three.   Las Animas, Crowley and Otero are canyons and plains counties.  Many of the counties in District Three have mountains and tourism -- and we have very little of that in Southern and Southeast Colorado.  \n\nThe geographic area in Congressional District Three - as it is laid out on these maps - would prohibit any sort of collaboration among the counties due to the expanse of the district.  It is common for Las Animas, Crowley and Otero counties to do business with, and travel to and fro, in counties in the District Four area, but we very rarely travel west and north to do business.   \n\nSchools in Las Animas, Crowley and Otero routinely travel to schools in the District Four area for athletic and school events.  Very rarely do our schools in Las Animas, Crowley and Otero counties travel to the mountain schools for events.  \n\nAgriculture in Las Animas, Crowley and Otero counties aligns more closely with the agriculture and crops raised in District Four than it does with agriculture and crops raised in District Three.  \n\n\n\n\n\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1306,
+    "Sentiment": 0.7,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Las Animas County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Crowley County", "Otero County", "Congressional District 4"],
+        "LocationsToSeparate": ["Congressional District 3"]
+      },
+      {
+        "Name": "Crowley County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Las Animas County", "Otero County", "Congressional District 4"],
+        "LocationsToSeparate": ["Congressional District 3"]
+      },
+      {
+        "Name": "Otero County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Las Animas County", "Crowley County", "Congressional District 4"],
+        "LocationsToSeparate": ["Congressional District 3"]
+      },
+      {
+        "Name": "Congressional District 4",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Las Animas County", "Crowley County", "Otero County"],
+        "LocationsToSeparate": ["Congressional District 3"]
+      },
+      {
+        "Name": "Congressional District 3",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Las Animas County", "Crowley County", "Otero County"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Southern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Southeastern",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4416,
+    "CommenterName": "Lyn Beets",
+    "Date": "2021-09-20",
+    "Commission": "both",
+    "ZIPCode": "81007",
+    "Comment": "Please keep the Western Slope whole and form two Rural Districts. This will address the need to keep common interests that are not in common with Front Range and Metro areas.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 174,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Front Range", "Metro areas"]
+      },
+      {
+        "Name": "Front Range",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope"]
+      },
+      {
+        "Name": "Metro areas",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Western Slope"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4441,
+    "CommenterName": "Robin Usher",
+    "Date": "2021-09-20",
+    "Commission": "both",
+    "ZIPCode": "80023",
+    "Comment": "Broomfield is one community and should not be divided. Thank you",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 64,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Broomfield",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4464,
+    "CommenterName": "Erica Bardeau",
+    "Date": "2021-09-21",
+    "Commission": "both",
+    "ZIPCode": "80023",
+    "Comment": "Please keep Broomfield intact for all redistricting projects. The community banded together because of representation gaps in the past, and that’s why Broomfield is now both a city and a county. Please help us preserve our unique voice and represent our community’s interests by keeping us together.  Thank you.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 311,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Broomfield",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Broomfield County"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Broomfield County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Broomfield"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4533,
+    "CommenterName": "Deven Shaff",
+    "Date": "2021-09-21",
+    "Commission": "congressional",
+    "ZIPCode": "80020",
+    "Comment": "This year, the City and County of Broomfield is celebrating 20 years since becoming a county. This was a major milestone to make our community whole instead of split. There has been a lot of work done to unify our community, especially in the last decade. I am shocked the commission would propose dividing our small county. We are one community of Broomfield with similar interests and geography. We should not be split for the purposes of a congressional district. ",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 467,
+    "Sentiment": 0.4,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Broomfield",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4566,
+    "CommenterName": "Mary Jane Hamburger",
+    "Date": "2021-09-22",
+    "Commission": "both",
+    "ZIPCode": "80521",
+    "Comment": "The most recent proposal has the community of Loveland in Congressional District 4.  Loveland should be moved back into Congressional District 2 to maintain our community of interest with areas west of I-25.  Loveland has strong economic ties with Estes Park (RMNP) and with Fort Collins (CSU), which are both in Congressional District 2.  Loveland does not have strong economic ties with the communities in District 4. The Arkansas Valley should be moved back into Congressional District 4 with Weld and other Eastern rural communities.  This would balance Loveland returning to CD2.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 584,
+    "Sentiment": 0.6,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Loveland",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Estes Park", "Fort Collins", "Congressional District 2"],
+        "LocationsToSeparate": ["Congressional District 4"]
+      },
+      {
+        "Name": "Congressional District 4",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Arkansas Valley", "Weld County"],
+        "LocationsToSeparate": ["Loveland"]
+      },
+      {
+        "Name": "Congressional District 2",
+        "AdminLevel": "Congressional District",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Loveland", "Estes Park", "Fort Collins"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Estes Park",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Loveland", "Fort Collins", "Congressional District 2"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Fort Collins",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Loveland", "Estes Park", "Congressional District 2"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Arkansas Valley",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Weld County", "Congressional District 4"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Weld County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "Eastern rural communities",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Arkansas Valley", "Congressional District 4"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4567,
+    "CommenterName": "Carol Cure",
+    "Date": "2021-09-22",
+    "Commission": "legislative",
+    "ZIPCode": "81301-7255",
+    "Comment": "One more factor to add to my prior comments involves our community of interest as recognized by the SouthWest Colorado Council of Governments (SWCCOG ), which is made up of various counties and cities in our region. The member counties include Archuleta, La Plata and San Juan Counties (as well as Delores County) plus the cities of Pagosa Springs in Archuleta County, Silverton in San Juan County, Bayfield and Ignacio in La Plata County, and Cortez in Montezuma County.  SWCCOG promotes regional cooperation and coordination among local governments and between levels of government for the geographic area comprising the Counties of Archuleta, Dolores, La Plata, Montezuma, and San Juan. The need for a SWCCOG was based on the recognition that the people of the Region form a single community and are bound together not only physically, but economically and socially. It is the purpose of the SWCCOG through its participating membership, staff and programs, to provide local public officials (including our Colorado House Representative) with the means of responding more effectively to the local and regional problems of this Regional community.  For more information, see http://www.swccog.org/about/\n",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1205,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Archuleta County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "La Plata County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "San Juan County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Dolores County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Montezuma County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Pagosa Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Silverton", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Silverton",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Bayfield", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Bayfield",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Ignacio", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Ignacio",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Cortez"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Cortez",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4688,
+    "CommenterName": "Richard Creswell",
+    "Date": "2021-09-22",
+    "Commission": "congressional",
+    "ZIPCode": "80227",
+    "Comment": "The Shuster map is competitive. It gives Native Americans and Latinx a voice separate from Grand Junction. It keeps the Valley together.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 136,
+    "Sentiment": 0.8,
+    "Clarity": 0.4,
+    "LocationsMentioned": [
+      {
+        "Name": "Grand Junction",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Mesa County"]
+      },
+      {
+        "Name": "Mesa County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "The Valley",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Grand Junction"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4917,
+    "CommenterName": "Robyn Cascade",
+    "Date": "2021-09-24",
+    "Commission": "congressional",
+    "ZIPCode": "81432",
+    "Comment": "Of the two maps under consideration today, I am writing in favor of the Schuster map over the third staff map.  I like that my agricultural community of Ridgway is tied to other farming and ranching communities across the southern part of the state. Having Pueblo united with the San Luis Valley is also important to me.   Similarly the oil and gas producing regions of the north west are kept together.  These are critical communities of interest that need to remain connected.  There are also watershed issues that make the Schuster map more sound and appealing.\nFinally, the competitiveness of the Schuster map is far better than the third staff map.   Thank you!!!",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 668,
+    "Sentiment": 0.9,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Ridgway",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Southern Colorado"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Southern",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Ridgway"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Pueblo",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["San Luis Valley"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "San Luis Valley",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Pueblo"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Northwestern",
+        "Description": "oil and gas producing regions",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 4946,
+    "CommenterName": "Jerry Smith",
+    "Date": "2021-09-24",
+    "Commission": "both",
+    "ZIPCode": "00000",
+    "Comment": "I am a senior citizen living in unincorporated Jefferson County and have an interest in redistricting, but when I see the complex processes involved and with my lack of competency in Digital maters thought I would send some comments to staff. I am in my mid 70’s. I want to emphasize a couple of points. 1. To the extent possible maintain respect for political subdivisions of the state. Do not break up neighborhoods, municipalities, counties, simply to keeps districts looking pretty and having right angles. Compactness should be important jurisdictionally and where people form a community. Streets do not make communities, but school districts might. Ethnicity is important and economic status is important. I grew up in North Denver. It was different that Adams County the other side of 52nd avenue, and the City of Wheatridge, the other side of Sheridan. North Denver was not where the Stockyards and Globeville are. If is not south of Sloan’s lake. I encourage staff and the commissions to take into account how people living in communities see themselves and put the lines together to solidify the neighborhood concept and group neighborhoods, not street systems together. Major traffic lines divide communities not enhance the neighborhood commonality. I find it difficult to attend public meetings but would hope a public information office has an ability to convey information from the public to decision makers and ask that you do so with my thinking and expression of it. I authorize you to forward this to appropriate parties and processes at your discretion. An oversimplification of my hope and recommendation is to use the process and authorities the various decision makers have to maintain and protect citizen collaboration to make the geographic area they and their families live in to be collaborative, not neat lines. Common sense shows what belongs together. Politics are intended to create winners and losers. Elections are for politics. Reapportion and district lines should emphasize what belongs together and what common interests communities have. The most divisive things I have observed in my 7 and a partial decades to community in the Denver metro area were: Major roadway construction along Interstate 1 70 which cut off small pieces of Northwest and North Denver from city center, The splintering of the city by I 25 particularly North of West Colfax and the abandonment of neighborhood schools due to racial disparities in quality of education provided. An alternative could have been investing more per capita per student investment in lagging neighborhood schools. All of these led to community degradation and loss of commitment to where people live and what their needs are. Geography and compactness not blacktop and wide streets should be the mainstay of the redistricting process with population equity. Follow community lines as defined by the communities themselves not by techies. Combine communities when necessary but do all possible not to disenfranchise them to keep straighter lines or more compact districts. I realize I am not following the prescriptive processes, but hope I can convey a thought to staff . Truthfully, I found the complexity of the on line information to be be too onerous for me to have the patience or ability to master. I am hoping you will consider this and find a way to get the concept forward so the decision makers can have the thought added all the input they receive. I know staff has an ability to add to the process by mentioning things to other staff or to board members. If anyone wants to talk with me I have a lot of free time. As an aside. The creation of special districts to avoid annexation or incorporation of municipalities was the most divisive legislative action in Colorado to the essence of neighborhood and community and was done to imply city and town government was not needed and taxes could be lower. A lot of metro Denver’s problems are a direct result of letting profit be more important than long term issues. (submitted by email 9/17/21)",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 4043,
+    "Sentiment": 0.6,
+    "Clarity": 0.5,
+    "LocationsMentioned": [
+      {
+        "Name": "Jefferson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "Unincorporated",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Denver",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "Northern",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Adams County", "Wheat Ridge"]
+      },
+      {
+        "Name": "Adams County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "Other side of 52nd Avenue",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Denver"]
+      },
+      {
+        "Name": "Wheat Ridge",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "Other side of Sheridan",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Denver"]
+      },
+      {
+        "Name": "Globeville",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Northern Denver"]
+      },
+      {
+        "Name": "Sloan's Lake",
+        "AdminLevel": "Neighborhood",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Northern Denver"]
+      }
+    ]
+  },
+  {
+    "CommentID": 5044,
+    "CommenterName": "Brian Taylor",
+    "Date": "2021-09-27",
+    "Commission": "congressional",
+    "ZIPCode": "81005",
+    "Comment": "To whom it may concern, \n\nAs a lifelong Colorado resident, I have followed this year's redistricting process with great interest.\n\nWhile I would like to see every district be competitive, I understand there are many considerations. \n\nI grew up on the Western Slope, but have lived in Pueblo for the last 20 years. I can safely say that our population would be better served if the Southern counties were grouped together.\nThis would make sense for a number of regional issues, especially water, transportation and energy infrastructure.\n\nAs it stands now, I would recommend the Tafoya Amendment to the Third Staff plan as a reasonable compromise.\n\nThank you,\n\nBrian Taylor",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 672,
+    "Sentiment": 0.7,
+    "Clarity": 0.7,
+    "LocationsMentioned": [
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Pueblo",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Southern",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 5108,
+    "CommenterName": "Sarah Egolf-Tarr",
+    "Date": "2021-09-28",
+    "Commission": "congressional",
+    "ZIPCode": "80020-1891",
+    "Comment": "Please do not split Broomfield in half between districts. I am a Broomfield resident and we are a community that deserves a voice.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 130,
+    "Sentiment": 0.4,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Broomfield",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  },
+  {
+    "CommentID": 5223,
+    "CommenterName": "Renee Deal",
+    "Date": "2021-10-01",
+    "Commission": "congressional",
+    "ZIPCode": "81434",
+    "Comment": "I am very concerned about the northwestern communities being lumped into proposed District 2 with Larimer and Boulder Counties. It is TOTALLY inappropriate for Routt, Jackson and Eagle Counties to be in the same district as Boulder County in particular. They have polarizingly different communities, commerce and political affiliations and this will silence the voices of the rural community members. I operate a sheep ranch in Gunnison County and have several colleagues who operate sheep and cattle operations in these west slope counties. I believe that the Western Slope needs the ability to unite for our common interests and concerns because we are feeling like our voices are being constantly silenced. Thank you for your consideration.",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 743,
+    "Sentiment": 0.3,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Larimer County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County", "Jackson County", "Eagle County", "Boulder County", "Gunnison County", "Western Slope"]
+      },
+      {
+        "Name": "Boulder County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["NA"],
+        "LocationsToSeparate": ["Routt County", "Jackson County", "Eagle County", "Larimer County", "Gunnison County", "Western Slope"]
+      },
+      {
+        "Name": "Routt County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Jackson County", "Eagle County", "Gunnison County", "Western Slope"],
+        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+      },
+      {
+        "Name": "Jackson County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Routt County", "Eagle County", "Gunnison County", "Western Slope"],
+        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+      },
+      {
+        "Name": "Eagle County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Routt County", "Jackson County", "Gunnison County", "Western Slope"],
+        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+      },
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Western",
+        "Description": "NA",
+        "DistrictTypes": ["NA"],
+        "LocationsToGroup": ["Routt County", "Jackson County", "Eagle County", "Gunnison County"],
+        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+      },
+      {
+        "Name": "Gunnison County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Routt County", "Jackson County", "Eagle County", "Western Slope"],
+        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+      }
+    ]
+  },
+  {
+    "CommentID": 5625,
+    "CommenterName": "Jacqui Cordova",
+    "Date": "2021-10-08",
+    "Commission": "legislative",
+    "ZIPCode": "81635",
+    "Comment": "Hello, my name is Jacqui Cordova, and I am a resident of Garfield County. First, I want to thank the Commission on its hard work. Please know that we understand the how tough it is to accommodate everyone’s opinions and you are doing a great job! I wanted to express a small concern in the Senate Map. District 5 has Garfield County split North to South along the I-70. I understand why the commission would do that. I’m guessing it’s because of the population along the I-70 but if you look closely, it doesn’t make much sense. I-70 is the Key Highway, and it runs east to west. Why would the commission separate the county North to South? It creates separation from the residents who live on one side of the I-70. So, the people who live North of the Interstate aren’t going to be represented by the same elected official? They are a part of that community and should be grouped with there fellow neighbors. I think keeping the cities/towns whole will only benefit Rifle, Silt, and Glennwood. It just makes better sense to split the County East and West. That way the total population of those cities are represented together. I have attached a picture of what I think the split should look like. Thank you for your hard work!",
+    "COI": 1,
+    "Reviewed": 1,
+    "Characters": 1228,
+    "Sentiment": 0.8,
+    "Clarity": 0.9,
+    "LocationsMentioned": [
+      {
+        "Name": "Garfield County",
+        "AdminLevel": "County",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State Senate"],
+        "LocationsToGroup": ["Rifle", "Silt", "Glenwood Springs"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Rifle",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State Senate"],
+        "LocationsToGroup": ["Garfield County", "Silt", "Glenwood Springs"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Silt",
+        "AdminLevel": "Town",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State Senate"],
+        "LocationsToGroup": ["Garfield County", "Rifle", "Glenwood Springs"],
+        "LocationsToSeparate": ["NA"]
+      },
+      {
+        "Name": "Glenwood Springs",
+        "AdminLevel": "City",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["State Senate"],
+        "LocationsToGroup": ["Garfield County", "Rifle", "Silt"],
+        "LocationsToSeparate": ["NA"]
+      }
+    ]
+  }
+]
