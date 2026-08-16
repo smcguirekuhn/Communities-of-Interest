@@ -8,6 +8,20 @@ evaluateGroundTruthAccuracy <- function(groundTruthComments, comparisonComments)
     relationship = "many-to-many"
   ) |> dplyr::distinct(CommentID, Name, AdminLevel, .keep_all = TRUE)
   
+  # evaluate correctly identified location names ----
+  incorrectLocations <- dplyr::bind_rows(
+    dplyr::anti_join(
+      x = groundTruthComments,
+      y = comparisonComments,
+      by = c("CommentID", "Name", "AdminLevel")
+    ),
+    dplyr::anti_join(
+      x = comparisonComments,
+      y = groundTruthComments,
+      by = c("CommentID", "Name", "AdminLevel")
+    )
+  ) |> dplyr::distinct(CommentID, Name, AdminLevel, .keep_all = TRUE)
+  
   # report correctly identified locations percentage ----
   cli::cli_inform(
     message = c(
@@ -15,6 +29,10 @@ evaluateGroundTruthAccuracy <- function(groundTruthComments, comparisonComments)
       "*" = glue::glue(
         "{nrow(correctLocations)} out of {nrow(groundTruthComments)}
         ({round(100*nrow(correctLocations)/nrow(groundTruthComments))}%)"
+      ),
+      "*" = glue::glue(
+        "{length(unique(incorrectLocations$CommentID))}
+        comments had at least one misidentified location."
       )
     )
   )
@@ -150,6 +168,12 @@ evaluateGroundTruthAccuracy <- function(groundTruthComments, comparisonComments)
     correctLocations[["LocationsToGroupSimilarity"]]/
       correctLocations[["LocationsToGroupLength"]]
   )
+  locationsToGroupCommentAccuracy <- correctLocations |>
+    dplyr::mutate(FullMatch = LocationsToGroupLength == LocationsToGroupSimilarity) |>
+    dplyr::group_by(CommentID) |>
+    dplyr::summarise(CommentAccuracy = mean(FullMatch)) |>
+    dplyr::pull(CommentAccuracy) |>
+    mean()
   
   # report locations to group accuracy ----
   cli::cli_inform(
@@ -167,6 +191,12 @@ evaluateGroundTruthAccuracy <- function(groundTruthComments, comparisonComments)
     correctLocations[["LocationsToSeparateSimilarity"]]/
       correctLocations[["LocationsToSeparateLength"]]
   )
+  locationsToGroupCommentAccuracy <- correctLocations |>
+    dplyr::mutate(FullMatch = LocationsToGroupLength == LocationsToGroupSimilarity) |>
+    dplyr::group_by(CommentID) |>
+    dplyr::summarise(CommentAccuracy = mean(FullMatch)) |>
+    dplyr::pull(CommentAccuracy) |>
+    mean()
   
   # report locations to separate accuracy ----
   cli::cli_inform(
