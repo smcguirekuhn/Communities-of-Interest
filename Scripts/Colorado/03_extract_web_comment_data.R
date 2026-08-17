@@ -89,7 +89,7 @@ coWebCommentData <- coWebCommentData |>
 
 # save ground truth comment sets ----
 coWebCommentData |>
-  tidyr::nest(LocationsMentioned = Name:LocationsToSeparate) |>
+  tidyr::nest(LocationsMentioned = Name:AdditionalDescription) |>
   jsonlite::write_json(path = file.path(dataPath, coGroundTruthFilename), pretty = TRUE)
 
 # save comment data ----
