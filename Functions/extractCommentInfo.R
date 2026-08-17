@@ -56,8 +56,8 @@ extractCommentInfo <- function(
       LocationsMentioned = ellmer::type_array(
         description = ellmer::interpolate(
           "All individual geographic locations that this commenter from {{localContext}} mentions,
-          including landmarks, neighborhoods, townships, boroughs, school districts, counties, 
-          legislative districts etc.. Only return clearly-identified locations in the commenter's 
+          including landmarks, neighborhoods, townships, boroughs, towns, cities, school districts, counties, 
+          legislative districts, and regions. Only return clearly-identified locations in the commenter's 
           home state relevant to the commenter's community of interest. 
           Order locations by their appearance in the comment.",
           localContext = localContext
@@ -68,9 +68,20 @@ extractCommentInfo <- function(
           Name = ellmer::type_string(
             description = ellmer::interpolate(
               "The identifiable, administrative name of the location.
-              For example, if 'western suburbs of the city of Springfield' is mentioned,
-              return only 'Springfield'. The location should thus read like the following examples:
-              Midtown, Franklin, Washington County, Congressional District 3, State House District 101."
+              Unless the location is a region, do not include any 
+              cardinal direction subareas in the name
+              (i.e. return 'Washington County' if the comment mentions 'Northern Washington County').
+              Location names should thus read like the following examples:
+              'Green Lake' (a landmark),
+              'Downtown Springfield' (a neighborhood),
+              'Franklin' (a municipality),
+              'Springfield School District' (a school district),
+              'Washington County' (a county),
+              'Congressional District 3' (a congressional district),
+              'State House District 101' (a state house district),
+              'State Senate District 50' (a state senate district),
+              'Springfield Metro Area' (a region), and
+              'Northern California' (a region)."
             )
           ),
           
@@ -89,7 +100,9 @@ extractCommentInfo <- function(
             description = ellmer::interpolate(
               "Cardinal Direction subareas of the location, if any are mentioned by the commenter.
               For example, if 'Northern Washington County' is mentioned, return 'Northern'.
-              If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'."
+              If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
+              Return 'NA' if the cardinal direction subarea is implied in a region name
+              (i.e. 'Northern California)."
             )
           ),
           
@@ -101,74 +114,10 @@ extractCommentInfo <- function(
               or if they refer to a cardinal direction subarea of the location, return 'NA'.
               Subareas include relative location references (i.e. 'Outskirts of Springfield'),
               or colloquial references (i.e. 'Downtown Springfield').
-              Keep descriptions brief."
+              Keep descriptions brief. Return 'NA' unless the description
+              corresponds to a codifiable geographic area.
+              Examples include 'Outskirts', 'Downtown', 'Rural Areas', and 'Unincorporated'."
             )
-          ),
-          
-          ### district types ----
-          DistrictTypes = ellmer::type_array(
-            items = ellmer::type_enum(values = districtTypes),
-            description = ellmer::interpolate(
-              "List the types of legislative districts likely being discussed by this commenter
-              when mentioning the location in their redistricting specifications.
-              Return 'NA' unless it is very clear that a specific type of district is being discussed."
-            )
-          ),
-          
-          ### locations to group ----
-          LocationsToGroup = ellmer::type_array(
-            description = ellmer::interpolate(
-              "Based on communities of interest, this commenter is requesting that the
-              locations they mention either be kept together or separated into various legislative districts.
-              Return the names of any locations the commenter is asking to be fused with this location in their ideal district map.
-              Interpret the commenter's request, complaint, or concern, not the state of the map they are referring to.
-              The following are examples of when locations should be grouped in a community of interest:
-              'Vote no on the proposed map, which separates Springfield from Washington County.',
-              'Springfield and Washington County have been separated. This is a clear effort to Gerrymander our community.',
-              'Springfield and Washington County share similar economic interests.',
-              'Why is Springfield in a different district than Washington County?',
-              'Separating Springfield from Washington County is ridiculous.',
-              'Please Keep Springfield together with Washington County.',
-              'Don't split Springfield from Washington County.', and
-              'Springfield should be reunited with Washington County.'.
-              In these cases, if 'Springfield' is the mentioned location, 'Washington County' would be returned.
-              Return only the identifiable, administrative name of the location, not cardinal direction 
-              subareas or other descriptions (i.e. return 'Washington County' not 'Northern Washington County'.
-              The following are examples of when 'NA' should be returned:
-              'Vote no on the proposed map, which splits Springfield into multiple districts',
-              'Why is Springfield carved up into several districts?',
-              'Springfield should have two house districts, but it has been split up into four districts.',
-              'Springfield is a close-knit community with its own economic interests.',
-              'Springfield needs its own representation as a community.', and 
-              'Please don't split Springfield into multiple districts.'.
-              In these 'NA' scenarios, the commenter either mentions the location in isolation or discusses their 
-              desire to keep the location from being broken up unnecessarily."
-            ),
-            items = ellmer::type_string()
-          ),
-          
-          ### locations to separate ----
-          LocationsToSeparate = ellmer::type_array(
-            description = ellmer::interpolate(
-              "Based on communities of interest, this commenter is requesting that the
-              locations they mention either be kept together or separated into various legislative districts.
-              Return the names of any locations the commenter is asking to be separated this location in their ideal district map.
-              If this location is not mentioned in relation to any other locations, return 'NA'.
-              Interpret the commenter's request, complaint, or concern, not the state of the map they are referring to.
-              The following are examples of when locations should be separated in a community of interest:
-              'Vote no on the proposed map, which combines Springfield with Washington County.'
-              'Springfield and Washington County have been combined. This is a clear effort to Gerrymander our community.'
-              'Springfield and Washington County do not share similar economic interests.'
-              'Why is Springfield in the same district as Washington County?',
-              'Combining Springfield and Washington County is ridiculous',
-              'Please Keep Springfield separated from Washington County.',
-              'Don't group Springfield with Washington County.', and
-              'Springfield should be kept apart from Washington County.'.
-              In these cases, if 'Springfield' is the mentioned location, 'Washington County' would be returned.
-              Return only the identifiable, administrative name of the location, not cardinal direction 
-              subareas or other descriptions (i.e. return 'Washington County' not 'Northern Washington County'."
-            ),
-            items = ellmer::type_string()
           )
         )
       ),

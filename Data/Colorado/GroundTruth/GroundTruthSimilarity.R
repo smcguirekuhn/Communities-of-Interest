@@ -34,3 +34,21 @@ evaluateGroundTruthAccuracy(
   comparisonComments = coGroundTruthComparison
 )
 
+coGroundTruthReviewed |>
+  dplyr::filter(Name == "Boulder County") |>
+  tidyr::unnest_longer(col = LocationsToGroup) |>
+  dplyr::mutate(
+    LocationsToGroup = dplyr::case_when(
+      LocationsToGroup == "NA" ~ Name,
+      .default = LocationsToGroup
+    )
+  ) |>
+  dplyr::pull(LocationsToGroup) |>
+  table()
+
+coGroundTruthReviewed |>
+  dplyr::filter(Name == "Boulder County") |>
+  tidyr::unnest_longer(col = LocationsToSeparate) |>
+  dplyr::filter(LocationsToSeparate != "NA") |>
+  dplyr::pull(LocationsToSeparate) |>
+  table()

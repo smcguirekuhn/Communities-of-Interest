@@ -18,7 +18,7 @@
         "CardinalDirectionSubarea": "Northwestern",
         "Description": "NA",
         "DistrictTypes": ["State House", "State Senate", "Congressional"],
-        "LocationsToGroup": ["Douglas County", "Arapahoe County", "Adams County", "Jefferson County"],
+        "LocationsToGroup": ["Denver Metro Area"],
         "LocationsToSeparate": ["NA"]
       },
       {
@@ -1047,8 +1047,8 @@
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Front Range", "Eastern Colorado"]
+        "LocationsToGroup": ["Eastern Colorado"],
+        "LocationsToSeparate": ["Front Range", "Colorado Springs", "Fort Collins"]
       },
       {
         "Name": "Front Range",
@@ -1056,7 +1056,7 @@
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Colorado Springs", "Fort Collins"],
+        "LocationsToGroup": ["NA"],
         "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
       },
       {
@@ -1065,8 +1065,8 @@
         "CardinalDirectionSubarea": "Eastern",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope", "Front Range"]
+        "LocationsToGroup": ["Western Slope"],
+        "LocationsToSeparate": ["Front Range", "Colorado Springs", "Fort Collins"]
       },
       {
         "Name": "Colorado Springs",
@@ -1074,7 +1074,7 @@
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Front Range"],
+        "LocationsToGroup": ["NA"],
         "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
       },
       {
@@ -1083,7 +1083,7 @@
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Front Range"],
+        "LocationsToGroup": ["NA"],
         "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
       }
     ]
@@ -1126,7 +1126,7 @@
         "Description": "NA",
         "DistrictTypes": ["Boulder County"],
         "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "LocationsToSeparate": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County", "Moffat County"]
       },
       {
         "Name": "Garfield County",
@@ -1144,7 +1144,7 @@
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
         "LocationsToGroup": ["Garfield County", "Routt County", "Rio Blanco County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
       },
       {
         "Name": "Routt County",
@@ -1153,7 +1153,7 @@
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
         "LocationsToGroup": ["Garfield County", "Jackson County", "Rio Blanco County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
       },
       {
         "Name": "Rio Blanco County",
@@ -1162,7 +1162,7 @@
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
         "LocationsToGroup": ["Garfield County", "Jackson County", "Routt County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
       },
       {
         "Name": "Moffat County",
@@ -1171,7 +1171,7 @@
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
         "LocationsToGroup": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
       },
       {
         "Name": "Colorado",
@@ -1181,15 +1181,6 @@
         "DistrictTypes": ["Congressional"],
         "LocationsToGroup": ["NA"],
         "LocationsToSeparate": ["NA"]
-      },
-      {
-        "Name": "San Luis Valley",
-        "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Huerfano County", "Pueblo County"],
-        "LocationsToSeparate": ["Summit County", "Eagle County"]
       },
       {
         "Name": "Gilpin County",
@@ -1228,13 +1219,31 @@
         "LocationsToSeparate": ["San Luis Valley", "Huerfano County", "Pueblo County"]
       },
       {
+        "Name": "Colorado",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "Western",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["San Luis Valley", "Huerfano County", "Pueblo County"],
+        "LocationsToSeparate": ["Eastern Summit County", "Eastern Eagle County"]
+      },
+      {
+        "Name": "San Luis Valley",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "Description": "NA",
+        "DistrictTypes": ["Congressional"],
+        "LocationsToGroup": ["Western Colorado", "Huerfano County", "Pueblo County"],
+        "LocationsToSeparate": ["Eastern Summit County", "Eastern Eagle County"]
+      },
+      {
         "Name": "Huerfano County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["San Luis Valley", "Pueblo County"],
-        "LocationsToSeparate": ["Summit County", "Eagle County"]
+        "LocationsToGroup": ["Western Colorado", "San Luis Valley", "Pueblo County"],
+        "LocationsToSeparate": ["Eastern Summit County", "Eastern Eagle County"]
       },
       {
         "Name": "Pueblo County",
@@ -1242,8 +1251,8 @@
         "CardinalDirectionSubarea": "NA",
         "Description": "NA",
         "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["San Luis Valley", "Huerfano County"],
-        "LocationsToSeparate": ["Summit County", "Eagle County"]
+        "LocationsToGroup": ["Western Colorado", "San Luis Valley", "Huerfano County"],
+        "LocationsToSeparate": ["Eastern Summit County", "Eastern Eagle County"]
       }
     ]
   },
