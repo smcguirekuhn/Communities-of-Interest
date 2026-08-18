@@ -37,7 +37,8 @@ evaluateLocationRecognition <- function(groundTruthCommentData, comparisonCommen
       commentMatchedLocations <- commentMatchedLocations |>
         dplyr::mutate(
           CommentPrecision = nrow(commentLocationsComparison) == dplyr::n(),
-          CommentRecall = nrow(commentLocationsGroundTruth) == dplyr::n()
+          CommentRecall = nrow(commentLocationsGroundTruth) == dplyr::n(),
+          CommentAccuracy = CommentPrecision & CommentRecall
         )
       
       ## return matched locations ----
@@ -53,29 +54,35 @@ evaluateLocationRecognition <- function(groundTruthCommentData, comparisonCommen
       `FullLocationName.x`,
       `FullLocationName.y`,
       CommentPrecision,
-      CommentRecall
+      CommentRecall,
+      CommentAccuracy
     )
   
   # calculate performance metrics ----
-  precision <- nrow(matchedLocations)/nrow(comparisonCommentData)
+  locationPrecision <- nrow(matchedLocations)/nrow(comparisonCommentData)
+  locationRecall <- nrow(matchedLocations)/nrow(groundTruthCommentData)
+  locationF1Score <- 2*(locationPrecision*locationRecall)/(locationPrecision + locationRecall)
   commentPrecision <- matchedLocations |>
     dplyr::group_by(`CommentID.x`) |>
     dplyr::summarise(CommentPrecision = unique(CommentPrecision)) |>
     dplyr::filter(CommentPrecision == 1)
-  recall <- nrow(matchedLocations)/nrow(groundTruthCommentData)
   commentRecall <- matchedLocations |>
     dplyr::group_by(`CommentID.x`) |>
     dplyr::summarise(CommentRecall = unique(CommentRecall)) |>
     dplyr::filter(CommentRecall == 1)
-  f1Score <- 2*(precision*recall)/(precision + recall)
+  commentAccuracy <- matchedLocations |>
+    dplyr::group_by(`CommentID.x`) |>
+    dplyr::summarise(CommentAccuracy = unique(CommentAccuracy)) |>
+    dplyr::filter(CommentAccuracy == 1)
   
   # compile performance metrics data frame ----
   performanceMetrics <- dplyr::tibble(
-    Precision = round(precision, digits = 3),
+    `Location Precision` = round(locationPrecision, digits = 3),
+    `Location Recall` = round(locationRecall, digits = 3),
+    `Location F1 Score` = round(locationF1Score, digits = 3),
     `Comment Precision` = nrow(commentPrecision),
-    Recall = round(recall, digits = 3),
     `Comment Recall` = nrow(commentRecall),
-    `F1 Score` = round(f1Score, digits = 3)
+    `Comment Accuracy` = nrow(commentAccuracy)
   )
   
   # return performance metrics data frame ----

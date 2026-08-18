@@ -16,19 +16,35 @@
         "Name": "Elbert County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "Northwestern",
-        "Description": "NA",
-        "DistrictTypes": ["State House", "State Senate", "Congressional"],
-        "LocationsToGroup": ["Denver Metro Area"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"],
+          ["State Senate"],
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Denver Metro Area"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Northwestern Elbert County (County)"
       },
       {
         "Name": "Denver Metro Area",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Elbert County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Elbert County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Denver Metro Area (Region)"
       }
     ]
   },
@@ -49,19 +65,35 @@
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House", "State Senate"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"],
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House", "State Senate"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"],
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       }
     ]
   },
@@ -82,46 +114,96 @@
         "Name": "Golden",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Arvada", "Colorado School of Mines", "National Renewable Energy Laboratory", "Congressional District 7"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Arvada"],
+          ["Colorado School of Mines"],
+          ["National Renewable Energy Laboratory"],
+          ["Congressional District 7"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Golden (City)"
       },
       {
         "Name": "Arvada",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Golden", "Colorado School of Mines", "National Renewable Energy Laboratory", "Congressional District 7"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Golden"],
+          ["Colorado School of Mines"],
+          ["National Renewable Energy Laboratory"],
+          ["Congressional District 7"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Arvada (City)"
       },
       {
         "Name": "Colorado School of Mines",
         "AdminLevel": "School",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Golden", "Arvada", "National Renewable Energy Laboratory", "Congressional District 7"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Golden"],
+          ["Arvada"],
+          ["National Renewable Energy Laboratory"],
+          ["Congressional District 7"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Colorado School of Mines (School)"
       },
       {
         "Name": "National Renewable Energy Laboratory",
         "AdminLevel": "Landmark",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Golden", "Arvada", "Colorado School of Mines", "Congressional District 7"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Golden"],
+          ["Arvada"],
+          ["Colorado School of Mines"],
+          ["Congressional District 7"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "National Renewable Energy Laboratory (Landmark)"
       },
       {
         "Name": "Congressional District 7",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Golden", "Arvada", "Colorado School of Mines", "National Renewable Energy Laboratory"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Golden"],
+          ["Arvada"],
+          ["Colorado School of Mines"],
+          ["National Renewable Energy Laboratory"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Congressional District 7 (Congressional District)"
       }
     ]
   },
@@ -142,73 +224,135 @@
         "Name": "West Metro Fire Protection District",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Wheat Ridge", "Edgewater", "Lakewood", "Jefferson County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Wheat Ridge"],
+          ["Edgewater"],
+          ["Lakewood"],
+          ["Jefferson County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "West Metro Fire Protection District (Region)"
       },
       {
         "Name": "Wheat Ridge",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["West Metro Fire Protection District"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["West Metro Fire Protection District"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Wheat Ridge (City)"
       },
       {
         "Name": "Edgewater",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["West Metro Fire Protection District"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["West Metro Fire Protection District"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Edgewater (City)"
       },
       {
         "Name": "Lakewood",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["West Metro Fire Protection District"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["West Metro Fire Protection District"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Lakewood (City)"
       },
       {
         "Name": "Jefferson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Unincorporated",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["West Metro Fire Protection District", "Applewood", "Dakota Ridge", "Ken Caryl"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Unincorporated",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["West Metro Fire Protection District"],
+          ["Applewood"],
+          ["Dakota Ridge"],
+          ["Ken Caryl"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Jefferson County (County), (Unincorporated)"
       },
       {
         "Name": "Applewood",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Jefferson County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Jefferson County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Applewood (Neighborhood)"
       },
       {
         "Name": "Dakota Ridge",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Jefferson County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Jefferson County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Dakota Ridge (Neighborhood)"
       },
       {
         "Name": "Ken Caryl",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Jefferson County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Jefferson County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Ken Caryl (Neighborhood)"
       }
     ]
   },
@@ -229,28 +373,50 @@
         "Name": "Steamboat Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Routt County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Steamboat Springs (City)"
       },
       {
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Steamboat Springs"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Steamboat Springs"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Rural",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Steamboat Springs", "Routt County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Rural",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Steamboat Springs"],
+          ["Routt County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Colorado (Region), (Rural)"
       }
     ]
   },
@@ -262,8 +428,8 @@
     "ZIPCode": "80031",
     "Comment": "Hello, I am a resident of Westminster. I reside on the Jefferson County side of Westminster. Due to community connections to schools and other county services, I think there is a community of interest specific to each of the two counties that make up Westminster and I also think having legislative districts follow county lines fits with the needs of the community while respecting the communities of interest within Adams and Jefferson Counties. ",
     "COI": 1,
-    "Characters": 448,
     "Reviewed": 1,
+    "Characters": 448,
     "Sentiment": 0.7,
     "Clarity": 0.6,
     "LocationsMentioned": [
@@ -271,28 +437,49 @@
         "Name": "Westminster",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Westminster (City)"
       },
       {
         "Name": "Jefferson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Adams County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Adams County"]
+        ],
+        "FullLocationName": "Jefferson County (County)"
       },
       {
         "Name": "Adams County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Jefferson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Jefferson County"]
+        ],
+        "FullLocationName": "Adams County (County)"
       }
     ]
   },
@@ -313,10 +500,17 @@
         "Name": "Aurora",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Aurora (City)"
       }
     ]
   },
@@ -337,46 +531,85 @@
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Eagle County", "Vail"],
-        "LocationsToSeparate": ["Moffat County", "Rio Blanco County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Eagle County"],
+          ["Vail"]
+        ],
+        "LocationsToSeparate": [
+          ["Moffat County"],
+          ["Rio Blanco County"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Moffat County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Moffat County (County)"
       },
       {
         "Name": "Rio Blanco County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Rio Blanco County (County)"
       },
       {
         "Name": "Vail",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Routt County", "Eagle County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"],
+          ["Eagle County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Vail (Town)"
       },
       {
         "Name": "Eagle County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Routt County", "Vail"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"],
+          ["Vail"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Eagle County (County)"
       }
     ]
   },
@@ -397,10 +630,17 @@
         "Name": "Wind Crest Senior Living Community",
         "AdminLevel": "Landmark",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Wind Crest Senior Living Community (Landmark)"
       }
     ]
   },
@@ -421,46 +661,81 @@
         "Name": "Eagle County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Eagle County (County)"
       },
       {
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Moffat County"],
-        "LocationsToSeparate": ["Eagle County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Moffat County"]
+        ],
+        "LocationsToSeparate": [
+          ["Eagle County"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Moffat County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Routt County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Moffat County (County)"
       },
       {
         "Name": "Steamboat Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Steamboat Springs (City)"
       },
       {
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       }
     ]
   },
@@ -481,28 +756,52 @@
         "Name": "Longmont",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Adams County", "Greeley"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Adams County"],
+          ["Greeley"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Longmont (City)"
       },
       {
         "Name": "Adams County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Longmont", "Greeley"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Longmont"],
+          ["Greeley"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Adams County (County)"
       },
       {
         "Name": "Greeley",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Longmont", "Adams County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Longmont"],
+          ["Adams County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Greeley (City)"
       }
     ]
   },
@@ -523,64 +822,117 @@
         "Name": "Summit County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional", "State House", "State Senate"],
-        "LocationsToGroup": ["Western Slope", "Park County"],
-        "LocationsToSeparate": ["Boulder County", "Jefferson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"],
+          ["State House"],
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["Western Slope"],
+          ["Park County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Jefferson County"]
+        ],
+        "FullLocationName": "Summit County (County)"
       },
       {
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Summit County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Summit County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Front Range",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Summit County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"]
+        ],
+        "FullLocationName": "Front Range (Region)"
       },
       {
         "Name": "Denver",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Summit County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"]
+        ],
+        "FullLocationName": "Denver (City)"
       },
       {
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Summit County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Jefferson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Summit County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"]
+        ],
+        "FullLocationName": "Jefferson County (County)"
       },
       {
         "Name": "Park County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State Senate"],
-        "LocationsToGroup": ["Summit County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["Summit County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Park County (County)"
       }
     ]
   },
@@ -601,109 +953,211 @@
         "Name": "Manitou Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Old Colorado City", "Downtown Colorado Springs", "House District 18"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Old Colorado City"],
+          ["Downtown Colorado Springs"],
+          ["House District 18"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Manitou Springs (City)"
       },
       {
         "Name": "Old Colorado City",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Manitou Springs", "Downtown Colorado Springs", "House District 18"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Manitou Springs"],
+          ["Downtown Colorado Springs"],
+          ["House District 18"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Old Colorado City (Neighborhood)"
       },
       {
         "Name": "Colorado Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Downtown",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Manitou Springs", "Old Colorado City", "House District 18"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Downtown",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Manitou Springs"],
+          ["Old Colorado City"],
+          ["House District 18"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Colorado Springs (City), (Downtown)"
       },
       {
         "Name": "Colorado Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "Southeastern",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["House District 17"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["House District 17"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Southeastern Colorado Springs (City)"
       },
       {
         "Name": "Tri-Lakes area",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Monument", "Palmer Lake", "House District 49"],
-        "LocationsToSeparate": ["Colorado Springs"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Monument"],
+          ["Palmer Lake"],
+          ["House District 49"]
+        ],
+        "LocationsToSeparate": [
+          ["Colorado Springs"]
+        ],
+        "FullLocationName": "Tri-Lakes area (Region)"
       },
       {
         "Name": "Monument",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Tri-Lakes area", "Palmer Lake", "House District 49"],
-        "LocationsToSeparate": ["Colorado Springs"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Tri-Lakes area"],
+          ["Palmer Lake"],
+          ["House District 49"]
+        ],
+        "LocationsToSeparate": [
+          ["Colorado Springs"]
+        ],
+        "FullLocationName": "Monument (Town)"
       },
       {
         "Name": "Palmer Lake",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Tri-Lakes area", "Monument", "House District 49"],
-        "LocationsToSeparate": ["Colorado Springs"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Tri-Lakes area"],
+          ["Monument"],
+          ["House District 49"]
+        ],
+        "LocationsToSeparate": [
+          ["Colorado Springs"]
+        ],
+        "FullLocationName": "Palmer Lake (Town)"
       },
       {
         "Name": "Colorado Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Tri-Lakes area", "Monument", "Palmer Lake"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Tri-Lakes area"],
+          ["Monument"],
+          ["Palmer Lake"]
+        ],
+        "FullLocationName": "Colorado Springs (City)"
       },
       {
         "Name": "El Paso County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "El Paso County (County)"
       },
       {
         "Name": "House District 17",
         "AdminLevel": "State House District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Southeastern Colorado Springs"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Southeastern Colorado Springs"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "House District 17 (State House District)"
       },
       {
         "Name": "House District 18",
         "AdminLevel": "State House District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Manitou Springs", "Old Colorado City", "Downtown Colorado Springs"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Manitou Springs"],
+          ["Old Colorado City"],
+          ["Downtown Colorado Springs"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "House District 18 (State House District)"
       },
       {
         "Name": "House District 49",
         "AdminLevel": "State House District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State House"],
-        "LocationsToGroup": ["Tri-Lakes area", "Monument", "Palmer Lake"],
-        "LocationsToSeparate": ["Colorado Springs"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State House"]
+        ],
+        "LocationsToGroup": [
+          ["Tri-Lakes area"],
+          ["Monument"],
+          ["Palmer Lake"]
+        ],
+        "LocationsToSeparate": [
+          ["Colorado Springs"]
+        ],
+        "FullLocationName": "House District 49 (State House District)"
       }
     ]
   },
@@ -724,37 +1178,65 @@
         "Name": "Summit County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Eagle County"],
-        "LocationsToSeparate": ["Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Eagle County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Summit County (County)"
       },
       {
         "Name": "Boulder County",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Summit County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"]
+        ],
+        "FullLocationName": "Boulder County (City)"
       },
       {
         "Name": "Eagle County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Summit County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Summit County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Eagle County (County)"
       },
       {
         "Name": "Garfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Garfield County (County)"
       }
     ]
   },
@@ -775,28 +1257,49 @@
         "Name": "Fort Collins",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Boulder County"],
-        "LocationsToSeparate": ["Weld County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"]
+        ],
+        "LocationsToSeparate": [
+          ["Weld County"]
+        ],
+        "FullLocationName": "Fort Collins (City)"
       },
       {
         "Name": "Weld County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Fort Collins"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Fort Collins"]
+        ],
+        "FullLocationName": "Weld County (County)"
       },
       {
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Fort Collins"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       }
     ]
   },
@@ -817,10 +1320,17 @@
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       }
     ]
   },
@@ -841,19 +1351,33 @@
         "Name": "Boulder",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Colorado"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Colorado"]
+        ],
+        "FullLocationName": "Boulder (City)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Western",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder"]
+        ],
+        "FullLocationName": "Western Colorado (Region)"
       }
     ]
   },
@@ -874,37 +1398,69 @@
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope", "Jackson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"],
+          ["Jackson County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope", "Jackson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"],
+          ["Jackson County"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Jackson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Jackson County (County)"
       }
     ]
   },
@@ -925,64 +1481,116 @@
         "Name": "Douglas County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Highlands Ranch", "The Pinery", "Roxborough", "Castle Pines Village"],
-        "LocationsToSeparate": ["Elbert County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Highlands Ranch"],
+          ["The Pinery"],
+          ["Roxborough"],
+          ["Castle Pines Village"]
+        ],
+        "LocationsToSeparate": [
+          ["Elbert County"]
+        ],
+        "FullLocationName": "Douglas County (County)"
       },
       {
         "Name": "Elbert County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Douglas County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Douglas County"]
+        ],
+        "FullLocationName": "Elbert County (County)"
       },
       {
         "Name": "Highlands Ranch",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Douglas County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Douglas County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Highlands Ranch (Neighborhood)"
       },
       {
         "Name": "The Pinery",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Douglas County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Douglas County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "The Pinery (Neighborhood)"
       },
       {
         "Name": "Roxborough",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Douglas County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Douglas County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Roxborough (Neighborhood)"
       },
       {
         "Name": "Castle Pines Village",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Douglas County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Douglas County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Castle Pines Village (Neighborhood)"
       },
       {
         "Name": "Colorado District 4",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Douglas County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Douglas County"]
+        ],
+        "FullLocationName": "Colorado District 4 (Congressional District)"
       }
     ]
   },
@@ -1003,46 +1611,83 @@
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder", "Broomfield"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder"],
+          ["Broomfield"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Boulder",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Front Range"],
-        "LocationsToSeparate": ["Western Slope"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Front Range"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"]
+        ],
+        "FullLocationName": "Boulder (City)"
       },
       {
         "Name": "Broomfield",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Front Range"],
-        "LocationsToSeparate": ["Western Slope"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Front Range"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"]
+        ],
+        "FullLocationName": "Broomfield (City)"
       },
       {
         "Name": "Front Range",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Boulder", "Broomfield"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder"],
+          ["Broomfield"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Front Range (Region)"
       },
       {
         "Name": "Garfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Garfield County (County)"
       }
     ]
   },
@@ -1063,46 +1708,88 @@
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Eastern Colorado"],
-        "LocationsToSeparate": ["Front Range", "Colorado Springs", "Fort Collins"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Eastern Colorado"]
+        ],
+        "LocationsToSeparate": [
+          ["Front Range"],
+          ["Colorado Springs"],
+          ["Fort Collins"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Front Range",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"],
+          ["Eastern Colorado"]
+        ],
+        "FullLocationName": "Front Range (Region)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Eastern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Western Slope"],
-        "LocationsToSeparate": ["Front Range", "Colorado Springs", "Fort Collins"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Western Slope"]
+        ],
+        "LocationsToSeparate": [
+          ["Front Range"],
+          ["Colorado Springs"],
+          ["Fort Collins"]
+        ],
+        "FullLocationName": "Eastern Colorado (Region)"
       },
       {
         "Name": "Colorado Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"],
+          ["Eastern Colorado"]
+        ],
+        "FullLocationName": "Colorado Springs (City)"
       },
       {
         "Name": "Fort Collins",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope", "Eastern Colorado"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"],
+          ["Eastern Colorado"]
+        ],
+        "FullLocationName": "Fort Collins (City)"
       }
     ]
   },
@@ -1123,154 +1810,329 @@
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Larimer County"],
-        "LocationsToSeparate": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County", "Moffat County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["Garfield County"],
+          ["Jackson County"],
+          ["Routt County"],
+          ["Rio Blanco County"],
+          ["Moffat County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Broomfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County", "Moffat County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Garfield County"],
+          ["Jackson County"],
+          ["Routt County"],
+          ["Rio Blanco County"],
+          ["Moffat County"]
+        ],
+        "FullLocationName": "Broomfield County (County)"
       },
       {
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Boulder County"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County", "Moffat County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Boulder County"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Garfield County"],
+          ["Jackson County"],
+          ["Routt County"],
+          ["Rio Blanco County"],
+          ["Moffat County"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Garfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Jackson County", "Routt County", "Rio Blanco County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Jackson County"],
+          ["Routt County"],
+          ["Rio Blanco County"],
+          ["Moffat County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Broomfield County"]
+        ],
+        "FullLocationName": "Garfield County (County)"
       },
       {
         "Name": "Jackson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Garfield County", "Routt County", "Rio Blanco County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Routt County"],
+          ["Rio Blanco County"],
+          ["Moffat County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Broomfield County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Jackson County (County)"
       },
       {
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Garfield County", "Jackson County", "Rio Blanco County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Jackson County"],
+          ["Rio Blanco County"],
+          ["Moffat County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Broomfield County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Rio Blanco County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Garfield County", "Jackson County", "Routt County", "Moffat County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Jackson County"],
+          ["Routt County"],
+          ["Moffat County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Broomfield County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Rio Blanco County (County)"
       },
       {
         "Name": "Moffat County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Garfield County", "Jackson County", "Routt County", "Rio Blanco County"],
-        "LocationsToSeparate": ["Boulder County", "Broomfield County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Jackson County"],
+          ["Routt County"],
+          ["Rio Blanco County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Broomfield County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Moffat County (County)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Northwestern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Northwestern Colorado (Region)"
       },
       {
         "Name": "Gilpin County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Boulder County", "Larimer County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Gilpin County (County)"
       },
       {
         "Name": "Clear Creek County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Boulder County", "Larimer County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Clear Creek County (County)"
       },
       {
         "Name": "Summit County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Boulder County", "Larimer County"],
-        "LocationsToSeparate": ["San Luis Valley", "Huerfano County", "Pueblo County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["San Luis Valley"],
+          ["Huerfano County"],
+          ["Pueblo County"]
+        ],
+        "FullLocationName": "Summit County (County)"
       },
       {
         "Name": "Eagle County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "Eastern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Boulder County", "Larimer County"],
-        "LocationsToSeparate": ["San Luis Valley", "Huerfano County", "Pueblo County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["San Luis Valley"],
+          ["Huerfano County"],
+          ["Pueblo County"]
+        ],
+        "FullLocationName": "Eastern Eagle County (County)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Western",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["San Luis Valley", "Huerfano County", "Pueblo County"],
-        "LocationsToSeparate": ["Summit County", "Eastern Eagle County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["San Luis Valley"],
+          ["Huerfano County"],
+          ["Pueblo County"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"],
+          ["Eastern Eagle County"]
+        ],
+        "FullLocationName": "Western Colorado (Region)"
       },
       {
         "Name": "San Luis Valley",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Western Colorado", "Huerfano County", "Pueblo County"],
-        "LocationsToSeparate": ["Summit County", "Eastern Eagle County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Western Colorado"],
+          ["Huerfano County"],
+          ["Pueblo County"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"],
+          ["Eastern Eagle County"]
+        ],
+        "FullLocationName": "San Luis Valley (Region)"
       },
       {
         "Name": "Huerfano County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Western Colorado", "San Luis Valley", "Pueblo County"],
-        "LocationsToSeparate": ["Summit County", "Eastern Eagle County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Western Colorado"],
+          ["San Luis Valley"],
+          ["Pueblo County"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"],
+          ["Eastern Eagle County"]
+        ],
+        "FullLocationName": "Huerfano County (County)"
       },
       {
         "Name": "Pueblo County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Western Colorado", "San Luis Valley", "Huerfano County"],
-        "LocationsToSeparate": ["Summit County", "Eastern Eagle County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Western Colorado"],
+          ["San Luis Valley"],
+          ["Huerfano County"]
+        ],
+        "LocationsToSeparate": [
+          ["Summit County"],
+          ["Eastern Eagle County"]
+        ],
+        "FullLocationName": "Pueblo County (County)"
       }
     ]
   },
@@ -1291,37 +2153,65 @@
         "Name": "Summit County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "Northern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Silverthorne"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Silverthorne"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Northern Summit County (County)"
       },
       {
         "Name": "Silverthorne",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Summit County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Summit County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Silverthorne (Town)"
       },
       {
         "Name": "Grand County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Grand County (County)"
       },
       {
         "Name": "ZIP Code 80498",
         "AdminLevel": "NA",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "ZIP Code 80498 (NA)"
       }
     ]
   },
@@ -1342,73 +2232,134 @@
         "Name": "Fort Collins",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Larimer County", "Denver", "Boulder"],
-        "LocationsToSeparate": ["Eastern Colorado", "Castle Rock"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"],
+          ["Denver"],
+          ["Boulder"]
+        ],
+        "LocationsToSeparate": [
+          ["Eastern Colorado"],
+          ["Castle Rock"]
+        ],
+        "FullLocationName": "Fort Collins (City)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Eastern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Fort Collins"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Fort Collins"]
+        ],
+        "FullLocationName": "Eastern Colorado (Region)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Northern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fort Collins"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Northern Colorado (Region)"
       },
       {
         "Name": "Castle Rock",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Fort Collins"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Fort Collins"]
+        ],
+        "FullLocationName": "Castle Rock (Town)"
       },
       {
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fort Collins"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Colorado State University",
         "AdminLevel": "School",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fort Collins"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Colorado State University (School)"
       },
       {
         "Name": "Denver",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fort Collins", "Boulder"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"],
+          ["Boulder"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Denver (City)"
       },
       {
         "Name": "Boulder",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fort Collins", "Denver"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"],
+          ["Denver"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Boulder (City)"
       }
     ]
   },
@@ -1429,28 +2380,50 @@
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Larimer County"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Boulder County"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder County", "Larimer County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"],
+          ["Larimer County"]
+        ],
+        "FullLocationName": "Routt County (County)"
       }
     ]
   },
@@ -1471,10 +2444,17 @@
         "Name": "Otero County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Otero County (County)"
       }
     ]
   },
@@ -1495,19 +2475,33 @@
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Rio Blanco County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Rio Blanco County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Rio Blanco County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Rio Blanco County (County)"
       }
     ]
   },
@@ -1528,10 +2522,17 @@
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       }
     ]
   },
@@ -1552,10 +2553,17 @@
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       }
     ]
   },
@@ -1576,37 +2584,65 @@
         "Name": "Pueblo County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["San Luis Valley"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["San Luis Valley"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Pueblo County (County)"
       },
       {
         "Name": "San Luis Valley",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Pueblo County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Pueblo County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "San Luis Valley (Region)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Southern",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Southern Colorado (Region)"
       },
       {
         "Name": "Pueblo",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Pueblo (City)"
       }
     ]
   },
@@ -1627,64 +2663,118 @@
         "Name": "Fremont County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Park County", "Teller County"],
-        "LocationsToSeparate": ["Jefferson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Park County"],
+          ["Teller County"]
+        ],
+        "LocationsToSeparate": [
+          ["Jefferson County"]
+        ],
+        "FullLocationName": "Fremont County (County)"
       },
       {
         "Name": "Park County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fremont County", "Teller County"],
-        "LocationsToSeparate": ["Jefferson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fremont County"],
+          ["Teller County"]
+        ],
+        "LocationsToSeparate": [
+          ["Jefferson County"]
+        ],
+        "FullLocationName": "Park County (County)"
       },
       {
         "Name": "Teller County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fremont County", "Park County"],
-        "LocationsToSeparate": ["Jefferson County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fremont County"],
+          ["Park County"]
+        ],
+        "LocationsToSeparate": [
+          ["Jefferson County"]
+        ],
+        "FullLocationName": "Teller County (County)"
       },
       {
         "Name": "Jefferson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "metro area",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Fremont County", "Park County", "Teller County"]
+        "AdditionalDescription": "metro area",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Fremont County"],
+          ["Park County"],
+          ["Teller County"]
+        ],
+        "FullLocationName": "Jefferson County (County), (metro area)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Eastern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fremont County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fremont County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Eastern Colorado (Region)"
       },
       {
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fremont County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fremont County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Arkansas River",
         "AdminLevel": "Landmark",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Corridor",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fremont County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Corridor",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fremont County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Arkansas River (Landmark), (Corridor)"
       }
     ]
   },
@@ -1705,28 +2795,49 @@
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Southern Routt County"],
-        "LocationsToSeparate": ["Boulder"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Southern Routt County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Routt County",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Southern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Routt County"],
-        "LocationsToSeparate": ["Boulder"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder"]
+        ],
+        "FullLocationName": "Southern Routt County (Region)"
       },
       {
         "Name": "Boulder",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Boulder (City)"
       }
     ]
   },
@@ -1747,64 +2858,116 @@
         "Name": "Eagle County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Congressional District 3"],
-        "LocationsToSeparate": ["Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Congressional District 3"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Eagle County (County)"
       },
       {
         "Name": "Congressional District 3",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Eagle County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Eagle County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Congressional District 3 (Congressional District)"
       },
       {
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Denver", "Loveland", "Fort Collins", "Aurora"],
-        "LocationsToSeparate": ["Eagle County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Denver"],
+          ["Loveland"],
+          ["Fort Collins"],
+          ["Aurora"]
+        ],
+        "LocationsToSeparate": [
+          ["Eagle County"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Denver",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Boulder County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Denver (City)"
       },
       {
         "Name": "Loveland",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Boulder County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Loveland (City)"
       },
       {
         "Name": "Fort Collins",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Boulder County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Fort Collins (City)"
       },
       {
         "Name": "Aurora",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Boulder County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Boulder County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Aurora (City)"
       }
     ]
   },
@@ -1825,19 +2988,33 @@
         "Name": "Boulder",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Rural Colorado"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Rural Colorado"]
+        ],
+        "FullLocationName": "Boulder (City)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Rural",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder"]
+        "AdditionalDescription": "Rural",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder"]
+        ],
+        "FullLocationName": "Colorado (Region), (Rural)"
       }
     ]
   },
@@ -1858,28 +3035,49 @@
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Boulder"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Boulder"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Oak Creek",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Routt County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Oak Creek (Town)"
       },
       {
         "Name": "Boulder",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"]
+        ],
+        "FullLocationName": "Boulder (City)"
       }
     ]
   },
@@ -1900,55 +3098,101 @@
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Fort Collins", "Loveland", "Berthoud", "Wellington"],
-        "LocationsToSeparate": ["Weld County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"],
+          ["Loveland"],
+          ["Berthoud"],
+          ["Wellington"]
+        ],
+        "LocationsToSeparate": [
+          ["Weld County"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Fort Collins",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Larimer County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Fort Collins (City)"
       },
       {
         "Name": "Loveland",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Larimer County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Loveland (City)"
       },
       {
         "Name": "Berthoud",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Larimer County"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Berthoud (Town)"
       },
       {
         "Name": "Wellington",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Larimer County"],
-        "LocationsToSeparate": ["Weld County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Larimer County"]
+        ],
+        "LocationsToSeparate": [
+          ["Weld County"]
+        ],
+        "FullLocationName": "Wellington (Town)"
       },
       {
         "Name": "Weld County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Larimer County", "Wellington"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"],
+          ["Wellington"]
+        ],
+        "FullLocationName": "Weld County (County)"
       }
     ]
   },
@@ -1969,64 +3213,123 @@
         "Name": "Las Animas County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Crowley County", "Otero County", "Congressional District 4"],
-        "LocationsToSeparate": ["Congressional District 3"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Crowley County"],
+          ["Otero County"],
+          ["Congressional District 4"]
+        ],
+        "LocationsToSeparate": [
+          ["Congressional District 3"]
+        ],
+        "FullLocationName": "Las Animas County (County)"
       },
       {
         "Name": "Crowley County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Las Animas County", "Otero County", "Congressional District 4"],
-        "LocationsToSeparate": ["Congressional District 3"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Las Animas County"],
+          ["Otero County"],
+          ["Congressional District 4"]
+        ],
+        "LocationsToSeparate": [
+          ["Congressional District 3"]
+        ],
+        "FullLocationName": "Crowley County (County)"
       },
       {
         "Name": "Otero County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Las Animas County", "Crowley County", "Congressional District 4"],
-        "LocationsToSeparate": ["Congressional District 3"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Las Animas County"],
+          ["Crowley County"],
+          ["Congressional District 4"]
+        ],
+        "LocationsToSeparate": [
+          ["Congressional District 3"]
+        ],
+        "FullLocationName": "Otero County (County)"
       },
       {
         "Name": "Congressional District 4",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Las Animas County", "Crowley County", "Otero County"],
-        "LocationsToSeparate": ["Congressional District 3"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Las Animas County"],
+          ["Crowley County"],
+          ["Otero County"]
+        ],
+        "LocationsToSeparate": [
+          ["Congressional District 3"]
+        ],
+        "FullLocationName": "Congressional District 4 (Congressional District)"
       },
       {
         "Name": "Congressional District 3",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Las Animas County", "Crowley County", "Otero County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Las Animas County"],
+          ["Crowley County"],
+          ["Otero County"]
+        ],
+        "FullLocationName": "Congressional District 3 (Congressional District)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Southern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Southern Colorado (Region)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Southeastern",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Southeastern Colorado (Region)"
       }
     ]
   },
@@ -2047,28 +3350,50 @@
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Front Range", "Metro areas"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Front Range"],
+          ["Metro areas"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Front Range",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"]
+        ],
+        "FullLocationName": "Front Range (Region)"
       },
       {
         "Name": "Metro Areas",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Western Slope"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Slope"]
+        ],
+        "FullLocationName": "Metro Areas (Region)"
       }
     ]
   },
@@ -2089,10 +3414,17 @@
         "Name": "Broomfield",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Broomfield (City)"
       }
     ]
   },
@@ -2113,10 +3445,17 @@
         "Name": "Broomfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Broomfield County (County)"
       }
     ]
   },
@@ -2137,10 +3476,17 @@
         "Name": "Broomfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Broomfield County (County)"
       }
     ]
   },
@@ -2161,91 +3507,174 @@
         "Name": "Loveland",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Estes Park", "Fort Collins", "Congressional District 2"],
-        "LocationsToSeparate": ["Congressional District 4"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Estes Park"],
+          ["Fort Collins"],
+          ["Congressional District 2"]
+        ],
+        "LocationsToSeparate": [
+          ["Congressional District 4"]
+        ],
+        "FullLocationName": "Loveland (City)"
       },
       {
         "Name": "Congressional District 4",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Arkansas Valley", "Weld County"],
-        "LocationsToSeparate": ["Loveland"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Arkansas Valley"],
+          ["Weld County"]
+        ],
+        "LocationsToSeparate": [
+          ["Loveland"]
+        ],
+        "FullLocationName": "Congressional District 4 (Congressional District)"
       },
       {
         "Name": "Congressional District 2",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Loveland", "Estes Park", "Fort Collins"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Loveland"],
+          ["Estes Park"],
+          ["Fort Collins"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Congressional District 2 (Congressional District)"
       },
       {
         "Name": "Estes Park",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Loveland", "Fort Collins", "Congressional District 2"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Loveland"],
+          ["Fort Collins"],
+          ["Congressional District 2"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Estes Park (Town)"
       },
       {
         "Name": "Rocky Mountain National Park",
         "AdminLevel": "Landmark",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Estes Park"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Estes Park"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Rocky Mountain National Park (Landmark)"
       },
       {
         "Name": "Fort Collins",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Loveland", "Estes Park", "Congressional District 2"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Loveland"],
+          ["Estes Park"],
+          ["Congressional District 2"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Fort Collins (City)"
       },
       {
         "Name": "Colorado State University",
         "AdminLevel": "School",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Fort Collins"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Fort Collins"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Colorado State University (School)"
       },
       {
         "Name": "Arkansas Valley",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Weld County", "Congressional District 4"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Weld County"],
+          ["Congressional District 4"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Arkansas Valley (Region)"
       },
       {
         "Name": "Weld County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Arkansas Valley", "Congressional District 4"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Arkansas Valley"],
+          ["Congressional District 4"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Weld County (County)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Eastern",
-        "Description": "Rural",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Weld County", "Arkansas Valley", "Congressional District 4"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Rural",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Weld County"],
+          ["Arkansas Valley"],
+          ["Congressional District 4"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Eastern Colorado (Region), (Rural)"
       }
     ]
   },
@@ -2266,91 +3695,241 @@
         "Name": "Archuleta County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Archuleta County (County)"
       },
       {
         "Name": "La Plata County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "La Plata County (County)"
       },
       {
         "Name": "San Juan County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "San Juan County (County)"
       },
       {
         "Name": "Dolores County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Dolores County (County)"
       },
       {
         "Name": "Montezuma County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Montezuma County (County)"
       },
       {
         "Name": "Pagosa Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Silverton", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Pagosa Springs (City)"
       },
       {
         "Name": "Silverton",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Bayfield", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Bayfield"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Silverton (City)"
       },
       {
         "Name": "Bayfield",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Ignacio", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Ignacio"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Bayfield (City)"
       },
       {
         "Name": "Ignacio",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Cortez"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Cortez"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Ignacio (City)"
       },
       {
         "Name": "Cortez",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Archuleta County", "La Plata County", "San Juan County", "Dolores County", "Montezuma County", "Pagosa Springs", "Silverton", "Bayfield", "Ignacio"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Archuleta County"],
+          ["La Plata County"],
+          ["San Juan County"],
+          ["Dolores County"],
+          ["Montezuma County"],
+          ["Pagosa Springs"],
+          ["Silverton"],
+          ["Bayfield"],
+          ["Ignacio"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Cortez (City)"
       }
     ]
   },
@@ -2371,19 +3950,33 @@
         "Name": "Grand Junction",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Mesa County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Mesa County"]
+        ],
+        "FullLocationName": "Grand Junction (City)"
       },
       {
         "Name": "Mesa County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "The Valley",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Grand Junction"]
+        "AdditionalDescription": "The Valley",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Grand Junction"]
+        ],
+        "FullLocationName": "Mesa County (County), (The Valley)"
       }
     ]
   },
@@ -2404,46 +3997,81 @@
         "Name": "Ridgway",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Southern Colorado"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Southern Colorado"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Ridgway (Town)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Southern",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Ridgway"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Ridgway"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Southern Colorado (Region)"
       },
       {
         "Name": "Pueblo",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["San Luis Valley"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["San Luis Valley"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Pueblo (City)"
       },
       {
         "Name": "San Luis Valley",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Pueblo"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Pueblo"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "San Luis Valley (Region)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Northwestern",
-        "Description": "Oil and gas producing regions",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Oil and gas producing regions",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Northwestern Colorado (Region), (Oil and gas producing regions)"
       }
     ]
   },
@@ -2464,55 +4092,98 @@
         "Name": "Jefferson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Unincorporated",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "Unincorporated",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Jefferson County (County), (Unincorporated)"
       },
       {
         "Name": "Denver",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "Northern",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Adams County", "Wheat Ridge"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Adams County"],
+          ["Wheat Ridge"]
+        ],
+        "FullLocationName": "Northern Denver (City)"
       },
       {
         "Name": "Adams County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Other side of 52nd Avenue",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Denver"]
+        "AdditionalDescription": "Other side of 52nd Avenue",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Denver"]
+        ],
+        "FullLocationName": "Adams County (County), (Other side of 52nd Avenue)"
       },
       {
         "Name": "Wheat Ridge",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "Other side of Sheridan",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Denver"]
+        "AdditionalDescription": "Other side of Sheridan",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Denver"]
+        ],
+        "FullLocationName": "Wheat Ridge (City), (Other side of Sheridan)"
       },
       {
         "Name": "Globeville",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Northern Denver"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Northern Denver"]
+        ],
+        "FullLocationName": "Globeville (Neighborhood)"
       },
       {
         "Name": "Sloan's Lake",
         "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Northern Denver"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Northern Denver"]
+        ],
+        "FullLocationName": "Sloan's Lake (Neighborhood)"
       }
     ]
   },
@@ -2533,28 +4204,49 @@
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Pueblo",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Pueblo (City)"
       },
       {
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Southern",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Southern Colorado (Region)"
       }
     ]
   },
@@ -2575,10 +4267,17 @@
         "Name": "Broomfield",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Broomfield (City)"
       }
     ]
   },
@@ -2599,64 +4298,141 @@
         "Name": "Larimer County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County", "Jackson County", "Eagle County", "Gunnison County", "Western Slope"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"],
+          ["Jackson County"],
+          ["Eagle County"],
+          ["Gunnison County"],
+          ["Western Slope"]
+        ],
+        "FullLocationName": "Larimer County (County)"
       },
       {
         "Name": "Boulder County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Routt County", "Jackson County", "Eagle County", "Gunnison County", "Western Slope"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Routt County"],
+          ["Jackson County"],
+          ["Eagle County"],
+          ["Gunnison County"],
+          ["Western Slope"]
+        ],
+        "FullLocationName": "Boulder County (County)"
       },
       {
         "Name": "Routt County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Jackson County", "Eagle County", "Gunnison County", "Western Slope"],
-        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Jackson County"],
+          ["Eagle County"],
+          ["Gunnison County"],
+          ["Western Slope"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"],
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Routt County (County)"
       },
       {
         "Name": "Jackson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Routt County", "Eagle County", "Gunnison County", "Western Slope"],
-        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"],
+          ["Eagle County"],
+          ["Gunnison County"],
+          ["Western Slope"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"],
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Jackson County (County)"
       },
       {
         "Name": "Eagle County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Routt County", "Jackson County", "Gunnison County", "Western Slope"],
-        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"],
+          ["Jackson County"],
+          ["Gunnison County"],
+          ["Western Slope"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"],
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Eagle County (County)"
       },
       {
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["NA"],
-        "LocationsToGroup": ["Routt County", "Jackson County", "Eagle County", "Gunnison County"],
-        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["NA"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"],
+          ["Jackson County"],
+          ["Eagle County"],
+          ["Gunnison County"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"],
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Western Slope (Region)"
       },
       {
         "Name": "Gunnison County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["Congressional"],
-        "LocationsToGroup": ["Routt County", "Jackson County", "Eagle County", "Western Slope"],
-        "LocationsToSeparate": ["Larimer County", "Boulder County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["Congressional"]
+        ],
+        "LocationsToGroup": [
+          ["Routt County"],
+          ["Jackson County"],
+          ["Eagle County"],
+          ["Western Slope"]
+        ],
+        "LocationsToSeparate": [
+          ["Larimer County"],
+          ["Boulder County"]
+        ],
+        "FullLocationName": "Gunnison County (County)"
       }
     ]
   },
@@ -2677,46 +4453,89 @@
         "Name": "Garfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "Eastern",
-        "Description": "NA",
-        "DistrictTypes": ["State Senate"],
-        "LocationsToGroup": ["Rifle", "Silt", "Glenwood Springs"],
-        "LocationsToSeparate": ["Western Garfield County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["Rifle"],
+          ["Silt"],
+          ["Glenwood Springs"]
+        ],
+        "LocationsToSeparate": [
+          ["Western Garfield County"]
+        ],
+        "FullLocationName": "Eastern Garfield County (County)"
       },
       {
         "Name": "Garfield County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "Western",
-        "Description": "NA",
-        "DistrictTypes": ["State Senate"],
-        "LocationsToGroup": ["NA"],
-        "LocationsToSeparate": ["Eastern Garfield County"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["NA"]
+        ],
+        "LocationsToSeparate": [
+          ["Eastern Garfield County"]
+        ],
+        "FullLocationName": "Western Garfield County (County)"
       },
       {
         "Name": "Rifle",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State Senate"],
-        "LocationsToGroup": ["Garfield County", "Silt", "Glenwood Springs"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Silt"],
+          ["Glenwood Springs"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Rifle (City)"
       },
       {
         "Name": "Silt",
         "AdminLevel": "Town",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State Senate"],
-        "LocationsToGroup": ["Garfield County", "Rifle", "Glenwood Springs"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Rifle"],
+          ["Glenwood Springs"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Silt (Town)"
       },
       {
         "Name": "Glenwood Springs",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "Description": "NA",
-        "DistrictTypes": ["State Senate"],
-        "LocationsToGroup": ["Garfield County", "Rifle", "Silt"],
-        "LocationsToSeparate": ["NA"]
+        "AdditionalDescription": "NA",
+        "DistrictTypes": [
+          ["State Senate"]
+        ],
+        "LocationsToGroup": [
+          ["Garfield County"],
+          ["Rifle"],
+          ["Silt"]
+        ],
+        "LocationsToSeparate": [
+          ["NA"]
+        ],
+        "FullLocationName": "Glenwood Springs (City)"
       }
     ]
   }
