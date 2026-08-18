@@ -22,8 +22,21 @@ coGroundTruthReviewedFilename <- "GroundTruth/COGroundTruthCommentsReviewed.json
 coWebCommentData <- readRDS(file = file.path(dataPath, coWebCommentDataFilename)) |>
   dplyr::mutate(
     FullLocationName = dplyr::case_when(
-      CardinalDirectionSubarea == "NA" ~ paste0(Name, " (", AdminLevel, ")"),
-      .default = paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, ")")
+      CardinalDirectionSubarea != "NA" & AdditionalDescription != "NA" ~
+        paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
+      CardinalDirectionSubarea != "NA" & AdditionalDescription == "NA" ~
+        paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, ")"),
+      CardinalDirectionSubarea == "NA" & AdditionalDescription != "NA" ~
+        paste0(Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
+      .default = paste0(Name, " (", AdminLevel, ")")
+    )
+  ) |>
+  dplyr::mutate(
+    FullLocationName = gsub(
+      pattern = "\\b(\\w+)(?:\\s+\\1\\b)+",
+      replacement = "\\1",
+      x = FullLocationName,
+      perl = TRUE
     )
   )
 
@@ -31,12 +44,24 @@ coWebCommentData <- readRDS(file = file.path(dataPath, coWebCommentDataFilename)
 coGroundTruthReviewed <- jsonlite::read_json(path = file.path(dataPath, coGroundTruthReviewedFilename)) |>
   dplyr::bind_rows() |>
   tidyr::unnest_wider(col = "LocationsMentioned") |>
+  dplyr::rename(AdditionalDescription = Description) |>
   dplyr::mutate(
     FullLocationName = dplyr::case_when(
-      CardinalDirectionSubarea == "NA" ~ paste0(Name, " (", AdminLevel, ")"),
-      .default = paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, ")")
+      CardinalDirectionSubarea != "NA" & AdditionalDescription != "NA" ~
+        paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
+      CardinalDirectionSubarea != "NA" & AdditionalDescription == "NA" ~
+        paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, ")"),
+      CardinalDirectionSubarea == "NA" & AdditionalDescription != "NA" ~
+        paste0(Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
+      .default = paste0(Name, " (", AdminLevel, ")")
     )
   )
+
+# evaluate location recognition ----
+evaluateLocationRecognition(
+  groundTruthCommentData = coGroundTruthReviewed,
+  comparisonCommentData = coWebCommentData
+)
 
 # evaluate location relationships ----
 relationships <- evaluateLocationRelationships(
