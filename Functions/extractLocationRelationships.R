@@ -1,5 +1,5 @@
 
-evaluateLocationRelationships <- function(
+extractLocationRelationships <- function(
     comment,
     locationNames,
     districtTypes = c(

@@ -106,11 +106,5 @@ coWebCommentData <- coWebCommentData |>
     )
   )
 
-# evaluate location recognition ----
-X <- evaluateLocationRecognition(
-  groundTruthCommentData = coGroundTruthReviewed,
-  comparisonCommentData = coWebCommentData
-)
-
 # save comment data ----
 saveRDS(object = coWebCommentData, file = file.path(dataPath, coWebCommentDataFilename))

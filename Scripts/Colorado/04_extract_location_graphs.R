@@ -29,13 +29,13 @@ coWebCommentRelationships <- purrr::map(
   .f = purrr::safely(.f = \(commentID) {
     
     ## assign location names ----
-    locationNames <- coGroundTruthReviewed |>
+    locationNames <- coWebCommentData |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::pull(FullLocationName)
     
     ## evaluate comment location relationships ----
     if (length(locationNames) > 1) {
-      commentRelationships <- evaluateLocationRelationships(
+      commentRelationships <- extractLocationRelationships(
         comment = coWebCommentData |>
           dplyr::filter(CommentID == commentID) |>
           dplyr::pull(Comment) |>
@@ -65,68 +65,6 @@ coWebCommentRelationships <- coWebCommentRelationships |>
   purrr::list_rbind(names_to = "CommentID") |>
   dplyr::arrange(as.numeric(CommentID)) |>
   dplyr::distinct()
-
-# import colorado ground truth comments ----
-coGroundTruthReviewed <- jsonlite::read_json(path = file.path(dataPath, coGroundTruthReviewedFilename))
-
-# isolate colorado ground truth comment relationships ----
-coGroundTruthRelationships <- coGroundTruthReviewed |>
-  purrr::map(
-    .f = \(webComment) {
-      webCommentRelationships <- webComment[["Relationships"]] |> dplyr::bind_rows()
-      if (nrow(webCommentRelationships) > 0) {
-        webCommentRelationships <- webCommentRelationships |>
-          dplyr::mutate(CommentID = webComment[["CommentID"]], .before = "Location1")
-      }
-      return(webCommentRelationships)
-    }
-  ) |>
-  purrr::list_rbind()
-
-# isolate colorado ground truth location mentions ----
-coGroundTruthReviewed <- coGroundTruthReviewed |>
-  purrr::map(.f = \(webComment) webComment |> purrr::discard_at(at = "Relationships")) |>
-  dplyr::bind_rows() |>
-  tidyr::unnest_wider(col = "LocationsMentioned")
-
-coWebCommentRelationships <- readRDS(file = file.path(dataPath, coWebCommentRelationshipsFilename))
-
-# coWebCommentRelationships <- coWebCommentRelationships |>
-#   dplyr::mutate(
-#     Location2 = dplyr::case_when(
-#       Location2 == "Boulder County (City)" ~ "Boulder County (County)",
-#       .default = Location2
-#     )
-#   )
-
-locationGraphSimilarity <- purrr::map(
-  .x = unique(coWebCommentData[["CommentID"]]),
-  .f = \(commentID) {
-    
-    ## assign location nodes ----
-    locationNodes <- coGroundTruthReviewed |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
-    
-    ## calculate comment similarity ----
-    if (length(locationNodes) > 1) {
-      commentSimilarity <- evaluateLocationGraphSimilarity(
-        locationNodes = locationNodes,
-        groundTruthRelationships = coGroundTruthRelationships |>
-          dplyr::filter(CommentID == commentID),
-        comparisonRelationships = coWebCommentRelationships |>
-          dplyr::filter(CommentID == commentID)
-      )
-    } else {
-      commentSimilarity <- NULL
-    }
-    
-    ## return comment similarity ----
-    return(commentSimilarity)
-  }
-) |>
-  purrr::set_names(nm = unique(coWebCommentData[["CommentID"]])) |>
-  purrr::list_rbind(names_to = "CommentID")
 
 # save comment relationships ----
 saveRDS(object = coWebCommentRelationships, file = file.path(dataPath, coWebCommentRelationshipsFilename))
