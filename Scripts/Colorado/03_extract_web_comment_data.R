@@ -85,26 +85,9 @@ coWebCommentData <- coWebCommentData |>
   purrr::list_rbind() |>
   dplyr::rename(CommenterName = Name) |>
   tidyr::unnest(cols = "LocationsMentioned") |>
-  dplyr::arrange(as.numeric(CommentID)) |>
-  dplyr::mutate(
-    FullLocationName = dplyr::case_when(
-      CardinalDirectionSubarea != "NA" & AdditionalDescription != "NA" ~
-        paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
-      CardinalDirectionSubarea != "NA" & AdditionalDescription == "NA" ~
-        paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, ")"),
-      CardinalDirectionSubarea == "NA" & AdditionalDescription != "NA" ~
-        paste0(Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
-      .default = paste0(Name, " (", AdminLevel, ")")
-    )
-  ) |>
-  dplyr::mutate(
-    FullLocationName = gsub(
-      pattern = "\\b(\\w+)(?:\\s+\\1\\b)+",
-      replacement = "\\1",
-      x = FullLocationName,
-      perl = TRUE
-    )
-  )
+  dplyr::mutate(CommentID = as.numeric(CommentID)) |>
+  dplyr::arrange(CommentID) |>
+  addFullLocationNames()
 
 # save comment data ----
 saveRDS(object = coWebCommentData, file = file.path(dataPath, coWebCommentDataFilename))
