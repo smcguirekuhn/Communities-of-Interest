@@ -1,5 +1,5 @@
 
-# Script 01: Scrape Colorado Web Comments
+# Script 01a: Scrape Colorado Web Comments
 
 # reset global environment ----
 rm(list = ls())

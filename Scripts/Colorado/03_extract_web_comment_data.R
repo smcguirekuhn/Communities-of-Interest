@@ -1,5 +1,5 @@
 
-# Script 03a: Extract COI Information from Colorado Web Comments
+# Script 03: Extract COI Information from Colorado Web Comments
 
 # reset global environment ----
 rm(list = ls())
@@ -17,7 +17,6 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Colorado/"
 coWebCommentsFilename <- "COWebComments.rds"
 coWebCommentDataFilename <- "COWebCommentData.rds"
-coGroundTruthFilename <- "GroundTruth/COGroundTruthComparison.json"
 
 # import web comments ----
 coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))

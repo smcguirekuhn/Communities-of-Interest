@@ -1,5 +1,5 @@
 
-# Script 06: Match Georgia Web Comment Data Location Mentions to Precincts
+# Script 08: Match Georgia Web Comment Data Location Mentions to Precincts
 
 # reset global environment ----
 rm(list = ls())
@@ -10,6 +10,7 @@ library(dplyr)
 library(tidyr)
 library(tigris)
 library(sf)
+library(reclin2)
 library(stringdist)
 library(ggrepel)
 
@@ -44,38 +45,46 @@ gaWebCommentData <- readRDS(file = file.path(dataPath, gaWebCommentDataFilename)
 ## initialize georgia precincts matrix ----
 
 testDF1 <- data.frame(
-  Name = c("Dunwoody", "Midtown", "Georgia University"),
-  AdminLevel = c("City", "Neighborhood", "School"),
-  County = c("DeKalb", "Fulton County", "Clarke County")
+  Name = c("Dunwoody", "Midtown", "University of Georgia", "Middle Georgia University"),
+  AdminLevel = c("Municipality", "Neighborhood", "School", "School"),
+  County = c("DeKalb", "Fulton County", "Clarke County", "Bibb County")
 )
 
 testDF2 <- gaLocationMatches |>
   tidyr::unnest(c(Precincts, Counties)) |>
   dplyr::distinct(Name, AdminLevel, County)
 
-library(fastLink)
-
-testDFBlock <- fastLink::blockData(
-  dfA = testDF1,
-  dfB = testDF2,
-  varnames = "AdminLevel"
-)
-
-matches.out <- fastLink::fastLink(
-  dfA = testDF1,
-  dfB = testDF2, 
-  varnames = c("AdminLevel", "Name", "County"),
-  stringdist.match = c("AdminLevel", "Name", "County"),
-  partial.match = c("AdminLevel", "Name", "County"),
-  cut.a = 0.8
-)
+pairs <- reclin2::pair_blocking(testDF1, testDF2, on = "AdminLevel") |>
+  reclin2::compare_pairs(
+    on = c("AdminLevel", "Name", "County"),
+    default_comparator = reclin2::cmp_jarowinkler()
+  ) |>
+  dplyr::mutate(Score = sqrt(Name^2 + County^2)) |>
+  dplyr::group_by(.x) |>
+  dplyr::filter(Score > 1.2)
 
 ## match precincts to each location ----
 mapCOIPrecincts(
-  commentInfo = gaWebCommentData[[4]],
+  commentInfo = gaWebCommentData[[5]],
   locationMatches = gaLocationMatches,
   precinctBoundaries = gaPrecincts
 )
+
+gaWebCommentData |>
+  dplyr::filter(Name == "Sandy Springs") |>
+  dplyr::select(LocationsToGroup) |>
+  dplyr::filter(lengths(LocationsToGroup) > 0, LocationsToGroup != "NA") |>
+  dplyr::pull(LocationsToGroup) |>
+  purrr::list_c() |>
+  table()
+
+gaWebCommentData |>
+  dplyr::filter(Name == "Sandy Springs") |>
+  dplyr::select(LocationsToSeparate) |>
+  dplyr::filter(lengths(LocationsToSeparate) > 0, LocationsToSeparate != "NA") |>
+  dplyr::pull(LocationsToSeparate) |>
+  purrr::list_c() |>
+  table()
 
 ## add precinct groups to matrix rows ----
 
