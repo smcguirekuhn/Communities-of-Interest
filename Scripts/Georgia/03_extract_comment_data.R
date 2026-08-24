@@ -8,6 +8,7 @@ rm(list = ls())
 library(purrr)
 library(dplyr)
 library(ellmer)
+library(jsonlite)
 
 # source helper functions ----
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
@@ -16,9 +17,16 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Georgia/"
 gaWebCommentsFilename <- "GAWebComments.rds"
 gaWebCommentDataFilename <- "GAWebCommentData.rds"
+gaGroundTruthFilename <- "GAGroundTruthCommentData.json"
 
 # import georgia web comments and filter to coi comments ----
 gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename))
+
+gaGroundTruthIDs <- jsonlite::read_json(path = file.path(dataPath, gaGroundTruthFilename)) |>
+  dplyr::bind_rows() |>
+  dplyr::pull(CommentID) |>
+  unique() |>
+  unlist()
 
 # add comment screening column ----
 gaWebCommentData <- purrr::map(
@@ -31,16 +39,13 @@ gaWebCommentData <- purrr::map(
     
     ## isolate comments for an individual county ----
     countyWebComments <- gaWebComments |>
-      dplyr::filter(COI == 1, County == county) |>
+      dplyr::filter(COI == 1, County == county, CommentID %in% gaGroundTruthIDs) |>
       dplyr::mutate(Characters = nchar(Comment))
-    
-    ## define local context for comment data extraction ----
-    localContext <- glue::glue("{county}, Georgia")
     
     ## gather comment information ----
     commentInfo <- extractCommentInfo(
       prompts = countyWebComments |> dplyr::pull(Comment) |> as.list(),
-      localContext = localContext,
+      localContext = glue::glue("{county}, Georgia"),
       adminLevels = c(
         "Landmark",
         "School",
@@ -79,12 +84,9 @@ gaWebCommentData <- gaWebCommentData |>
   purrr::list_rbind() |>
   dplyr::rename(CommenterName = Name) |>
   tidyr::unnest(cols = "LocationsMentioned") |>
-  dplyr::arrange(as.numeric(CommentID))
-
-# # create sample of duplicates for ground truth coding ----
-# set.seed(seed = 1998)
-# gaWebCommentData[sample(x = 1:length(gaWebCommentData), size = 50, replace = FALSE)] |>
-#   saveRDS(file = file.path(dataPath, groundTruthFileName))
+  dplyr::mutate(CommentID = as.numeric(CommentID)) |>
+  dplyr::arrange(CommentID) |>
+  addFullLocationNames(commentData = gaWebCommentData)
 
 # save comment data ----
 saveRDS(object = gaWebCommentData, file = file.path(dataPath, gaWebCommentDataFilename))

@@ -7,7 +7,7 @@ rm(list = ls())
 # import packages ----
 library(purrr)
 library(dplyr)
-library(ellmer)
+library(jsonlite)
 library(igraph)
 
 # source helper functions ----

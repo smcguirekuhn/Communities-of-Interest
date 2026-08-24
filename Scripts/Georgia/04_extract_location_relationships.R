@@ -16,7 +16,7 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 # assign import and export destinations ----
 dataPath <- "./Data/Georgia/"
 gaWebCommentDataFilename <- "GAWebCommentData.rds"
-gaGroundTruthReviewedFilename <- "GAGroundTruthCommentData.json"
+gaGroundTruthFilename <- "GAGroundTruthCommentData.json"
 gaWebCommentRelationshipsFilename <- "GAWebCommentRelationships.rds"
 
 # import georgia comment data ----
@@ -29,7 +29,7 @@ gaWebCommentRelationships <- purrr::map(
   .f = purrr::safely(.f = \(commentID) {
     
     ## assign location names ----
-    locationNames <- gaWebCommentData |>
+    locationNames <- gaGroundTruthCommentData |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::pull(FullLocationName)
     

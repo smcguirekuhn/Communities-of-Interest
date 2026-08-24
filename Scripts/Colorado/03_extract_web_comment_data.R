@@ -8,7 +8,6 @@ rm(list = ls())
 library(purrr)
 library(dplyr)
 library(ellmer)
-library(jsonlite)
 
 # source helper functions ----
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
