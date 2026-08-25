@@ -75,16 +75,17 @@ evaluateLocationRecognition <- function(groundTruthCommentData, comparisonCommen
     dplyr::summarise(CommentAccuracy = unique(CommentAccuracy)) |>
     dplyr::filter(CommentAccuracy == 1)
   
-  # compile performance metrics data frame ----
-  performanceMetrics <- dplyr::tibble(
+  # compile location recognition data frame ----
+  locationRecognition <- dplyr::tibble(
+    `Total Comments` = length(groundTruthCommentIDs),
     `Location Precision` = round(locationPrecision, digits = 3),
     `Location Recall` = round(locationRecall, digits = 3),
     `Location F1 Score` = round(locationF1Score, digits = 3),
     `Comment Precision` = nrow(commentPrecision),
     `Comment Recall` = nrow(commentRecall),
-    `Comment Accuracy` = nrow(commentAccuracy)
+    `Full Comment Accuracy` = nrow(commentAccuracy)
   )
   
   # return performance metrics data frame ----
-  return(performanceMetrics)
+  return(locationRecognition)
 }

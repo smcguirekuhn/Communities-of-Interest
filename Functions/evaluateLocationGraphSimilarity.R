@@ -1,5 +1,80 @@
 
-evaluateLocationGraphSimilarity <- function(
+evaluateGraphSimilarity <- function(
+    commentIDs,
+    groundTruthLocations,
+    groundTruthRelationships,
+    comparisonRelationships
+) {
+  
+  # check arguments ----
+  stopifnot(is.data.frame(groundTruthLocations))
+  stopifnot("CommentID" %in% names(groundTruthLocations))
+  stopifnot(is.data.frame(groundTruthRelationships))
+  stopifnot("CommentID" %in% names(groundTruthRelationships))
+  stopifnot(is.data.frame(comparisonRelationships))
+  stopifnot("CommentID" %in% names(comparisonRelationships))
+  
+  # evaluate location graph similarity for each comment ----
+  locationGraphSimilarity <- purrr::map(
+    .x = commentIDs,
+    .f = \(commentID) {
+      
+      ## assign location nodes ----
+      locationNodes <- groundTruthLocations |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::pull(FullLocationName)
+      
+      ## calculate comment similarity ----
+      if (length(locationNodes) > 1) {
+        commentSimilarity <- evaluateCommentGraphSimilarity(
+          locationNodes = locationNodes,
+          groundTruthRelationships = groundTruthRelationships |> dplyr::filter(CommentID == commentID),
+          comparisonRelationships = comparisonRelationships |> dplyr::filter(CommentID == commentID)
+        )
+      } else {
+        commentSimilarity <- NULL
+      }
+      
+      ## return comment similarity ----
+      return(commentSimilarity)
+    }
+  ) |>
+    purrr::set_names(nm = unique(gaWebCommentData[["CommentID"]])) |>
+    purrr::list_rbind(names_to = "CommentID")
+  
+  # compile graph similarity summary ----
+  graphSimilaritySummary <- dplyr::tibble(
+    
+    ## total comments ----
+    `Total Comments` = length(unique(locationGraphSimilarity[["CommentID"]])),
+    
+    ## grouped graph similarity ----
+    `Mean Grouped Edge Precision` = locationGraphSimilarity[["Grouped Edge Precision"]] |>
+      mean() |>
+      round(digits = 3),
+    `Mean Grouped Edge Recall` = locationGraphSimilarity[["Grouped Edge Recall"]] |>
+      mean() |>
+      round(digits = 3),
+    `Grouped Comment Accuracy` = sum(locationGraphSimilarity[["Grouped Graph Accuracy"]]),
+    
+    ## separated graph similarity ----
+    `Mean Separated Edge Precision` = locationGraphSimilarity[["Separated Edge Precision"]] |>
+      mean() |>
+      round(digits = 3),
+    `Mean Separated Edge Recall` = locationGraphSimilarity[["Separated Edge Recall"]] |>
+      mean() |>
+      round(digits = 3),
+    `Separated Comment Accuracy` = sum(locationGraphSimilarity[["Separated Graph Accuracy"]]),
+    
+    ## full comment accuracy ----
+    `Full Comment Accuracy` = sum(locationGraphSimilarity[["Full Comment Accuracy"]])
+  )
+  
+  # return graph similarity summary ----
+  return(graphSimilaritySummary)
+}
+
+evaluateCommentGraphSimilarity <- function(
     locationNodes,
     groundTruthRelationships,
     comparisonRelationships
@@ -65,16 +140,20 @@ evaluateLocationGraphSimilarity <- function(
     no = correctSeparatedEdges/groundTruthSeparatedEdges
   )
   
-  # compile performance metrics data frame ----
-  performanceMetrics <- dplyr::tibble(
-    `Grouped Edge Precision` = round(groupedEdgePrecision, digits = 3),
-    `Grouped Edge Recall` = round(groupedEdgeRecall, digits = 3),
+  # compile comment graph similarity data frame ----
+  commentGraphSimilarity <- dplyr::tibble(
+    `Grouped Edge Precision` = groupedEdgePrecision,
+    `Grouped Edge Recall` = groupedEdgeRecall,
     `Grouped Graph Accuracy` = groupedEdgePrecision == 1 & groupedEdgeRecall == 1,
-    `Separated Edge Precision` = round(separatedEdgePrecision, digits = 3),
-    `Separated Edge Recall` = round(separatedEdgeRecall, digits = 3),
+    `Separated Edge Precision` = separatedEdgePrecision,
+    `Separated Edge Recall` = separatedEdgeRecall,
     `Separated Graph Accuracy` = separatedEdgePrecision == 1 & separatedEdgeRecall == 1,
   )
   
-  # return performance metrics data frame ----
-  return(performanceMetrics)
+  # add full comment accuracy metric ----
+  commentGraphSimilarity <- commentGraphSimilarity |>
+    dplyr::mutate(`Full Comment Accuracy` = `Grouped Graph Accuracy` & `Separated Graph Accuracy`)
+  
+  # return comment graph similarity data frame ----
+  return(commentGraphSimilarity)
 }
