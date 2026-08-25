@@ -59,31 +59,9 @@ coGroundTruthRelationships <- coGroundTruthCommentData |>
   purrr::list_rbind()
 
 ## evaluate location graph similarity ----
-locationGraphSimilarity <- purrr::map(
-  .x = unique(coWebCommentData[["CommentID"]]),
-  .f = \(commentID) {
-    
-    ### assign location nodes ----
-    locationNodes <- coGroundTruthLocations |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
-    
-    ### calculate comment similarity ----
-    if (length(locationNodes) > 1) {
-      commentSimilarity <- evaluateLocationGraphSimilarity(
-        locationNodes = locationNodes,
-        groundTruthRelationships = coGroundTruthRelationships |>
-          dplyr::filter(CommentID == commentID),
-        comparisonRelationships = coWebCommentRelationships |>
-          dplyr::filter(CommentID == commentID)
-      )
-    } else {
-      commentSimilarity <- NULL
-    }
-    
-    ### return comment similarity ----
-    return(commentSimilarity)
-  }
-) |>
-  purrr::set_names(nm = unique(coWebCommentData[["CommentID"]])) |>
-  purrr::list_rbind(names_to = "CommentID")
+locationGraphSimilarity <- evaluateGraphSimilarity(
+  commentIDs = unique(coWebCommentData[["CommentID"]]),
+  groundTruthLocations = coGroundTruthLocations,
+  groundTruthRelationships = coGroundTruthRelationships,
+  comparisonRelationships = coWebCommentRelationships
+)

@@ -39,7 +39,7 @@ evaluateGraphSimilarity <- function(
       return(commentSimilarity)
     }
   ) |>
-    purrr::set_names(nm = unique(gaWebCommentData[["CommentID"]])) |>
+    purrr::set_names(nm = commentIDs) |>
     purrr::list_rbind(names_to = "CommentID")
   
   # compile graph similarity summary ----
