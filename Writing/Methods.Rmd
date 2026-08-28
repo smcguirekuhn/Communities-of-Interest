@@ -1,12 +1,3 @@
----
-title: "Institutional Response to Public Testimony on Redistricting Communities of Interest"
-author: Spencer Kuhn
-output:
-  pdf_document: default
-bibliography: ["../../Dropbox/Literature Reviews/articles.bib", "../../Dropbox/Literature Reviews/books.bib", "../../Dropbox/Literature Reviews/datasets.bib", "../../Dropbox/Literature Reviews/software.bib"]
-link-citations: yes
----
-
 # Methods
 
 ## Data Sources

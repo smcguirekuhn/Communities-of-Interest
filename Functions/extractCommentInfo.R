@@ -29,12 +29,6 @@ extractCommentInfo <- function(
       "Central",
       "NA"
     ),
-    districtTypes = c(
-      "State House",
-      "State Senate",
-      "Congressional",
-      "NA"
-    ),
     model = "mistralai/mistral-large"
   ) {
   
@@ -43,7 +37,6 @@ extractCommentInfo <- function(
   stopifnot(is.character(localContext))
   match.arg(adminLevels, several.ok = TRUE)
   match.arg(cardinalDirections, several.ok = TRUE)
-  match.arg(districtTypes, several.ok = TRUE)
   stopifnot(is.character(model))
   
   # extract comment information ----
@@ -51,6 +44,31 @@ extractCommentInfo <- function(
     chat = ellmer::chat_openrouter(model = model),
     prompts = prompts,
     type = ellmer::type_object(
+      
+      ## comment sentiment ----
+      Sentiment = ellmer::type_number(
+        description = ellmer::interpolate(
+          "Positive/Negative sentiment of this commenter's description
+          of a community of interest scaled from 0 to 1.
+          A score of 0 indicates completely negative emotional sentiment,
+          while a score of 1 indicates completely positive emotional sentiment."
+        )
+      ),
+      
+      ## comment clarity ----
+      Clarity = ellmer::type_number(
+        description = ellmer::interpolate(
+          "Clarity of this commenter's description
+          of a community of interest scaled from 0 to 1.
+          Clarity should be based on how specific the commenter's mentioned
+          locations are and how clearly they group or separate mentioned locations
+          in a way that can be interpreted by legislative boundary drawers.
+          A score of 0 indicates no clarity regarding specific locations or communities
+          (i.e. 'Please don't split cities or counties' or 'No redistricting'),
+          while a score of 1 indicates complete clarity
+          (i.e. 'Springfield should not be included in a district with Washington County')."
+        )
+      ),
       
       ## locations included in the community of interest ----
       LocationsMentioned = ellmer::type_array(
@@ -119,31 +137,6 @@ extractCommentInfo <- function(
               Examples include 'Outskirts', 'Downtown', 'Rural Areas', and 'Unincorporated'."
             )
           )
-        )
-      ),
-      
-      ## comment sentiment ----
-      Sentiment = ellmer::type_number(
-        description = ellmer::interpolate(
-          "Positive/Negative sentiment of this commenter's description
-          of a community of interest scaled from 0 to 1.
-          A score of 0 indicates completely negative emotional sentiment,
-          while a score of 1 indicates completely positive emotional sentiment."
-        )
-      ),
-      
-      ## comment clarity ----
-      Clarity = ellmer::type_number(
-        description = ellmer::interpolate(
-          "Clarity of this commenter's description
-          of a community of interest scaled from 0 to 1.
-          Clarity should be based on how specific the commenter's mentioned
-          locations are and how clearly they group or separate mentioned locations
-          in a way that can be interpreted by legislative boundary drawers.
-          A score of 0 indicates no clarity regarding specific locations or communities
-          (i.e. 'Please don't split cities or counties' or 'No redistricting'),
-          while a score of 1 indicates complete clarity
-          (i.e. 'Springfield should not be included in a district with Washington County')."
         )
       )
     )

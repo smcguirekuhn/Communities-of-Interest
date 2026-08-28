@@ -44,9 +44,9 @@ extractLocationRelationships <- function(
         'Springfield should be reunited with Washington County.'.
         
         The following are examples of a separated pairwise relationship between 'Springfield' and 'Washington County':
-        'Vote no on the proposed map, which combines Springfield with Washington County.'
-        'Springfield and Washington County have been combined. This is a clear effort to Gerrymander our community.'
-        'Springfield and Washington County do not share similar economic interests.'
+        'Vote no on the proposed map, which combines Springfield with Washington County.',
+        'Springfield and Washington County have been combined. This is a clear effort to Gerrymander our community.',
+        'Springfield and Washington County do not share similar economic interests.',
         'Why is Springfield in the same district as Washington County?',
         'Combining Springfield and Washington County is ridiculous',
         'Please Keep Springfield separated from Washington County.',
