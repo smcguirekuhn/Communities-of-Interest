@@ -1,6 +1,7 @@
 extractCommentInfo <- function(
     prompts,
     localContext,
+    stateRegions,
     adminLevels = c(
       "Landmark",
       "School",
@@ -17,7 +18,7 @@ extractCommentInfo <- function(
       "Region",
       "NA"
     ),
-    cardinalDirections = c(
+    subareaDescriptions = c(
       "Northern",
       "Northeastern",
       "Eastern",
@@ -27,6 +28,11 @@ extractCommentInfo <- function(
       "Western",
       "Northwestern",
       "Central",
+      "Unincorporated",
+      "Rural",
+      "Suburban",
+      "Urban",
+      "Downtown",
       "NA"
     ),
     model = "mistralai/mistral-large"
@@ -35,75 +41,40 @@ extractCommentInfo <- function(
   # check arguments ----
   stopifnot(is.list(prompts))
   stopifnot(is.character(localContext))
+  stopifnot(all(is.character(stateRegions)))
   match.arg(adminLevels, several.ok = TRUE)
-  match.arg(cardinalDirections, several.ok = TRUE)
+  match.arg(subareaDescriptions, several.ok = TRUE)
   stopifnot(is.character(model))
   
   # extract comment information ----
   commentInfo <- ellmer::parallel_chat_structured(
-    chat = ellmer::chat_openrouter(model = model),
+    chat = ellmer::chat_openrouter(
+      system_prompt = ellmer::interpolate(
+        "You are an expert geocoding research assistant evaluating public comments from the
+        2021-2022 redistricting cycle in the United States for quantitative downstream
+        evaluation of institutional compliance with constituent input.
+        The goal is to extract consistently named and formatted locations and
+        comment-level metadata. The provided comments were all written by concerned citizens
+        from {{localContext}}.",
+        localContext = localContext
+      ),
+      model = model
+    ),
     prompts = prompts,
     type = ellmer::type_object(
-      
-      ## comment sentiment ----
-      Sentiment = ellmer::type_number(
-        description = ellmer::interpolate(
-          "Positive/Negative sentiment of this commenter's description
-          of a community of interest scaled from 0 to 1.
-          A score of 0 indicates completely negative emotional sentiment,
-          while a score of 1 indicates completely positive emotional sentiment."
-        )
-      ),
-      
-      ## comment clarity ----
-      Clarity = ellmer::type_number(
-        description = ellmer::interpolate(
-          "Clarity of this commenter's description
-          of a community of interest scaled from 0 to 1.
-          Clarity should be based on how specific the commenter's mentioned
-          locations are and how clearly they group or separate mentioned locations
-          in a way that can be interpreted by legislative boundary drawers.
-          A score of 0 indicates no clarity regarding specific locations or communities
-          (i.e. 'Please don't split cities or counties' or 'No redistricting'),
-          while a score of 1 indicates complete clarity
-          (i.e. 'Springfield should not be included in a district with Washington County')."
-        )
-      ),
       
       ## locations included in the community of interest ----
       LocationsMentioned = ellmer::type_array(
         description = ellmer::interpolate(
-          "All individual geographic locations that this commenter from {{localContext}} mentions,
+          "All individual geographic locations that this commenter mentions,
           including landmarks, neighborhoods, townships, boroughs, towns, cities, school districts, counties, 
           legislative districts, and regions. Only return clearly-identified locations in the commenter's 
           home state relevant to the commenter's community of interest. 
-          Order locations by their appearance in the comment.",
-          localContext = localContext
+          Order locations by their appearance in the comment."
         ),
         items = ellmer::type_object(
           
-          ### location name ----
-          Name = ellmer::type_string(
-            description = ellmer::interpolate(
-              "The identifiable, administrative name of the location.
-              Unless the location is a region, do not include any 
-              cardinal direction subareas in the name
-              (i.e. return 'Washington County' if the comment mentions 'Northern Washington County').
-              Location names should thus read like the following examples:
-              'Green Lake' (a landmark),
-              'Downtown Springfield' (a neighborhood),
-              'Franklin' (a municipality),
-              'Springfield School District' (a school district),
-              'Washington County' (a county),
-              'Congressional District 3' (a congressional district),
-              'State House District 101' (a state house district),
-              'State Senate District 50' (a state senate district),
-              'Springfield Metro Area' (a region), and
-              'Northern California' (a region)."
-            )
-          ),
-          
-          ### location type -----
+          ### location admin level -----
           AdminLevel = ellmer::type_enum(
             values = adminLevels,
             description = ellmer::interpolate(
@@ -112,29 +83,44 @@ extractCommentInfo <- function(
             )
           ),
           
-          ### cardinal direction subarea extent ----
-          CardinalDirectionSubarea = ellmer::type_enum(
-            values = cardinalDirections,
+          ### location name ----
+          Name = ellmer::type_string(
             description = ellmer::interpolate(
-              "Cardinal Direction subareas of the location, if any are mentioned by the commenter.
-              For example, if 'Northern Washington County' is mentioned, return 'Northern'.
-              If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
-              Return 'NA' if the cardinal direction subarea is implied in a region name
-              (i.e. 'Northern California)."
+              "After finding the location's administrative level, return
+              the canonical, administrative name of the location.
+              Unless the location is a region, do not include any subareas in the name
+              (i.e. return 'Washington County' if the comment mentions 
+              'Northern Washington County' or 'Rural Washington County').
+              Do not return proposed legislative districts, only existing districts.
+              Location names should thus read like the following rules:
+              
+              Naming rules:\n
+              - Landmark: use the landmark's canonical name.\n
+              - Neighborhood: use the neighborhood's canonical name.\n
+              - Township: use the municipality's canonical name.\n
+              - Borough: use the municipality's canonical name.\n
+              - Town: use the municipality's canonical name.\n
+              - City: use the municipality's canonical name.\n
+              - School District: use '[Name] School District'.\n
+              - County: use '[Name] County'.\n
+              - State House District: use 'State House District [Number]'.\n
+              - State Senate District: use 'State Senate District [Number]'.\n
+              - Congressional District: use 'Congressional District [Number]'.\n
+              - Region: Name must exactly match one of the permitted region names.\n\n
+              Permitted region names: {{stateRegions}}",
+              stateRegions = paste(stateRegions, collapse = ", ")
             )
           ),
           
-          ### location description ----
-          AdditionalDescription = ellmer::type_string(
+          ### cardinal direction subarea extent ----
+          SubareaDescription = ellmer::type_enum(
+            required = FALSE,
+            values = subareaDescriptions,
             description = ellmer::interpolate(
-              "Vernacular portions or subareas of the mentioned location, if applicable.
-              If the commenter refers to the location in its entirety,
-              or if they refer to a cardinal direction subarea of the location, return 'NA'.
-              Subareas include relative location references (i.e. 'Outskirts of Springfield'),
-              or colloquial references (i.e. 'Downtown Springfield').
-              Keep descriptions brief. Return 'NA' unless the description
-              corresponds to a codifiable geographic area.
-              Examples include 'Outskirts', 'Downtown', 'Rural Areas', and 'Unincorporated'."
+              "A subarea specific to the location, if explicitly mentioned by the commenter.
+              If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
+              Proper names of a location or region (i.e. 'Westridge', 'South Bend', 'Northern California')
+              do not imply a separate subarea mention. Return 'NA' in these cases."
             )
           )
         )

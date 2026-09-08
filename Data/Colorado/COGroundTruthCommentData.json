@@ -208,7 +208,7 @@
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Unincorporated",
-        "FullLocationName": "Jefferson County (County), (Unincorporated)"
+        "FullLocationName": "Unincorporated Jefferson County (County)"
       },
       {
         "Name": "Applewood",
@@ -256,7 +256,7 @@
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
-        "Location2": "Jefferson County (County), (Unincorporated)",
+        "Location2": "Unincorporated Jefferson County (County)",
         "Relationship": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
@@ -316,14 +316,28 @@
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Rural",
-        "FullLocationName": "Colorado (Region), (Rural)"
+        "FullLocationName": "Rural Colorado (Region)"
+      },
+      {
+        "Name": "Front Range",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Front Range (Region)"
       }
     ],
     "Relationships": [
       {
         "Location1": "Routt County (County)",
-        "Location2": "Colorado (Region), (Rural)",
+        "Location2": "Rural Colorado (Region)",
         "Relationship": "grouped",
+        "DistrictType": "NA",
+        "Confidence": "high"
+      },
+      {
+        "Location1": "Routt County (County)",
+        "Location2": "Front Range (Region)",
+        "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
@@ -451,6 +465,13 @@
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Eagle County (County)"
+      },
+      {
+        "Name": "Western Slope",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Western Slope (Region)"
       }
     ],
     "Relationships": [
@@ -479,6 +500,13 @@
         "Location1": "Routt County (County)",
         "Location2": "Eagle County (County)",
         "Relationship": "grouped",
+        "DistrictType": "State House",
+        "Confidence": "high"
+      },
+      {
+        "Location1": "Routt County (County)",
+        "Location2": "Western Slope (Region)",
+        "Relationship": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -765,7 +793,7 @@
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Downtown",
-        "FullLocationName": "Colorado Springs (City), (Downtown)"
+        "FullLocationName": "Downtown Colorado Springs (City)"
       },
       {
         "Name": "Colorado Springs",
@@ -855,7 +883,7 @@
       },
       {
         "Location1": "State House District 18 (State House District)",
-        "Location2": "Colorado Springs (City), (Downtown)",
+        "Location2": "Downtown Colorado Springs (City)",
         "Relationship": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
@@ -1114,8 +1142,15 @@
         "Name": "Western Slope",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
+        "AdditionalDescription": "Rural",
+        "FullLocationName": "Rural Western Slope (Region)"
+      },
+      {
+        "Name": "Front Range",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
-        "FullLocationName": "Western Slope (Region)"
+        "FullLocationName": "Front Range (Region)"
       },
       {
         "Name": "Jackson County",
@@ -1128,14 +1163,14 @@
     "Relationships": [
       {
         "Location1": "Boulder County (County)",
-        "Location2": "Western Slope (Region)",
+        "Location2": "Rural Western Slope (Region)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
-        "Location2": "Western Slope (Region)",
+        "Location2": "Rural Western Slope (Region)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
@@ -1150,6 +1185,13 @@
       {
         "Location1": "Jackson County (County)",
         "Location2": "Larimer County (County)",
+        "Relationship": "separated",
+        "DistrictType": "NA",
+        "Confidence": "high"
+      },
+      {
+        "Location1": "Jackson County (County)",
+        "Location2": "Front Range (Region)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
@@ -1217,6 +1259,13 @@
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Colorado District 4 (Congressional District)"
+      },
+      {
+        "Name": "Front Range",
+        "AdminLevel": "Region",
+        "CardinalDirectionSubarea": "NA",
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Front Range (Region)"
       }
     ],
     "Relationships": [
@@ -2200,8 +2249,8 @@
         "Name": "Jefferson County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "metro area",
-        "FullLocationName": "Jefferson County (County), (metro area)"
+        "AdditionalDescription": "Urban",
+        "FullLocationName": "Urban Jefferson County (County)"
       },
       {
         "Name": "Colorado",
@@ -2221,28 +2270,28 @@
         "Name": "Arkansas River",
         "AdminLevel": "Landmark",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Corridor",
-        "FullLocationName": "Arkansas River (Landmark), (Corridor)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Arkansas River (Landmark)"
       }
     ],
     "Relationships": [
       {
         "Location1": "Fremont County (County)",
-        "Location2": "Jefferson County (County), (metro area)",
+        "Location2": "Urban Jefferson County (County)",
         "Relationship": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Park County (County)",
-        "Location2": "Jefferson County (County), (metro area)",
+        "Location2": "Urban Jefferson County (County)",
         "Relationship": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Teller County (County)",
-        "Location2": "Jefferson County (County), (metro area)",
+        "Location2": "Urban Jefferson County (County)",
         "Relationship": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
@@ -2448,13 +2497,13 @@
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Rural",
-        "FullLocationName": "Colorado (Region), (Rural)"
+        "FullLocationName": "Rural Colorado (Region)"
       }
     ],
     "Relationships": [
       {
         "Location1": "Boulder (City)",
-        "Location2": "Colorado (Region), (Rural)",
+        "Location2": "Rural Colorado (Region)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
@@ -2958,8 +3007,8 @@
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Eastern",
-        "AdditionalDescription": "Rural",
-        "FullLocationName": "Eastern Colorado (Region), (Rural)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Eastern Colorado (Region)"
       }
     ],
     "Relationships": [
@@ -3021,7 +3070,7 @@
       },
       {
         "Location1": "Arkansas Valley (Region)",
-        "Location2": "Eastern Colorado (Region), (Rural)",
+        "Location2": "Eastern Colorado (Region)",
         "Relationship": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
@@ -3244,14 +3293,14 @@
         "Name": "Mesa County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "The Valley",
-        "FullLocationName": "Mesa County (County), (The Valley)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Mesa County (County)"
       }
     ],
     "Relationships": [
       {
         "Location1": "Grand Junction (City)",
-        "Location2": "Mesa County (County), (The Valley)",
+        "Location2": "Mesa County (County)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
@@ -3303,8 +3352,8 @@
         "Name": "Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "Northwestern",
-        "AdditionalDescription": "Oil and gas producing regions",
-        "FullLocationName": "Northwestern Colorado (Region), (Oil and gas producing regions)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Northwestern Colorado (Region)"
       }
     ],
     "Relationships": [
@@ -3342,28 +3391,28 @@
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Unincorporated",
-        "FullLocationName": "Jefferson County (County), (Unincorporated)"
+        "FullLocationName": "Unincorporated Jefferson County (County)"
       },
       {
-        "Name": "Denver",
-        "AdminLevel": "City",
+        "Name": "North Denver",
+        "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "Northern",
         "AdditionalDescription": "NA",
-        "FullLocationName": "Northern Denver (City)"
+        "FullLocationName": "North Denver (Neighborhood)"
       },
       {
         "Name": "Adams County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Other side of 52nd Avenue",
-        "FullLocationName": "Adams County (County), (Other side of 52nd Avenue)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Adams County (County)"
       },
       {
         "Name": "Wheat Ridge",
         "AdminLevel": "City",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Other side of Sheridan",
-        "FullLocationName": "Wheat Ridge (City), (Other side of Sheridan)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Wheat Ridge (City)"
       },
       {
         "Name": "Globeville",
@@ -3382,28 +3431,28 @@
     ],
     "Relationships": [
       {
-        "Location1": "Northern Denver (City)",
-        "Location2": "Adams County (County), (Other side of 52nd Avenue)",
+        "Location1": "North Denver (Neighborhood)",
+        "Location2": "Adams County (County)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
-        "Location1": "Northern Denver (City)",
-        "Location2": "Wheat Ridge (City), (Other side of Sheridan)",
+        "Location1": "North Denver (Neighborhood)",
+        "Location2": "Wheat Ridge (City)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
-        "Location1": "Northern Denver (City)",
+        "Location1": "North Denver (Neighborhood)",
         "Location2": "Globeville (Neighborhood)",
         "Relationship": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
-        "Location1": "Northern Denver (City)",
+        "Location1": "North Denver (Neighborhood)",
         "Location2": "Sloan's Lake (Neighborhood)",
         "Relationship": "separated",
         "DistrictType": "NA",

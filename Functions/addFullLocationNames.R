@@ -3,18 +3,13 @@ addFullLocationNames <- function(commentData) {
   
   # check arguments ----
   stopifnot(is.data.frame(commentData))
-  stopifnot(all(c("Name", "AdminLevel", "CardinalDirectionSubarea", "AdditionalDescription") %in% names(commentData)))
+  stopifnot(all(c("AdminLevel", "Name", "SubareaDescription") %in% names(commentData)))
   
   # add full location names to comment data ----
   commentData <- commentData |>
     dplyr::mutate(
       FullLocationName = dplyr::case_when(
-        CardinalDirectionSubarea != "NA" & AdditionalDescription != "NA" ~
-          paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
-        CardinalDirectionSubarea != "NA" & AdditionalDescription == "NA" ~
-          paste0(CardinalDirectionSubarea, " ", Name, " (", AdminLevel, ")"),
-        CardinalDirectionSubarea == "NA" & AdditionalDescription != "NA" ~
-          paste0(Name, " (", AdminLevel, "), (", AdditionalDescription, ")"),
+        SubareaDescription != "NA" ~ paste0(SubareaDescription, " ", Name, " (", AdminLevel, ")"),
         .default = paste0(Name, " (", AdminLevel, ")")
       )
     )

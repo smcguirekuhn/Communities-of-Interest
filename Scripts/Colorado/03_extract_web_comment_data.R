@@ -20,6 +20,23 @@ coWebCommentDataFilename <- "COWebCommentData.rds"
 # import web comments ----
 coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
 
+# assign relevant state regions ----
+stateRegions <- c(
+  "Northern Colorado",
+  "Northeastern Colorado",
+  "Eastern Colorado",
+  "Southeastern Colorado",
+  "Southern Colorado",
+  "Southwestern Colorado",
+  "Western Colorado",
+  "Northwestern Colorado",
+  "Western Slope",
+  "Front Range",
+  "Eastern Plains",
+  "Denver Metro Area",
+  "Rural Colorado"
+)
+
 # create sample of duplicates for ground truth coding ----
 set.seed(seed = 1998)
 sampledCommentIDs <- coWebComments |>
@@ -32,8 +49,6 @@ coWebCommentData <- purrr::map(
   .progress = "Extracting Comment Information",
   .x = coWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(ZIPCode) |> unique(),
   .f = purrr::safely(\(commentZIPCode) {
-    
-    ## pause system to limit token rate ----
     Sys.sleep(time = 1)
     
     ## isolate comments for an individual zip code ----
@@ -45,20 +60,7 @@ coWebCommentData <- purrr::map(
     commentInfo <- extractCommentInfo(
       prompts = zipCodeWebComments |> dplyr::pull(Comment) |> as.list(),
       localContext = glue::glue("ZIP Code {commentZIPCode} in Colorado"),
-      adminLevels = c(
-        "Landmark",
-        "School",
-        "Neighborhood",
-        "Town",
-        "City",
-        "School District",
-        "County",
-        "State House District",
-        "State Senate District",
-        "Congressional District",
-        "Region",
-        "NA"
-      )
+      stateRegions = stateRegions
     )
     
     ## bind comment information ----
@@ -83,6 +85,7 @@ coWebCommentData <- coWebCommentData |>
   purrr::list_rbind() |>
   dplyr::rename(CommenterName = Name) |>
   tidyr::unnest(cols = "LocationsMentioned") |>
+  dplyr::filter(Name != "NA") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
   addFullLocationNames()
