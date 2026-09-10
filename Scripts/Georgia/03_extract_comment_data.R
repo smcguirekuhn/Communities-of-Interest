@@ -43,7 +43,7 @@ gaWebCommentData <- purrr::map(
       dplyr::mutate(Characters = nchar(Comment))
     
     ## gather comment information ----
-    commentInfo <- extractCommentInfo(
+    commentInfo <- extractCommentLocations(
       prompts = countyWebComments |> dplyr::pull(Comment) |> as.list(),
       localContext = glue::glue("{county}, Georgia"),
       adminLevels = c(

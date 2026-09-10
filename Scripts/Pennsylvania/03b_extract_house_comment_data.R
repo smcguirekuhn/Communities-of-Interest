@@ -38,7 +38,7 @@ paHouseCommentData <- purrr::map(
       as.list()
     
     ## gather comment information ----
-    commentInfo <- extractCommentInfo(
+    commentInfo <- extractCommentLocations(
       description = houseComment$Comment,
       state = "Pennsylvania",
       adminLevels = c(

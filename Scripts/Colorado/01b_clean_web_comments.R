@@ -45,7 +45,8 @@ coWebComments <- dplyr::bind_rows(coCORAWebComments, coScrapedWebComments) |>
   dplyr::select(-PageID) |>
   tidyr::drop_na() |>
   dplyr::arrange(Date) |>
-  dplyr::mutate(CommentID = dplyr::row_number(), .before = "Name")
+  dplyr::mutate(CommentID = dplyr::row_number(), .before = "Name") |>
+  dplyr::mutate(Characters = nchar(Comment), .before = "Comment")
   
 # save processed colorado web comments ----
 saveRDS(object = coWebComments, file = file.path(dataPath, coWebCommentsProcessedFilename))

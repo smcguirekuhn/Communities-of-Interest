@@ -1,5 +1,5 @@
 
-# Script 04: Extract Location Relationships from Colorado Web Comments
+# Script 04: Extract Requests from Colorado Web Comments
 
 # reset global environment ----
 rm(list = ls())
@@ -31,11 +31,12 @@ coWebCommentRelationships <- purrr::map(
     ## assign location names ----
     locationNames <- coWebCommentData |>
       dplyr::filter(CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
+      dplyr::pull(FullLocationName) |>
+      unique()
     
     ## evaluate comment location relationships ----
     if (length(locationNames) > 1) {
-      commentRelationships <- extractLocationRelationships(
+      commentRelationships <- extractCommentRequests(
         comment = coWebCommentData |>
           dplyr::filter(CommentID == commentID) |>
           dplyr::pull(Comment) |>

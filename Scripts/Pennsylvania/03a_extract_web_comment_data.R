@@ -44,7 +44,7 @@ paWebCommentData <- purrr::map(
       dplyr::mutate(Characters = nchar(Comment))
     
     ## gather comment information ----
-    commentInfo <- extractCommentInfo(
+    commentInfo <- extractCommentLocations(
       prompts = dayWebComments |> dplyr::pull(Comment) |> as.list(),
       localContext = "Pennsylvania",
       adminLevels = c(

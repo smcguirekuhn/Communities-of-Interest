@@ -1,4 +1,4 @@
-extractCommentInfo <- function(
+extractCommentLocations <- function(
     prompts,
     localContext,
     stateRegions,
@@ -92,7 +92,7 @@ extractCommentInfo <- function(
               (i.e. return 'Washington County' if the comment mentions 
               'Northern Washington County' or 'Rural Washington County').
               Do not return proposed legislative districts, only existing districts.
-              Location names should thus read like the following rules:
+              Location names should thus read like the following rules:\n\n
               
               Naming rules:\n
               - Landmark: use the landmark's canonical name.\n
@@ -121,6 +121,19 @@ extractCommentInfo <- function(
               If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
               Proper names of a location or region (i.e. 'Westridge', 'South Bend', 'Northern California')
               do not imply a separate subarea mention. Return 'NA' in these cases."
+            )
+          ),
+          
+          ### coi request relevance ----
+          Relevance = ellmer::type_enum(
+            values = c("relevant", "contextual"),
+            description = ellmer::interpolate(
+              "The relevance of the location to a specific request by the commenter regarding a
+              community of interest and a possible legislative district boundary choice.
+              Locations should be regarded as 'contextual' when they provide background information 
+              or anecdotes that are tangential to genuine geographic configurations and the 
+              broader thesis of the comment. Relevant locations are those that a commenter requests
+              be kept whole, grouped with other locations, or separated from other locations."
             )
           )
         )

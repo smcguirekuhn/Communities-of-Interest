@@ -33,6 +33,8 @@ stateRegions <- c(
   "Western Slope",
   "Front Range",
   "Eastern Plains",
+  "San Luis Valley",
+  "Arkansas Valley",
   "Denver Metro Area",
   "Rural Colorado"
 )
@@ -45,7 +47,7 @@ sampledCommentIDs <- coWebComments |>
   sample(size = 50, replace = FALSE)
 
 # add comment information columns ----
-coWebCommentData <- purrr::map(
+coWebCommentDataRaw <- purrr::map(
   .progress = "Extracting Comment Information",
   .x = coWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(ZIPCode) |> unique(),
   .f = purrr::safely(\(commentZIPCode) {
@@ -54,10 +56,11 @@ coWebCommentData <- purrr::map(
     ## isolate comments for an individual zip code ----
     zipCodeWebComments <- coWebComments |>
       dplyr::filter(CommentID %in% sampledCommentIDs, ZIPCode == commentZIPCode) |>
-      dplyr::mutate(Characters = nchar(Comment))
+      dplyr::slice(rep(x = 1:dplyr::n(), each = 5)) |>
+      dplyr::mutate(Iteration = rep(x = 1:5, dplyr::n()/5))
     
     ## gather comment information ----
-    commentInfo <- extractCommentInfo(
+    commentInfo <- extractCommentLocations(
       prompts = zipCodeWebComments |> dplyr::pull(Comment) |> as.list(),
       localContext = glue::glue("ZIP Code {commentZIPCode} in Colorado"),
       stateRegions = stateRegions
@@ -73,14 +76,14 @@ coWebCommentData <- purrr::map(
 )
 
 # extract comment errors ----
-coWebCommentsErrors <- coWebCommentData |>
+coWebCommentsErrors <- coWebCommentDataRaw |>
   purrr::map(.f = \(webComment) webComment$error)
 errorCount <- sum(!sapply(X = coWebCommentsErrors, FUN = is.null))
 errorIDs <- which(!sapply(X = coWebCommentsErrors, FUN = is.null))
 cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCount}")))
 
 # extract valid results and reformat on a location-wise basis ----
-coWebCommentData <- coWebCommentData |>
+coWebCommentData <- coWebCommentDataRaw |>
   purrr::map(.f = \(webComment) webComment$result) |>
   purrr::list_rbind() |>
   dplyr::rename(CommenterName = Name) |>
@@ -88,7 +91,13 @@ coWebCommentData <- coWebCommentData |>
   dplyr::filter(Name != "NA") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
-  addFullLocationNames()
+  addFullLocationNames() |>
+  dplyr::group_by(CommentID, FullLocationName) |>
+  dplyr::mutate(
+    Frequency = dplyr::n(),
+    ContextualFrequency = sum(Relevance == "contextual")
+  ) |>
+  dplyr::select(CommentID, FullLocationName, Iteration, Frequency, ContextualFrequency)
 
 # save comment data ----
 saveRDS(object = coWebCommentData, file = file.path(dataPath, coWebCommentDataFilename))
