@@ -1,5 +1,5 @@
 
-# Script 05: Evaluate Ground Truth Accuracy of Colorado Web Comments
+# Validation Tests for Ellmer Pipeline Scripts Across All States
 
 # reset global environment ----
 rm(list = ls())
@@ -14,23 +14,64 @@ library(igraph)
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
-dataPath <- "./Data/Colorado/"
-tablePath <- "./Tables/Colorado/"
-coWebCommentDataFilename <- "COWebCommentData.rds"
-coWebCommentRelationshipsFilename <- "COWebCommentRelationships.rds"
+groundTruthDataPath <- "./Validation/GroundTruth/"
+ellmerOutputDataPath <- "./Validation/EllmerOutput/"
+tablePath <- "./Tables/Validation/"
 coGroundTruthFilename <- "COGroundTruthCommentData.json"
-iterationAccuracyTableName <- "COIterationAccuracy.rds"
-frequencyAccuracyTableName <- "COFrequencyAccuracy.rds"
-contextualAccuracyTableName <- "COContextualAccuracy.rds"
+gaGroundTruthFilename <- "GAGroundTruthCommentData.json"
+allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
 
-# import colorado web comment data ----
-coWebCommentData <- readRDS(file = file.path(dataPath, coWebCommentDataFilename))
+# import colorado ground truth data ----
+coGroundTruthData <- jsonlite::read_json(
+  path = file.path(groundTruthDataPath, coGroundTruthFilename),
+  simplifyVector = TRUE
+)
 
-# import colorado web comment relationships ----
-coWebCommentRelationships <- readRDS(file = file.path(dataPath, coWebCommentRelationshipsFilename))
+# format colorado ground truth locations ----
+coGroundTruthLocations <- coGroundTruthData |>
+  dplyr::select(CommentID, LocationsMentioned) |>
+  tidyr::unnest(cols = LocationsMentioned) |>
+  dplyr::mutate(
+    SubareaDescription = dplyr::case_when(
+      CardinalDirectionSubarea != "NA" & !is.na(CardinalDirectionSubarea) ~ CardinalDirectionSubarea,
+      AdditionalDescription != "NA" | !is.na(AdditionalDescription) ~ AdditionalDescription,
+      .default = "NA"
+    ),
+    .before = "FullLocationName"
+  ) |>
+  dplyr::select(-c(CardinalDirectionSubarea, AdditionalDescription)) |>
+  dplyr::mutate(State = "Colorado", .before = "CommentID")
 
-# import colorado ground truth comments ----
-coGroundTruthCommentData <- jsonlite::read_json(path = file.path(dataPath, coGroundTruthFilename))
+# import georgia ground truth data ----
+gaGroundTruthData <- jsonlite::read_json(
+  path = file.path(groundTruthDataPath, gaGroundTruthFilename),
+  simplifyVector = TRUE
+)
+
+# format georgia ground truth locations ----
+gaGroundTruthLocations <- gaGroundTruthData |>
+  dplyr::select(CommentID, LocationsMentioned) |>
+  dplyr::mutate(CommentID = as.integer(CommentID)) |>
+  tidyr::unnest(cols = LocationsMentioned) |>
+  dplyr::mutate(
+    SubareaDescription = dplyr::case_when(
+      CardinalDirectionSubarea != "NA" & !is.na(CardinalDirectionSubarea) ~ CardinalDirectionSubarea,
+      AdditionalDescription != "NA" | !is.na(AdditionalDescription) ~ AdditionalDescription,
+      .default = "NA"
+    ),
+    .before = "FullLocationName"
+  ) |>
+  dplyr::select(-c(CardinalDirectionSubarea, AdditionalDescription)) |>
+  dplyr::mutate(State = "Georgia", .before = "CommentID")
+
+# combine all ground truth locations data ----
+allGroundTruthLocations <- dplyr::bind_rows(
+  coGroundTruthLocations,
+  gaGroundTruthLocations
+)
+
+# save all ground truth locations data ----
+saveRDS(allGroundTruthLocations, file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
 
 # location recognition accuracy ----
 

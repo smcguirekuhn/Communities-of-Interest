@@ -1016,9 +1016,9 @@
         "FullLocationName": "Congressional District 3 (Congressional District)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Western Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Western",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Rural",
         "FullLocationName": "Rural Western Colorado (Region)"
       }
@@ -1461,16 +1461,16 @@
         "FullLocationName": "Western Colorado (Region)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Western Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Western",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Rural",
         "FullLocationName": "Rural Western Colorado (Region)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Northwestern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Northwestern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Rural",
         "FullLocationName": "Rural Northwestern Colorado (Region)"
       },
@@ -2675,9 +2675,9 @@
         "FullLocationName": "Weld County (County)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Eastern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Eastern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "Rural",
         "FullLocationName": "Rural Eastern Colorado (Region)"
       }

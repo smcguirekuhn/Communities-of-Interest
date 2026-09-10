@@ -1,5 +1,5 @@
 
-# Script 03: Extract COI Information from Colorado Web Comments
+# Script 03: Extract COI Information from Georgia Web Comments
 
 # reset global environment ----
 rm(list = ls())
@@ -13,66 +13,62 @@ library(ellmer)
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
-dataPath <- "./Data/Colorado/"
-coWebCommentsFilename <- "COWebComments.rds"
+dataPath <- "./Data/Georgia/"
+gaWebCommentsFilename <- "GAWebComments.rds"
 allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
-coWebCommentLocationsFilename <- "COWebCommentLocations.rds"
+gaWebCommentLocationsFilename <- "GAWebCommentLocations.rds"
 
 # import web comments ----
-coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
+gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename))
 
 # assign relevant state regions ----
 stateRegions <- c(
-  "Northern Colorado",
-  "Northeastern Colorado",
-  "Eastern Colorado",
-  "Southeastern Colorado",
-  "Southern Colorado",
-  "Southwestern Colorado",
-  "Western Colorado",
-  "Northwestern Colorado",
-  "Western Slope",
-  "Front Range",
-  "Eastern Plains",
-  "San Luis Valley",
-  "Arkansas Valley",
-  "Denver Metro Area",
-  "Rural Colorado"
+  "Northern Georgia",
+  "Northeastern Georgia",
+  "Eastern Georgia",
+  "Southeastern Georgia",
+  "Southern Georgia",
+  "Southwestern Georgia",
+  "Western Georgia",
+  "Northwestern Georgia",
+  "Atlanta Metro Area",
+  "Rural Georgia",
+  "Coastal Georgia"
 )
 
 # assign comment ids to extract locations for ----
 sampledCommentIDs <- readRDS(file = file.path(allGroundTruthLocationsFilename)) |>
-  dplyr::filter(State == "Colorado") |>
+  dplyr::filter(State == "Georgia") |>
   dplyr::pull(CommentID) |>
   unique()
 
 # add comment information columns ----
 extractedWebCommentLocations <- purrr::map(
   .progress = "Extracting Comment Information",
-  .x = coWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(ZIPCode) |> unique(),
-  .f = purrr::safely(\(commentZIPCode) {
+  .x = gaWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(County) |> unique(),
+  .f = purrr::safely(\(county) {
     Sys.sleep(time = 1)
     
-    ## isolate comments for an individual zip code ----
-    zipCodeWebComments <- coWebComments |>
-      dplyr::filter(CommentID %in% sampledCommentIDs, ZIPCode == commentZIPCode) |>
+    ## isolate comments for an individual county ----
+    countyWebComments <- gaWebComments |>
+      dplyr::filter(CommentID %in% sampledCommentIDs, County == county) |>
       dplyr::select(CommentID, Comment) |>
       dplyr::slice(rep(x = 1:dplyr::n(), each = 5)) |>
       dplyr::mutate(Iteration = rep(x = 1:5, dplyr::n()/5))
     
     ## gather comment information ----
     commentInfo <- extractCommentLocations(
-      prompts = zipCodeWebComments |> dplyr::pull(Comment) |> as.list(),
-      localContext = glue::glue("ZIP Code {commentZIPCode} in Colorado"),
+      prompts = countyWebComments |> dplyr::pull(Comment) |> as.list(),
+      localContext = glue::glue("{county}, Georgia"),
       stateRegions = stateRegions
     )
     
     ## bind comment information ----
-    zipCodeWebComments <- zipCodeWebComments |>
+    countyWebComments <- countyWebComments |>
       dplyr::bind_cols(commentInfo)
     
     ## return comment information ----
-    return(zipCodeWebComments)
+    return(countyWebComments)
   })
 )
 
@@ -84,7 +80,7 @@ errorIDs <- which(!sapply(X = extractionErrors, FUN = is.null))
 cli::cli_inform(message = c(">" = glue::glue("Extraction Errors: {errorCount}")))
 
 # extract valid results and reformat on a location-wise basis ----
-coWebCommentLocations <- extractedWebCommentLocations |>
+gaWebCommentLocations <- extractedWebCommentLocations |>
   purrr::map(.f = \(webComment) webComment$result) |>
   purrr::list_rbind() |>
   tidyr::unnest(cols = "LocationsMentioned") |>
@@ -95,4 +91,4 @@ coWebCommentLocations <- extractedWebCommentLocations |>
   dplyr::mutate(Frequency = dplyr::n(), ContextualFrequency = sum(Relevance == "contextual"))
 
 # save comment data ----
-saveRDS(object = coWebCommentLocations, file = file.path(dataPath, coWebCommentLocationsFilename))
+saveRDS(object = gaWebCommentLocations, file = file.path(dataPath, gaWebCommentLocationsFilename))
