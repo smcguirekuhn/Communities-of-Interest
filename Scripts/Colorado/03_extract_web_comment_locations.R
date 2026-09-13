@@ -6,6 +6,7 @@ rm(list = ls())
 
 # import packages ----
 library(purrr)
+library(tidyr)
 library(dplyr)
 library(ellmer)
 
@@ -87,12 +88,15 @@ cli::cli_inform(message = c(">" = glue::glue("Extraction Errors: {errorCount}"))
 coWebCommentLocations <- extractedWebCommentLocations |>
   purrr::map(.f = \(webComment) webComment$result) |>
   purrr::list_rbind() |>
+  dplyr::select(-Comment) |>
   tidyr::unnest(cols = "LocationsMentioned") |>
   dplyr::filter(Name != "NA") |>
   dplyr::arrange(CommentID) |>
   addFullLocationNames() |>
+  dplyr::distinct(CommentID, Iteration, FullLocationName, .keep_all = TRUE) |>
   dplyr::group_by(CommentID, FullLocationName) |>
-  dplyr::mutate(Frequency = dplyr::n(), ContextualFrequency = sum(Relevance == "contextual"))
+  dplyr::mutate(Frequency = dplyr::n(), ContextualFrequency = sum(Relevance == "contextual")) |>
+  dplyr::ungroup()
 
 # save comment data ----
 saveRDS(object = coWebCommentLocations, file = file.path(dataPath, coWebCommentLocationsFilename))
