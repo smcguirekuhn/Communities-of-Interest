@@ -780,13 +780,6 @@
         "FullLocationName": "Colorado Springs (City)"
       },
       {
-        "Name": "El Paso County",
-        "AdminLevel": "County",
-        "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "NA",
-        "FullLocationName": "El Paso County (County)"
-      },
-      {
         "Name": "State House District 17",
         "AdminLevel": "State House District",
         "CardinalDirectionSubarea": "NA",
@@ -2087,7 +2080,7 @@
       },
       {
         "Location1": "Fremont County (County)",
-        "Location2": "Eastern Colorado (Region)",
+        "Location2": "Eastern Plains (Region)",
         "Relationship": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
@@ -3070,15 +3063,7 @@
         "FullLocationName": "Southern Colorado (Region)"
       }
     ],
-    "Relationships": [
-      {
-        "Location1": "Pueblo (City)",
-        "Location2": "Southern Colorado (Region)",
-        "Relationship": "grouped",
-        "DistrictType": "NA",
-        "Confidence": "high"
-      }
-    ]
+    "Relationships": {}
   },
   {
     "CommentID": 5108,

@@ -8,10 +8,8 @@ rm(list = ls())
 library(joyn)
 library(purrr)
 library(tidyr)
+library(tibble)
 library(dplyr)
-library(jsonlite)
-library(estimatr)
-library(igraph)
 
 # source helper functions ----
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
@@ -20,63 +18,10 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 groundTruthDataPath <- "./Validation/GroundTruth/"
 ellmerOutputDataPath <- "./Validation/EllmerOutput/"
 tablePath <- "./Tables/Validation/"
-coGroundTruthFilename <- "COGroundTruthCommentData.json"
-gaGroundTruthFilename <- "GAGroundTruthCommentData.json"
 allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
+allGroundTruthRequestsFilename <- "AllGroundTruthRequests.rds"
 coWebCommentLocationsFilename <- "COWebCommentLocations.rds"
 gaWebCommentLocationsFilename <- "GAWebCommentLocations.rds"
-
-# # import colorado ground truth data ----
-# coGroundTruthData <- jsonlite::read_json(
-#   path = file.path(groundTruthDataPath, coGroundTruthFilename),
-#   simplifyVector = TRUE
-# )
-# 
-# # format colorado ground truth locations ----
-# coGroundTruthLocations <- coGroundTruthData |>
-#   dplyr::select(CommentID, LocationsMentioned) |>
-#   tidyr::unnest(cols = LocationsMentioned) |>
-#   dplyr::mutate(
-#     SubareaDescription = dplyr::case_when(
-#       CardinalDirectionSubarea != "NA" & !is.na(CardinalDirectionSubarea) ~ CardinalDirectionSubarea,
-#       AdditionalDescription != "NA" | !is.na(AdditionalDescription) ~ AdditionalDescription,
-#       .default = "NA"
-#     ),
-#     .before = "FullLocationName"
-#   ) |>
-#   dplyr::select(-c(CardinalDirectionSubarea, AdditionalDescription)) |>
-#   dplyr::mutate(State = "Colorado", .before = "CommentID")
-# 
-# # import georgia ground truth data ----
-# gaGroundTruthData <- jsonlite::read_json(
-#   path = file.path(groundTruthDataPath, gaGroundTruthFilename),
-#   simplifyVector = TRUE
-# )
-# 
-# # format georgia ground truth locations ----
-# gaGroundTruthLocations <- gaGroundTruthData |>
-#   dplyr::select(CommentID, LocationsMentioned) |>
-#   dplyr::mutate(CommentID = as.integer(CommentID)) |>
-#   tidyr::unnest(cols = LocationsMentioned) |>
-#   dplyr::mutate(
-#     SubareaDescription = dplyr::case_when(
-#       CardinalDirectionSubarea != "NA" & !is.na(CardinalDirectionSubarea) ~ CardinalDirectionSubarea,
-#       AdditionalDescription != "NA" | !is.na(AdditionalDescription) ~ AdditionalDescription,
-#       .default = "NA"
-#     ),
-#     .before = "FullLocationName"
-#   ) |>
-#   dplyr::select(-c(CardinalDirectionSubarea, AdditionalDescription)) |>
-#   dplyr::mutate(State = "Georgia", .before = "CommentID")
-# 
-# # combine all ground truth locations data ----
-# allGroundTruthLocations <- dplyr::bind_rows(
-#   coGroundTruthLocations,
-#   gaGroundTruthLocations
-# )
-# 
-# # save all ground truth locations data ----
-# saveRDS(allGroundTruthLocations, file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
 
 # import all ground truth locations data ----
 allGroundTruthLocations <- readRDS(file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
