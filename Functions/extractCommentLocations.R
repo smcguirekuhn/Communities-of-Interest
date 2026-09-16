@@ -97,7 +97,7 @@ extractCommentLocations <- function(
               Naming rules:\n
               - Landmark: use the landmark's canonical name.\n
               - Neighborhood: use the neighborhood's canonical name.\n
-              - Township: use the municipality's canonical name.\n
+              - Township: use the municipality's canonical name (do not include 'township' in the name).\n
               - Borough: use the municipality's canonical name.\n
               - Town: use the municipality's canonical name.\n
               - City: use the municipality's canonical name.\n

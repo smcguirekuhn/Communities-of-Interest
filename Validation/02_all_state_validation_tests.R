@@ -22,20 +22,21 @@ allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
 allGroundTruthRequestsFilename <- "AllGroundTruthRequests.rds"
 coWebCommentLocationsFilename <- "COWebCommentLocations.rds"
 gaWebCommentLocationsFilename <- "GAWebCommentLocations.rds"
+paWebCommentLocationsFilename <- "PAWebCommentLocations.rds"
 
 # import all ground truth locations data ----
 allGroundTruthLocations <- readRDS(file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
 
-# import colorado web comment locations data ----
+# import web comment locations data for all states ----
 coWebCommentLocations <- readRDS(file = file.path(ellmerOutputDataPath, coWebCommentLocationsFilename))
-
-# import georgia web comment locations data ----
 gaWebCommentLocations <- readRDS(file = file.path(ellmerOutputDataPath, gaWebCommentLocationsFilename))
+paWebCommentLocations <- readRDS(file = file.path(ellmerOutputDataPath, paWebCommentLocationsFilename))
 
 # combine all web comment locations data ----
 allWebCommentLocations <- dplyr::bind_rows(
   coWebCommentLocations |> dplyr::mutate(State = "Colorado", .before = 1),
-  gaWebCommentLocations |> dplyr::mutate(State = "Georgia", .before = 1)
+  gaWebCommentLocations |> dplyr::mutate(State = "Georgia", .before = 1),
+  paWebCommentLocations |> dplyr::mutate(State = "Pennsylvania", .before = 1)
 )
 
 # create first comparison set ----
@@ -46,7 +47,7 @@ comparisonLocationsA <- allWebCommentLocations |>
 
 # create second comparison set ----
 comparisonLocationsB <- allWebCommentLocations |>
-  dplyr::filter(ContextualFrequency <= 3, Iteration == 1) |>
+  dplyr::filter(ContextualFrequency <= 4, Iteration == 1) |>
   dplyr::select(-c(Relevance, Iteration, Frequency, ContextualFrequency)) |>
   dplyr::distinct(CommentID, FullLocationName, .keep_all = TRUE) |>
   dplyr::ungroup()
