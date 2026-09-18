@@ -1,5 +1,5 @@
 
-# Script 03: Extract COI Information from Georgia Web Comments
+# Script 03: Extract Locations from Georgia Web Comments
 
 # reset global environment ----
 rm(list = ls())

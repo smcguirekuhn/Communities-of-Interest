@@ -1,5 +1,5 @@
 
-# Script 03: Extract COI Information from Colorado Web Comments
+# Script 03: Extract Locations from Colorado Web Comments
 
 # reset global environment ----
 rm(list = ls())

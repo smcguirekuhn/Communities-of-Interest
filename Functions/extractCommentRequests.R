@@ -26,8 +26,8 @@ extractCommentRequests <- function(
     type = ellmer::type_array(
       description = ellmer::interpolate(
         "This commenter is providing public input about a legislative redistricting cycle, 
-        requesting that the geographic locations they mention either be kept together or separated 
-        into various districts based on communities of interest.
+        requesting that some geographic locations they mention either be kept together or separated 
+        into various districts based on their communities of interest.
         Return any pairwise location relationships requested by the commenter.
         Interpret the commenter's request, complaint, or concern.
         Do not treat the composition of an existing or proposed district as a desired relationship 
@@ -56,7 +56,7 @@ extractCommentRequests <- function(
       items = ellmer::type_object(
         Location1 = ellmer::type_enum(values = locationNames),
         Location2 = ellmer::type_enum(values = locationNames),
-        Relationship = ellmer::type_enum(
+        Request = ellmer::type_enum(
           description = "Return the nature of the requested relationship between locations.",
           values = c("grouped", "separated", "unclear")),
         DistrictType = ellmer::type_enum(
