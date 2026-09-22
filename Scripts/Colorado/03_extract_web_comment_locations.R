@@ -96,7 +96,8 @@ coWebCommentLocations <- extractedWebCommentLocations |>
   dplyr::distinct(CommentID, Iteration, FullLocationName, .keep_all = TRUE) |>
   dplyr::group_by(CommentID, FullLocationName) |>
   dplyr::mutate(Frequency = dplyr::n(), ContextualFrequency = sum(Relevance == "contextual")) |>
-  dplyr::ungroup()
+  dplyr::ungroup() |>
+  dplyr::mutate(State = "Colorado", .before = 1)
 
 # save comment data ----
 saveRDS(object = coWebCommentLocations, file = file.path(dataPath, coWebCommentLocationsFilename))

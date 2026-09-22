@@ -72,7 +72,8 @@ paWebCommentRequests <- extractedWebCommentRequests |>
   purrr::list_rbind(names_to = "CommentID") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
-  dplyr::distinct()
+  dplyr::distinct() |>
+  dplyr::mutate(State = "Pennsylvania", .before = 1)
 
 # save comment requests ----
 saveRDS(object = paWebCommentRequests, file = file.path(dataPath, paWebCommentRequestsFilename))

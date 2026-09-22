@@ -72,7 +72,8 @@ gaWebCommentRequests <- extractedWebCommentRequests |>
   purrr::list_rbind(names_to = "CommentID") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
-  dplyr::distinct()
+  dplyr::distinct() |>
+  dplyr::mutate(State = "Georgia", .before = 1)
 
 # save comment requests ----
 saveRDS(object = gaWebCommentRequests, file = file.path(dataPath, gaWebCommentRequestsFilename))
