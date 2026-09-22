@@ -18,7 +18,7 @@ dataPath <- "./Data/Colorado/"
 coWebCommentsFilename <- "COWebComments.rds"
 coWebCommentLocationsFilename <- "COWebCommentLocations.rds"
 allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
-coWebCommentRelationshipsFilename <- "COWebCommentRelationships.rds"
+coWebCommentRequestsFilename <- "COWebCommentRequests.rds"
 
 # import web comments ----
 coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
@@ -30,9 +30,9 @@ coWebCommentLocations <- readRDS(file = file.path(dataPath, coWebCommentLocation
 coWebCommentLocations <- readRDS(file = file.path(allGroundTruthLocationsFilename)) |>
   dplyr::filter(State == "Colorado")
 
-# evaluate location relationships for each comment ----
-extractedWebCommentLocations <- purrr::map(
-  .progress = "Evaluating Location Relationships",
+# evaluate location requests for each comment ----
+extractedWebCommentRequests <- purrr::map(
+  .progress = "Evaluating Location Requests",
   .x = coWebCommentLocations |> dplyr::pull(CommentID) |> unique(),
   .f = purrr::safely(.f = \(commentID) {
     
@@ -42,35 +42,37 @@ extractedWebCommentLocations <- purrr::map(
       dplyr::pull(FullLocationName) |>
       unique()
     
-    ## evaluate comment location relationships ----
+    ## evaluate comment location requests ----
     if (length(locationNames) > 1) {
-      commentRelationships <- extractCommentRequests(
+      commentRequests <- extractCommentRequests(
         comment = coWebComments |> dplyr::filter(CommentID == commentID) |> dplyr::pull(Comment),
         locationNames = locationNames
       )
     } else {
-      commentRelationships <- NULL
+      commentRequests <- NULL
     }
     
-    ## return comment location relationships ----
-    return(commentRelationships)
+    ## return comment location requests ----
+    Sys.sleep(time = 3)
+    return(commentRequests)
   })
 )
 
 # extract comment errors ----
-coWebCommentsErrors <- extractedWebCommentLocations |>
+coWebCommentsErrors <- extractedWebCommentRequests |>
   purrr::map(.f = \(webComment) webComment$error)
 errorCount <- sum(!sapply(X = coWebCommentsErrors, FUN = is.null))
 errorIDs <- which(!sapply(X = coWebCommentsErrors, FUN = is.null))
 cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCount}")))
 
 # extract valid results and reformat ----
-coWebCommentRelationships <- extractedWebCommentLocations |>
+coWebCommentRequests <- extractedWebCommentRequests |>
   purrr::map(.f = \(webComment) webComment$result) |>
   purrr::set_names(nm = unique(coWebCommentLocations[["CommentID"]])) |>
   purrr::list_rbind(names_to = "CommentID") |>
+  dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
   dplyr::distinct()
 
-# save comment relationships ----
-saveRDS(object = coWebCommentRelationships, file = file.path(dataPath, coWebCommentRelationshipsFilename))
+# save comment requests ----
+saveRDS(object = coWebCommentRequests, file = file.path(dataPath, coWebCommentRequestsFilename))

@@ -8,7 +8,7 @@ extractCommentRequests <- function(
       "Congressional",
       "NA"
     ),
-    model = "mistralai/mistral-large"
+    model = "mistral-large-2512"
   ) {
   
   # check arguments ----
@@ -18,7 +18,7 @@ extractCommentRequests <- function(
   stopifnot(is.character(model))
 
   # initialize chat object ----
-  chat <- ellmer::chat_openrouter(model = model)
+  chat <- ellmer::chat_mistral(model = model)
 
   # extract comment location relationships ----
   requests <- chat$chat_structured(

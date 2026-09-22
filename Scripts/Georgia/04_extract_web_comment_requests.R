@@ -18,7 +18,7 @@ dataPath <- "./Data/Georgia/"
 gaWebCommentsFilename <- "GAWebComments.rds"
 gaWebCommentLocationsFilename <- "GAWebCommentLocations.rds"
 allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
-gaWebCommentRelationshipsFilename <- "GAWebCommentRelationships.rds"
+gaWebCommentRequestsFilename <- "GAWebCommentRequests.rds"
 
 # import web comments ----
 gaWebComments <- readRDS(file = file.path(dataPath, gaWebCommentsFilename))
@@ -30,9 +30,9 @@ gaWebCommentLocations <- readRDS(file = file.path(dataPath, gaWebCommentLocation
 gaWebCommentLocations <- readRDS(file = file.path(allGroundTruthLocationsFilename)) |>
   dplyr::filter(State == "Georgia")
 
-# evaluate location relationships for each comment ----
-extractedWebCommentLocations <- purrr::map(
-  .progress = "Evaluating Location Relationships",
+# evaluate location requests for each comment ----
+extractedWebCommentRequests <- purrr::map(
+  .progress = "Evaluating Location Requests",
   .x = gaWebCommentLocations |> dplyr::pull(CommentID) |> unique(),
   .f = purrr::safely(.f = \(commentID) {
     
@@ -42,35 +42,37 @@ extractedWebCommentLocations <- purrr::map(
       dplyr::pull(FullLocationName) |>
       unique()
     
-    ## evaluate comment location relationships ----
+    ## evaluate comment location requests ----
     if (length(locationNames) > 1) {
-      commentRelationships <- extractCommentRequests(
+      commentRequests <- extractCommentRequests(
         comment = gaWebComments |> dplyr::filter(CommentID == commentID) |> dplyr::pull(Comment),
         locationNames = locationNames
       )
     } else {
-      commentRelationships <- NULL
+      commentRequests <- NULL
     }
     
-    ## return comment location relationships ----
-    return(commentRelationships)
+    ## return comment location requests ----
+    Sys.sleep(time = 3)
+    return(commentRequests)
   })
 )
 
 # extract comment errors ----
-gaWebCommentsErrors <- extractedWebCommentLocations |>
+gaWebCommentsErrors <- extractedWebCommentRequests |>
   purrr::map(.f = \(webComment) webComment$error)
 errorCount <- sum(!sapply(X = gaWebCommentsErrors, FUN = is.null))
 errorIDs <- which(!sapply(X = gaWebCommentsErrors, FUN = is.null))
 cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCount}")))
 
 # extract valid results and reformat ----
-gaWebCommentRelationships <- extractedWebCommentLocations |>
+gaWebCommentRequests <- extractedWebCommentRequests |>
   purrr::map(.f = \(webComment) webComment$result) |>
   purrr::set_names(nm = unique(gaWebCommentLocations[["CommentID"]])) |>
   purrr::list_rbind(names_to = "CommentID") |>
+  dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
   dplyr::distinct()
 
-# save comment relationships ----
-saveRDS(object = gaWebCommentRelationships, file = file.path(dataPath, gaWebCommentRelationshipsFilename))
+# save comment requests ----
+saveRDS(object = gaWebCommentRequests, file = file.path(dataPath, gaWebCommentRequestsFilename))
