@@ -49,17 +49,16 @@ sampledCommentIDs <- readRDS(file = file.path(allGroundTruthLocationsFilename)) 
 
 # add comment information columns ----
 extractedWebCommentLocations <- purrr::map(
-  .progress = "Extracting Comment Information",
+  .progress = "Extracting Web Comment Locations",
   .x = coWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(ZIPCode) |> unique(),
   .f = purrr::safely(\(commentZIPCode) {
-    Sys.sleep(time = 1)
     
     ## isolate comments for an individual zip code ----
     zipCodeWebComments <- coWebComments |>
       dplyr::filter(CommentID %in% sampledCommentIDs, ZIPCode == commentZIPCode) |>
       dplyr::select(CommentID, Comment) |>
-      dplyr::slice(rep(x = 1:dplyr::n(), each = 5)) |>
-      dplyr::mutate(Iteration = rep(x = 1:5, dplyr::n()/5))
+      dplyr::slice(rep(x = 1:dplyr::n(), each = 3)) |>
+      dplyr::mutate(Iteration = rep(x = 1:3, dplyr::n()/3))
     
     ## gather comment information ----
     commentInfo <- extractCommentLocations(
@@ -73,6 +72,7 @@ extractedWebCommentLocations <- purrr::map(
       dplyr::bind_cols(commentInfo)
     
     ## return comment information ----
+    Sys.sleep(time = 3)
     return(zipCodeWebComments)
   })
 )

@@ -35,7 +35,7 @@ extractCommentLocations <- function(
       "Downtown",
       "NA"
     ),
-    model = "mistralai/mistral-large"
+    model = "mistral-large-2512"
   ) {
   
   # check arguments ----
@@ -48,11 +48,15 @@ extractCommentLocations <- function(
   
   # extract comment information ----
   commentInfo <- ellmer::parallel_chat_structured(
-    chat = ellmer::chat_openrouter(
+    include_tokens = TRUE,
+    chat = ellmer::chat_mistral(
       system_prompt = ellmer::interpolate(
         "You are an expert geocoding research assistant evaluating public comments from the
         2021-2022 redistricting cycle in the United States for quantitative downstream
         evaluation of institutional compliance with constituent input.
+        Only return clearly-identified locations in the commenter's home state that are 
+        included in a request by the commenter, whether it be for locations to be 
+        kept whole, grouped together, or separated from one another.
         The goal is to extract consistently named and formatted locations and
         comment-level metadata. The provided comments were all written by concerned citizens
         from {{localContext}}.",
@@ -68,9 +72,8 @@ extractCommentLocations <- function(
         description = ellmer::interpolate(
           "All individual geographic locations that this commenter mentions,
           including landmarks, neighborhoods, townships, boroughs, towns, cities, school districts, counties, 
-          legislative districts, and regions. Only return clearly-identified locations in the commenter's 
-          home state relevant to the commenter's community of interest. 
-          Order locations by their appearance in the comment."
+          legislative districts, and regions. Do not return proposed legislative districts, 
+          only existing districts. Order locations by their appearance in the comment."
         ),
         items = ellmer::type_object(
           
@@ -91,7 +94,6 @@ extractCommentLocations <- function(
               Unless the location is a region, do not include any subareas in the name
               (i.e. return 'Washington County' if the comment mentions 
               'Northern Washington County' or 'Rural Washington County').
-              Do not return proposed legislative districts, only existing districts.
               Location names should thus read like the following rules:\n\n
               
               Naming rules:\n
@@ -120,7 +122,8 @@ extractCommentLocations <- function(
               "A subarea specific to the location, if explicitly mentioned by the commenter.
               If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
               Proper names of a location or region (i.e. 'Westridge', 'South Bend', 'Northern California')
-              do not imply a separate subarea mention. Return 'NA' in these cases."
+              do not imply a separate subarea mention (i.e. 'Western', 'Southern', and 'Northern').
+              Return 'NA' in these cases."
             )
           ),
           

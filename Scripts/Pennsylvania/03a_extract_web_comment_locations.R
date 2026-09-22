@@ -53,14 +53,13 @@ extractedWebCommentLocations <- purrr::map(
   .progress = "Extracting Comment Information",
   .x = paWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(Date) |> unique(),
   .f = purrr::safely(\(commentDay) {
-    Sys.sleep(time = 1)
     
     ## isolate comments for an individual day ----
     dayWebComments <- paWebComments |>
       dplyr::filter(CommentID %in% sampledCommentIDs, Date == commentDay) |>
       dplyr::select(CommentID, Comment) |>
-      dplyr::slice(rep(x = 1:dplyr::n(), each = 5)) |>
-      dplyr::mutate(Iteration = rep(x = 1:5, dplyr::n()/5))
+      dplyr::slice(rep(x = 1:dplyr::n(), each = 3)) |>
+      dplyr::mutate(Iteration = rep(x = 1:3, dplyr::n()/3))
     
     ## gather comment information ----
     commentInfo <- extractCommentLocations(
@@ -74,6 +73,7 @@ extractedWebCommentLocations <- purrr::map(
       dplyr::bind_cols(commentInfo)
     
     ## return comment information ----
+    Sys.sleep(time = 3)
     return(dayWebComments)
   })
 )

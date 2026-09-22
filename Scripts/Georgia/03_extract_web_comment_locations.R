@@ -48,14 +48,13 @@ extractedWebCommentLocations <- purrr::map(
   .progress = "Extracting Comment Information",
   .x = gaWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(County) |> unique(),
   .f = purrr::safely(\(county) {
-    Sys.sleep(time = 1)
     
     ## isolate comments for an individual county ----
     countyWebComments <- gaWebComments |>
       dplyr::filter(CommentID %in% sampledCommentIDs, County == county) |>
       dplyr::select(CommentID, Comment) |>
-      dplyr::slice(rep(x = 1:dplyr::n(), each = 5)) |>
-      dplyr::mutate(Iteration = rep(x = 1:5, dplyr::n()/5))
+      dplyr::slice(rep(x = 1:dplyr::n(), each = 3)) |>
+      dplyr::mutate(Iteration = rep(x = 1:3, dplyr::n()/3))
     
     ## gather comment information ----
     commentInfo <- extractCommentLocations(
@@ -69,6 +68,7 @@ extractedWebCommentLocations <- purrr::map(
       dplyr::bind_cols(commentInfo)
     
     ## return comment information ----
+    Sys.sleep(time = 3)
     return(countyWebComments)
   })
 )

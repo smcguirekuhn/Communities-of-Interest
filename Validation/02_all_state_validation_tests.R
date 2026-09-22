@@ -47,21 +47,46 @@ comparisonLocationsA <- allWebCommentLocations |>
 
 # create second comparison set ----
 comparisonLocationsB <- allWebCommentLocations |>
-  dplyr::filter(ContextualFrequency <= 4, Iteration == 1) |>
+  dplyr::filter(ContextualFrequency <= 2, Frequency >= 2) |>
   dplyr::select(-c(Relevance, Iteration, Frequency, ContextualFrequency)) |>
   dplyr::distinct(CommentID, FullLocationName, .keep_all = TRUE) |>
   dplyr::ungroup()
 
-# evaluate recall contrast between comparison sets ----
+# evaluate location-level recall contrast between comparison sets ----
 evaluateABTestRecall(
   groundTruthLocations = allGroundTruthLocations,
   comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB
+  comparisonLocationsB = comparisonLocationsB,
+  unit = "location"
 )
 
-# evaluate precision difference between comparison sets ----
+# evaluate comment-level recall contrast between comparison sets ----
+evaluateABTestRecall(
+  groundTruthLocations = allGroundTruthLocations,
+  comparisonLocationsA = comparisonLocationsA,
+  comparisonLocationsB = comparisonLocationsB,
+  unit = "comment"
+)
+
+# evaluate location-level precision difference between comparison sets ----
 evaluateABTestPrecision(
   groundTruthLocations = allGroundTruthLocations,
   comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB
+  comparisonLocationsB = comparisonLocationsB,
+  unit = "location"
+)
+
+# evaluate comment-level precision difference between comparison sets ----
+evaluateABTestPrecision(
+  groundTruthLocations = allGroundTruthLocations,
+  comparisonLocationsA = comparisonLocationsA,
+  comparisonLocationsB = comparisonLocationsB,
+  unit = "comment"
+)
+
+library(mclust)
+
+mclust::adjustedRandIndex(
+  x = c(1, 2, 2, 3, 3, 3, 4),
+  y = c(2, 2, 3, 3, 3, 4)
 )
