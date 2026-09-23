@@ -34,10 +34,12 @@ evaluateABTestPrecision <- function(
     
     ## create table of precision statistics ----
     precisionTable <- dplyr::tibble(
-      `Location Precision A` = matchedLocations |> dplyr::filter(Method == "A") |> dplyr::pull(Matched) |> mean(),
-      `Location Precision B` = matchedLocations |> dplyr::filter(Method == "B") |> dplyr::pull(Matched) |> mean(),
-      `Method Regression Coefficient` = precisionModel$coefficients["MethodB"],
-      `Method Regression P-Value` = precisionModel$p.value["MethodB"]
+      Test = "Location Precision",
+      Unit = "Location",
+      `Method A` = matchedLocations |> dplyr::filter(Method == "A") |> dplyr::pull(Matched) |> mean(),
+      `Method B` = matchedLocations |> dplyr::filter(Method == "B") |> dplyr::pull(Matched) |> mean(),
+      `Coefficient` = precisionModel$coefficients["MethodB"],
+      `P-Value` = precisionModel$p.value["MethodB"]
     )
   } else {
     
@@ -65,10 +67,12 @@ evaluateABTestPrecision <- function(
     
     ## create table of precision statistics ----
     precisionTable <- dplyr::tibble(
-      `Comment Precision A` = matchedComments |> dplyr::pull(PrecisionA) |> mean(),
-      `Comment Precision B` = matchedComments |> dplyr::pull(PrecisionB) |> mean(),
-      `Method Regression Coefficient` = precisionModel$coefficients["(Intercept)"],
-      `Method Regression P-Value` = precisionModel$p.value["(Intercept)"]
+      Test = "Location Precision",
+      Unit = "Comment",
+      `Method A` = matchedComments |> dplyr::pull(PrecisionA) |> mean(),
+      `Method B` = matchedComments |> dplyr::pull(PrecisionB) |> mean(),
+      `Coefficient` = precisionModel$coefficients["(Intercept)"],
+      `P-Value` = precisionModel$p.value["(Intercept)"]
     )
   }
   

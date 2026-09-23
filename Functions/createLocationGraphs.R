@@ -1,10 +1,10 @@
 
-createLocationGraphs <- function(locationNodes, relationships) {
+createLocationGraphs <- function(locationNodes, requests) {
   
   # create grouped locations graph ----
-  groupedGraph <- createGraphFromRelationships(
+  groupedGraph <- createGraphFromRequests(
     locationNodes = locationNodes,
-    relationships = relationships,
+    requests = requests,
     type = "grouped"
   )
   
@@ -35,9 +35,9 @@ createLocationGraphs <- function(locationNodes, relationships) {
   groupedGraph <- groupedGraph |> igraph::simplify()
   
   # create grouped locations graph ----
-  separatedGraph <- createGraphFromRelationships(
+  separatedGraph <- createGraphFromRequests(
     locationNodes = locationNodes,
-    relationships = relationships,
+    requests = requests,
     type = "separated"
   )
   
@@ -80,24 +80,24 @@ createLocationGraphs <- function(locationNodes, relationships) {
   return(graphList)
 }
 
-createGraphFromRelationships <- function(
+createGraphFromRequests <- function(
     locationNodes,
-    relationships,
+    requests,
     type = c("grouped", "separated")
 ) {
   
   # check arguments ----
   stopifnot(all(is.character(locationNodes)))
-  stopifnot(is.data.frame(relationships))
-  stopifnot(all(c("Relationship", "Location1", "Location2") %in% names(relationships)))
+  stopifnot(is.data.frame(requests))
+  stopifnot(all(c("Request", "Location1", "Location2") %in% names(requests)))
   match.arg(arg = type, several.ok = FALSE)
   
   # create locations graph ----
   locationsGraph <- igraph::make_empty_graph(directed = FALSE) + igraph::vertices(locationNodes)
   
   # format edges to add ----
-  locationEdges <- relationships |>
-    dplyr::filter(Relationship == type) |>
+  locationEdges <- requests |>
+    dplyr::filter(Request == type) |>
     dplyr::select(Location1, Location2) |>
     as.matrix(ncol = 2) |>
     t()

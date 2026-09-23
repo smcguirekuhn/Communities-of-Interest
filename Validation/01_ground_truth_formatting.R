@@ -53,22 +53,22 @@ coGroundTruthRequests <- purrr::map_dfr(
   .x = coGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
     
-    ## isolate location nodes and relationships ----
+    ## isolate location nodes and requests ----
     locationNodes <- coGroundTruthLocations |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::pull(FullLocationName)
-    relationships <- coGroundTruthData |>
+    requests <- coGroundTruthData |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::select(Relationships) |>
       tidyr::unnest(cols = Relationships)
     
     ## create nested sets of grouped and separated locations ----
-    if (nrow(relationships) > 0) {
+    if (nrow(requests) > 0) {
       
       ### create location graphs ----
       locationGraphs <- createLocationGraphs(
         locationNodes = locationNodes,
-        relationships = relationships
+        requests = requests
       )
       
       ### format location requests ----
@@ -140,22 +140,22 @@ gaGroundTruthRequests <- purrr::map_dfr(
   .x = gaGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
     
-    ## isolate location nodes and relationships ----
+    ## isolate location nodes and requests ----
     locationNodes <- gaGroundTruthLocations |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::pull(FullLocationName)
-    relationships <- gaGroundTruthData |>
+    requests <- gaGroundTruthData |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::select(Relationships) |>
       tidyr::unnest(cols = Relationships)
     
     ## create nested sets of grouped and separated locations ----
-    if (nrow(relationships) > 0) {
+    if (nrow(requests) > 0) {
       
       ### create location graphs ----
       locationGraphs <- createLocationGraphs(
         locationNodes = locationNodes,
-        relationships = relationships
+        requests = requests
       )
       
       ### format location requests ----
@@ -226,22 +226,22 @@ paGroundTruthRequests <- purrr::map_dfr(
   .x = paGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
     
-    ## isolate location nodes and relationships ----
+    ## isolate location nodes and requests ----
     locationNodes <- paGroundTruthLocations |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::pull(FullLocationName)
-    relationships <- paGroundTruthData |>
+    requests <- paGroundTruthData |>
       dplyr::filter(CommentID == commentID) |>
       dplyr::select(Relationships) |>
       tidyr::unnest(cols = Relationships)
     
     ## create nested sets of grouped and separated locations ----
-    if (nrow(relationships) > 0) {
+    if (nrow(requests) > 0) {
       
       ### create location graphs ----
       locationGraphs <- createLocationGraphs(
         locationNodes = locationNodes,
-        relationships = relationships
+        requests = requests
       )
       
       ### format location requests ----

@@ -33,10 +33,12 @@ evaluateABTestRecall <- function(
     
     ## create table of recall statistics ----
     recallTable <- dplyr::tibble(
-      `Location Recall A` = matchedLocations |> dplyr::pull(MatchedA) |> mean(),
-      `Location Recall B` = matchedLocations |> dplyr::pull(MatchedB) |> mean(),
-      `Contrast Regression Intercept` = recallModel$coefficients["(Intercept)"],
-      `Contrast Regression P-Value` = recallModel$p.value["(Intercept)"]
+      Test = "Location Recall",
+      Unit = "Location",
+      `Method A` = matchedLocations |> dplyr::pull(MatchedA) |> mean(),
+      `Method B` = matchedLocations |> dplyr::pull(MatchedB) |> mean(),
+      `Coefficient` = recallModel$coefficients["(Intercept)"],
+      `P-Value` = recallModel$p.value["(Intercept)"]
     )
   } else {
     
@@ -57,10 +59,12 @@ evaluateABTestRecall <- function(
     
     ## create table of recall statistics ----
     recallTable <- dplyr::tibble(
-      `Comment Recall A` = matchedLocations |> dplyr::pull(RecallA) |> mean(),
-      `Comment Recall B` = matchedLocations |> dplyr::pull(RecallB) |> mean(),
-      `Contrast Regression Intercept` = recallModel$coefficients["(Intercept)"],
-      `Contrast Regression P-Value` = recallModel$p.value["(Intercept)"]
+      Test = "Location Recall",
+      Unit = "Comment",
+      `Method A` = matchedLocations |> dplyr::pull(RecallA) |> mean(),
+      `Method B` = matchedLocations |> dplyr::pull(RecallB) |> mean(),
+      `Coefficient` = recallModel$coefficients["(Intercept)"],
+      `P-Value` = recallModel$p.value["(Intercept)"]
     )
   }
   

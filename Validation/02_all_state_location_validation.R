@@ -1,5 +1,5 @@
 
-# Validation Tests for Ellmer Pipeline Scripts Across All States
+# Location Validation Tests for Ellmer Pipeline Scripts Across All States
 
 # reset global environment ----
 rm(list = ls())
@@ -17,7 +17,6 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 # assign import and export destinations ----
 groundTruthDataPath <- "./Validation/GroundTruth/"
 allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
-allGroundTruthRequestsFilename <- "AllGroundTruthRequests.rds"
 tablePath <- "./Tables/Validation/"
 iterationsPath <- "./Validation/EllmerOutput/CommentLocations/Iterations/"
 noSystemPromptPath <- "./Validation/EllmerOutput/CommentLocations/NoSystemPrompt/"
