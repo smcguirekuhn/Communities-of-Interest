@@ -155,36 +155,32 @@ evaluateABLocationPrecision <- function(
     )
   } else {
     
-    ## join ground truth and comparison data frames for precision test ----
-    matchedCommentsA <- comparisonLocationsA |>
+    ## build comment level recall data frames ----
+    matchedLocationsA <- comparisonLocationsA |>
       joyn::left_join(y = allGroundTruthLocations, by = c("State", "CommentID", "FullLocationName"), keep = FALSE) |>
       dplyr::mutate(Method = "A", Matched = .joyn == "x & y") |>
       dplyr::select(-.joyn) |>
-      dplyr::group_by(State, CommentID) |>
-      dplyr::summarise(PrecisionA = sum(Matched)/dplyr::n())
-    matchedCommentsB <- comparisonLocationsB |>
+      dplyr::group_by(State, CommentID, Method) |>
+      dplyr::summarise(Precision = sum(Matched)/dplyr::n())
+    matchedLocationsB <- comparisonLocationsB |>
       joyn::left_join(y = allGroundTruthLocations, by = c("State", "CommentID", "FullLocationName"), keep = FALSE) |>
       dplyr::mutate(Method = "B", Matched = .joyn == "x & y") |>
       dplyr::select(-.joyn) |>
-      dplyr::group_by(State, CommentID) |>
-      dplyr::summarise(PrecisionB = sum(Matched)/dplyr::n())
-    matchedComments <- dplyr::full_join(
-      x = matchedCommentsA,
-      y = matchedCommentsB,
-      by = c("State", "CommentID")
-    ) |> dplyr::mutate(Contrast = PrecisionB - PrecisionA)
+      dplyr::group_by(State, CommentID, Method) |>
+      dplyr::summarise(Precision = sum(Matched)/dplyr::n())
+    matchedLocations <- dplyr::bind_rows(matchedLocationsA, matchedLocationsB)
     
     ## create precision model with robust standard errors ----
-    precisionModel <- estimatr::lm_robust(formula = Contrast ~ State, data = matchedComments)
+    precisionModel <- estimatr::lm_robust(formula = Precision ~ State + Method, data = matchedLocations)
     
     ## create table of precision statistics ----
     precisionTable <- dplyr::tibble(
       Test = "Location Precision",
       Unit = "Comment",
-      `Method A` = matchedComments |> dplyr::pull(PrecisionA) |> mean(),
-      `Method B` = matchedComments |> dplyr::pull(PrecisionB) |> mean(),
-      `Coefficient` = precisionModel$coefficients["(Intercept)"],
-      `P-Value` = precisionModel$p.value["(Intercept)"]
+      `Method A` = matchedLocations |> dplyr::filter(Method == "A") |> dplyr::pull(Precision) |> mean(),
+      `Method B` = matchedLocations |> dplyr::filter(Method == "B") |> dplyr::pull(Precision) |> mean(),
+      `Coefficient` = precisionModel$coefficients["MethodB"],
+      `P-Value` = precisionModel$p.value["MethodB"]
     )
   }
   

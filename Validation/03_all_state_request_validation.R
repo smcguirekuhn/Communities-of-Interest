@@ -81,7 +81,7 @@ comparisonRequestsA <- purrr::map2_dfr(
   }
 )
 
-evaluateABRequestRecall(
+evaluateABRequestAccuracy(
   groundTruthLocations = allGroundTruthLocations,
   groundTruthRequests = allGroundTruthRequests,
   comparisonRequestsA = comparisonRequestsA,

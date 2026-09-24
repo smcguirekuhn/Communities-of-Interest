@@ -1,5 +1,5 @@
 
-# Script 06: Summarize and Visualize Pennsylvania House Comment Data Location Mentions
+# Script 05: Summarize and Visualize Pennsylvania House Comment Data Location Mentions
 
 # reset global environment ----
 rm(list = ls())
