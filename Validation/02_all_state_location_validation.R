@@ -17,9 +17,12 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 # assign import and export destinations ----
 groundTruthDataPath <- "./Validation/GroundTruth/"
 allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
-tablePath <- "./Tables/Validation/"
-iterationsPath <- "./Validation/EllmerOutput/CommentLocations/Iterations/"
 noSystemPromptPath <- "./Validation/EllmerOutput/CommentLocations/NoSystemPrompt/"
+iterationsPath <- "./Validation/EllmerOutput/CommentLocations/Iterations/"
+tablePath <- "./Tables/Validation/"
+systemPromptTableFilename <- "SystemPromptValidationTable.rds"
+iterationsTableFilename <- "IterationsValidationTable.rds"
+contextualTableFilename <- "ContextualValidationTable.rds"
 
 # import all ground truth locations data ----
 allGroundTruthLocations <- readRDS(file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
@@ -37,37 +40,13 @@ comparisonLocationsB <- list.files(path = file.path(noSystemPromptPath), full.na
   purrr::map_dfr(.f = readRDS) |>
   dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName)
 
-## evaluate location-level recall contrast between comparison sets ----
-evaluateABTestRecall(
+## conduct system prompt regression tests ----
+evaluateABLocationAccuracy(
   groundTruthLocations = allGroundTruthLocations,
   comparisonLocationsA = comparisonLocationsA,
   comparisonLocationsB = comparisonLocationsB,
   unit = "location"
-)
-
-## evaluate comment-level recall contrast between comparison sets ----
-evaluateABTestRecall(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "comment"
-)
-
-## evaluate location-level precision difference between comparison sets ----
-evaluateABTestPrecision(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "location"
-)
-
-## evaluate comment-level precision difference between comparison sets ----
-evaluateABTestPrecision(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "comment"
-)
+) |> saveRDS(file = file.path(tablePath, systemPromptTableFilename))
 
 # majority across iterations testing ----
 
@@ -84,37 +63,13 @@ comparisonLocationsB <- list.files(path = file.path(iterationsPath), full.names 
   dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName) |>
   dplyr::distinct(CommentID, FullLocationName, .keep_all = TRUE)
 
-## evaluate location-level recall contrast between comparison sets ----
-evaluateABTestRecall(
+## conduct majority across iterations regression tests ----
+evaluateABLocationAccuracy(
   groundTruthLocations = allGroundTruthLocations,
   comparisonLocationsA = comparisonLocationsA,
   comparisonLocationsB = comparisonLocationsB,
   unit = "location"
-)
-
-## evaluate comment-level recall contrast between comparison sets ----
-evaluateABTestRecall(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "comment"
-)
-
-## evaluate location-level precision difference between comparison sets ----
-evaluateABTestPrecision(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "location"
-)
-
-## evaluate comment-level precision difference between comparison sets ----
-evaluateABTestPrecision(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "comment"
-)
+) |> saveRDS(file = file.path(tablePath, iterationsTableFilename))
 
 # contextual location removal testing ----
 
@@ -130,34 +85,10 @@ comparisonLocationsB <- list.files(path = file.path(iterationsPath), full.names 
   dplyr::filter(Iteration == 1, Relevance == "relevant") |>
   dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName)
 
-## evaluate location-level recall contrast between comparison sets ----
-evaluateABTestRecall(
+## conduct contextual location removal regression tests ----
+evaluateABLocationAccuracy(
   groundTruthLocations = allGroundTruthLocations,
   comparisonLocationsA = comparisonLocationsA,
   comparisonLocationsB = comparisonLocationsB,
   unit = "location"
-)
-
-## evaluate comment-level recall contrast between comparison sets ----
-evaluateABTestRecall(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "comment"
-)
-
-## evaluate location-level precision difference between comparison sets ----
-evaluateABTestPrecision(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "location"
-)
-
-## evaluate comment-level precision difference between comparison sets ----
-evaluateABTestPrecision(
-  groundTruthLocations = allGroundTruthLocations,
-  comparisonLocationsA = comparisonLocationsA,
-  comparisonLocationsB = comparisonLocationsB,
-  unit = "comment"
-)
+) |> saveRDS(file = file.path(tablePath, contextualTableFilename))
