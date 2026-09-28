@@ -40,11 +40,11 @@ comparisonRequestsA <- purrr::map2_dfr(
     mapPairwiseRequests(
       state = state,
       commentID = commentID,
-      locationNodes = coGroundTruthLocations |>
-        dplyr::filter(CommentID == commentID) |>
+      locationNodes = allGroundTruthLocations |>
+        dplyr::filter(State == state, CommentID == commentID) |>
         dplyr::pull(FullLocationName),
-      requests = coGroundTruthData |>
-        dplyr::filter(CommentID == commentID) |>
+      requests = comparisonRequestsRaw |>
+        dplyr::filter(State == state, CommentID == commentID) |>
         dplyr::select(Requests) |>
         tidyr::unnest(cols = Requests)
     )

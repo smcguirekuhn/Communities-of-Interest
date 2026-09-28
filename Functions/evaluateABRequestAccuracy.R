@@ -6,66 +6,75 @@ evaluateABRequestAccuracy <- function(
     comparisonRequestsB
   ) {
   
-  # conduct full suite of regression tests for recall and precision ----
-  accuracyTable <- dplyr::bind_rows(
-    evaluateABRequestRecall(
-      groundTruthLocations = groundTruthLocations,
-      groundTruthRequests = groundTruthRequests,
-      comparisonRequestsA = comparisonRequestsA,
-      comparisonRequestsB = comparisonRequestsB,
-      unit = "location pair"
-    ),
-    evaluateABRequestRecall(
-      groundTruthLocations = groundTruthLocations,
-      groundTruthRequests = groundTruthRequests,
-      comparisonRequestsA = comparisonRequestsA,
-      comparisonRequestsB = comparisonRequestsB,
-      unit = "comment"
-    ),
-    evaluateABRequestPrecision(
-      groundTruthLocations = groundTruthLocations,
-      groundTruthRequests = groundTruthRequests,
-      comparisonRequestsA = comparisonRequestsA,
-      comparisonRequestsB = comparisonRequestsB,
-      unit = "location pair"
-    ),
-    evaluateABRequestPrecision(
-      groundTruthLocations = groundTruthLocations,
-      groundTruthRequests = groundTruthRequests,
-      comparisonRequestsA = comparisonRequestsA,
-      comparisonRequestsB = comparisonRequestsB,
-      unit = "comment"
-    )
-  )
-  
-  # return accuracy table ----
-  return(accuracyTable)
-}
-
-evaluateABRequestRecall <- function(
-    groundTruthLocations,
-    groundTruthRequests,
-    comparisonRequestsA,
-    comparisonRequestsB,
-    unit = c("location pair", "comment")
-  ) {
-  
-  # check arguments ----
-  unit <- match.arg(arg = unit)
-  
   # compile request level accuracy table ----
-  requestAccuracy <- calculateRequestAccuracy(
+  accuracyData <- compileAccuracyData(
     groundTruthLocations = groundTruthLocations,
     groundTruthRequests = groundTruthRequests,
     comparisonRequestsA = comparisonRequestsA,
     comparisonRequestsB = comparisonRequestsB
   )
   
+  # conduct full suite of regression tests for grouped recall and precision ----
+  groupedAccuracyTable <- dplyr::bind_rows(
+    evaluateABRequestRecall(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
+      unit = "location pair"
+    ),
+    evaluateABRequestRecall(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
+      unit = "comment"
+    ),
+    evaluateABRequestPrecision(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
+      unit = "location pair"
+    ),
+    evaluateABRequestPrecision(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
+      unit = "comment"
+    )
+  )
+  
+  # conduct full suite of regression tests for separated recall and precision ----
+  separatedAccuracyTable <- dplyr::bind_rows(
+    evaluateABRequestRecall(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
+      unit = "location pair"
+    ),
+    evaluateABRequestRecall(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
+      unit = "comment"
+    ),
+    evaluateABRequestPrecision(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
+      unit = "location pair"
+    ),
+    evaluateABRequestPrecision(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
+      unit = "comment"
+    )
+  )
+  
+  # compile full accuracy table ----
+  accuracyTable <- dplyr::bind_rows(
+    groupedAccuracyTable |> dplyr::mutate(Test = paste("Grouped", Test)),
+    separatedAccuracyTable |> dplyr::mutate(Test = paste("Separated", Test)),
+  )
+  
+  # return accuracy table ----
+  return(accuracyTable)
+}
+
+
+evaluateABRequestRecall <- function(accuracyData, unit = c("location pair", "comment")) {
+  
+  # check arguments ----
+  unit <- match.arg(arg = unit)
+  
   # calculate recall model statistics based on unit of aggregation ----
   if (unit == "location pair") {
     
     ## build location-pair level recall contrast ----
-    matchedRequests <- requestAccuracy |>
+    matchedRequests <- accuracyData |>
       dplyr::filter(`Ground Truth Edges`) |>
       dplyr::mutate(
         MatchedA = `Ground Truth Edges` & `Comparison Edges A`,
@@ -88,7 +97,7 @@ evaluateABRequestRecall <- function(
   } else {
     
     ## build location-pair level recall contrast ----
-    matchedRequests <- requestAccuracy |>
+    matchedRequests <- accuracyData |>
       dplyr::filter(`Ground Truth Edges`) |>
       dplyr::mutate(
         MatchedA = `Ground Truth Edges` & `Comparison Edges A`,
@@ -117,34 +126,20 @@ evaluateABRequestRecall <- function(
 }
 
 
-evaluateABRequestPrecision <- function(
-    groundTruthLocations,
-    groundTruthRequests,
-    comparisonRequestsA,
-    comparisonRequestsB,
-    unit = c("location pair", "comment")
-) {
+evaluateABRequestPrecision <- function(accuracyData, unit = c("location pair", "comment")) {
   
   # check arguments ----
   unit <- match.arg(arg = unit)
-  
-  # compile request level accuracy table ----
-  requestAccuracy <- calculateRequestAccuracy(
-    groundTruthLocations = groundTruthLocations,
-    groundTruthRequests = groundTruthRequests,
-    comparisonRequestsA = comparisonRequestsA,
-    comparisonRequestsB = comparisonRequestsB
-  )
   
   # calculate recall model statistics based on unit of aggregation ----
   if (unit == "location pair") {
     
     ## build location-pair level precision data frames ----
-    matchedRequestsA <- requestAccuracy |>
+    matchedRequestsA <- accuracyData |>
       dplyr::filter(`Comparison Edges A`) |>
       dplyr::mutate(Method = "A", Matched = `Ground Truth Edges` & `Comparison Edges A`) |>
       dplyr::select(State, CommentID, Method, Matched)
-    matchedRequestsB <- requestAccuracy |>
+    matchedRequestsB <- accuracyData |>
       dplyr::filter(`Comparison Edges B`) |>
       dplyr::mutate(Method = "B", Matched = `Ground Truth Edges` & `Comparison Edges B`) |>
       dplyr::select(State, CommentID, Method, Matched)
@@ -165,13 +160,13 @@ evaluateABRequestPrecision <- function(
   } else {
     
     ## build comment level precision data frames ----
-    matchedRequestsA <- requestAccuracy |>
+    matchedRequestsA <- accuracyData |>
       dplyr::filter(`Comparison Edges A`) |>
       dplyr::mutate(Method = "A", Matched = `Ground Truth Edges` & `Comparison Edges A`) |>
       dplyr::select(State, CommentID, Method, Matched) |>
       dplyr::group_by(State, CommentID, Method) |>
       dplyr::summarise(Precision = sum(Matched)/dplyr::n())
-    matchedRequestsB <- requestAccuracy |>
+    matchedRequestsB <- accuracyData |>
       dplyr::filter(`Comparison Edges B`) |>
       dplyr::mutate(Method = "B", Matched = `Ground Truth Edges` & `Comparison Edges B`) |>
       dplyr::select(State, CommentID, Method, Matched) |>
@@ -197,7 +192,8 @@ evaluateABRequestPrecision <- function(
   return(precisionTable)
 }
 
-calculateRequestAccuracy <- function(
+
+compileAccuracyData <- function(
     groundTruthLocations,
     groundTruthRequests,
     comparisonRequestsA,
@@ -214,8 +210,8 @@ calculateRequestAccuracy <- function(
   stopifnot(all(c("State", "CommentID") %in% names(comparisonRequestsA)))
   stopifnot(all(c("State", "CommentID") %in% names(comparisonRequestsB)))
   
-  # compile request-level matrix accuracy across all states and comments ----
-  requestAccuracy <- purrr::map2_dfr(
+  # compile request-level matrix accuracy data across all states and comments ----
+  accuracyData <- purrr::map2_dfr(
     .x = groundTruthRequests |> dplyr::distinct(State, CommentID) |> dplyr::pull(State),
     .y = groundTruthRequests |> dplyr::distinct(State, CommentID) |> dplyr::pull(CommentID),
     .f = \(state, commentID) {
@@ -244,17 +240,43 @@ calculateRequestAccuracy <- function(
       )
       
       ## create comparison requests matrix a ----
-      groundTruthEdges <- groundTruthRequestsMatrix[upper.tri(groundTruthRequestsMatrix)] |> as.logical()
-      comparisonEdgesA <- comparisonRequestsMatrixA[upper.tri(comparisonRequestsMatrixA)] |> as.logical()
-      comparisonEdgesB <- comparisonRequestsMatrixB[upper.tri(comparisonRequestsMatrixB)] |> as.logical()
+      groundTruthGroupedEdges <- groundTruthRequestsMatrix[["Groupings"]][
+        upper.tri(groundTruthRequestsMatrix[["Groupings"]])] |> as.logical()
+      groundTruthSeparatedEdges <- groundTruthRequestsMatrix[["Separations"]][
+        upper.tri(groundTruthRequestsMatrix[["Separations"]])] |> as.logical()
+      groupedEdgesA <- comparisonRequestsMatrixA[["Groupings"]][
+        upper.tri(comparisonRequestsMatrixA[["Groupings"]])] |> as.logical()
+      separatedEdgesA <- comparisonRequestsMatrixA[["Separations"]][
+        upper.tri(comparisonRequestsMatrixA[["Separations"]])] |> as.logical()
+      groupedEdgesB <- comparisonRequestsMatrixB[["Groupings"]][
+        upper.tri(comparisonRequestsMatrixB[["Groupings"]])] |> as.logical()
+      separatedEdgesB <- comparisonRequestsMatrixB[["Separations"]][
+        upper.tri(comparisonRequestsMatrixB[["Separations"]])] |> as.logical()
       
-      ## compile comment accuracy table ----
-      commentAccuracyTable <- dplyr::tibble(
+      ## compile edges table for grouped edges ----
+      groupedAccuracyTable <- dplyr::tibble(
         State = state,
         CommentID = commentID,
-        `Ground Truth Edges` = groundTruthEdges,
-        `Comparison Edges A` = comparisonEdgesA,
-        `Comparison Edges B` = comparisonEdgesB,
+        `Edge Type` = "grouped",
+        `Ground Truth Edges` = groundTruthGroupedEdges,
+        `Comparison Edges A` = groupedEdgesA,
+        `Comparison Edges B` = groupedEdgesB
+      )
+      
+      ## compile edges table for separated edges ----
+      separatedAccuracyTable <- dplyr::tibble(
+        State = state,
+        CommentID = commentID,
+        `Edge Type` = "separated",
+        `Ground Truth Edges` = groundTruthSeparatedEdges,
+        `Comparison Edges A` = separatedEdgesA,
+        `Comparison Edges B` = separatedEdgesB
+      )
+      
+      ## combine edges tables ----
+      commentAccuracyTable <- dplyr::bind_rows(
+        groupedAccuracyTable,
+        separatedAccuracyTable
       )
       
       ## return comment accuracy table ----
@@ -262,29 +284,45 @@ calculateRequestAccuracy <- function(
     }
   )
   
-  # return request level accuracy table ----
-  return(requestAccuracy)
+  # return request level accuracy data ----
+  return(accuracyData)
 }
+
 
 createRequestsMatrix <- function(locationNodes, commentRequests) {
   
-  # initialize empty requests matrix ----
-  requestsMatrix <- matrix(
+  # initialize empty groupings matrix ----
+  groupingsMatrix <- matrix(
     data = 0,
     nrow = length(locationNodes),
     ncol = length(locationNodes),
     dimnames = list(locationNodes, locationNodes)
   )
   
-  # add matrix elements for each pair of grouped location nodes ----
-  purrr::walk(
+  # initialize empty separations matrix ----
+  separationsMatrix <- matrix(
+    data = 0,
+    nrow = length(locationNodes),
+    ncol = length(locationNodes),
+    dimnames = list(locationNodes, locationNodes)
+  )
+  
+  # add matrix elements for pairs of grouped and separated nodes ----
+  purrr::walk2(
     .x = commentRequests |> dplyr::pull(Groupings),
-    .f = \(commentGrouping) {
+    .y = commentRequests |> dplyr::pull(Separations),
+    .f = \(commentGrouping, commentSeparation) {
       groupingNodes <- commentGrouping |> dplyr::pull(Location)
-      locationEdges <- groupingNodes |> expand.grid(groupingNodes) |> as.matrix()
-      requestsMatrix[locationEdges] <<- requestsMatrix[locationEdges] + 1
+      separatedNodes <- commentSeparation |> dplyr::pull(Location)
+      groupedEdges <- groupingNodes |> tidyr::crossing(groupingNodes) |> as.matrix()
+      separatedEdges <- groupingNodes |> tidyr::crossing(separatedNodes) |> as.matrix()
+      groupingsMatrix[groupedEdges] <<- groupingsMatrix[groupedEdges] + 1
+      separationsMatrix[separatedEdges] <<- separationsMatrix[separatedEdges] + 1
     }
   )
+  
+  # compile requests matrices for groupings and separations ----
+  requestsMatrix <- list(Groupings = groupingsMatrix, Separations = separationsMatrix)
   
   # return requests matrix ----
   return(requestsMatrix)
