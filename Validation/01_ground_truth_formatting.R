@@ -52,60 +52,17 @@ coGroundTruthLocations <- coGroundTruthData |>
 coGroundTruthRequests <- purrr::map_dfr(
   .x = coGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
-    
-    ## isolate location nodes and requests ----
-    locationNodes <- coGroundTruthLocations |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
-    requests <- coGroundTruthData |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::select(Relationships) |>
-      tidyr::unnest(cols = Relationships)
-    
-    ## create nested sets of grouped and separated locations ----
-    if (nrow(requests) > 0) {
-      
-      ### create location graphs ----
-      locationGraphs <- createLocationGraphs(
-        locationNodes = locationNodes,
-        requests = requests
-      )
-      
-      ### format location requests ----
-      locationRequests <- locationGraphs |>
-        purrr::pluck("GroupedGraph") |>
-        igraph::components() |>
-        purrr::pluck("membership") |>
-        tibble::enframe(name = "Location", value = "Membership") |>
-        dplyr::mutate(
-          Separations = purrr::map(
-            .x = Location,
-            .f = \(location) {
-              locationGraphs |>
-                purrr::pluck("SeparatedGraph") |>
-                igraph::neighbors(v = location) |>
-                names() |>
-                tibble::as_tibble_col(column_name = "Locations")
-            }
-          )
-        ) |>
-        tidyr::nest(Groupings = Location) |>
-        dplyr::select(-Membership) |>
-        dplyr::relocate(Separations, .after = Groupings) |>
-        dplyr::mutate(State = "Colorado", CommentID = commentID, .before = 1)
-    } else {
-      locationRequests <- dplyr::tibble(
-        State = "Colorado",
-        CommentID = commentID,
-        Location = locationNodes,
-        Separations = list(dplyr::tibble(Location = character(0)))
-      ) |>
-        tidyr::nest(Groupings = Location) |>
-        dplyr::relocate(Separations, .after = Groupings)
-    }
-    
-    ## return location requests ----
-    return(locationRequests)
+    mapPairwiseRequests(
+      state = "Colorado",
+      commentID = commentID,
+      locationNodes = coGroundTruthLocations |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::pull(FullLocationName),
+      requests = coGroundTruthData |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::select(Requests) |>
+        tidyr::unnest(cols = Requests)
+    )
   }
 )
 
@@ -139,60 +96,17 @@ gaGroundTruthLocations <- gaGroundTruthData |>
 gaGroundTruthRequests <- purrr::map_dfr(
   .x = gaGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
-    
-    ## isolate location nodes and requests ----
-    locationNodes <- gaGroundTruthLocations |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
-    requests <- gaGroundTruthData |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::select(Relationships) |>
-      tidyr::unnest(cols = Relationships)
-    
-    ## create nested sets of grouped and separated locations ----
-    if (nrow(requests) > 0) {
-      
-      ### create location graphs ----
-      locationGraphs <- createLocationGraphs(
-        locationNodes = locationNodes,
-        requests = requests
-      )
-      
-      ### format location requests ----
-      locationRequests <- locationGraphs |>
-        purrr::pluck("GroupedGraph") |>
-        igraph::components() |>
-        purrr::pluck("membership") |>
-        tibble::enframe(name = "Location", value = "Membership") |>
-        dplyr::mutate(
-          Separations = purrr::map(
-            .x = Location,
-            .f = \(location) {
-              locationGraphs |>
-                purrr::pluck("SeparatedGraph") |>
-                igraph::neighbors(v = location) |>
-                names() |>
-                tibble::as_tibble_col(column_name = "Locations")
-            }
-          )
-        ) |>
-        tidyr::nest(Groupings = Location) |>
-        dplyr::select(-Membership) |>
-        dplyr::relocate(Separations, .after = Groupings) |>
-        dplyr::mutate(State = "Georgia", CommentID = commentID, .before = 1)
-    } else {
-      locationRequests <- dplyr::tibble(
-        State = "Georgia",
-        CommentID = commentID,
-        Location = locationNodes,
-        Separations = list(dplyr::tibble(Location = character(0)))
-      ) |>
-        tidyr::nest(Groupings = Location) |>
-        dplyr::relocate(Separations, .after = Groupings)
-    }
-    
-    ## return location requests ----
-    return(locationRequests)
+    mapPairwiseRequests(
+      state = "Georgia",
+      commentID = commentID,
+      locationNodes = gaGroundTruthLocations |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::pull(FullLocationName),
+      requests = gaGroundTruthData |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::select(Requests) |>
+        tidyr::unnest(cols = Requests)
+    )
   }
 )
 
@@ -225,60 +139,17 @@ paGroundTruthLocations <- paGroundTruthData |>
 paGroundTruthRequests <- purrr::map_dfr(
   .x = paGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
-    
-    ## isolate location nodes and requests ----
-    locationNodes <- paGroundTruthLocations |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
-    requests <- paGroundTruthData |>
-      dplyr::filter(CommentID == commentID) |>
-      dplyr::select(Relationships) |>
-      tidyr::unnest(cols = Relationships)
-    
-    ## create nested sets of grouped and separated locations ----
-    if (nrow(requests) > 0) {
-      
-      ### create location graphs ----
-      locationGraphs <- createLocationGraphs(
-        locationNodes = locationNodes,
-        requests = requests
-      )
-      
-      ### format location requests ----
-      locationRequests <- locationGraphs |>
-        purrr::pluck("GroupedGraph") |>
-        igraph::components() |>
-        purrr::pluck("membership") |>
-        tibble::enframe(name = "Location", value = "Membership") |>
-        dplyr::mutate(
-          Separations = purrr::map(
-            .x = Location,
-            .f = \(location) {
-              locationGraphs |>
-                purrr::pluck("SeparatedGraph") |>
-                igraph::neighbors(v = location) |>
-                names() |>
-                tibble::as_tibble_col(column_name = "Locations")
-            }
-          )
-        ) |>
-        tidyr::nest(Groupings = Location) |>
-        dplyr::select(-Membership) |>
-        dplyr::relocate(Separations, .after = Groupings) |>
-        dplyr::mutate(State = "Pennsylvania", CommentID = commentID, .before = 1)
-    } else {
-      locationRequests <- dplyr::tibble(
-        State = "Pennsylvania",
-        CommentID = commentID,
-        Location = locationNodes,
-        Separations = list(dplyr::tibble(Location = character(0)))
-      ) |>
-        tidyr::nest(Groupings = Location) |>
-        dplyr::relocate(Separations, .after = Groupings)
-    }
-    
-    ## return location requests ----
-    return(locationRequests)
+    mapPairwiseRequests(
+      state = "Pennsylvania",
+      commentID = commentID,
+      locationNodes = paGroundTruthLocations |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::pull(FullLocationName),
+      requests = paGroundTruthData |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::select(Requests) |>
+        tidyr::unnest(cols = Requests)
+    )
   }
 )
 

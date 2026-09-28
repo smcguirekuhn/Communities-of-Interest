@@ -22,11 +22,11 @@
         "FullLocationName": "Denver Metro Area (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Northwestern Elbert County (County)",
         "Location2": "Denver Metro Area (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -55,18 +55,18 @@
         "FullLocationName": "Boulder County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Larimer County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State Senate",
         "Confidence": "high"
       }
@@ -130,46 +130,46 @@
         "FullLocationName": "Congressional District 7 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Golden (City)",
         "Location2": "Colorado School of Mines (School)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Golden (City)",
         "Location2": "National Renewable Energy Laboratory (Landmark)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Golden (City)",
         "Location2": "Lockheed Martin (Landmark)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Golden (City)",
         "Location2": "Ball Aerospace (Landmark)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Golden (City)",
         "Location2": "Arvada (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Golden (City)",
         "Location2": "Congressional District 7 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -240,53 +240,53 @@
         "FullLocationName": "Ken Caryl (Neighborhood)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Wheat Ridge (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Edgewater (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Lakewood (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Unincorporated Jefferson County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Applewood (Neighborhood)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Dakota Ridge (Neighborhood)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "West Metro Fire Protection District (Region)",
         "Location2": "Ken Caryl (Neighborhood)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -329,25 +329,25 @@
         "FullLocationName": "Front Range (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Rural Routt County (County)",
         "Location2": "Rural Colorado (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Rural Routt County (County)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Steamboat Springs (City)",
         "Location2": "Rural Routt County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -376,11 +376,11 @@
         "FullLocationName": "Adams County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Jefferson County (County)",
         "Location2": "Adams County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -455,39 +455,39 @@
         "FullLocationName": "Western Slope (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Routt County (County)",
         "Location2": "Moffat County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Rio Blanco County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Vail (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Eagle County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Western Slope (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -541,18 +541,18 @@
         "FullLocationName": "Moffat County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Eagle County (County)",
         "Location2": "Routt County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Moffat County (County)",
         "Location2": "Routt County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -588,25 +588,25 @@
         "FullLocationName": "Greeley (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Longmont (City)",
         "Location2": "Adams County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Longmont (City)",
         "Location2": "Greeley (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Adams County (County)",
         "Location2": "Greeley (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -670,46 +670,46 @@
         "FullLocationName": "Park County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Summit County (County)",
         "Location2": "Western Slope (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Summit County (County)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Summit County (County)",
         "Location2": "Denver (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Summit County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Summit County (County)",
         "Location2": "Jefferson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Summit County (County)",
         "Location2": "Park County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       }
@@ -801,60 +801,60 @@
         "FullLocationName": "State House District 49 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "State House District 17 (State House District)",
         "Location2": "Southeastern Colorado Springs (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 18 (State House District)",
         "Location2": "Manitou Springs (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 18 (State House District)",
         "Location2": "Old Colorado City (Neighborhood)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 18 (State House District)",
         "Location2": "Downtown Colorado Springs (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Tri-Lakes area (Region)",
         "Location2": "Monument (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Tri-Lakes area (Region)",
         "Location2": "Palmer Lake (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Tri-Lakes area (Region)",
         "Location2": "State House District 49 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Tri-Lakes area (Region)",
         "Location2": "Colorado Springs (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -897,25 +897,25 @@
         "FullLocationName": "Garfield County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Summit County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Summit County (County)",
         "Location2": "Eagle County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Garfield County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -951,18 +951,18 @@
         "FullLocationName": "Boulder County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Weld County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Boulder County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1016,18 +1016,18 @@
         "FullLocationName": "Rural Western Colorado (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Boulder (City)",
         "Location2": "Rural Western Colorado (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder (City)",
         "Location2": "Congressional District 3 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1077,39 +1077,39 @@
         "FullLocationName": "Jackson County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Boulder County (County)",
         "Location2": "Rural Western Slope (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Rural Western Slope (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Jackson County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Jackson County (County)",
         "Location2": "Larimer County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Jackson County (County)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1152,25 +1152,25 @@
         "FullLocationName": "Front Range (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Douglas County (County)",
         "Location2": "Elbert County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Douglas County (County)",
         "Location2": "Colorado District 4 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Douglas County (County)",
         "Location2": "Front Range (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1213,18 +1213,18 @@
         "FullLocationName": "Garfield County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Rural Western Slope (Region)",
         "Location2": "Boulder (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Rural Western Slope (Region)",
         "Location2": "Broomfield (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1281,67 +1281,67 @@
         "FullLocationName": "Fort Collins (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Western Slope (Region)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Slope (Region)",
         "Location2": "Colorado Springs (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Slope (Region)",
         "Location2": "Fort Collins (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eastern Colorado (Region)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eastern Colorado (Region)",
         "Location2": "Colorado Springs (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eastern Colorado (Region)",
         "Location2": "Fort Collins (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Rural Colorado (Region)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Rural Colorado (Region)",
         "Location2": "Colorado Springs (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Rural Colorado (Region)",
         "Location2": "Fort Collins (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1496,144 +1496,144 @@
         "FullLocationName": "Pueblo County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Rural Western Colorado (Region)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Rural Northwestern Colorado (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Broomfield County (County)",
         "Location2": "Rural Northwestern Colorado (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Rural Northwestern Colorado (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Garfield County (County)",
         "Location2": "Rural Northwestern Colorado (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Garfield County (County)",
         "Location2": "Jackson County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Garfield County (County)",
         "Location2": "Routt County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Garfield County (County)",
         "Location2": "Rio Blanco County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Garfield County (County)",
         "Location2": "Moffat County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Larimer County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Gilpin County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Clear Creek County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Summit County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Eastern Eagle County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Broomfield County (County)",
         "Location2": "Front Range (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Colorado (Region)",
         "Location2": "San Luis Valley (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Colorado (Region)",
         "Location2": "Huerfano County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Colorado (Region)",
         "Location2": "Pueblo County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Colorado (Region)",
         "Location2": "Summit County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Western Colorado (Region)",
         "Location2": "Eastern Eagle County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1669,18 +1669,18 @@
         "FullLocationName": "ZIP Code 80498 (NA)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Northern Summit County (County)",
         "Location2": "ZIP Code 80498 (NA)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Silverthorne (Town)",
         "Location2": "ZIP Code 80498 (NA)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1758,60 +1758,60 @@
         "FullLocationName": "Boulder (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Eastern Plains (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Castle Rock (Town)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Denver (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Boulder (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Front Range (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Northern Colorado (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Larimer County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fort Collins (City)",
         "Location2": "Colorado State University (School)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1847,18 +1847,18 @@
         "FullLocationName": "Routt County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Boulder County (County)",
         "Location2": "Routt County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Routt County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1905,11 +1905,11 @@
         "FullLocationName": "Rio Blanco County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Boulder County (County)",
         "Location2": "Rio Blanco County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1981,18 +1981,18 @@
         "FullLocationName": "Southern Colorado (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Pueblo County (County)",
         "Location2": "San Luis Valley (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Pueblo County (County)",
         "Location2": "Southern Colorado (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2056,46 +2056,46 @@
         "FullLocationName": "Denver Metro Area (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Fremont County (County)",
         "Location2": "Urban Jefferson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Park County (County)",
         "Location2": "Urban Jefferson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Teller County (County)",
         "Location2": "Urban Jefferson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fremont County (County)",
         "Location2": "Eastern Plains (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fremont County (County)",
         "Location2": "Western Slope (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fremont County (County)",
         "Location2": "Denver Metro Area (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -2131,18 +2131,18 @@
         "FullLocationName": "Boulder (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Boulder (City)",
         "Location2": "Routt County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder (City)",
         "Location2": "Southern Routt County (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -2206,46 +2206,46 @@
         "FullLocationName": "Aurora (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Eagle County (County)",
         "Location2": "Congressional District 3 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eagle County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Denver (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Loveland (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Fort Collins (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Boulder County (County)",
         "Location2": "Aurora (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -2274,11 +2274,11 @@
         "FullLocationName": "Rural Colorado (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Boulder (City)",
         "Location2": "Rural Colorado (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2314,18 +2314,18 @@
         "FullLocationName": "Boulder (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Routt County (County)",
         "Location2": "Oak Creek (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Boulder (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2382,39 +2382,39 @@
         "FullLocationName": "Weld County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Larimer County (County)",
         "Location2": "Fort Collins (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Loveland (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Berthoud (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Larimer County (County)",
         "Location2": "Wellington (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Wellington (Town)",
         "Location2": "Weld County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2464,32 +2464,32 @@
         "FullLocationName": "Congressional District 3 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Las Animas County (County)",
         "Location2": "Crowley County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Las Animas County (County)",
         "Location2": "Otero County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Las Animas County (County)",
         "Location2": "Congressional District 4 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Las Animas County (County)",
         "Location2": "Congressional District 3 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -2525,18 +2525,18 @@
         "FullLocationName": "Denver Metro Area (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Western Slope (Region)",
         "Location2": "Front Range (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Western Slope (Region)",
         "Location2": "Denver Metro Area (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2675,67 +2675,67 @@
         "FullLocationName": "Rural Eastern Colorado (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Loveland (City)",
         "Location2": "Congressional District 2 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Loveland (City)",
         "Location2": "Estes Park (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Loveland (City)",
         "Location2": "Rocky Mountain National Park (Landmark)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Loveland (City)",
         "Location2": "Fort Collins (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Loveland (City)",
         "Location2": "Colorado State University (School)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Loveland (City)",
         "Location2": "Congressional District 4 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Arkansas Valley (Region)",
         "Location2": "Congressional District 4 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Arkansas Valley (Region)",
         "Location2": "Weld County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Arkansas Valley (Region)",
         "Location2": "Rural Eastern Colorado (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -2820,67 +2820,67 @@
         "FullLocationName": "Cortez (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Archuleta County (County)",
         "Location2": "La Plata County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Archuleta County (County)",
         "Location2": "San Juan County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Archuleta County (County)",
         "Location2": "Dolores County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Archuleta County (County)",
         "Location2": "Montezuma County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Pagosa Springs (Town)",
         "Location2": "Archuleta County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Silverton (Town)",
         "Location2": "San Juan County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Bayfield (Town)",
         "Location2": "La Plata County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Ignacio (Town)",
         "Location2": "La Plata County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Cortez (City)",
         "Location2": "Montezuma County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2955,18 +2955,18 @@
         "FullLocationName": "Northwestern Colorado (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Ridgway (Town)",
         "Location2": "Southern Colorado (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Pueblo (City)",
         "Location2": "San Luis Valley (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -3016,32 +3016,32 @@
         "FullLocationName": "Sloan's Lake (Neighborhood)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "North Denver (Neighborhood)",
         "Location2": "Adams County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "North Denver (Neighborhood)",
         "Location2": "Wheat Ridge (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "North Denver (Neighborhood)",
         "Location2": "Globeville (Neighborhood)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "North Denver (Neighborhood)",
         "Location2": "Sloan's Lake (Neighborhood)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -3134,67 +3134,67 @@
         "FullLocationName": "Western Slope (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Routt County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Jackson County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eagle County (County)",
         "Location2": "Boulder County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Larimer County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Jackson County (County)",
         "Location2": "Larimer County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eagle County (County)",
         "Location2": "Larimer County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Routt County (County)",
         "Location2": "Western Slope (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Jackson County (County)",
         "Location2": "Western Slope (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Eagle County (County)",
         "Location2": "Western Slope (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -3244,32 +3244,32 @@
         "FullLocationName": "Glenwood Springs (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Eastern Garfield County (County)",
         "Location2": "Western Garfield County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State Senate",
         "Confidence": "high"
       },
       {
         "Location1": "Eastern Garfield County (County)",
         "Location2": "Rifle (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       },
       {
         "Location1": "Rifle (City)",
         "Location2": "Silt (Town)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       },
       {
         "Location1": "Rifle (City)",
         "Location2": "Glenwood Springs (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       }

@@ -138,102 +138,102 @@
         "FullLocationName": "Kingston (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Kingston (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "State House District 120 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Forty Fort (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Edwardsville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Wyoming (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "West Wyoming (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Swoyersville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Luzerne (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Courtdale (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Exeter (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Exeter (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "West Pittston (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Jackson (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Pringle (Borough)",
         "Location2": "Kingston (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -316,95 +316,95 @@
         "FullLocationName": "Jackson (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Forty Fort (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Edwardsville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Wyoming (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "West Wyoming (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Swoyersville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Luzerne (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Courtdale (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Pringle (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Exeter (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "West Pittston (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Exeter (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Kingston (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Kingston (Borough)",
         "Location2": "Jackson (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -513,95 +513,95 @@
         "FullLocationName": "Burnside (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Indiana County (County)",
         "Location2": "Armstrong County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Punxsutawney (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Southern Jefferson County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Porter (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Perry (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Young (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Bell (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Gaskill (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Clearfield County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Purchase Line School District (School District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Burnside (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Mahaffey (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Indiana County (County)",
         "Location2": "Burnside (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       }
@@ -624,11 +624,11 @@
         "FullLocationName": "State House District 84 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Union County (County)",
         "Location2": "State House District 84 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -651,11 +651,11 @@
         "FullLocationName": "Downingtown (Borough)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Wallace (Township)",
         "Location2": "Downingtown (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -759,25 +759,25 @@
         "FullLocationName": "Hummelstown (Borough)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "South Hanover (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "Derry (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "Hummelstown (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -858,53 +858,53 @@
         "FullLocationName": "Pillow (Borough)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Harrisburg (City)",
         "Location2": "Camp Hill (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Harrisburg (City)",
         "Location2": "Wormleysburg (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Harrisburg (City)",
         "Location2": "Lemoyne (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "Northern Dauphin County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "Dauphin (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "Millersburg (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Paxton (Township)",
         "Location2": "Pillow (Borough)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -927,11 +927,11 @@
         "FullLocationName": "State House District 82 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Juniata County (County)",
         "Location2": "State House District 82 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -988,18 +988,18 @@
         "FullLocationName": "State House District 104 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Hummelstown (Borough)",
         "Location2": "State House District 106 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hummelstown (Borough)",
         "Location2": "State House District 104 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1032,25 +1032,25 @@
         "FullLocationName": "Manayunk (Neighborhood)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Mt. Airy (Neighborhood)",
         "Location2": "Chestnut Hill (Neighborhood)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Mt. Airy (Neighborhood)",
         "Location2": "Roxborough (Neighborhood)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Mt. Airy (Neighborhood)",
         "Location2": "Manayunk (Neighborhood)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1111,46 +1111,46 @@
         "FullLocationName": "Middletown (Borough)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Hummelstown (Borough)",
         "Location2": "Lower Dauphin School District (School District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hummelstown (Borough)",
         "Location2": "Derry (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hummelstown (Borough)",
         "Location2": "Middletown (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "medium"
       },
       {
         "Location1": "Hummelstown (Borough)",
         "Location2": "Western Dauphin County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "medium"
       },
       {
         "Location1": "Lower Dauphin School District (School District)",
         "Location2": "Harrisburg School District (School District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Lower Dauphin School District (School District)",
         "Location2": "Central Dauphin School District (School District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "medium"
       }
@@ -1183,18 +1183,18 @@
         "FullLocationName": "Northampton County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Bethlehem (City)",
         "Location2": "State Senate District 18 (State Senate District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       },
       {
         "Location1": "Bethlehem (City)",
         "Location2": "Allentown (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State Senate",
         "Confidence": "high"
       }
@@ -1231,11 +1231,11 @@
         "FullLocationName": "State House District 142 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Upper Southampton (Township)",
         "Location2": "State House District 142 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1302,46 +1302,46 @@
         "FullLocationName": "Reserve (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Etna (Borough)",
         "Location2": "Millvale (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Etna (Borough)",
         "Location2": "Sharpsburg (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Etna (Borough)",
         "Location2": "Shaler (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Etna (Borough)",
         "Location2": "Reserve (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Etna (Borough)",
         "Location2": "State House District 21 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Etna (Borough)",
         "Location2": "State House District 33 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1378,11 +1378,11 @@
         "FullLocationName": "Mifflin County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Juniata County (County)",
         "Location2": "Mifflin County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1424,25 +1424,25 @@
         "FullLocationName": "Tredyffrin (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Easttown (Township)",
         "Location2": "Chester County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       },
       {
         "Location1": "Easttown (Township)",
         "Location2": "Tredyffrin (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Easttown (Township)",
         "Location2": "Tredyffrin (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State Senate",
         "Confidence": "high"
       }
@@ -1470,18 +1470,18 @@
         "FullLocationName": "Philadelphia (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Collingdale (Borough)",
         "Location2": "Philadelphia (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Collingdale (Borough)",
         "Location2": "Delaware County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1504,11 +1504,11 @@
         "FullLocationName": "State House District 178 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Northampton (Township)",
         "Location2": "State House District 178 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1574,32 +1574,32 @@
         "FullLocationName": "Assi Shopping Center (Landmark)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "State House District 151 (State House District)",
         "Location2": "Horsham (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 151 (State House District)",
         "Location2": "Montgomery County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 151 (State House District)",
         "Location2": "Yuong Sang Presbyterian Church (Landmark)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 151 (State House District)",
         "Location2": "Assi Shopping Center (Landmark)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1622,11 +1622,11 @@
         "FullLocationName": "State House District 159 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Upper Chichester (Township)",
         "Location2": "State House District 159 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1668,11 +1668,11 @@
         "FullLocationName": "Central Pennsylvania (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Allentown (City)",
         "Location2": "Bethlehem (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State Senate",
         "Confidence": "high"
       }
@@ -1743,46 +1743,46 @@
         "FullLocationName": "Allentown (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Western Bethlehem (City)",
         "Location2": "Bethlehem (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Fountain Hill (Borough)",
         "Location2": "Bethlehem (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Salisbury (Township)",
         "Location2": "Bethlehem (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Western Bethlehem (City)",
         "Location2": "Allentown (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Fountain Hill (Borough)",
         "Location2": "Allentown (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Salisbury (Township)",
         "Location2": "Allentown (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1810,11 +1810,11 @@
         "FullLocationName": "Chalfont (Borough)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "State House District 144 (State House District)",
         "Location2": "Chalfont (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1886,60 +1886,60 @@
         "FullLocationName": "Aston (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Upper Chichester (Township)",
         "Location2": "State House District 159 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Upper Chichester (Township)",
         "Location2": "State House District 160 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Boothwyn (Neighborhood)",
         "Location2": "Upper Chichester (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Ogden (Neighborhood)",
         "Location2": "Upper Chichester (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Twin Oaks (Neighborhood)",
         "Location2": "Upper Chichester (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Bethel (Township)",
         "Location2": "Upper Chichester (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Concord (Township)",
         "Location2": "Upper Chichester (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Aston (Township)",
         "Location2": "Upper Chichester (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -2147,200 +2147,200 @@
         "FullLocationName": "State House District 171 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Montoursville (Borough)",
         "Location2": "Fairfield (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Montoursville (Borough)",
         "Location2": "Upper Fairfield (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Eldred (Township)",
         "Location2": "Gamble (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Eldred (Township)",
         "Location2": "Cascade (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Eldred (Township)",
         "Location2": "Plunketts Creek (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Muncy (Borough)",
         "Location2": "Muncy Creek (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Muncy (Borough)",
         "Location2": "Muncy (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hughesville (Borough)",
         "Location2": "Wolf (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hughesville (Borough)",
         "Location2": "Mill Creek (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Penn (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Jordan (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Franklin (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Moreland (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Shrewsbury (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Montoursville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Muncy (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Hughesville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Hepburn (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Lewis (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "State House District 84 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Williamsport (City)",
         "Location2": "Loyalsock (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Williamsport (City)",
         "Location2": "Old Lycoming (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Williamsport (City)",
         "Location2": "South Williamsport (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Williamsport (City)",
         "Location2": "Duboistown (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Williamsport (City)",
         "Location2": "State House District 83 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Clinton County (County)",
         "Location2": "Lock Haven (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Clinton County (County)",
         "Location2": "Union County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Union County (County)",
         "Location2": "Lewisburg (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -2388,25 +2388,25 @@
         "FullLocationName": "Rural Western Pennsylvania (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Southeast Pennsylvania (Region)",
         "Location2": "Rural Western Pennsylvania (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Southeast Pennsylvania (Region)",
         "Location2": "Central Pennsylvania (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Southeast Pennsylvania (Region)",
         "Location2": "Southwest Pennsylvania (Region)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2579,144 +2579,144 @@
         "FullLocationName": "State House District 171 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Montoursville (Borough)",
         "Location2": "Fairfield (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Montoursville (Borough)",
         "Location2": "Upper Fairfield (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Eldred (Township)",
         "Location2": "Gamble (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Eldred (Township)",
         "Location2": "Cascade (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Eldred (Township)",
         "Location2": "Plunketts Creek (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Muncy (Borough)",
         "Location2": "Muncy Creek (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Muncy (Borough)",
         "Location2": "Muncy (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hughesville (Borough)",
         "Location2": "Wolf (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hughesville (Borough)",
         "Location2": "Mill Creek (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Penn (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Jordan (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Franklin (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Moreland (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Picture Rocks (Borough)",
         "Location2": "Shrewsbury (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Montoursville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Muncy (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Jersey Shore (Borough)",
         "Location2": "Hughesville (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Clinton County (County)",
         "Location2": "Lock Haven (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Clinton County (County)",
         "Location2": "Union County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Union County (County)",
         "Location2": "Lewisburg (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -2739,11 +2739,11 @@
         "FullLocationName": "Narberth (Borough)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Lower Merion (Township)",
         "Location2": "Narberth (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -2786,39 +2786,39 @@
         "FullLocationName": "Bryn Mawr (Neighborhood)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Montgomery County (County)",
         "Location2": "Lower Merion (Township)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Lower Merion School District (School District)",
         "Location2": "Lower Merion (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Narberth (Borough)",
         "Location2": "Lower Merion (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Villanova (Neighborhood)",
         "Location2": "Lower Merion (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Bryn Mawr (Neighborhood)",
         "Location2": "Lower Merion (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2841,11 +2841,11 @@
         "FullLocationName": "Buckingham (Township)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Bucks County (County)",
         "Location2": "Buckingham (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -2930,74 +2930,74 @@
         "FullLocationName": "Northern Schuylkill County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Shenandoah (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Mahanoy City (Borough)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Mahanoy (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Ryan (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Pottsville (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Norwegian (Township)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Northern Schuylkill County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Central Schuylkill County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 123 (State House District)",
         "Location2": "Hazleton (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Hazleton (City)",
         "Location2": "State House District 116 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -3022,11 +3022,11 @@
         "FullLocationName": "Chestnut Hill (Neighborhood)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Mt. Airy (Neighborhood)",
         "Location2": "Chestnut Hill (Neighborhood)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -3063,18 +3063,18 @@
         "FullLocationName": "Central Bucks County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Lower Southampton (Township)",
         "Location2": "Southern Bucks County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       },
       {
         "Location1": "Lower Southampton (Township)",
         "Location2": "Central Bucks County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "medium"
       }
@@ -3117,18 +3117,18 @@
         "FullLocationName": "State House District 41 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Manor (Township)",
         "Location2": "Manheim (Township)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Manor (Township)",
         "Location2": "State House District 41 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }

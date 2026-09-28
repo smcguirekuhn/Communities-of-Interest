@@ -37,47 +37,17 @@ comparisonRequestsA <- purrr::map2_dfr(
   .x = comparisonRequestsRaw |> dplyr::pull(State),
   .y = comparisonRequestsRaw |> dplyr::pull(CommentID),
   .f = \(state, commentID) {
-    
-    ## isolate location nodes and requests ----
-    locationNodes <- allGroundTruthLocations |>
-      dplyr::filter(State == state, CommentID == commentID) |>
-      dplyr::pull(FullLocationName)
-    requests <- comparisonRequestsRaw |>
-      dplyr::filter(State == state, CommentID == commentID) |>
-      dplyr::select(Requests) |>
-      tidyr::unnest(cols = Requests)
-    
-    ## create location graphs ----
-    locationGraphs <- createLocationGraphs(
-      locationNodes = locationNodes,
-      requests = requests
+    mapPairwiseRequests(
+      state = state,
+      commentID = commentID,
+      locationNodes = coGroundTruthLocations |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::pull(FullLocationName),
+      requests = coGroundTruthData |>
+        dplyr::filter(CommentID == commentID) |>
+        dplyr::select(Requests) |>
+        tidyr::unnest(cols = Requests)
     )
-    
-    ## format location requests ----
-    locationRequests <- locationGraphs |>
-      purrr::pluck("GroupedGraph") |>
-      igraph::components() |>
-      purrr::pluck("membership") |>
-      tibble::enframe(name = "Location", value = "Membership") |>
-      dplyr::mutate(
-        Separations = purrr::map(
-          .x = Location,
-          .f = \(location) {
-            locationGraphs |>
-              purrr::pluck("SeparatedGraph") |>
-              igraph::neighbors(v = location) |>
-              names() |>
-              tibble::as_tibble_col(column_name = "Locations")
-          }
-        )
-      ) |>
-      tidyr::nest(Groupings = Location) |>
-      dplyr::select(-Membership) |>
-      dplyr::relocate(Separations, .after = Groupings) |>
-      dplyr::mutate(State = state, CommentID = commentID, .before = 1)
-    
-    ## return location requests ----
-    return(locationRequests)
   }
 )
 

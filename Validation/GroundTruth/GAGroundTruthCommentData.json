@@ -28,18 +28,18 @@
         "FullLocationName": "Lewiston Elementary (School)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Williams Few Parkway Corridor (Landmark)",
         "Location2": "Parkway Elementary (School)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Williams Few Parkway Corridor (Landmark)",
         "Location2": "Lewiston Elementary (School)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -67,11 +67,11 @@
         "FullLocationName": "State House District 105 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Hog Mountain (Neighborhood)",
         "Location2": "State House District 105 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -133,11 +133,11 @@
         "FullLocationName": "Congressional District 6 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Cherokee County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -172,18 +172,18 @@
         "FullLocationName": "Congressional District 6 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Northern Fulton County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -249,32 +249,32 @@
         "FullLocationName": "Congressional District 11 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Paulding County (County)",
         "Location2": "Congressional District 14 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Paulding County (County)",
         "Location2": "Atlanta Metro Area (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Paulding County (County)",
         "Location2": "Bartow County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Paulding County (County)",
         "Location2": "Congressional District 11 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -309,18 +309,18 @@
         "FullLocationName": "Duluth (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Gwinnett County (County)",
         "Location2": "Hall County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Gwinnett County (County)",
         "Location2": "Duluth (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -348,11 +348,11 @@
         "FullLocationName": "Fulton County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Coweta County (County)",
         "Location2": "Fulton County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -401,32 +401,32 @@
         "FullLocationName": "Gwinnett County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Congressional District 7 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Dawson County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Hall County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Gwinnett County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -505,11 +505,11 @@
         "FullLocationName": "Montgomery County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Toombs County (County)",
         "Location2": "Montgomery County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -554,11 +554,11 @@
         "FullLocationName": "Congressional District 9 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Northern Gwinnett County (County)",
         "Location2": "Congressional District 9 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -617,32 +617,32 @@
         "FullLocationName": "Dawson County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Sandy Springs (City)",
         "Location2": "Forsyth County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Sandy Springs (City)",
         "Location2": "Dawson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Alpharetta (City)",
         "Location2": "Forsyth County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Alpharetta (City)",
         "Location2": "Dawson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -728,18 +728,18 @@
         "FullLocationName": "State House District 79 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Dunwoody (City)",
         "Location2": "State House District 79 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Dunwoody (City)",
         "Location2": "DeKalb County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -836,74 +836,74 @@
         "FullLocationName": "Cobb County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Dawson County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern DeKalb County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern Fulton County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Dawson County (County)",
         "Location2": "Sandy Springs (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Sandy Springs (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Sandy Springs (City)",
         "Location2": "Northern DeKalb County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Sandy Springs (City)",
         "Location2": "Northern Fulton County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Sandy Springs (City)",
         "Location2": "Cobb County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern Fulton County (County)",
         "Location2": "Northern DeKalb County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -945,25 +945,25 @@
         "FullLocationName": "Congressional District 6 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Northern Gwinnett County (County)",
         "Location2": "Congressional District 7 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern Gwinnett County (County)",
         "Location2": "Forsyth County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern Gwinnett County (County)",
         "Location2": "Congressional District 6 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -998,18 +998,18 @@
         "FullLocationName": "Congressional District 3 (Congressional District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Fayette County (County)",
         "Location2": "Congressional District 3 (Congressional District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Fayette County (County)",
         "Location2": "Congressional District 13 (Congressional District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1086,32 +1086,32 @@
         "FullLocationName": "Chastain Park (Landmark)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Peachtree City (City)",
         "Location2": "Dunwoody (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Lawrenceville (City)",
         "Location2": "Gwinnett County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Lawrenceville (City)",
         "Location2": "Hall County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Buckhead (Neighborhood)",
         "Location2": "Southwest Atlanta (Neighborhood)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1173,11 +1173,11 @@
         "FullLocationName": "Glynn County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "McIntosh County (County)",
         "Location2": "Glynn County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "medium"
       }
@@ -1253,32 +1253,32 @@
         "FullLocationName": "Johns Creek (City)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Congressional District 7 (Congressional District)",
         "Location2": "Northern Fulton County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Congressional District 7 (Congressional District)",
         "Location2": "Johns Creek (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern Fulton County (County)",
         "Location2": "Gwinnett County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Northern Fulton County (County)",
         "Location2": "Johns Creek (City)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1344,32 +1344,32 @@
         "FullLocationName": "Coweta County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Fayette County (County)",
         "Location2": "Southern Fulton County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Fayette County (County)",
         "Location2": "Spalding County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Fayette County (County)",
         "Location2": "Henry County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "Fayette County (County)",
         "Location2": "Coweta County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
@@ -1421,25 +1421,25 @@
         "FullLocationName": "Dawson County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Cobb County (County)",
         "Location2": "Forsyth County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Cobb County (County)",
         "Location2": "Dawson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Forsyth County (County)",
         "Location2": "Dawson County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1535,11 +1535,11 @@
         "FullLocationName": "Northern Gwinnett County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Suwanee (City)",
         "Location2": "Northern Gwinnett County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1605,46 +1605,46 @@
         "FullLocationName": "Northern Georgia (Region)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Coweta County (County)",
         "Location2": "Fulton County (County)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Coweta County (County)",
         "Location2": "Fayette County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Coweta County (County)",
         "Location2": "Atlanta (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Fayette County (County)",
         "Location2": "Atlanta (City)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Coweta County (County)",
         "Location2": "Northern Georgia (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
         "Location1": "Fayette County (County)",
         "Location2": "Northern Georgia (Region)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "NA",
         "Confidence": "high"
       }
@@ -1696,18 +1696,18 @@
         "FullLocationName": "Meriwether County (County)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Muscogee County (County)",
         "Location2": "Harris County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       },
       {
         "Location1": "Muscogee County (County)",
         "Location2": "Meriwether County (County)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "Congressional",
         "Confidence": "high"
       }
@@ -1742,18 +1742,18 @@
         "FullLocationName": "State House District 67 (State House District)"
       }
     ],
-    "Relationships": [
+    "Requests": [
       {
         "Location1": "Coweta County (County)",
         "Location2": "State House District 73 (State House District)",
-        "Relationship": "grouped",
+        "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
       },
       {
         "Location1": "State House District 73 (State House District)",
         "Location2": "State House District 67 (State House District)",
-        "Relationship": "separated",
+        "Request": "separated",
         "DistrictType": "State House",
         "Confidence": "high"
       }
