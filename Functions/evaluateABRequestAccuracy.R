@@ -14,7 +14,7 @@ evaluateABRequestAccuracy <- function(
     comparisonRequestsB = comparisonRequestsB
   )
   
-  # conduct full suite of regression tests for grouped recall and precision ----
+  # conduct full suite of regression tests for grouped recall, precision, and similarity ----
   groupedAccuracyTable <- dplyr::bind_rows(
     evaluateABRequestRecall(
       accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
@@ -29,6 +29,14 @@ evaluateABRequestAccuracy <- function(
       unit = "location pair"
     ),
     evaluateABRequestPrecision(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
+      unit = "comment"
+    ),
+    evaluateABRequestSimilarity(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
+      unit = "location pair"
+    ),
+    evaluateABRequestSimilarity(
       accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "grouped"),
       unit = "comment"
     )
@@ -49,6 +57,14 @@ evaluateABRequestAccuracy <- function(
       unit = "location pair"
     ),
     evaluateABRequestPrecision(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
+      unit = "comment"
+    ),
+    evaluateABRequestSimilarity(
+      accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
+      unit = "location pair"
+    ),
+    evaluateABRequestSimilarity(
       accuracyData = accuracyData |> dplyr::filter(`Edge Type` == "separated"),
       unit = "comment"
     )
@@ -191,6 +207,66 @@ evaluateABRequestPrecision <- function(accuracyData, unit = c("location pair", "
   # return precision table ----
   return(precisionTable)
 }
+
+
+evaluateABRequestSimilarity <- function(accuracyData, unit = c("location pair", "comment")) {
+  
+  # check arguments ----
+  unit <- match.arg(arg = unit)
+  
+  # calculate similarity model statistics based on unit of aggregation ----
+  if (unit == "location pair") {
+    
+    ## build location-pair level similarity contrast ----
+    matchedRequests <- accuracyData |>
+      dplyr::mutate(
+        MatchedA = `Ground Truth Edges` == `Comparison Edges A`,
+        MatchedB = `Ground Truth Edges` == `Comparison Edges B`,
+        Contrast = MatchedB - MatchedA
+      )
+    
+    ## create similarity model with robust standard errors ----
+    similarityModel <- estimatr::lm_robust(formula = Contrast ~ State, data = matchedRequests)
+    
+    ## create table of similarity statistics ----
+    similarityTable <- dplyr::tibble(
+      Test = "Request Similarity",
+      Unit = "Location Pair",
+      `Method A` = matchedRequests |> dplyr::pull(MatchedA) |> mean(),
+      `Method B` = matchedRequests |> dplyr::pull(MatchedB) |> mean(),
+      `Intercept` = similarityModel$coefficients["(Intercept)"],
+      `P-Value` = similarityModel$p.value["(Intercept)"]
+    )
+  } else {
+    
+    ## build location-pair level similarity contrast ----
+    matchedRequests <- accuracyData |>
+      dplyr::mutate(
+        MatchedA = `Ground Truth Edges` == `Comparison Edges A`,
+        MatchedB = `Ground Truth Edges` == `Comparison Edges B`
+      ) |>
+      dplyr::group_by(State, CommentID) |>
+      dplyr::summarise(SimilarityA = sum(MatchedA)/dplyr::n(), SimilarityB = sum(MatchedB)/dplyr::n()) |>
+      dplyr::mutate(Contrast = SimilarityB - SimilarityA)
+    
+    ## create similarity model with robust standard errors ----
+    similarityModel <- estimatr::lm_robust(formula = Contrast ~ State, data = matchedRequests)
+    
+    ## create table of similarity statistics ----
+    similarityTable <- dplyr::tibble(
+      Test = "Request Similarity",
+      Unit = "Comment",
+      `Method A` = matchedRequests |> dplyr::pull(SimilarityA) |> mean(),
+      `Method B` = matchedRequests |> dplyr::pull(SimilarityB) |> mean(),
+      `Intercept` = similarityModel$coefficients["(Intercept)"],
+      `P-Value` = similarityModel$p.value["(Intercept)"]
+    )
+  }
+  
+  # return similarity table ----
+  return(similarityTable)
+}
+
 
 
 compileAccuracyData <- function(
