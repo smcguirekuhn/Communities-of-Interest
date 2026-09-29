@@ -1,5 +1,6 @@
 ---
-title: "Institutional Response to Public Testimony on Redistricting Communities of Interest"
+title: "Communities of the Interested"
+subtitle: "Institutional Adherence to Redistricting Communities of Interest Among Geocoded Public Comments"
 author: Spencer Kuhn
 output:
   pdf_document: default

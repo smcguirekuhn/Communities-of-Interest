@@ -792,13 +792,6 @@
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "State House District 18 (State House District)"
-      },
-      {
-        "Name": "State House District 49",
-        "AdminLevel": "State House District",
-        "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "NA",
-        "FullLocationName": "State House District 49 (State House District)"
       }
     ],
     "Requests": [
@@ -840,13 +833,6 @@
       {
         "Location1": "Tri-Lakes area (Region)",
         "Location2": "Palmer Lake (Town)",
-        "Request": "grouped",
-        "DistrictType": "State House",
-        "Confidence": "high"
-      },
-      {
-        "Location1": "Tri-Lakes area (Region)",
-        "Location2": "State House District 49 (State House District)",
         "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"

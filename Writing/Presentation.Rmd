@@ -1,0 +1,173 @@
+---
+title: "Communities of the Interested"
+subtitle: "Institutional Adherence to Redistricting Communities of Interest Among Geocoded Public Comments"
+author: "Spencer Kuhn | Pennsylvania State University | Department of Political Science"
+output:
+  beamer_presentation:
+    includes:
+      in_header: pageNumbers.tex
+toc: false
+bibliography: ["../../../Dropbox/Literature Reviews/articles.bib", "../../../Dropbox/Literature Reviews/books.bib", "../../../Dropbox/Literature Reviews/datasets.bib", "../../../Dropbox/Literature Reviews/software.bib"]
+link-citations: yes
+---
+
+---
+
+## Communities of Interest
+
+- Stephanopoulos [-@Stephanopoulos2012] illustrates that a group of people constitute a community of interest if they demonstrate the following three criteria:
+  - Sharing a common geographic range
+  - Sharing common socioeconomic or cultural interests
+  - Subjective identification as members of a cohesive community
+- Respecting communities of interest is typically one of several criteria that many boundary-drawing institutions are constitutionally obligated to respect [@Webster2013]
+- These criteria are difficult to balance, and some can even be contradictory
+  
+---
+
+## Measuring Communities of Interest
+
+- Measuring the extent and frequency of these communities has proven difficult
+- Some scholars have used contextual and behavioral characteristics of smaller geographic units within states [@KruseGaoMayer2026; @GimpelHarbridgeYong2020; @Makse2012; @RossiterWongDelamater2018], clustering units into cohesive groups
+- Others have sought grassroots input from the public [@ChenEtAl2022; @ChambersEtAl2022; @Rambo2021], building communities from the combined input from the citizenry
+- No procedure has emerged as a clear national standard, although state and federal courts have consistently considered and upheld arguments regarding communities of interest [@Stephanopoulos2012]
+
+---
+
+## Democratized Public Testimony
+
+- Attending a public hearing and writing a full essay are less accessible options for many voters
+- Submitting a statewide map requires expert-level knowledge and navigation of frontier redistricting software
+- Web-based public comment platforms offer a voice for every citizen with broadband access
+- Brief questionnaires with no length requirements and free text options allow respondents to narrow their requests to the communities that matter to them most
+- Many states have deployed public comment platforms in a variety of contexts, some explicitly requesting information on communities of interest
+
+---
+
+## Theories of Institutional Response
+
+- Scholars have often found that public comment can influence the final text of rules and legislation [@YackeeYackee2006; @Sahn2025; @Ingrams2023]
+- However, not only are commenters often an unrepresentative sample of the public, but interest groups, particularly business interests, have been found to exact an outsized role in the process of successfully requesting any changes
+- Institutionally-collected redistricting testimony may similarly be subject to interest group influences [@Rambo2021; @McWhorterEtAl2026]
+
+---
+
+## Redistricting Testimony Dynamics
+
+- States have adopted a variety of map-drawing procedures, each giving partisan legislatures a different level of leeway over determining the final maps based on systems of oversight and stalemate-breaking [@McCartanEtAl2025]
+- Therefore, institutional response likely depends on an interaction between partisan leeway and the partisanship or geographic nature of commenter requests
+- However, the difficult task of synthesizing these comments, alongside their quantity and relative anonymity, likely make them an inefficient medium for partisan interest group efforts
+
+---
+
+## Intertwined Research Questions
+
+- Descriptively, what can we say about the communities identified by these commenters based on precinct level partisanship, racial makeup, and similarity to baseline political subdivisions?
+- Within states, do boundary-drawing institutions more closely adhere to the community of interest requests of public comments as the redistricting process transpires?
+- Are certain requests more likely to be honored based on partisanship, racial makeup, or geography?
+
+---
+
+## Methodological Roadmap
+
+1. Collect web comment testimony
+1. Screen web comments for mention of COIs
+1. Extract locations from web comments
+1. Extract grouping and separation requests between locations
+1. Match locations to precinct level data
+1. Evaluate community network structure and covariate relationships
+1. Define request-level adherence for a state's initial, proposed, and final maps
+1. Model request-level adherence as a function of community race and partisanship
+
+---
+
+## Data Collection
+
+- Combination of downloads from the Redistricting Data Hub, web scrapers, and FOIA requests to gather thousands from comments from states with sizable testimony submission platforms
+- Colorado and Pennsylvania conducted particularly robust web comment collection efforts, and another large corpus of general web comments is available for Georgia
+- These three states cover separate U.S. regions and mixtures of legislative control during the 2021-2022 redistricting cycle
+- Unique histories and political geographies across the three states offer a diverse set of location types for our LLM extraction pipeline
+
+---
+
+```{r colorado-commenter-map, echo=FALSE, fig.align="center", out.width="80%"}
+
+# display colorado commenter map ----
+knitr::include_graphics(path = "../Figures/Colorado/COCommenterMap.png")
+
+```
+
+---
+
+## Example Comment
+
+\tiny
+
+>To Whom It May Concern:
+
+>I am very concerned about the preliminary State House Map presented to the public. The map as drawn makes little or no sense, discriminates against communities of color, and eliminates competitive districts, helping to demolish our free and fair democratic elections in El Paso County.
+
+>Why are former House Districts 17 and 18 being broken up? Both House Districts are communities of interest. House District 18 is already geographically connected from Manitou Springs to Old Colorado City to downtown Colorado Springs. This area is comprised of older homes with similar interests and needs. House District 17 is another community of interest, serving the needs of Southeastern Colorado Springs. Destroying House District 17 is a disservice to the communities of color that lie within its boundaries. Both of these districts are competitive. Changing them would nullify that fact and certainly make them non-competitive.
+
+>Furthermore, I am mystified by your delineation of the boundaries of the proposed House District 49. It comprises only half of the Tri-Lakes area, making absolutely no sense. The Tri-Lakes area is another community of interest and should be kept together as a geographically contiguous district. The Tri-Lakes area of Monument and Palmer Lake has totally different needs from Colorado Springs. Colorado Springs should definitely not be apportioned to the proposed House District 49.
+
+>I hope that in the future this State House Map contains competitive districts and accommodates communities of interest, not blatant political opportunism and gerrymandering. This is still a representative democracy, a republic, and public officials such as yourselves need to act in a forthright fashion and champion the democratic ideals of our republic.
+
+>Respectfully submitted,
+
+>Charlotte gagne
+
+---
+
+```{r example-comment-network, echo=FALSE, fig.align="center", out.width="80%"}
+
+# display example comment network ----
+knitr::include_graphics(path = "../Figures/Colorado/ExampleCommentNetwork.png")
+
+```
+
+---
+
+## LLM Annotation of Political Texts
+
+- LLM Annotation has emerged as a defensible method of extracting information from political texts, with a variety of approaches suggested based on experiments with major models [@OrnsteinBlasingameTruscott2025; @BenoitEtAl2026; @LiuShi2025; @HeseltineClemmVonHohenberg2024]
+- Replicability is of primary concern when using LLMs given their black box nature, which is why Barrie, Palmer, and Spirling advocate for the use of open source and open-weight models [-@BarriePalmerSpirling2025]
+- Our approach therefore makes use of `ellmer`, a recently-developed R package for structured data extraction from free text [@ellmer], as well as Mistral AI's open source mistral-large-2512 model
+
+---
+
+## Ellmer Pipeline Location Extraction
+
+- We have developed a complex prompting architecture to extract named locations from web comments, including landmarks, neighborhoods, municipalities, counties, school districts, legislative districts, and regions
+- Location subareas, including cardinal directions and other distinctions, are extracted as well
+- Prompting is designed to heavily restrict formatting of location names and avoid the extraction of extraneous locations mentioned purely for context or justification
+- Extracted locations are compared against a ground truth set of 50 hand-labeled comments for each state, with almost 600 location mentions across Colorado, Georgia, and Pennsylvania with which to measure recall, precision, and overall accuracy
+
+---
+
+## Ellmer Pipeline Request Extraction
+
+- The second stage of our `ellmer` pipeline evaluates the commenter's requested relationships between mentioned locations in the first stage
+- Grouping requests and separation requests are distinct, requiring different means of downstream adherence evaluation
+- Extracted requests and their resultant communities are compared against a ground truth set of over 300 location groups
+
+---
+
+## Matching to Voting Precincts
+
+- With the locations and their relationships extracted from each comment, commenter COIs can be constructed by matching locations with 2020 voting precincts
+- Precincts for municipalities, counties, school districts, and legislative districts can be matched based on boundary files from the `tigris` package in R as well as the matching capabilities of `geomander` [@tigris; @geomander]
+- Additional matching for neighborhoods, landmarks, and statewide regions requires the use of a geocoding API
+
+---
+
+## Measuring Request-Level Adherence
+
+- A request is fully adhered to if grouped precincts are held together in a particular legislative district and separated precincts are held in any other districts
+- Adherence for all COI commenters can be assessed for any relevant map, including 2020 boundaries, proposed boundaries, and final boundaries for each state's congressional, state senate, and state house districts
+- Adherence for maps made throughout the redistricting process can be modeled based on comment length, community size, community racial polarity, and community partisanship polarity
+
+---
+
+# References {.allowframebreaks}
+
+\tiny
