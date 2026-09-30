@@ -19,10 +19,13 @@ groundTruthDataPath <- "./Validation/GroundTruth/"
 allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
 noSystemPromptPath <- "./Validation/EllmerOutput/CommentLocations/NoSystemPrompt/"
 iterationsPath <- "./Validation/EllmerOutput/CommentLocations/Iterations/"
+groupIDsPath <- "./Validation/EllmerOutput/CommentLocations/GroupIDs/"
 tablePath <- "./Tables/Validation/"
 systemPromptTableFilename <- "SystemPromptValidationTable.rds"
-iterationsTableFilename <- "IterationsValidationTable.rds"
+majorityIterationsTableFilename <- "MajorityIterationsValidationTable.rds"
+unanimousIterationsTableFilename <- "UnanimousIterationsValidationTable.rds"
 contextualTableFilename <- "ContextualValidationTable.rds"
+groupIDsTableFilename <- "GroupIDValidationTable.rds"
 
 # import all ground truth locations data ----
 allGroundTruthLocations <- readRDS(file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
@@ -69,7 +72,30 @@ evaluateABLocationAccuracy(
   comparisonLocationsA = comparisonLocationsA,
   comparisonLocationsB = comparisonLocationsB,
   unit = "location"
-) |> saveRDS(file = file.path(tablePath, iterationsTableFilename))
+) |> saveRDS(file = file.path(tablePath, majorityIterationsTableFilename))
+
+# unanimous across iterations testing ----
+
+## compile locations for a single iteration ----
+comparisonLocationsA <- list.files(path = file.path(iterationsPath), full.names = TRUE) |>
+  purrr::map_dfr(.f = readRDS) |>
+  dplyr::filter(Iteration == 1) |>
+  dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName)
+
+## compile locations mentioned across all iterations ----
+comparisonLocationsB <- list.files(path = file.path(iterationsPath), full.names = TRUE) |>
+  purrr::map_dfr(.f = readRDS) |>
+  dplyr::filter(Frequency == 3) |>
+  dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName) |>
+  dplyr::distinct(CommentID, FullLocationName, .keep_all = TRUE)
+
+## conduct unanimous across iterations regression tests ----
+evaluateABLocationAccuracy(
+  groundTruthLocations = allGroundTruthLocations,
+  comparisonLocationsA = comparisonLocationsA,
+  comparisonLocationsB = comparisonLocationsB,
+  unit = "location"
+) |> saveRDS(file = file.path(tablePath, unanimousIterationsTableFilename))
 
 # contextual location removal testing ----
 
@@ -92,3 +118,24 @@ evaluateABLocationAccuracy(
   comparisonLocationsB = comparisonLocationsB,
   unit = "location"
 ) |> saveRDS(file = file.path(tablePath, contextualTableFilename))
+
+# group ids inclusion testing ----
+
+## compile all locations for a single iteration ----
+comparisonLocationsA <- list.files(path = file.path(iterationsPath), full.names = TRUE) |>
+  purrr::map_dfr(.f = readRDS) |>
+  dplyr::filter(Iteration == 1) |>
+  dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName)
+
+## compile all locations for extraction including a group id field ----
+comparisonLocationsB <- list.files(path = file.path(groupIDsPath), full.names = TRUE) |>
+  purrr::map_dfr(.f = readRDS) |>
+  dplyr::select(State, CommentID, AdminLevel, Name, SubareaDescription, FullLocationName)
+
+## conduct contextual location removal regression tests ----
+evaluateABLocationAccuracy(
+  groundTruthLocations = allGroundTruthLocations,
+  comparisonLocationsA = comparisonLocationsA,
+  comparisonLocationsB = comparisonLocationsB,
+  unit = "location"
+) |> saveRDS(file = file.path(tablePath, groupIDsTableFilename))

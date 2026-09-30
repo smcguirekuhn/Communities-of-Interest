@@ -107,7 +107,7 @@ evaluateABRequestRecall <- function(accuracyData, unit = c("location pair", "com
       Unit = "Location Pair",
       `Method A` = matchedRequests |> dplyr::pull(MatchedA) |> mean(),
       `Method B` = matchedRequests |> dplyr::pull(MatchedB) |> mean(),
-      `Intercept` = recallModel$coefficients["(Intercept)"],
+      `Coefficient` = recallModel$coefficients["(Intercept)"],
       `P-Value` = recallModel$p.value["(Intercept)"]
     )
   } else {
@@ -132,7 +132,7 @@ evaluateABRequestRecall <- function(accuracyData, unit = c("location pair", "com
       Unit = "Comment",
       `Method A` = matchedRequests |> dplyr::pull(RecallA) |> mean(),
       `Method B` = matchedRequests |> dplyr::pull(RecallB) |> mean(),
-      `Intercept` = recallModel$coefficients["(Intercept)"],
+      `Coefficient` = recallModel$coefficients["(Intercept)"],
       `P-Value` = recallModel$p.value["(Intercept)"]
     )
   }
@@ -234,7 +234,7 @@ evaluateABRequestSimilarity <- function(accuracyData, unit = c("location pair", 
       Unit = "Location Pair",
       `Method A` = matchedRequests |> dplyr::pull(MatchedA) |> mean(),
       `Method B` = matchedRequests |> dplyr::pull(MatchedB) |> mean(),
-      `Intercept` = similarityModel$coefficients["(Intercept)"],
+      `Coefficient` = similarityModel$coefficients["(Intercept)"],
       `P-Value` = similarityModel$p.value["(Intercept)"]
     )
   } else {
@@ -258,7 +258,7 @@ evaluateABRequestSimilarity <- function(accuracyData, unit = c("location pair", 
       Unit = "Comment",
       `Method A` = matchedRequests |> dplyr::pull(SimilarityA) |> mean(),
       `Method B` = matchedRequests |> dplyr::pull(SimilarityB) |> mean(),
-      `Intercept` = similarityModel$coefficients["(Intercept)"],
+      `Coefficient` = similarityModel$coefficients["(Intercept)"],
       `P-Value` = similarityModel$p.value["(Intercept)"]
     )
   }

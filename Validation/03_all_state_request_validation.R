@@ -20,6 +20,8 @@ allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
 allGroundTruthRequestsFilename <- "AllGroundTruthRequests.rds"
 tablePath <- "./Tables/Validation/"
 pairwisePath <- "./Validation/EllmerOutput/CommentRequests/Pairwise/"
+requestedGroupsPath <- "./Validation/EllmerOutput/CommentRequests/RequestedGroups/"
+pairwiseTableFilename <- "PairwiseValidationTable.rds"
 
 # import all ground truth locations data ----
 allGroundTruthLocations <- readRDS(file = file.path(groundTruthDataPath, allGroundTruthLocationsFilename))
@@ -27,12 +29,14 @@ allGroundTruthLocations <- readRDS(file = file.path(groundTruthDataPath, allGrou
 # import all ground truth requests data ----
 allGroundTruthRequests <- readRDS(file = file.path(groundTruthDataPath, allGroundTruthRequestsFilename))
 
+# pairwise prompting vs requested groups testing ----
+
 ## compile requests from pairwise prompting ----
 comparisonRequestsRaw <- list.files(path = file.path(pairwisePath), full.names = TRUE) |>
   purrr::map_dfr(.f = readRDS) |>
   tidyr::nest(Requests = Location1:Confidence)
 
-# format all comparison requests ----
+## format comparison requests from pairwise prompting ----
 comparisonRequestsA <- purrr::map2_dfr(
   .x = comparisonRequestsRaw |> dplyr::pull(State),
   .y = comparisonRequestsRaw |> dplyr::pull(CommentID),
@@ -51,9 +55,46 @@ comparisonRequestsA <- purrr::map2_dfr(
   }
 )
 
+## compile requests from requested groups prompting ----
+comparisonRequestsRaw <- list.files(path = file.path(requestedGroupsPath), full.names = TRUE) |>
+  purrr::map_dfr(.f = readRDS)
+
+## format comparison requests from requested groups prompting ----
+comparisonRequestsB <- comparisonRequestsRaw |>
+  dplyr::mutate(
+    Groupings = purrr::map(
+      .x = LocationsGrouped,
+      .f = \(locationsGrouped) {
+        if (length(locationsGrouped) == 0) {
+          dplyr::tibble(Location = character(0))
+        } else if (all(LocationsGrouped == "NA")) {
+          dplyr::tibble(Location = character(0))
+        } else {
+          dplyr::tibble(Location = as.character(locationsGrouped)) |>
+            dplyr::filter(Location != "NA")
+        }
+      }
+    ),
+    Separations = purrr::map(
+      .x = LocationsSeparated,
+      .f = \(locationsSeparated) {
+        if (length(locationsSeparated) == 0) {
+          dplyr::tibble(Location = character(0))
+        } else if (all(locationsSeparated == "NA")) {
+          dplyr::tibble(Location = character(0))
+        } else {
+          dplyr::tibble(Location = as.character(locationsSeparated)) |>
+            dplyr::filter(Location != "NA")
+        }
+      }
+    )
+  ) |>
+  dplyr::select(State, CommentID, Groupings, Separations)
+
+## conduct pairwise prompting vs requested groups regression tests ----
 evaluateABRequestAccuracy(
   groundTruthLocations = allGroundTruthLocations,
   groundTruthRequests = allGroundTruthRequests,
   comparisonRequestsA = comparisonRequestsA,
-  comparisonRequestsB = comparisonRequestsA
-)
+  comparisonRequestsB = comparisonRequestsB
+) |> saveRDS(file = file.path(tablePath, pairwiseTableFilename))
