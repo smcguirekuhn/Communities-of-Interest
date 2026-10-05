@@ -54,9 +54,6 @@ extractCommentLocations <- function(
         "You are an expert geocoding research assistant evaluating public comments from the
         2021-2022 redistricting cycle in the United States for quantitative downstream
         evaluation of institutional compliance with constituent input.
-        Only return clearly-identified locations in the commenter's home state that are 
-        included in a request by the commenter, whether it be for locations to be 
-        kept whole, grouped together, or separated from one another.
         The goal is to extract consistently named and formatted locations and
         comment-level metadata. The provided comments were all written by concerned citizens
         from {{localContext}}.",
@@ -70,10 +67,17 @@ extractCommentLocations <- function(
       ## locations included in the community of interest ----
       LocationsMentioned = ellmer::type_array(
         description = ellmer::interpolate(
-          "All individual geographic locations that this commenter mentions,
-          including landmarks, neighborhoods, townships, boroughs, towns, cities, school districts, counties, 
-          legislative districts, and regions. Do not return proposed legislative districts, 
-          only existing districts. Order locations by their appearance in the comment."
+          "Return individual geographic locations, including landmarks, neighborhoods, townships, 
+          boroughs, towns, cities, school districts, counties, legislative districts, and regions,
+          in accordance with the following rules:\n\n
+          
+          - Return locations that the commenter asks be kept together during redistricting.\n
+          - Return locations that the commenter asks be grouped with another location during redistricting.\n
+          - Return locations that the commenter asks be separated from another location during redistricting.\n
+          - Do not return locations outside the commenter's state.\n
+          - Do not return any proposed legislative districts discussed by the commenter,
+          only existing districts as of 2020.\n
+          - Do not return roads or interstates mentioned by the commenter."
         ),
         items = ellmer::type_object(
           
@@ -133,10 +137,17 @@ extractCommentLocations <- function(
             description = ellmer::interpolate(
               "The relevance of the location to a specific request by the commenter regarding a
               community of interest and a possible legislative district boundary choice.
-              Locations should be regarded as 'contextual' when they provide background information 
-              or anecdotes that are tangential to genuine geographic configurations and the 
+              Locations should be regarded as 'contextual' when they provide background information
+              or anecdotes that are tangential to genuine geographic configurations and the
               broader thesis of the comment. Relevant locations are those that a commenter requests
-              be kept whole, grouped with other locations, or separated from other locations."
+              be kept whole, grouped with other locations, or separated from other locations.
+              The following are examples of when 'contextual' should be returned for a mentioned location.\n\n
+
+              - I was at the meeting in Springfield last night. Here are my observations.\n
+              - We need our community better represented in [State Capital City] and Washington DC.\n
+              - Our neighborhood has been split, as have many neighborhoods across Washington County.\n
+              - I came back to this community after attending college at [State University].\n
+              - My comments address several concerns I have over the districts in the western part of the state."
             )
           )
         )
