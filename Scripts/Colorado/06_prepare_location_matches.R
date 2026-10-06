@@ -1,5 +1,5 @@
 
-# Script 06: Prepare Location Match Shapefiles for Each Administrative Level in Pennsylvania
+# Script 06: Prepare Location Match Shapefiles for Each Administrative Level in Colorado
 
 # reset global environment ----
 rm(list = ls())
@@ -19,15 +19,15 @@ library(alarmdata)
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
-dataPath <- "./Data/Pennsylvania"
-paPrecinctsIDColumn <- "GEOID20"
-paLocationMatchesFilename <- "PALocationMatches.rds"
+dataPath <- "./Data/Colorado"
+coPrecinctsIDColumn <- "GEOID20"
+coLocationMatchesFilename <- "COLocationMatches.rds"
 
-# import pennsylvania precincts shapefile ----
-paPrecincts <- alarmdata::alarm_census_vest(state = "PA", geometry = TRUE) |>
+# import colorado precincts shapefile ----
+coPrecincts <- alarmdata::alarm_census_vest(state = "CO", geometry = TRUE) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
-  dplyr::select(PrecinctID = dplyr::all_of(x = paPrecinctsIDColumn))
+  dplyr::select(PrecinctID = dplyr::all_of(x = coPrecinctsIDColumn))
 
 # clean shapefile data for each administrative level ----
 
@@ -35,8 +35,7 @@ paPrecincts <- alarmdata::alarm_census_vest(state = "PA", geometry = TRUE) |>
 ## municipality matches ----
 
 ### import shapefile ----
-paMunicipalities <- tigris::places(state = "PA", cb = TRUE, year = 2020) |>
-  dplyr::bind_rows(tigris::county_subdivisions(state = "PA", cb = TRUE, year = 2020)) |>
+coMunicipalities <- tigris::places(state = "CO", cb = TRUE, year = 2020) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
   dplyr::mutate(
@@ -49,26 +48,20 @@ paMunicipalities <- tigris::places(state = "PA", cb = TRUE, year = 2020) |>
   dplyr::mutate(
     AdminLevel = dplyr::case_when(
       AdminLevel == "CDP" ~ "Neighborhood",
-      AdminLevel == "township" ~ "Township",
-      AdminLevel == "borough" ~ "Borough",
       AdminLevel == "town" ~ "Town",
-      AdminLevel == "city" ~ "City",
-      NAME == "Bethel Park" ~ "Borough",
-      NAME == "Murrysville" ~ "City",
-      NAME == "Monroeville" ~ "Borough"
+      AdminLevel == "city" ~ "City"
     )
   ) |>
   dplyr::select(GEOID20 = GEOID, Name = NAME, AdminLevel) |>
-  dplyr::distinct(Name, AdminLevel, .keep_all = TRUE) |>
   dplyr::mutate(Name = paste(Name, AdminLevel))
 
 ### match municipality precincts by area (larger municipalities) ----
-paMunicipalityAreaPrecincts <- paPrecincts |>
+coMunicipalityAreaPrecincts <- coPrecincts |>
   dplyr::mutate(
-    Name = paMunicipalities[["Name"]][
+    Name = coMunicipalities[["Name"]][
       geomander::geo_match(
-        from = paPrecincts,
-        to = paMunicipalities,
+        from = coPrecincts,
+        to = coMunicipalities,
         method = "area",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -80,21 +73,21 @@ paMunicipalityAreaPrecincts <- paPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct area matches to municipalities data ----
-paMunicipalities <- paMunicipalities |>
-  dplyr::left_join(paMunicipalityAreaPrecincts, by = "Name")
+coMunicipalities <- coMunicipalities |>
+  dplyr::left_join(coMunicipalityAreaPrecincts, by = "Name")
 
 ### isolate remaining smaller municipalities without matched precincts ----
-paMunicipalityPointPrecincts <- paMunicipalities |>
-  dplyr::slice(which(unlist(lapply(X = paMunicipalities[["Precincts"]], FUN = is.null))))
+coMunicipalityPointPrecincts <- coMunicipalities |>
+  dplyr::slice(which(unlist(lapply(X = coMunicipalities[["Precincts"]], FUN = is.null))))
 
 ### match municipality precincts by points (smaller municipalities) ----
-paMunicipalityPointPrecincts <- paMunicipalityPointPrecincts |>
+coMunicipalityPointPrecincts <- coMunicipalityPointPrecincts |>
   dplyr::select(-Precincts) |>
   dplyr::mutate(
-    PrecinctID = paPrecincts[["PrecinctID"]][
+    PrecinctID = coPrecincts[["PrecinctID"]][
       geomander::geo_match(
-        from = paMunicipalityPointPrecincts,
-        to = paPrecincts,
+        from = coMunicipalityPointPrecincts,
+        to = coPrecincts,
         method = "point",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -105,29 +98,30 @@ paMunicipalityPointPrecincts <- paMunicipalityPointPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct matches to municipalities data ----
-paMunicipalities <- paMunicipalities |>
-  dplyr::slice(which(!unlist(lapply(X = paMunicipalities[["Precincts"]], FUN = is.null)))) |>
-  dplyr::bind_rows(paMunicipalityPointPrecincts) |>
+coMunicipalities <- coMunicipalities |>
+  dplyr::slice(which(!unlist(lapply(X = coMunicipalities[["Precincts"]], FUN = is.null)))) |>
+  dplyr::bind_rows(coMunicipalityPointPrecincts) |>
   sf::st_drop_geometry() |>
   dplyr::arrange(Name) |>
   dplyr::mutate(Name = stringr::str_remove(string = Name, pattern = "\\s+\\w+$"))
 
+
 ## school district matches ----
 
 ### import shapefile ----
-paSchoolDistricts <- tigris::school_districts(state = "PA", year = 2020) |>
+coSchoolDistricts <- tigris::school_districts(state = "CO", year = 2020) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
   dplyr::mutate(AdminLevel = "School District") |>
   dplyr::select(GEOID20 = GEOID, Name = NAME, AdminLevel)
 
-### match school district precincts by area (larger school districts) ----
-paSchoolDistrictPrecincts <- paPrecincts |>
+### match precincts ----
+coSchoolDistrictPrecincts <- coPrecincts |>
   dplyr::mutate(
-    Name = paSchoolDistricts[["Name"]][
+    Name = coSchoolDistricts[["Name"]][
       geomander::geo_match(
-        from = paPrecincts,
-        to = paSchoolDistricts,
+        from = coPrecincts,
+        to = coSchoolDistricts,
         method = "area",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -139,27 +133,27 @@ paSchoolDistrictPrecincts <- paPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct matches to school districts data ----
-paSchoolDistricts <- paSchoolDistricts |>
-  dplyr::left_join(paSchoolDistrictPrecincts, by = "Name") |>
-  sf::st_drop_geometry() |>
-  dplyr::arrange(Name)
+coSchoolDistricts <- coSchoolDistricts |>
+  dplyr::left_join(coSchoolDistrictPrecincts, by = "Name") |>
+  sf::st_drop_geometry()
+
 
 ## county matches ----
 
 ### import shapefile ----
-paCounties <- tigris::counties(state = "PA", year = 2020) |>
+coCounties <- tigris::counties(state = "CO", year = 2020) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
   dplyr::mutate(AdminLevel = "County") |>
   dplyr::select(GEOID20 = GEOID, Name = NAMELSAD, AdminLevel)
 
 ### match precincts ----
-paCountyPrecincts <- paPrecincts |>
+coCountyPrecincts <- coPrecincts |>
   dplyr::mutate(
-    Name = paCounties[["Name"]][
+    Name = coCounties[["Name"]][
       geomander::geo_match(
-        from = paPrecincts,
-        to = paCounties,
+        from = coPrecincts,
+        to = coCounties,
         method = "area",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -171,27 +165,27 @@ paCountyPrecincts <- paPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct matches to counties data ----
-paCounties <- paCounties |>
-  dplyr::left_join(paCountyPrecincts, by = "Name") |>
+coCounties <- coCounties |>
+  dplyr::left_join(coCountyPrecincts, by = "Name") |>
   sf::st_drop_geometry()
 
 
 ## legislative district matches ----
 
 ### import state house district shapefile ----
-paStateHouseDistricts <- tigris::state_legislative_districts(state = "PA", year = 2020, house = "lower") |>
+coStateHouseDistricts <- tigris::state_legislative_districts(state = "CO", year = 2020, house = "lower") |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
   dplyr::mutate(AdminLevel = "State House District") |>
   dplyr::select(GEOID20 = GEOID, Name = NAMELSAD, AdminLevel)
 
 ### match precincts ----
-paStateHouseDistrictPrecincts <- paPrecincts |>
+coStateHouseDistrictPrecincts <- coPrecincts |>
   dplyr::mutate(
-    Name = paStateHouseDistricts[["Name"]][
+    Name = coStateHouseDistricts[["Name"]][
       geomander::geo_match(
-        from = paPrecincts,
-        to = paStateHouseDistricts,
+        from = coPrecincts,
+        to = coStateHouseDistricts,
         method = "area",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -203,24 +197,24 @@ paStateHouseDistrictPrecincts <- paPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct matches to state house districts data ----
-paStateHouseDistricts <- paStateHouseDistricts |>
-  dplyr::left_join(paStateHouseDistrictPrecincts, by = "Name") |>
+coStateHouseDistricts <- coStateHouseDistricts |>
+  dplyr::left_join(coStateHouseDistrictPrecincts, by = "Name") |>
   sf::st_drop_geometry()
 
 ### import state senate district shapefile ----
-paStateSenateDistricts <- tigris::state_legislative_districts(state = "PA", year = 2020, house = "upper") |>
+coStateSenateDistricts <- tigris::state_legislative_districts(state = "CO", year = 2020, house = "upper") |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
   dplyr::mutate(AdminLevel = "State Senate District") |>
   dplyr::select(GEOID20 = GEOID, Name = NAMELSAD, AdminLevel)
 
 ### match precincts ----
-paStateSenateDistrictPrecincts <- paPrecincts |>
+coStateSenateDistrictPrecincts <- coPrecincts |>
   dplyr::mutate(
-    Name = paStateSenateDistricts[["Name"]][
+    Name = coStateSenateDistricts[["Name"]][
       geomander::geo_match(
-        from = paPrecincts,
-        to = paStateSenateDistricts,
+        from = coPrecincts,
+        to = coStateSenateDistricts,
         method = "area",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -232,24 +226,24 @@ paStateSenateDistrictPrecincts <- paPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct matches to state senate districts data ----
-paStateSenateDistricts <- paStateSenateDistricts |>
-  dplyr::left_join(paStateSenateDistrictPrecincts, by = "Name") |>
+coStateSenateDistricts <- coStateSenateDistricts |>
+  dplyr::left_join(coStateSenateDistrictPrecincts, by = "Name") |>
   sf::st_drop_geometry()
 
 ### import congressional district shapefile ----
-paCongressionalDistricts <- tigris::congressional_districts(state = "PA", year = 2020) |>
+coCongressionalDistricts <- tigris::congressional_districts(state = "CO", year = 2020) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
   dplyr::mutate(AdminLevel = "Congressional District") |>
   dplyr::select(GEOID20 = GEOID, Name = NAMELSAD, AdminLevel)
 
 ### match precincts ----
-paCongressionalDistrictPrecincts <- paPrecincts |>
+coCongressionalDistrictPrecincts <- coPrecincts |>
   dplyr::mutate(
-    Name = paCongressionalDistricts[["Name"]][
+    Name = coCongressionalDistricts[["Name"]][
       geomander::geo_match(
-        from = paPrecincts,
-        to = paCongressionalDistricts,
+        from = coPrecincts,
+        to = coCongressionalDistricts,
         method = "area",
         tiebreaker = FALSE
       ) |> purrr::modify_if(~.x < 0, ~NA)
@@ -261,8 +255,8 @@ paCongressionalDistrictPrecincts <- paPrecincts |>
   tidyr::nest(Precincts = c(PrecinctID, Weight))
 
 ### add precinct matches to congressional districts data ----
-paCongressionalDistricts <- paCongressionalDistricts |>
-  dplyr::left_join(paCongressionalDistrictPrecincts, by = "Name") |>
+coCongressionalDistricts <- coCongressionalDistricts |>
+  dplyr::left_join(coCongressionalDistrictPrecincts, by = "Name") |>
   sf::st_drop_geometry()
 
 
@@ -270,26 +264,25 @@ paCongressionalDistricts <- paCongressionalDistricts |>
 
 ### assign relevant state regions ----
 stateRegions <- c(
-  "Northern Pennsylvania",
-  "Northeastern Pennsylvania",
-  "Eastern Pennsylvania",
-  "Southeastern Pennsylvania",
-  "Southern Pennsylvania",
-  "Southwestern Pennsylvania",
-  "Western Pennsylvania",
-  "Northwestern Pennsylvania",
-  "Pennsylvania Wilds",
-  "The Poconos",
-  "Happy Valley",
-  "Lehigh Valley",
-  "Coal Region",
-  "Mon Valley",
-  "Philadelphia Metro Area",
-  "Pittsburgh Metro Area"
+  "Northern Colorado",
+  "Northeastern Colorado",
+  "Eastern Colorado",
+  "Southeastern Colorado",
+  "Southern Colorado",
+  "Southwestern Colorado",
+  "Western Colorado",
+  "Northwestern Colorado",
+  "Western Slope",
+  "Front Range",
+  "Eastern Plains",
+  "San Luis Valley",
+  "Arkansas Valley",
+  "Denver Metro Area",
+  "Rural Colorado"
 )
 
 ### assign region boundaries ----
-paRegions <- stateRegions |>
+coRegions <- stateRegions |>
   purrr::map_dfr(
     .progress = "Assigning Vernacular Region Boundaries",
     .f = \(stateRegion) {
@@ -297,8 +290,8 @@ paRegions <- stateRegions |>
       #### use ellmer to assign a region boundary ----
       regionBoundary <- assignVernacularRegionBoundary(
         regionName = stateRegion,
-        state = "Pennsylvania",
-        countyBoundaries = paCounties
+        state = "Colorado",
+        countyBoundaries = coCounties
       )
       
       #### reformat precinct assignments of region boundary ----
@@ -311,24 +304,24 @@ paRegions <- stateRegions |>
         tidyr::nest(Precincts = c(PrecinctID, Weight))
       
       #### return region boundary ----
-      Sys.sleep(time = 45)
+      Sys.sleep(time = 30)
       return(regionBoundary)
     }
   )
 
 # combine location matches into singular data frame ----
-paLocationMatches <- dplyr::bind_rows(
-  paMunicipalities,
-  paSchoolDistricts,
-  paCounties,
-  paStateHouseDistricts,
-  paStateSenateDistricts,
-  paCongressionalDistricts,
-  paRegions
+coLocationMatches <- dplyr::bind_rows(
+  coMunicipalities,
+  coSchoolDistricts,
+  coCounties,
+  coStateHouseDistricts,
+  coStateSenateDistricts,
+  coCongressionalDistricts,
+  coRegions
 )
 
 # check that no locations have null precinct assignments ----
-sum(unlist(lapply(X = paLocationMatches[["Precincts"]], FUN = is.null)))
+sum(unlist(lapply(X = coLocationMatches[["Precincts"]], FUN = is.null)))
 
 # save location matches data ----
-saveRDS(object = paLocationMatches, file = file.path(dataPath, paLocationMatchesFilename))
+saveRDS(object = coLocationMatches, file = file.path(dataPath, coLocationMatchesFilename))
