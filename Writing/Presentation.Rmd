@@ -1,6 +1,6 @@
 ---
 title: "Communities of the Interested"
-subtitle: "Institutional Adherence to Redistricting Communities of Interest Among Geocoded Public Comments"
+subtitle: "Redistricting Institution Congruence with Communities of Interest Among Geocoded Public Comments"
 author: "Spencer Kuhn | Pennsylvania State University | Department of Political Science"
 output:
   beamer_presentation:
@@ -27,7 +27,7 @@ link-citations: yes
 ## Measuring Communities of Interest
 
 - Measuring the extent and frequency of these communities has proven difficult
-- Some scholars have used contextual and behavioral characteristics of smaller geographic units within states [@KruseGaoMayer2026; @GimpelHarbridgeYong2020; @Makse2012; @RossiterWongDelamater2018], clustering units into cohesive groups
+- Some scholars have used contextual and behavioral characteristics of smaller geographic units within states [@KruseGaoMayer2026; @GimpelHarbridgeYong2020; @Makse2012; @Syme2025; @RossiterWongDelamater2018], clustering units into cohesive groups
 - Others have sought grassroots input from the public [@ChenEtAl2022; @ChambersEtAl2022; @Rambo2021], building communities from the combined input from the citizenry
 - No procedure has emerged as a clear national standard, although state and federal courts have consistently considered and upheld arguments regarding communities of interest [@Stephanopoulos2012]
 
@@ -48,12 +48,14 @@ link-citations: yes
 - Scholars have often found that public comment can influence the final text of rules and legislation [@YackeeYackee2006; @Sahn2025; @Ingrams2023]
 - However, not only are commenters often an unrepresentative sample of the public, but interest groups, particularly business interests, have been found to exact an outsized role in the process of successfully requesting any changes
 - Institutionally-collected redistricting testimony may similarly be subject to interest group influences [@Rambo2021; @McWhorterEtAl2026]
+- Partisan legislators, furthermore, often discount the opinions of constituents holding divergent viewpoints from their own [@ButlerDynes2016]
 
 ---
 
 ## Redistricting Testimony Dynamics
 
-- States have adopted a variety of map-drawing procedures, each giving partisan legislatures a different level of leeway over determining the final maps based on systems of oversight and stalemate-breaking [@McCartanEtAl2025]
+- Redistricting is a highly consequential policy undertaken at the state legislative, executive, and judicial levels, dictating representational and democratic dynamics across a state for up to a decade at a time [@Grumbach2023; @Fraga2016]
+- States have adopted a variety of map-drawing procedures, each giving partisan legislatures a different level of leeway over determining the final maps based on systems of oversight and stalemate-breaking [@McCartanEtAl2026]
 - Therefore, institutional response likely depends on an interaction between partisan leeway and the partisanship or geographic nature of commenter requests
 - However, the difficult task of synthesizing these comments, alongside their quantity and relative anonymity, likely make them an inefficient medium for partisan interest group efforts
 
@@ -156,7 +158,8 @@ knitr::include_graphics(path = "../Figures/Colorado/ExampleCommentNetwork.png")
 
 - With the locations and their relationships extracted from each comment, commenter COIs can be constructed by matching locations with 2020 voting precincts
 - Precincts for municipalities, counties, school districts, and legislative districts can be matched based on boundary files from the `tigris` package in R as well as the matching capabilities of `geomander` [@tigris; @geomander]
-- Additional matching for neighborhoods, landmarks, and statewide regions requires the use of a geocoding API
+- Statewide vernacular regions (i.e. "Happy Valley") can be matched to sets of counties and their corresponding precincts using the same structured LLM outputs from Mistral AI and `ellmer` that were used for location recognition and request assessment
+- Additional matching for neighborhoods and landmarks requires the use of a geocoding API
 
 ---
 
