@@ -1,5 +1,29 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 ## Appendix A: Comment Data Extraction with Ellmer
+
+```{r ellmer-pipeline-setup}
+
+# assign table paths ----
+tablePath <- "../Tables/Validation"
+baselineSimplerTableFilename <- "LocationRecognition/BaselineSimplerValidationTable.rds"
+contextualRemovalTableFilename <- "LocationRecognition/ContextualRemovalValidationTable.rds"
+majorityMentioningTableFilename <- "LocationRecognition/MajorityMentioningValidationTable.rds"
+unanimousMentioningTableFilename <- "LocationRecognition/UnanimousMentioningValidationTable.rds"
+systemPromptTableFilename <- "LocationRecognition/SystemPromptValidationTable.rds"
+
+# import all ground truth locations and requests ----
+groundTruthPath <- "../Validation/GroundTruth"
+groundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
+groundTruthRequestsFilename <- "AllGroundTruthRequests.rds"
+allGroundTruthLocations <- readRDS(file = file.path(groundTruthPath, groundTruthLocationsFilename))
+allGroundTruthRequests <- readRDS(file = file.path(groundTruthPath, groundTruthRequestsFilename))
+
+```
 
 The `ellmer` package in R was used to interact with off-the-shelf LLM chat features and extract structured data from public testimony comments [@ellmer].
 Barrie, Palmer, and Spirling [-@BarriePalmerSpirling2025] recommend the use of open-weight Large Language Models (LLMs), which allow for more consistent replication of coding and classification tasks compared to the more fragile but advanced proprietary frontier LLMs.
@@ -14,86 +38,236 @@ In order to screen for comments concerning communities of interest that mention 
 
 >Binary indicator measuring the specificity of this {{state}} commenter's description of a community of interest.
 >A value of 1 indicates that the commenter is clearly discussing particular, named locations that they want kept together or separate for a district map.
-> A value of 0 indicates that the commenter fails to mention specific locations or that they are discussing a different redistricting concern.
+>A value of 0 indicates that the commenter fails to mention specific locations or that they are discussing a different redistricting concern.
 
 Only comments meeting COI relevance criteria were including in downstream data extraction steps.
 Because prompting was consistent across all comments, screening was conducted for each state using a single parallel structured chat call.
 
-### Stage Two - Comment Metadata Extraction and Named Entity Recognition
+### Stage Two - Comment Metadata Extraction and Named Entity Recognition (NER)
 
 The second stage of the `ellmer` pipeline was applied to every comment meeting COI relevance criteria.
-Comment sentiment (negative/positive) and clarity (unclear/clear) scores were gathered using the following prompts -- each paired with the full text of the comment -- and numeric outputs ranging between 0 to 1:
+In this stage, a highly-structured prompting architecture was built to identify named geographic locations that were part of a specific redistricting configuration requested by the commenter.
+While other geographic NER software has proven successful at similar tasks [@mordecai3], we chose to use `ellmer` for its flexibility in extracting more detailed location information as well as its use of well-maintained, open-source models and its compatibility with other R packages used throughout our analysis.
+Using a parallel structured chat with `ellmer`, the following system level prompt was used to first introduce the Mistral model to the task at hand:
 
->Positive/Negative sentiment of this commenter's description of a community of interest scaled from 0 to 1.
->A score of 0 indicates completely negative emotional sentiment, while a score of 1 indicates completely positive emotional sentiment.
+>You are an expert geocoding research assistant evaluating public comments from the 2021-2022 redistricting cycle in the United States for quantitative downstream evaluation of institutional compliance with constituent input.
+>The goal is to extract consistently named and formatted locations and comment-level metadata.
+>The provided comments were all written by concerned citizens from {{localContext}}.
 
->Clarity of this commenter's description of a community of interest scaled from 0 to 1.
->Clarity should be based on how specific the commenter's mentioned locations are and how clearly they group or separate mentioned locations in a way that can be interpreted by legislative boundary drawers.
->A score of 0 indicates no clarity regarding specific locations or communities (i.e. 'Please don't split cities or counties' or 'No redistricting'), while a score of 1 indicates complete clarity (i.e. 'Springfield should not be included in a district with Washington County').
+The `localContext` variable was based on any state, county, or ZIP Code level identifiers available within comment level metadata.
+For example, Colorado comment data included commenter ZIP Codes, so "ZIP Code XXXXX in Colorado" was assigned to `localContext` for all comments from the corresponding area.
+Each set of comments sharing the same value of `localContext` were bundled and processed with a separate parallel structured chat call.
+If location context was only available at the state level, prompts were bundled by temporal strata such as the date of the comment submission.
 
-Each specific location mentioned throughout the comment was defined by a prompt schema of its own.
-This schema consisted of an unconstrained string response for the location name, an enum (factor) response describing the location's administrative level, an enum response for any cardinal direction subareas relevant to the mentioned location, and a free string response for any additional descriptors or mentioned subareas. The top-level prompt for location mention extraction is as follows:
+Each specific location mentioned throughout the comment was defined by a prompt schema of its own, all of which were embedded in an array type response from `ellmer`.
+This schema consisted of an enum (factor) response describing the location's administrative level, a string response for the location name, an enum response for any cardinal direction subareas or other codifiable subareas relevant to the mentioned location, and a binary response reflecting whether the location was mentioned purely as context for an argument or narrative rather than being included in a requested configuration.
+The following top-level prompt for location recognition also included several rules designed to catch edge cases and constrain location mentions to those specifically mentioned by the commenter in a redistricting request:
 
->All individual geographic locations that this commenter from {{localContext}} mentions,
-including landmarks, neighborhoods, townships, boroughs, towns, cities, school districts, counties,
-legislative districts, and regions.
->Only return clearly-identified locations in the commenter's home state relevant to the commenter's community of interest.
->Order locations by their appearance in the comment.
+>Return individual geographic locations, including landmarks, neighborhoods, townships, boroughs, towns, cities, school districts, counties, legislative districts, and regions, in accordance with the following rules:
+>
+> * Return locations that the commenter asks be kept together during redistricting.
+> * Return locations that the commenter asks be grouped with another location during redistricting.
+> * Return locations that the commenter asks be separated from another location during redistricting.
+> * Do not return locations outside the commenter's state.
+> * Do not return any proposed legislative districts discussed by the commenter, only existing districts as of 2020.
+> * Do not return roads or interstates mentioned by the commenter.
 
-The prompts for individual location schema components are shown below in order of appearance, including the prompts for a location's name, administrative level, cardinal direction subareas, and additional descriptions:
+Since proposed legislative districts have no history of representing a community, we asked the Mistral model to only include legislative districts that were in place prior to the 2021-2022 redistricting cycle.
+These existing districts could reasonably have corresponded to a territorial community at the time that public comments were collected.
 
->The identifiable, administrative name of the location.
->Unless the location is a region, do not include any cardinal direction subareas in the name
-(i.e. return 'Washington County' if the comment mentions 'Northern Washington County').
->Location names should thus read like the following examples: 'Green Lake' (a landmark), 'Downtown Springfield' (a neighborhood), 'Franklin' (a municipality), 'Springfield School District' (a school district), 'Washington County' (a county), 'Congressional District 3' (a congressional district), 'State House District 101' (a state house district), 'State Senate District 50' (a state senate district), 'Springfield Metro Area' (a region), and 'Northern California' (a region).
+The prompts for individual location schema components are shown below in order of appearance, including the prompts for a location's name, administrative level, descriptive subareas, and relevance to a redistricting request:
 
->Best estimate of the type or administrative level of the location.
->Must be exclusive and decisive.
+>Best estimate of the type or administrative level of the location. Must be exclusive and decisive.
 >If the location's administrative level is unclear, return 'NA'.
-
->Cardinal Direction subareas of the location, if any are mentioned by the commenter.
->For example, if 'Northern Washington County' is mentioned, return 'Northern'.
->If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
->Return 'NA' if the cardinal direction subarea is implied in a region name (i.e. 'Northern California).
-
->Vernacular portions or subareas of the mentioned location, if applicable.
->If the commenter refers to the location in its entirety, or if they refer to a cardinal direction subarea of the location, return 'NA'.
->Subareas include relative location references (i.e. 'Outskirts of Springfield'), or colloquial references (i.e. 'Downtown Springfield').
->Keep descriptions brief.
->Return 'NA' unless the description corresponds to a codifiable geographic area.
->Examples include 'Outskirts', 'Downtown', 'Rural Areas', and 'Unincorporated'.
 
 Official and vernacular administrative levels for mentioned locations vary from state to state.
 Therefore, the factor levels available for administrative level prompt outputs were selected from the following set based on each state's relevant properties, including the presence of congressional districts and town/township/borough/city naming conventions for municipalities: "Landmark", "School", "Neighborhood", "Township", "Borough", "Town", "City", "School District", "County", "State House District", "State Senate District", "Congressional District", "Region", and "NA".
-Available cardinal direction subarea factor levels consisted of the following: "Northern", "Northeastern", "Eastern", "Southeastern", "Southern", "Southwestern", "Western", "Northwestern", "Central", and "NA".
 
-All prompts for the second stage of the `ellmer` pipeline were bundled based on available commenter information in order to embed named entity recognition in a specific geographic context.
-If commenter county, ZIP code, or municipality was available, this context term included the field alongside the commenter's state where `{{localContext}}` appears in the prompts.
-If location context was only available at the state level, prompts were bundled by temporal strata such as the date of the comment submission.
-Each bundle was processed with a separate parallel structured chat call.
+>After finding the location's administrative level, return the canonical, administrative name of the location.
+>Unless the location is a region, do not include any subareas in the name (i.e. return 'Washington County' if the comment mentions 'Northern Washington County' or 'Rural Washington County').
+Location names should thus read like the following rules:
+>
+>Naming rules:
+>
+> * Landmark: use the landmark's canonical name.
+> * Neighborhood: use the neighborhood's canonical name.
+> * Township: use the municipality's canonical name (do not include 'township' in the name).
+> * Borough: use the municipality's canonical name.
+> * Town: use the municipality's canonical name.
+> * City: use the municipality's canonical name.
+> * School District: use '[Name] School District'.
+> * County: use '[Name] County'.
+> * State House District: use 'State House District [Number]'.
+> * State Senate District: use 'State Senate District [Number]'.
+> * Congressional District: use 'Congressional District [Number]'.
+> * Region: Name must exactly match one of the permitted region names.
+>
+>Permitted region names: {{stateRegions}}
+
+The naming rules for the prompt above were designed to constrain outputs for each administrative level to the naming structure of Census-defined places available through the `tigris` package in R [@tigris].
+The `stateRegions` variable was defined based on statewide cardinal direction subareas (i.e. "Northern Colorado") as well as common vernacular regions in each state (i.e. "Front Range", "Happy Valley", or "Atlanta Metro Area").
+Although these sets of regions are not exhaustive, our inclusion of this variable as a prompt rule rather than a separate structured prompt allows the Mistral model to deviate from the provided set and include alternative region names when no clear choice is available among `stateRegions`.
+
+>A subarea specific to the location, if explicitly mentioned by the commenter.
+>If the commenter refers to the entirety of the location (i.e. 'Washington County'), return 'NA'.
+>Proper names of a location or region (i.e. 'Westridge', 'South Bend', 'Northern California') do not imply a separate subarea mention (i.e. 'Western', 'Southern', and 'Northern').
+>Return 'NA' in these cases.
+
+Subarea options included the following: "Northern", "Northeastern", "Eastern", "Southeastern", "Southern", "Southwestern", "Western", "Northwestern", "Central", "Unincorporated", "Rural", "Suburban", "Urban", "Downtown", "NA".
+
+>The relevance of the location to a specific request by the commenter regarding a community of interest and a possible legislative district boundary choice.
+>Locations should be regarded as 'contextual' when they provide background information or anecdotes that are tangential to genuine geographic configurations and the broader thesis of the comment.
+>Relevant locations are those that a commenter requests be kept whole, grouped with other locations, or separated from other locations.
+>The following are examples of when 'contextual' should be returned for a mentioned location.
+>
+> * I was at the meeting in Springfield last night. Here are my observations.
+> * We need our community better represented in [State Capital City] and Washington DC.
+> * Our neighborhood has been split, as have many neighborhoods across Washington County.
+> * I came back to this community after attending college at [State University].
+> * My comments address several concerns I have over the districts in the western part of the state.
+
+This relevance prompt and its associated rules were added based on edge cases observed during the process of reading randomly sampled comments.
+Since "contextual" locations are not part of a genuine geographic configuration requested by the commenter, they should not be included in downstream analysis steps, especially including the evaluation of district plan congruence with constituent opinion.
 
 ## Stage Three - Location Relationship Extraction
 
 For any comments identified as having multiple locations mentioned, a third set of `ellmer` prompts was used to extract the relationships between locations according to the commenter's request.
+Individual relationships were embedded in an array type `ellmer` output.
 Since the nature of these relationships are dependent on a commenter's potentially complex and multifaceted arguments and their approval or disapproval of either existing or proposed district maps, the prompt for this classifier included several examples and stipulations, as shown below:
 
->This commenter is providing public input about a legislative redistricting cycle, requesting that the geographic locations they mention either be kept together or separated into various districts based on communities of interest.
+>This commenter is providing public input about a legislative redistricting cycle, requesting that some geographic locations they mention either be kept together or separated into various districts based on their communities of interest.
 >Return any pairwise location relationships requested by the commenter.
 >Interpret the commenter's request, complaint, or concern.
 >Do not treat the composition of an existing or proposed district as a desired relationship unless the commenter explicitly endorses or rejects that composition.
 >
->The following are examples of a grouped pairwise relationship between 'Springfield' and 'Washington County':
-'Vote no on the proposed map, which separates Springfield from Washington County.', 'Springfield and Washington County have been separated. This is a clear effort to Gerrymander our community.', 'Springfield and Washington County share similar economic interests.', 'Why is Springfield in a different district than Washington County?', 'Separating Springfield from Washington County is ridiculous.', 'Please Keep Springfield together with Washington County.', 'Don't split Springfield from Washington County.', and 'Springfield should be reunited with Washington County.'.
+>The following are examples of a 'grouped' pairwise relationship between 'Springfield' and 'Washington County':
 >
->The following are examples of a separated pairwise relationship between 'Springfield' and 'Washington County': 'Vote no on the proposed map, which combines Springfield with Washington County.', 'Springfield and Washington County have been combined. This is a clear effort to Gerrymander our community.', 'Springfield and Washington County do not share similar economic interests.', 'Why is Springfield in the same district as Washington County?', 'Combining Springfield and Washington County is ridiculous', 'Please Keep Springfield separated from Washington County.', 'Don't group Springfield with Washington County.', and 'Springfield should be kept apart from Washington County.'."
+> * 'Vote no on the proposed map, which separates Springfield from Washington County.'
+> * 'Springfield and Washington County have been separated. This is a clear effort to Gerrymander our community.'
+> * 'Springfield and Washington County share similar economic interests.'
+> * 'Why is Springfield in a different district than Washington County?'
+> * 'Separating Springfield from Washington County is ridiculous.'
+> * 'Please Keep Springfield together with Washington County.'
+> * 'Don't split Springfield from Washington County.'
+> * 'Springfield should be reunited with Washington County.'
+>
+>The following are examples of a 'separated' pairwise relationship between 'Springfield' and 'Washington County':
+>
+> * 'Vote no on the proposed map, which combines Springfield with Washington County.'
+> * 'Springfield and Washington County have been combined. This is a clear effort to Gerrymander our community.'
+> * 'Springfield and Washington County do not share similar economic interests.'
+> * 'Why is Springfield in the same district as Washington County?'
+> * 'Combining Springfield and Washington County is ridiculous.'
+> * 'Please Keep Springfield separated from Washington County.'
+> * 'Don't group Springfield with Washington County.'
+> * 'Springfield should be kept apart from Washington County.'
 
 The prompt schema for each relationship included a first location name response, a second location name response, a relationship type response, and a district type response.
 Location name responses, while not tied to individual prompt descriptions, were constrained to an enum output, with factor levels derived from the composite information for each location extracted in the previous step of the pipeline.
-Relationship types were constrained to be either "grouped", "separated", or "unclear".
-District types relevant to the location relationship were constrained to be either "State House", "State Senate", "Congressional", or "NA" when no district type was listed or when multiple types were being discussed simultaneously.
-The prompts for these individual schema items are listed below:
+The straightforward relationship type prompting was as follows:
 
 >Return the nature of the relationship between the two locations
 
+Relationship types were constrained to be either "grouped", "separated", or "unclear".
+District type prompting consisted of the following:
+
 >Return the legislative district type relevant to this pairwise relationship request, if mentioned by the commenter.
->If the relevant district types are unclear or if multiple types are relevant, return 'NA'
+>If the relevant district types are unclear or if multiple types are relevant, return 'NA'.
+
+District types relevant to the location relationship were constrained to be one or more of the following: "State House", "State Senate", "Congressional", or "NA" when no district type was listed or when multiple types were being discussed simultaneously.
+
+## Validation
+
+For each state, 50 comments screened for the mention of communities of interest were randomly sampled and annotated by hand.
+These annotated comments followed the same rules as the prompting architecture described above, and from location mentions and requests among pairs of locations, a "Ground Truth" set of comments was constructed to validate `ellmer` output against.
+This ground truth set includes `r nrow(allGroundTruthLocations)` mentioned locations and `r nrow(allGroundTruthRequests)` groups of locations.
+For each validation test, two comparison sets of locations or requests were compared to a ground truth set using linear regression with robust standard errors under the following model:
+
+$$Y = \beta_0 + State$$
+
+Where Y is a precision or recall contrast between the two methods against the ground truth at the unit level, $\beta_0$ is an intercept term, and $State$ is a state-wise fixed effect.
+In the context of our analysis, precision is the number of correctly identified units as a proportion of all identified units, while recall is the number of correctly identified units as a proportion of ground truth units.
+Regression coefficient tests below are against the null hypothesis that the intercept term is indistinguishable from 0, except in the cases of location level precision because ground truth and comparison unit sets are not necessarily of the same size, prohibiting the use of unit-wise contrast.
+In these cases, regression coefficient tests compare against a null hypothesis that a binary coefficient differentiating the two comparison methods is indistinguishable from 0.
+
+#### Location Recognition Validation
+
+Table \@ref(tab:contextual-removal-validation) explores the efficacy of the relevance field prompting.
+Removing contextual locations offered statistically significant increases to precision while only slightly diminishing recall, so this field was deemed useful for the purposes of consolidating downstream location request options.
+
+```{r contextual-removal-validation}
+
+# import contextual removal validation table ----
+readRDS(file = file.path(tablePath, contextualRemovalTableFilename)) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Unit contrast regression tests of full baseline location set (Method A) compared to
+    a baseline location with contextual locations removed (Method B)"
+  ) |>
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```
+
+We also investigated precision and recall across multiple iterations of each location recognition task.
+Table \@ref(tab:majority-mentioning-validation) compares a method filtering mentioned locations that were mentioned at least twice across three iterations to locations mentioned in a single iteration.
+Table \@ref(tab:unanimous-mentioning-validation) compares a set for which mentions were mentioned in all three iterations to the same single iteration.
+Restricting locations to majority or unanimous mentions was associated with some small tradeoffs between precision and recall, with no definitive advantage to the task's broader accuracy, so we concluded that single-iteration extraction tasks were sufficient for downstream analysis.
+
+```{r majority-mentioning-validation}
+
+# import majority mentioning validation table ----
+readRDS(file = file.path(tablePath, majorityMentioningTableFilename)) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Unit contrast regression tests of single iteration locations (Method A) compared to
+    locations mentioned across a majority of three iterations (Method B)"
+  ) |>
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```
+
+```{r unanimous-mentioning-validation}
+
+# import unanimous mentioning validation table ----
+readRDS(file = file.path(tablePath, unanimousMentioningTableFilename)) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Unit contrast regression tests of single iteration locations (Method A) compared to
+    locations mentioned across unanimously three iterations (Method B)"
+  ) |>
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```
+
+The baseline prompting architecture, as described above, was developed iteratively, succeeding several other variants as the idiosyncrasies of the `ellmer` package and its interactions with the Mistral model were discovered.
+Table \@ref(tab:baseline-simpler-validation) below shows a comparison between the baseline prompting architecture for location recognition above and a simpler prompting architecture lacking rules at the system prompt and contextual location identification levels.
+This simpler architecture was not statistically distinguishable from the more verbose architecture, but the intercept term differences for the latter were signed in the direction of higher precision and recall, leading us to designate it as our baseline.
+
+```{r baseline-simpler-validation}
+
+# import baseline vs simpler validation table ----
+readRDS(file = file.path(tablePath, baselineSimplerTableFilename)) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Unit contrast regression tests of baseline prompting architecture (Method A)
+    compared to a simpler prompting architecture with fewer prompt examples (Method B)"
+  ) |>
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```
+
+Lastly, Table \@ref(tab:system-prompt-validation) compares a simpler prompting architecture with and without a system prompt.
+Although not statistically significant, substantively large increases to precision under the inclusion of a system prompt drove us to retain the prompt in our baseline architecture.
+
+```{r system-prompt-validation}
+
+# import system prompt validation table ----
+readRDS(file = file.path(tablePath, systemPromptTableFilename)) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Unit contrast regression tests of simpler prompting architecture without a 
+    system prompt (Method A) compared to a similar prompting architecture with a system prompt (Method B)"
+  ) |>
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```

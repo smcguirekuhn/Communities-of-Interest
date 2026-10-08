@@ -13,8 +13,8 @@ assignVernacularRegionBoundary <- function(
   stopifnot(state %in% state.name)
   stopifnot(is.data.frame(countyBoundaries))
   stopifnot("Name" %in% names(countyBoundaries))
-  stopifnot(is.integer(iterations))
-  stopifnot(is.integer(threshold))
+  stopifnot(is.numeric(iterations))
+  stopifnot(is.numeric(threshold))
   stopifnot(threshold <= iterations)
   stopifnot(is.character(model))
   
