@@ -1,0 +1,80 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Redistricting and Democracy
+
+\qquad Redistricting, a boundary-drawing process undertaken by every state in the United States at least every decade, has increasingly become a critical factor in determining the health of the nation's representative democracy [@Grumbach2023].
+The process of linking local constituencies to their representatives based on territory has profound downstream consequences for a variety of political outcomes, including district level competitiveness [@JasnyEtAl2025; @KennyEtAl2023], voter turnout [@Fraga2016], and the creation of majority-minority and minority-influence districts [@BarabasJerit2004].
+Redistricting thus provides state governments with immense power to tip the scales towards or away from an electoral landscape that equally enfranchises the voters that make up their constituencies.
+
+\qquad However, despite it's importance, redistricting is nonetheless at odds with traditional democratic pipelines of connecting public opinion to representation and then policy.
+One one hand, there's an unclear connection between each representative and their constituency based on the fact that the constituencies themselves are being shuffled into a new arrangement of districts.
+In other words, a representative, whether at the state legislature, state senate, or congressional level, need not necessarily concern themselves with backlash or retrospective voting because the very population that might next vote for them is subject to change.
+On the other hand, there's no consistent, structural way for the public to signal their desired 'vote' on a particular map.
+Statewide referenda on district plans are rare, and a statewide district map can empower some voters while disenfranchising others, making aggregate measures of approval more arbitrary than the mass approval of policies that are applied equitably across a state.
+While the likely overall partisan balance resulting from a boundary configuration can be an ideological signal to voters, very few are likely to have the knowledge and expertise necessary to evaluate the entirety of a district map down to the precinct level (TODO: cite sources about public knowledge and perceptions of redistricting).
+This then leaves the task of translating a full plan into comprehensible public insights up to media ecosystems, interest groups, and the relevant office holders themselves.
+
+\qquad True opinions on a map among the public are likely localized and related to the partisan or nonpartisan factors of the communities Americans call home.
+A voter might not have a good sense of how to divide up an entire metro area into state house districts, but they can probably comment on whether their neighborhood, city, school district, and county should be kept whole, combined with other areas, or separated from other areas.
+Place based identities are a powerful force in the United States [@ElderLueders2025], implying that residents of a community have some perception of the social, cultural, economic, and geographic dynamics that separate "where they live" from everywhere else.
+It is under these conditions that the concept of "Communities of Interest" can play a particularly cogent role, providing a personal link between the individual voter and the clandestine practices of legislative district boundary drawing.
+
+## Communities of Interest in Legislative Redistricting
+
+\qquad Nicholas Stephanopoulos [-@Stephanopoulos2012] articulates that a group of people constitute a community of interest (COI) if they (1) share a common geographic range, (2) share common socioeconomic or cultural interests, and (3) subjectively identify as members of a cohesive geographic community.
+Respecting communities of interest is typically one of several criteria that many boundary-drawing institutions are constitutionally obligated to respect [@Webster2013], including contiguity, compactness, population equality, and protection of minority voting populations.
+However, these criteria are difficult to balance, and some can even be contradictory.
+In fact, the "reapportionment revolution" of the 1960s, a series of Supreme Court decisions requiring that legislative redistricting strictly adhere to the criteria of population equality across districts, is credited with massively disrupting the ability of states to respect COIs despite the clear benefits of meeting both criteria simultaneously [@Stephanopoulos2012].
+State and federal courts are nonetheless receptive of arguments in favor of protecting COIs, often striking down maps in clear violation of the criteria.
+Furthermore, recent court decisions have diminished the prominence of the Voting Rights Act as a basis for striking down statewide maps that fail to appropriately represent minority populations [@ChenEtAl2022], leaving communities of interest as a possible line of defense for these populations to still litigate with.
+
+\qquad Despite their utility and relevance to the courts, measuring the extent and frequency of COIs has proven difficult, and no procedure has emerged as a clear national standard.
+Some scholars have used contextual and behavioral characteristics of smaller geographic units within states [@KruseGaoMayer2026; @GimpelHarbridgeYong2020; @Makse2012; @Syme2025; @RossiterWongDelamater2018; @SwansonBryan2024], clustering units into cohesive groups and comparing district maps to group boundaries.
+Kruse, Gao, and Mayer [-@KruseGaoMayer2026] use Facebook friendship networks and mobile device visits between Census block groups to construct COIs, while Maske sorts communities based on issue area initiative votes in Ohio [@Makse2012].
+These observational approaches present defensible solutions based on well-distributed data across entire states, and their sophisticated methods have yielded actionable insights, but they nonetheless ascribe community membership at a distance from the public's participation in the redistricting process.
+
+\qquad Other scholars, therefore, have constructed COIs based on grassroots input from the public, including the deployment of public mapping tools that allow respondents to "draw" their communities of interest from a bird's eye view [@ChenEtAl2022; @ChambersEtAl2022].
+These drawn communities of interest can then be compiled and analyzed using a variety of computational techniques.
+Chambers and colleagues cluster overlapping COIs based on their similarity across respondents, while Chen and colleagues introduce novel measures to evaluate how egregiously an enacted plan splits a given community.
+These studies provide a framework that boundary-drawing institutions can use to engage the public and better link redistricting with democratic participation.
+They also provide a closer estimation of the kind of communication flows between constituents and legislators that are likely to occur during the redistricting process.
+
+\qquad Thankfully, many states, especially those now making use of an Independent Redistricting Commission (IRC), have undertaken significant efforts to collect large bodies of public testimony and assess localized public opinion, even specifically prompting respondents to discuss communities of interest in some cases [@Rambo2021; @Subia2024].
+Large databases of testimony raise questions regarding who has provided their opinions and whether this input has had any impact on the final maps being produced.
+With mechanisms of connecting redistricting to democratic participation growing more prominent, is is now more feasible to measure congruence between state legislative decision making and constituent preferences, especially regarding communities of interest, which can be mapped and understood in the same territorial space as the legislative districts being drawn.
+
+## Redistricting and Congruence
+
+\qquad Extant literature has found congruence to be markedly low in most states [@LaxPhillips2012], but the way this finding translates itself to redistricting and specifically communities of interest is still an emergent question, especially given the aforementioned disconnect between redistricting and accountability through voting.
+Any level of congruence during redistricting depends on the ability of concerned citizens to make their voices heard in the first place.
+Gabriella Subia's exploration of public participation during the creation of Colorado's eighth congressional district suggests that the state's IRC did in fact prioritize the representation of Hispanic voters, a competitive partisan balance, and the protection of various industries north of Denver, all of which were advocated for by both interest groups and local residents [@Subia2024].
+This case study aligns itself with the broader literature on public comment during rulemaking, which has generally found that institutions are responsive to those who participate [@Sahn2025; @Ingrams2023].
+However, another analysis by Olivia Rambo finds among a sample of comments submitted to the California Citizen's Redistricting Commission that certain interests were more likely to achieve their boundary drawing aims than others, and many comments were copies of templates distributed to the public by interest groups [@Rambo2021].
+This study is consistent with the idea that the most influential voices during the process of collecting public testimony are not representative of the population as a whole [@YackeeYackee2006], highlighting one source of disconnect between mass opinion and redistricting outcomes.
+
+\qquad Incongruence with public opinion, furthermore, might not only be a function of an unrepresentative sample of public input, but also deliberate actions by boundary-drawing legislators.
+States have adopted a variety of map-drawing procedures, each giving partisan legislatures a different level of leeway over determining the final maps based on systems of oversight and stalemate-breaking [@McCartanEtAl2026].
+McCartan and colleagues find that increased partisan leeway is positively related to the creation of more biased maps that are less responsive to statewide electoral shifts.
+Moreover, even if we assume that map-drawing institutions are listening to public input, it may be the case that only certain public requests are considered legitimate.
+Butler and Dynes [-@ButlerDynes2016] find that office holders often discount the testimony of those with whom they disagree regarding other issue areas like economic policy.
+Redistricting may thus be incongruent with both mass opinion, which is difficult to assess in the first place, and any broad corpus of public testimony, an already unrepresentative sample that legislators may filter based on interest group pressures and partisan bias.
+
+## Web Comment Testimony
+
+\qquad When evaluating public input on redistricting, it's important to consider that certain types of testimony may be more democratized than others, especially as redistricting institutions professionalize and make use of digital communication platforms.
+Attending a public hearing requires, for many, a significant time commitment and some expenditure on traveling to the location of the meeting to speak.
+Many states also offer citizens the opportunity to submit long-form content, including essays, presentations, and even statewide district plans that the citizen can create with publicly-available software.
+These formats, along with public hearing attendance, might be the preferred submission type for partisan actors, interest groups, and highly-engaged members of the public who possess some level of expertise regarding the redistricting process.
+Alternatively, many states have offered a public web commenting platform allowing citizens to submit a brief questionnaire about their redistricting preferences, often in relative or complete anonymity.
+These platforms are available free of charge to anyone with broadband access, and their simplicity likely makes them a less efficient venue for interest groups and partisan actors.
+A web commenter can thus provide their input in minutes without needing expert-level knowledge of their state's political geography nor a comprehensive understanding of an existing or proposed map.
+Instead, they can focus on a specific community of interest that they know best, or perhaps another focused concern about the redistricting process.
+
+\qquad It's unclear how seriously boundary-drawing institutions take these web comment platforms, or what sorts of requests they might entertain over others, and even these platforms are unlikely to gather opinions from a truly representative sample of the public.
+Nonetheless, nationwide web comment collection in the 2021-2022 redistricting cycle constitutes the most accessible and widespread efforts to date at measuring the preferences of citizens who hope to see their communities fairly represented when legislative boundaries are drawn.
+We therefore find it vital to explore the geographic, partisan, and racial makeup of web commenters where such information is attainable.
+We also hope to evaluate the congruence between legislative boundaries drawn and the communities of interest that web commenters have requested be kept whole, combined with other communities, or separated from other communities.

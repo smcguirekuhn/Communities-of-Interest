@@ -3,6 +3,7 @@ title: "Communities of the Interested"
 subtitle: "Redistricting Institution Congruence with Communities of Interest Among Geocoded Public Comments"
 author: Spencer Kuhn
 output: bookdown::pdf_document2
+linestretch: 2
 bibliography: ["../../../Dropbox/Literature Reviews/articles.bib", "../../../Dropbox/Literature Reviews/books.bib", "../../../Dropbox/Literature Reviews/datasets.bib", "../../../Dropbox/Literature Reviews/software.bib"]
 link-citations: yes
 ---
@@ -13,8 +14,13 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 ```
 
+\newpage
 # Introduction
 
+```{r child = 'LiteratureReview.Rmd'}
+```
+
+\newpage
 # Methods
 
 # Results
