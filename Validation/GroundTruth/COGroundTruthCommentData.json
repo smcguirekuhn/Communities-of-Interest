@@ -315,10 +315,10 @@
         "FullLocationName": "Rural Routt County (County)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Rural Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Rural",
+        "AdditionalDescription": "NA",
         "FullLocationName": "Rural Colorado (Region)"
       },
       {
@@ -1124,11 +1124,11 @@
         "FullLocationName": "Elbert County (County)"
       },
       {
-        "Name": "Colorado District 4",
+        "Name": "Congressional District 4",
         "AdminLevel": "Congressional District",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
-        "FullLocationName": "Colorado District 4 (Congressional District)"
+        "FullLocationName": "Congressional District 4 (Congressional District)"
       },
       {
         "Name": "Front Range",
@@ -1148,7 +1148,7 @@
       },
       {
         "Location1": "Douglas County (County)",
-        "Location2": "Colorado District 4 (Congressional District)",
+        "Location2": "Congressional District 4 (Congressional District)",
         "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
@@ -1225,10 +1225,10 @@
     "Comment": "Residents of rural Colorado have unique interests and need representation in Congress whose constituency does not have divided priorities. Our voices deserve to be heard, undiluted by inclusion in a district with suburban and urban residents.\nWhether agriculture or energy production, public lands, water, natural resources, or cooperative businesses, most of our issues and needs in Congress differ from those of our Front Range urban and suburban friends and fellow Coloradans. We all care about education and transportation, but no rural county has (or will have) light rail, and no urban county will understand the needs of a small ranch operation.\nWe deserve representation in Congress that isn’t forced to choose between our needs and the issues that matter to suburbia.\nWhen the map drawing process starts, we ask that you start by drawing two whole rural districts from the 53 counties that are not part of the Front Range from Colorado Springs to Fort Collins. While these counties make up nearly three fourths of the state’s land mass, they are home to only a quarter of the population. Fortunately, that should be enough for two of our expected eight congressional districts.\nWe know you have to start drawing lines somewhere; how about a West Slope-oriented district and another that is an agricultural community of interest? Even without access to the census block level information for being fully prescriptive, we trust that if you start with a goal of two rural seats, one as a west slope community of interest and one concentrating on agriculture and energy production, you will be able to draw two seats that won’t dilute the voices of the many people living in vast stretches of rural Colorado. Please be certain that these vital – and vast – regions of Colorado garner the representation they need and deserve.\n",
     "LocationsMentioned": [
       {
-        "Name": "Colorado",
+        "Name": "Rural Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Rural",
+        "AdditionalDescription": "NA",
         "FullLocationName": "Rural Colorado (Region)"
       },
       {
@@ -1246,9 +1246,9 @@
         "FullLocationName": "Front Range (Region)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Eastern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Eastern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Eastern Colorado (Region)"
       },
@@ -1398,9 +1398,9 @@
         "FullLocationName": "Moffat County (County)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Northwestern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Northwestern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Northwestern Colorado (Region)"
       },
@@ -1433,9 +1433,9 @@
         "FullLocationName": "Eastern Eagle County (County)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Western Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Western",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Western Colorado (Region)"
       },
@@ -1695,9 +1695,9 @@
         "FullLocationName": "Eastern Plains (Region)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Northern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Northern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Northern Colorado (Region)"
       },
@@ -1960,9 +1960,9 @@
         "FullLocationName": "San Luis Valley (Region)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Southern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Southern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Southern Colorado (Region)"
       }
@@ -2104,10 +2104,10 @@
       },
       {
         "Name": "Routt County",
-        "AdminLevel": "Region",
+        "AdminLevel": "County",
         "CardinalDirectionSubarea": "Southern",
         "AdditionalDescription": "NA",
-        "FullLocationName": "Southern Routt County (Region)"
+        "FullLocationName": "Southern Routt County (County)"
       },
       {
         "Name": "Boulder",
@@ -2127,7 +2127,7 @@
       },
       {
         "Location1": "Boulder (City)",
-        "Location2": "Southern Routt County (Region)",
+        "Location2": "Southern Routt County (County)",
         "Request": "separated",
         "DistrictType": "Congressional",
         "Confidence": "high"
@@ -2253,10 +2253,10 @@
         "FullLocationName": "Boulder (City)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Rural Colorado",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Rural",
+        "AdditionalDescription": "NA",
         "FullLocationName": "Rural Colorado (Region)"
       }
     ],
@@ -2913,9 +2913,9 @@
         "FullLocationName": "Ridgway (Town)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Southern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Southern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Southern Colorado (Region)"
       },
@@ -2934,9 +2934,9 @@
         "FullLocationName": "San Luis Valley (Region)"
       },
       {
-        "Name": "Colorado",
+        "Name": "Northwestern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Northwestern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Northwestern Colorado (Region)"
       }
@@ -3042,9 +3042,9 @@
     "Comment": "To whom it may concern, \n\nAs a lifelong Colorado resident, I have followed this year's redistricting process with great interest.\n\nWhile I would like to see every district be competitive, I understand there are many considerations. \n\nI grew up on the Western Slope, but have lived in Pueblo for the last 20 years. I can safely say that our population would be better served if the Southern counties were grouped together.\nThis would make sense for a number of regional issues, especially water, transportation and energy infrastructure.\n\nAs it stands now, I would recommend the Tafoya Amendment to the Third Staff plan as a reasonable compromise.\n\nThank you,\n\nBrian Taylor",
     "LocationsMentioned": [
       {
-        "Name": "Colorado",
+        "Name": "Southern Colorado",
         "AdminLevel": "Region",
-        "CardinalDirectionSubarea": "Southern",
+        "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
         "FullLocationName": "Southern Colorado (Region)"
       }
