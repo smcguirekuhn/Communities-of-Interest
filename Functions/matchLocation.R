@@ -17,33 +17,39 @@ matchLocation <- function(
       "Region",
       "NA"
     ),
-    locationMatches
+    locationMatches,
+    mongeElkanThreshold = 0.15
   ) {
   
   # check arguments ----
   stopifnot(is.character(location))
   match.arg(adminLevel)
   stopifnot(is.data.frame(locationMatches))
-  stopifnot(all(c("Name", "AdminLevel", "Precincts", "Counties") %in% names(locationMatches)))
-  
-  # simplify municipal admin level assignments ----
-  if (adminLevel %in% c("Township", "Borough", "Town", "City")) adminLevel <- "Municipality"
+  stopifnot(all(c("Name", "AdminLevel", "Precincts") %in% names(locationMatches)))
   
   # identify best location match by string distance ----
-  locationMatch <- locationMatches |>
-    dplyr::filter(AdminLevel == adminLevel) |>
-    dplyr::rowwise() |>
-    dplyr::mutate(MongeElkanDistance = mongeElkanDistance(x = Name, y = location), .before = "Precincts") |>
-    dplyr::ungroup() |>
-    dplyr::slice_min(order_by = MongeElkanDistance, n = 1) |>
-    dplyr::rename(Match = Name) |>
-    dplyr::mutate(Name = location, .before = "Match")
+  if (adminLevel %in% c("Landmark", "School", "NA")) {
+    locationMatch <- dplyr::tibble(Name = location, Match = NA)
+  } else {
+    locationMatch <- locationMatches |>
+      dplyr::filter(AdminLevel == adminLevel) |>
+      dplyr::rowwise() |>
+      dplyr::mutate(
+        MongeElkanDistance = mongeElkanDistance(x = Name, y = location),
+        CosineDistance = stringdist::stringdist(a = Name, b = location, method = "cosine"),
+        .before = "Precincts"
+      ) |>
+      dplyr::ungroup() |>
+      dplyr::filter(MongeElkanDistance <= mongeElkanThreshold) |>
+      dplyr::slice_min(order_by = CosineDistance, n = 1, with_ties = FALSE) |>
+      dplyr::rename(Match = Name) |>
+      dplyr::mutate(Name = location, .before = "Match")
+  }
   
   # check for unusual match counts ----
   if (nrow(locationMatch) == 0) {
     cli::cli_warn(message = glue::glue("No matches found for {location}"))
-  } else if (nrow(locationMatch) > 1) {
-    cli::cli_warn(message = glue::glue("Multiple matches found for {location}"))
+    locationMatch <- dplyr::tibble(Name = location, Match = NA)
   }
   
   # return location match ----

@@ -13,9 +13,9 @@
       },
       {
         "Name": "Phoenixville",
-        "AdminLevel": "City",
+        "AdminLevel": "Borough",
         "CardinalDirectionSubarea": "NA",
-        "FullLocationName": "Phoenixville (City)"
+        "FullLocationName": "Phoenixville (Borough)"
       },
       {
         "Name": "West Goshen",
@@ -311,7 +311,7 @@
         "FullLocationName": "Kingston (Township)"
       },
       {
-        "Name": "Jackson Township",
+        "Name": "Jackson",
         "AdminLevel": "Township",
         "FullLocationName": "Jackson (Township)"
       }
@@ -1841,7 +1841,7 @@
     "Comment": "Dear Legislative Reapportionment Committee\r \r I respectfully submit the following comments in hope that you will reconsider the preliminary proposal of your committee to place seven (7) precincts of Upper Chichester Township, which are currently in the 160th district, into the 159th district, which currently only has three (3) precincts from the township.\r \r The 159th district as well as the 160th have been part of the community for some time, with the 159th being a small portion for many years. With allowing the split how it is today, it gives the township more of an equal and fair representation. The district becoming one does not give equal or not even come close to equal and would be a disadvantage for equal representation for our township. Upper Chichester Township has different needs than our neighbors in the 159th and as an elected official, I believe being fully in the 159th district, we will be overlooked.\r \r With all due respect to the Legislative Reapportionment Committee, we believe our historical communities, affectionately known as Boothwyn, Ogden & Twin Oaks and the towns that surround our township, such as Bethel, Concord, and Aston, share the history, economic and social relationship and this will adversely affect the representation at the state level that we have come to know and trust, if placed entirely into the 159th. \r \r We also believe our community of interest including our historic towns that surround Upper Chichester share a common past, present, and future. Upper Chichester is a mostly rural suburban community with shared interest and values, versus the needs of a very large city.\r \r We respectfully ask the Reapportion Committee to allow the precincts of Upper Chichester to remain in the 160th or adjust the entire township in the 160th. We have been represented for many years in the 160th and do not understand why we needed to be split. The Representatives from the 160th past and present have helped us with the 322 project, getting sound barriers, the Jennifer Way Creek Erosion Project, funding for a Round-about at Bethel and Mill Roads, and many other projects. \r \r The minor portion that was put in the 159th should have never happened and kept the adjustment of the township as a whole, within the 160th.\r \r Thank you for your considerations,\r Michael Gaudiuso\r 5th Ward Commissioner & Resident of Upper Chichester Township\r",
     "LocationsMentioned": [
       {
-        "Name": "Upper Chichester Township",
+        "Name": "Upper Chichester",
         "AdminLevel": "Township",
         "FullLocationName": "Upper Chichester (Township)"
       },
@@ -2360,18 +2360,18 @@
         "FullLocationName": "Philadelphia (City)"
       },
       {
-        "Name": "Southeast Pennsylvania",
+        "Name": "Southeastern Pennsylvania",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
-        "FullLocationName": "Southeast Pennsylvania (Region)"
+        "FullLocationName": "Southeastern Pennsylvania (Region)"
       },
       {
-        "Name": "Southwest Pennsylvania",
+        "Name": "Southwestern Pennsylvania",
         "AdminLevel": "Region",
         "CardinalDirectionSubarea": "NA",
         "AdditionalDescription": "NA",
-        "FullLocationName": "Southwest Pennsylvania (Region)"
+        "FullLocationName": "Southwestern Pennsylvania (Region)"
       },
       {
         "Name": "Central Pennsylvania",
@@ -2390,22 +2390,22 @@
     ],
     "Requests": [
       {
-        "Location1": "Southeast Pennsylvania (Region)",
+        "Location1": "Southeastern Pennsylvania (Region)",
         "Location2": "Rural Western Pennsylvania (Region)",
         "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
-        "Location1": "Southeast Pennsylvania (Region)",
+        "Location1": "Southeastern Pennsylvania (Region)",
         "Location2": "Central Pennsylvania (Region)",
         "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
       },
       {
-        "Location1": "Southeast Pennsylvania (Region)",
-        "Location2": "Southwest Pennsylvania (Region)",
+        "Location1": "Southeastern Pennsylvania (Region)",
+        "Location2": "Southwestern Pennsylvania (Region)",
         "Request": "separated",
         "DistrictType": "NA",
         "Confidence": "high"
@@ -2836,7 +2836,7 @@
         "FullLocationName": "Bucks County (County)"
       },
       {
-        "Name": "Buckingham Township",
+        "Name": "Buckingham",
         "AdminLevel": "Township",
         "FullLocationName": "Buckingham (Township)"
       }
@@ -2858,7 +2858,7 @@
     "Comment": "As a lifelong resident of Schuylkill County I grew up with the fine folks of the \"coal region\". I returned to my hometown after college in 1981 to join our family business. I had the privilege to serve both local and county-wide organizations who's interests ranged from business and economic development to education and healthcare. Additional service with several charities allowed me to truly get to know the District.\r \r In my opinion carving out Shenandoah, Mahanoy City, Mahanoy Twp and Ryan Twp will not improve services for our residents who have been part of our community since the late 1800's and part of the 123rd. since 1968. The shared history, culture of hard work, and family values hold together our communities that have suffered the demise of King Coal and the garment industry. Pride remains in our roots and the shared challenges make us a stronger community. These boroughs and townships mesh better with the 123rd than the larger city of Hazleton that dominates the 116th. Our small communities have different needs and priorities and fit better into Schuylkill County. Putting all of our county seat of Pottsville and Norwegian Twp into the 123rd District is a positive move and fixes a past split. \r \r If members of the Commission would tour our area it would become very evident that Upper and Central Schuylkill County is best served together. Unfortunately computer models and satellite maps have not done justice for the 123rd. I respectfully ask that our neighbors can remain together as we fight blight and continue to grow our county that is a great place to live, work, and play.",
     "LocationsMentioned": [
       {
-        "Name": "Coal Region",
+        "Name": "Schuylkill County",
         "AdminLevel": "County",
         "CardinalDirectionSubarea": "NA",
         "FullLocationName": "Schuylkill County (County)"
@@ -2912,7 +2912,7 @@
         "FullLocationName": "Pottsville (City)"
       },
       {
-        "Name": "Norwegian Township",
+        "Name": "Norwegian",
         "AdminLevel": "Township",
         "CardinalDirectionSubarea": "NA",
         "FullLocationName": "Norwegian (Township)"

@@ -16,22 +16,29 @@ library(igraph)
 list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 
 # assign import and export destinations ----
+dataPath <- "./Data/"
 groundTruthDataPath <- "./Validation/GroundTruth/"
 coGroundTruthFilename <- "COGroundTruthCommentData.json"
+coLocationMatchesFilename <- "Colorado/COLocationMatches.rds"
 gaGroundTruthFilename <- "GAGroundTruthCommentData.json"
+gaLocationMatchesFilename <- "Georgia/GALocationMatches.rds"
 paGroundTruthFilename <- "PAGroundTruthCommentData.json"
+paLocationMatchesFilename <- "Pennsylvania/PALocationMatches.rds"
 allGroundTruthLocationsFilename <- "AllGroundTruthLocations.rds"
 allGroundTruthRequestsFilename <- "AllGroundTruthRequests.rds"
 
 # Colorado Ground Truth ----
 
-# import colorado ground truth data ----
+## import colorado ground truth data ----
 coGroundTruthData <- jsonlite::read_json(
   path = file.path(groundTruthDataPath, coGroundTruthFilename),
   simplifyVector = TRUE
 )
 
-# format colorado ground truth locations ----
+## import colorado location matches ----
+coLocationMatches <- readRDS(file = file.path(dataPath, coLocationMatchesFilename))
+
+## format colorado ground truth locations ----
 coGroundTruthLocations <- coGroundTruthData |>
   dplyr::select(CommentID, LocationsMentioned) |>
   tidyr::unnest(cols = LocationsMentioned) |>
@@ -48,7 +55,33 @@ coGroundTruthLocations <- coGroundTruthData |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID)
 
-# format colorado ground truth requests ----
+## group colorado ground truth locations by unique locations to match ----
+coGroundTruthMatches <- coGroundTruthLocations |>
+  dplyr::select(-c(SubareaDescription, FullLocationName)) |>
+  dplyr::group_by(State, Name, AdminLevel) |>
+  dplyr::summarise(Frequency = dplyr::n()) |>
+  dplyr::ungroup() |>
+  dplyr::arrange(dplyr::desc(Frequency))
+
+## find location matches ----
+coMatchedGroundTruthLocations <- purrr::map2_dfr(
+  .x = coGroundTruthMatches |> dplyr::pull(Name),
+  .y = coGroundTruthMatches |> dplyr::pull(AdminLevel),
+  .f = \(location, adminLevel) {
+    matchLocation(
+      location = location,
+      adminLevel = adminLevel,
+      locationMatches = coLocationMatches
+    )
+  }
+)
+
+## pair ground truth locations with matched precincts ----
+coGroundTruthLocations <- coGroundTruthLocations |>
+  dplyr::left_join(y = coMatchedGroundTruthLocations, by = c("Name", "AdminLevel")) |>
+  dplyr::select(-MongeElkanDistance)
+
+## format colorado ground truth requests ----
 coGroundTruthRequests <- purrr::map_dfr(
   .x = coGroundTruthLocations |> dplyr::pull(CommentID) |> unique(),
   .f = \(commentID) {
@@ -74,6 +107,9 @@ gaGroundTruthData <- jsonlite::read_json(
   simplifyVector = TRUE
 )
 
+## import georgia location matches ----
+gaLocationMatches <- readRDS(file = file.path(dataPath, gaLocationMatchesFilename))
+
 # format georgia ground truth locations ----
 gaGroundTruthLocations <- gaGroundTruthData |>
   dplyr::select(CommentID, LocationsMentioned) |>
@@ -91,6 +127,32 @@ gaGroundTruthLocations <- gaGroundTruthData |>
   dplyr::mutate(State = "Georgia", .before = "CommentID") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID)
+
+## group georgia ground truth locations by unique locations to match ----
+gaGroundTruthMatches <- gaGroundTruthLocations |>
+  dplyr::select(-c(SubareaDescription, FullLocationName)) |>
+  dplyr::group_by(State, Name, AdminLevel) |>
+  dplyr::summarise(Frequency = dplyr::n()) |>
+  dplyr::ungroup() |>
+  dplyr::arrange(dplyr::desc(Frequency))
+
+## find location matches ----
+gaMatchedGroundTruthLocations <- purrr::map2_dfr(
+  .x = gaGroundTruthMatches |> dplyr::pull(Name),
+  .y = gaGroundTruthMatches |> dplyr::pull(AdminLevel),
+  .f = \(location, adminLevel) {
+    matchLocation(
+      location = location,
+      adminLevel = adminLevel,
+      locationMatches = gaLocationMatches
+    )
+  }
+)
+
+## pair ground truth locations with matched precincts ----
+gaGroundTruthLocations <- gaGroundTruthLocations |>
+  dplyr::left_join(y = gaMatchedGroundTruthLocations, by = c("Name", "AdminLevel")) |>
+  dplyr::select(-MongeElkanDistance)
 
 # format georgia ground truth requests ----
 gaGroundTruthRequests <- purrr::map_dfr(
@@ -118,6 +180,9 @@ paGroundTruthData <- jsonlite::read_json(
   simplifyVector = TRUE
 )
 
+## import pennsylvania location matches ----
+paLocationMatches <- readRDS(file = file.path(dataPath, paLocationMatchesFilename))
+
 # format pennsylvania ground truth locations ----
 paGroundTruthLocations <- paGroundTruthData |>
   dplyr::select(CommentID, LocationsMentioned) |>
@@ -134,6 +199,32 @@ paGroundTruthLocations <- paGroundTruthData |>
   dplyr::mutate(State = "Pennsylvania", .before = "CommentID") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID)
+
+## group pennsylvania ground truth locations by unique locations to match ----
+paGroundTruthMatches <- paGroundTruthLocations |>
+  dplyr::select(-c(SubareaDescription, FullLocationName)) |>
+  dplyr::group_by(State, Name, AdminLevel) |>
+  dplyr::summarise(Frequency = dplyr::n()) |>
+  dplyr::ungroup() |>
+  dplyr::arrange(dplyr::desc(Frequency))
+
+## find location matches ----
+paMatchedGroundTruthLocations <- purrr::map2_dfr(
+  .x = paGroundTruthMatches |> dplyr::pull(Name),
+  .y = paGroundTruthMatches |> dplyr::pull(AdminLevel),
+  .f = \(location, adminLevel) {
+    matchLocation(
+      location = location,
+      adminLevel = adminLevel,
+      locationMatches = paLocationMatches
+    )
+  }
+)
+
+## pair ground truth locations with matched precincts ----
+paGroundTruthLocations <- paGroundTruthLocations |>
+  dplyr::left_join(y = paMatchedGroundTruthLocations, by = c("Name", "AdminLevel")) |>
+  dplyr::select(-MongeElkanDistance)
 
 # format pennsylvania ground truth requests ----
 paGroundTruthRequests <- purrr::map_dfr(
