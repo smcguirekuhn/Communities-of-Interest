@@ -15,7 +15,7 @@ One one hand, there's an unclear connection between each representative and thei
 In other words, a representative, whether at the state legislature, state senate, or congressional level, need not necessarily concern themselves with backlash or retrospective voting because the very population that might next vote for them is subject to change.
 On the other hand, there's no consistent, structural way for the public to signal their desired 'vote' on a particular map.
 Statewide referenda on district plans are rare, and a statewide district map can empower some voters while disenfranchising others, making aggregate measures of approval more arbitrary than the mass approval of policies that are applied equitably across a state.
-While the likely overall partisan balance resulting from a boundary configuration can be an ideological signal to voters, very few are likely to have the knowledge and expertise necessary to evaluate the entirety of a district map down to the precinct level (TODO: cite sources about public knowledge and perceptions of redistricting).
+While the likely overall partisan balance resulting from a boundary configuration can be an ideological signal to voters [@McCarthy2022], very few are likely to have the knowledge and expertise necessary to evaluate the entirety of a district map down to the precinct level, especially given low rates of geographic literacy among Americans [@McFarlane2024].
 This then leaves the task of translating a full plan into comprehensible public insights up to media ecosystems, interest groups, and the relevant office holders themselves.
 
 \qquad True opinions on a map among the public are likely localized and related to the partisan or nonpartisan factors of the communities Americans call home.
