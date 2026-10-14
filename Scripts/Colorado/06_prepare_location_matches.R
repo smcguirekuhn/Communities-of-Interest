@@ -27,7 +27,15 @@ coLocationMatchesFilename <- "COLocationMatches.rds"
 coPrecincts <- alarmdata::alarm_census_vest(state = "CO", geometry = TRUE) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
-  dplyr::select(PrecinctID = dplyr::all_of(x = coPrecinctsIDColumn))
+  dplyr::mutate(
+    PrecinctID = .data[[coPrecinctsIDColumn]],
+    Population = pop,
+    PercentWhite = pop_white/pop,
+    RepublicanVoteShare = pre_20_rep_tru/(pre_20_rep_tru + pre_20_dem_bid),
+    PopulationDensity = log1p(as.numeric(pop/(sf::st_area(geometry) |> units::set_units("km^2"))))
+  ) |>
+  dplyr::select(PrecinctID, Population, PercentWhite, RepublicanVoteShare, PopulationDensity)
+
 
 # clean shapefile data for each administrative level ----
 
@@ -69,8 +77,9 @@ coMunicipalityAreaPrecincts <- coPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct area matches to municipalities data ----
 coMunicipalities <- coMunicipalities |>
@@ -94,8 +103,9 @@ coMunicipalityPointPrecincts <- coMunicipalityPointPrecincts |>
     ]
   ) |>
   sf::st_drop_geometry() |>
+  dplyr::left_join(coPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to municipalities data ----
 coMunicipalities <- coMunicipalities |>
@@ -129,8 +139,9 @@ coSchoolDistrictPrecincts <- coPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to school districts data ----
 coSchoolDistricts <- coSchoolDistricts |>
@@ -161,8 +172,9 @@ coCountyPrecincts <- coPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to counties data ----
 coCounties <- coCounties |>
@@ -193,8 +205,9 @@ coStateHouseDistrictPrecincts <- coPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to state house districts data ----
 coStateHouseDistricts <- coStateHouseDistricts |>
@@ -222,8 +235,9 @@ coStateSenateDistrictPrecincts <- coPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to state senate districts data ----
 coStateSenateDistricts <- coStateSenateDistricts |>
@@ -251,8 +265,9 @@ coCongressionalDistrictPrecincts <- coPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to congressional districts data ----
 coCongressionalDistricts <- coCongressionalDistricts |>

@@ -27,7 +27,15 @@ gaLocationMatchesFilename <- "GALocationMatches.rds"
 gaPrecincts <- alarmdata::alarm_census_vest(state = "GA", geometry = TRUE) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
-  dplyr::select(PrecinctID = dplyr::all_of(x = gaPrecinctsIDColumn))
+  dplyr::mutate(
+    PrecinctID = .data[[gaPrecinctsIDColumn]],
+    Population = pop,
+    PercentWhite = pop_white/pop,
+    RepublicanVoteShare = pre_20_rep_tru/(pre_20_rep_tru + pre_20_dem_bid),
+    PopulationDensity = log1p(as.numeric(pop/(sf::st_area(geometry) |> units::set_units("km^2"))))
+  ) |>
+  dplyr::select(PrecinctID, Population, PercentWhite, RepublicanVoteShare, PopulationDensity)
+
 
 # clean shapefile data for each administrative level ----
 
@@ -77,8 +85,9 @@ gaMunicipalityAreaPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct area matches to municipalities data ----
 gaMunicipalities <- gaMunicipalities |>
@@ -102,8 +111,9 @@ gaMunicipalityPointPrecincts <- gaMunicipalityPointPrecincts |>
     ]
   ) |>
   sf::st_drop_geometry() |>
+  dplyr::left_join(paPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to municipalities data ----
 gaMunicipalities <- gaMunicipalities |>
@@ -137,8 +147,9 @@ gaSchoolDistrictAreaPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to school districts data ----
 gaSchoolDistricts <- gaSchoolDistricts |>
@@ -162,8 +173,9 @@ gaSchoolDistrictPointPrecincts <- gaSchoolDistrictPointPrecincts |>
     ]
   ) |>
   sf::st_drop_geometry() |>
+  dplyr::left_join(paPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to school districts data ----
 gaSchoolDistricts <- gaSchoolDistricts |>
@@ -196,8 +208,9 @@ gaCountyPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to counties data ----
 gaCounties <- gaCounties |>
@@ -228,8 +241,9 @@ gaStateHouseDistrictPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to state house districts data ----
 gaStateHouseDistricts <- gaStateHouseDistricts |>
@@ -257,8 +271,9 @@ gaStateSenateDistrictPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to state senate districts data ----
 gaStateSenateDistricts <- gaStateSenateDistricts |>
@@ -286,8 +301,9 @@ gaCongressionalDistrictPrecincts <- gaPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to congressional districts data ----
 gaCongressionalDistricts <- gaCongressionalDistricts |>
@@ -332,7 +348,7 @@ gaRegions <- stateRegions |>
         dplyr::mutate(GEOID20 = NA, Name = stateRegion, AdminLevel = "Region") |>
         dplyr::select(-c(Count, Weight)) |>
         dplyr::rename(Weight = RegionWeight) |>
-        tidyr::nest(Precincts = c(PrecinctID, Weight))
+        tidyr::nest(Precincts = PrecinctID:Weight)
       
       #### return region boundary ----
       Sys.sleep(time = 30)

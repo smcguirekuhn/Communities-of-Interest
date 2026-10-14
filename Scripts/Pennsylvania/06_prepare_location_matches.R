@@ -27,7 +27,15 @@ paLocationMatchesFilename <- "PALocationMatches.rds"
 paPrecincts <- alarmdata::alarm_census_vest(state = "PA", geometry = TRUE) |>
   sf::st_transform(crs = "NAD83") |>
   sf::st_make_valid() |>
-  dplyr::select(PrecinctID = dplyr::all_of(x = paPrecinctsIDColumn))
+  dplyr::mutate(
+    PrecinctID = .data[[paPrecinctsIDColumn]],
+    Population = pop,
+    PercentWhite = pop_white/pop,
+    RepublicanVoteShare = pre_20_rep_tru/(pre_20_rep_tru + pre_20_dem_bid),
+    PopulationDensity = log1p(as.numeric(pop/(sf::st_area(geometry) |> units::set_units("km^2"))))
+  ) |>
+  dplyr::select(PrecinctID, Population, PercentWhite, RepublicanVoteShare, PopulationDensity)
+
 
 # clean shapefile data for each administrative level ----
 
@@ -76,8 +84,9 @@ paMunicipalityAreaPrecincts <- paPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct area matches to municipalities data ----
 paMunicipalities <- paMunicipalities |>
@@ -101,8 +110,9 @@ paMunicipalityPointPrecincts <- paMunicipalityPointPrecincts |>
     ]
   ) |>
   sf::st_drop_geometry() |>
+  dplyr::left_join(paPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to municipalities data ----
 paMunicipalities <- paMunicipalities |>
@@ -135,8 +145,9 @@ paSchoolDistrictPrecincts <- paPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to school districts data ----
 paSchoolDistricts <- paSchoolDistricts |>
@@ -167,8 +178,9 @@ paCountyPrecincts <- paPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to counties data ----
 paCounties <- paCounties |>
@@ -199,8 +211,9 @@ paStateHouseDistrictPrecincts <- paPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to state house districts data ----
 paStateHouseDistricts <- paStateHouseDistricts |>
@@ -228,8 +241,9 @@ paStateSenateDistrictPrecincts <- paPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to state senate districts data ----
 paStateSenateDistricts <- paStateSenateDistricts |>
@@ -257,8 +271,9 @@ paCongressionalDistrictPrecincts <- paPrecincts |>
   ) |>
   sf::st_drop_geometry() |>
   tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
   dplyr::mutate(Weight = 1) |>
-  tidyr::nest(Precincts = c(PrecinctID, Weight))
+  tidyr::nest(Precincts = PrecinctID:Weight)
 
 ### add precinct matches to congressional districts data ----
 paCongressionalDistricts <- paCongressionalDistricts |>
@@ -278,6 +293,7 @@ stateRegions <- c(
   "Southwestern Pennsylvania",
   "Western Pennsylvania",
   "Northwestern Pennsylvania",
+  "Central Pennsylvania",
   "Pennsylvania Wilds",
   "The Poconos",
   "Happy Valley",
@@ -289,7 +305,7 @@ stateRegions <- c(
 )
 
 ### assign region boundaries ----
-paRegions <- stateRegions |>
+paRegions <- stateRegions[1] |>
   purrr::map_dfr(
     .progress = "Assigning Vernacular Region Boundaries",
     .f = \(stateRegion) {
@@ -308,7 +324,7 @@ paRegions <- stateRegions |>
         dplyr::mutate(GEOID20 = NA, Name = stateRegion, AdminLevel = "Region") |>
         dplyr::select(-c(Count, Weight)) |>
         dplyr::rename(Weight = RegionWeight) |>
-        tidyr::nest(Precincts = c(PrecinctID, Weight))
+        tidyr::nest(Precincts = PrecinctID:Weight)
       
       #### return region boundary ----
       Sys.sleep(time = 45)

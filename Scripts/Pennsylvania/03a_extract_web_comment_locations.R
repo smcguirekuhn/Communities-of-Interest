@@ -32,6 +32,7 @@ stateRegions <- c(
   "Southwestern Pennsylvania",
   "Western Pennsylvania",
   "Northwestern Pennsylvania",
+  "Central Pennsylvania",
   "Pennsylvania Wilds",
   "The Poconos",
   "Happy Valley",
