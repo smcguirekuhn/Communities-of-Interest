@@ -28,11 +28,9 @@ extractCommentLocations <- function(
       "Western",
       "Northwestern",
       "Central",
-      "Unincorporated",
-      "Rural",
-      "Suburban",
       "Urban",
-      "Downtown",
+      "Rural",
+      "Unincorporated",
       "NA"
     ),
     model = "mistral-large-2512"

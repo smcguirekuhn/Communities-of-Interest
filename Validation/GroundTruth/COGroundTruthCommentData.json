@@ -738,11 +738,11 @@
         "FullLocationName": "Old Colorado City (Neighborhood)"
       },
       {
-        "Name": "Colorado Springs",
-        "AdminLevel": "City",
+        "Name": "Downtown Colorado Springs",
+        "AdminLevel": "Neighborhood",
         "CardinalDirectionSubarea": "NA",
-        "AdditionalDescription": "Downtown",
-        "FullLocationName": "Downtown Colorado Springs (City)"
+        "AdditionalDescription": "NA",
+        "FullLocationName": "Downtown Colorado Springs (Neighborhood)"
       },
       {
         "Name": "Colorado Springs",
@@ -818,7 +818,7 @@
       },
       {
         "Location1": "State House District 18 (State House District)",
-        "Location2": "Downtown Colorado Springs (City)",
+        "Location2": "Downtown Colorado Springs (Neighborhood)",
         "Request": "grouped",
         "DistrictType": "State House",
         "Confidence": "high"
