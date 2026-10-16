@@ -111,7 +111,7 @@ gaMunicipalityPointPrecincts <- gaMunicipalityPointPrecincts |>
     ]
   ) |>
   sf::st_drop_geometry() |>
-  dplyr::left_join(paPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
+  dplyr::left_join(gaPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
   dplyr::mutate(Weight = 1) |>
   tidyr::nest(Precincts = PrecinctID:Weight)
 
@@ -173,7 +173,7 @@ gaSchoolDistrictPointPrecincts <- gaSchoolDistrictPointPrecincts |>
     ]
   ) |>
   sf::st_drop_geometry() |>
-  dplyr::left_join(paPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
+  dplyr::left_join(gaPrecincts |> sf::st_drop_geometry(), by = "PrecinctID") |>
   dplyr::mutate(Weight = 1) |>
   tidyr::nest(Precincts = PrecinctID:Weight)
 
@@ -313,6 +313,38 @@ gaCongressionalDistricts <- gaCongressionalDistricts |>
 
 ## region matches ----
 
+### import urban areas shapefile ----
+gaUrbanAreas <- tigris::urban_areas(year = 2020, filter_by = sf::st_bbox(gaPrecincts)) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::mutate(AdminLevel = "Region") |>
+  dplyr::filter(NAME10 == "Atlanta, GA") |>
+  dplyr::select(GEOID20 = GEOID10, Name = NAME10, AdminLevel) |>
+  dplyr::mutate(Name = "Atlanta Metro Area")
+
+### match precincts ----
+gaUrbanAreaPrecincts <- gaPrecincts |>
+  dplyr::mutate(
+    Name = gaUrbanAreas[["Name"]][
+      geomander::geo_match(
+        from = gaPrecincts,
+        to = gaUrbanAreas,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ]
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
+  dplyr::mutate(Weight = 1) |>
+  tidyr::nest(Precincts = PrecinctID:Weight)
+
+### add precinct matches to urban areas data ----
+gaUrbanAreas <- gaUrbanAreas |>
+  dplyr::left_join(gaUrbanAreaPrecincts, by = "Name") |>
+  sf::st_drop_geometry()
+
 ### assign relevant state regions ----
 stateRegions <- c(
   "Northern Georgia",
@@ -323,7 +355,7 @@ stateRegions <- c(
   "Southwestern Georgia",
   "Western Georgia",
   "Northwestern Georgia",
-  "Atlanta Metro Area",
+  "Central Georgia",
   "Rural Georgia",
   "Coastal Georgia"
 )
@@ -364,6 +396,7 @@ gaLocationMatches <- dplyr::bind_rows(
   gaStateHouseDistricts,
   gaStateSenateDistricts,
   gaCongressionalDistricts,
+  gaUrbanAreas,
   gaRegions
 )
 

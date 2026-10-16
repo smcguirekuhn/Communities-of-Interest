@@ -277,6 +277,38 @@ coCongressionalDistricts <- coCongressionalDistricts |>
 
 ## region matches ----
 
+### import urban areas shapefile ----
+coUrbanAreas <- tigris::urban_areas(year = 2020, filter_by = sf::st_bbox(coPrecincts)) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::mutate(AdminLevel = "Region") |>
+  dplyr::filter(NAME10 == "Denver--Aurora, CO") |>
+  dplyr::select(GEOID20 = GEOID10, Name = NAME10, AdminLevel) |>
+  dplyr::mutate(Name = "Denver Metro Area")
+
+### match precincts ----
+coUrbanAreaPrecincts <- coPrecincts |>
+  dplyr::mutate(
+    Name = coUrbanAreas[["Name"]][
+      geomander::geo_match(
+        from = coPrecincts,
+        to = coUrbanAreas,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ]
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
+  dplyr::mutate(Weight = 1) |>
+  tidyr::nest(Precincts = PrecinctID:Weight)
+
+### add precinct matches to urban areas data ----
+coUrbanAreas <- coUrbanAreas |>
+  dplyr::left_join(coUrbanAreaPrecincts, by = "Name") |>
+  sf::st_drop_geometry()
+
 ### assign relevant state regions ----
 stateRegions <- c(
   "Northern Colorado",
@@ -292,7 +324,6 @@ stateRegions <- c(
   "Eastern Plains",
   "San Luis Valley",
   "Arkansas Valley",
-  "Denver Metro Area",
   "Rural Colorado"
 )
 
@@ -316,7 +347,7 @@ coRegions <- stateRegions |>
         dplyr::mutate(GEOID20 = NA, Name = stateRegion, AdminLevel = "Region") |>
         dplyr::select(-c(Count, Weight)) |>
         dplyr::rename(Weight = RegionWeight) |>
-        tidyr::nest(Precincts = c(PrecinctID, Weight))
+        tidyr::nest(Precincts = PrecinctID:Weight)
       
       #### return region boundary ----
       Sys.sleep(time = 30)
@@ -332,6 +363,7 @@ coLocationMatches <- dplyr::bind_rows(
   coStateHouseDistricts,
   coStateSenateDistricts,
   coCongressionalDistricts,
+  coUrbanAreas,
   coRegions
 )
 

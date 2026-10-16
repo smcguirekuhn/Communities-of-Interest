@@ -32,6 +32,7 @@ stateRegions <- c(
   "Southwestern Georgia",
   "Western Georgia",
   "Northwestern Georgia",
+  "Central Georgia",
   "Atlanta Metro Area",
   "Rural Georgia",
   "Coastal Georgia"

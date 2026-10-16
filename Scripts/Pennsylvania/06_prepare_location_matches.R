@@ -283,6 +283,43 @@ paCongressionalDistricts <- paCongressionalDistricts |>
 
 ## region matches ----
 
+### import urban areas shapefile ----
+paUrbanAreas <- tigris::urban_areas(year = 2020, filter_by = sf::st_bbox(paPrecincts)) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid() |>
+  dplyr::mutate(AdminLevel = "Region") |>
+  dplyr::filter(NAME10 %in% c("Philadelphia, PA--NJ--DE--MD", "Pittsburgh, PA")) |>
+  dplyr::select(GEOID20 = GEOID10, Name = NAME10, AdminLevel) |>
+  dplyr::mutate(
+    Name = dplyr::case_when(
+      Name == "Philadelphia, PA--NJ--DE--MD" ~ "Philadelphia Metro Area",
+      Name == "Pittsburgh, PA" ~ "Pittsburgh Metro Area"
+    )
+  )
+
+### match precincts ----
+paUrbanAreaPrecincts <- paPrecincts |>
+  dplyr::mutate(
+    Name = paUrbanAreas[["Name"]][
+      geomander::geo_match(
+        from = paPrecincts,
+        to = paUrbanAreas,
+        method = "area",
+        tiebreaker = FALSE
+      ) |> purrr::modify_if(~.x < 0, ~NA)
+    ]
+  ) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na(Name) |>
+  dplyr::relocate(Name, .before = 1) |>
+  dplyr::mutate(Weight = 1) |>
+  tidyr::nest(Precincts = PrecinctID:Weight)
+
+### add precinct matches to urban areas data ----
+paUrbanAreas <- paUrbanAreas |>
+  dplyr::left_join(paUrbanAreaPrecincts, by = "Name") |>
+  sf::st_drop_geometry()
+
 ### assign relevant state regions ----
 stateRegions <- c(
   "Northern Pennsylvania",
@@ -299,13 +336,11 @@ stateRegions <- c(
   "Happy Valley",
   "Lehigh Valley",
   "Coal Region",
-  "Mon Valley",
-  "Philadelphia Metro Area",
-  "Pittsburgh Metro Area"
+  "Mon Valley"
 )
 
 ### assign region boundaries ----
-paRegions <- stateRegions[1] |>
+paRegions <- stateRegions |>
   purrr::map_dfr(
     .progress = "Assigning Vernacular Region Boundaries",
     .f = \(stateRegion) {
@@ -340,6 +375,7 @@ paLocationMatches <- dplyr::bind_rows(
   paStateHouseDistricts,
   paStateSenateDistricts,
   paCongressionalDistricts,
+  paUrbanAreas,
   paRegions
 )
 
