@@ -20,7 +20,7 @@ allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocat
 coWebCommentLocationsFilename <- "COWebCommentLocations.rds"
 
 # import web comments ----
-coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
+coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename)) |> dplyr::filter(COI == 1)
 
 # assign relevant state regions ----
 stateRegions <- c(
@@ -50,15 +50,13 @@ sampledCommentIDs <- readRDS(file = file.path(allGroundTruthLocationsFilename)) 
 # add comment information columns ----
 extractedWebCommentLocations <- purrr::map(
   .progress = "Extracting Web Comment Locations",
-  .x = coWebComments |> dplyr::filter(CommentID %in% sampledCommentIDs) |> dplyr::pull(ZIPCode) |> unique(),
+  .x = coWebComments |> dplyr::pull(ZIPCode) |> unique(),
   .f = purrr::safely(\(commentZIPCode) {
     
     ## isolate comments for an individual zip code ----
     zipCodeWebComments <- coWebComments |>
-      dplyr::filter(CommentID %in% sampledCommentIDs, ZIPCode == commentZIPCode) |>
-      dplyr::select(CommentID, Comment) |>
-      dplyr::slice(rep(x = 1:dplyr::n(), each = 3)) |>
-      dplyr::mutate(Iteration = rep(x = 1:3, dplyr::n()/3))
+      dplyr::filter(ZIPCode == commentZIPCode) |>
+      dplyr::select(CommentID, Comment)
     
     ## gather comment information ----
     commentInfo <- extractCommentLocations(
@@ -72,7 +70,7 @@ extractedWebCommentLocations <- purrr::map(
       dplyr::bind_cols(commentInfo)
     
     ## return comment information ----
-    Sys.sleep(time = 3)
+    Sys.sleep(time = 10)
     return(zipCodeWebComments)
   })
 )
@@ -93,10 +91,7 @@ coWebCommentLocations <- extractedWebCommentLocations |>
   dplyr::filter(Name != "NA") |>
   dplyr::arrange(CommentID) |>
   addFullLocationNames() |>
-  dplyr::distinct(CommentID, Iteration, FullLocationName, .keep_all = TRUE) |>
-  dplyr::group_by(CommentID, FullLocationName) |>
-  dplyr::mutate(Frequency = dplyr::n(), ContextualFrequency = sum(Relevance == "contextual")) |>
-  dplyr::ungroup() |>
+  dplyr::distinct(CommentID, FullLocationName, .keep_all = TRUE) |>
   dplyr::mutate(State = "Colorado", .before = 1)
 
 # save comment data ----
