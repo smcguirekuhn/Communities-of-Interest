@@ -13,6 +13,30 @@ link-citations: yes
 
 ---
 
+## Redistricting and Democracy
+
+- Redistricting, a boundary-drawing process undertaken by every state in the United States at least every decade, has increasingly become a critical factor in determining the health of the nation's representative democracy [@Grumbach2023].
+- This process has profound downstream consequences for a variety of political outcomes, including district level competitiveness [@JasnyEtAl2025; @KennyEtAl2023], voter turnout [@Fraga2016], and the creation of majority-minority and minority-influence districts [@BarabasJerit2004].
+- Redistricting thus provides state governments with immense power to tip the scales towards or away from an electoral landscape that equally enfranchises the voters that make up their constituencies.
+
+---
+
+## Redistricting and Public Opinion
+
+- Despite it's importance, redistricting is nonetheless at odds with traditional democratic pipelines of connecting public opinion to representation and then policy.
+- Retrospective voting is complicated by the fact that the constituencies themselves are shifting
+- It's often unclear what the public's "vote" on a particular map would be in the absence of a statewide referendum given low information and salience of the issue among the public and the diversity of local community textures
+- The likely overall partisan balance resulting from a boundary configuration can be an ideological signal to voters [@McCarthy2022], but very few are likely to have the knowledge and expertise necessary to evaluate the entirety of a district map down to the precinct level [@McFarlane2024]
+
+---
+
+## The Utility of Community
+
+- Voters might instead have a better sense of their own communities and what separates "where they live" from where places become "somewhere else" based on social, cultural, economic, or geographic features
+- Under these conditions, the idea of "Communities of Interest" offers a powerful and more direct link between public opinion and redistricting outcomes.
+
+---
+
 ## Communities of Interest
 
 - Stephanopoulos [-@Stephanopoulos2012] illustrates that a group of people constitute a community of interest if they demonstrate the following three criteria:
@@ -165,9 +189,28 @@ knitr::include_graphics(path = "../Figures/Colorado/ExampleCommentNetwork.png")
 
 ## Measuring Request-Level Adherence
 
-- A request is fully adhered to if grouped precincts are held together in a particular legislative district and separated precincts are held in any other districts
 - Adherence for all COI commenters can be assessed for any relevant map, including 2020 boundaries, proposed boundaries, and final boundaries for each state's congressional, state senate, and state house districts
-- Adherence for maps made throughout the redistricting process can be modeled based on comment length, community size, community racial polarity, and community partisanship polarity
+  - For grouped requests, adherence is modeled as a population-weighted diversity index measuring the probability that two randomly selected citizens will fall into the same legislative district
+  - For separated requests, adherence is a population weighted index of the probability that two individuals, one from each requested set of separated precincts, will fall into different districts
+  - These indices are benchmarked against 5000 simulated, nonpartisan district plans from the `alarmdata` R package [@KennyEtAl2023] to account for each state's political geography and redistricting criteria
+
+---
+
+## Modeling Approaches
+
+- Commenter-level adherence pre- and post-redistricting for Colorado, Pennsylvania, and Georgia
+- Commenter-level adherence based on measures of precinct-level request homophily along partisanship, race, and rurality, as well as commenter traits where available
+- Network community detection of aggregate COIs across commenters
+- Adherence across commenters based on partisan leeway [@McCartanEtAl2026] and pooled commenter traits
+
+---
+
+## Next Steps
+
+- Complete end-to-end modeling pipeline for Colorado, Pennsylvania, and Georgia
+- Conduct additional data collection for states with large comment corpora (starting with Michigan, Arizona, New York, and California)
+- Pair additional data collection with ground truth coding, ideally across multiple coders
+- Model sentiment and approval/disapproval by comment for additional covariates
 
 ---
 
