@@ -1,5 +1,5 @@
 
-# Script 06: Prepare Location Match Shapefiles for Each Administrative Level in Colorado
+# Script 04: Prepare Location Match Shapefiles for Each Administrative Level in Colorado
 
 # reset global environment ----
 rm(list = ls())
