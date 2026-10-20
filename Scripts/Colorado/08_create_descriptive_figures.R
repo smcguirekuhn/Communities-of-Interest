@@ -1,5 +1,5 @@
 
-# Script 07: Create Descriptive Figures from Colorado Web Comments
+# Script 08: Create Descriptive Figures from Colorado Web Comments
 
 # reset global environment ----
 rm(list = ls())
