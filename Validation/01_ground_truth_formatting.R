@@ -38,6 +38,13 @@ coGroundTruthData <- jsonlite::read_json(
 ## import colorado location matches ----
 coLocationMatches <- readRDS(file = file.path(dataPath, coLocationMatchesFilename))
 
+## import colorado boundaries data ----
+coPrecincts <- alarmdata::alarm_census_vest(state = "CO", geometry = TRUE) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid()
+coUrbanAreas <- tigris::urban_areas(year = 2020, filter_by = sf::st_union(coPrecincts))
+coMunicipalities <- tigris::places(state = "CO", year = 2020) |> dplyr::filter(CLASSFP == "C1")
+
 ## format colorado ground truth locations ----
 coGroundTruthLocations <- coGroundTruthData |>
   dplyr::select(CommentID, LocationsMentioned) |>
@@ -57,29 +64,37 @@ coGroundTruthLocations <- coGroundTruthData |>
 
 ## group colorado ground truth locations by unique locations to match ----
 coGroundTruthMatches <- coGroundTruthLocations |>
-  dplyr::select(-c(SubareaDescription, FullLocationName)) |>
-  dplyr::group_by(State, Name, AdminLevel) |>
+  dplyr::select(-FullLocationName) |>
+  dplyr::group_by(State, Name, AdminLevel, SubareaDescription) |>
   dplyr::summarise(Frequency = dplyr::n()) |>
   dplyr::ungroup() |>
   dplyr::arrange(dplyr::desc(Frequency))
 
 ## find location matches ----
-coMatchedGroundTruthLocations <- purrr::map2_dfr(
-  .x = coGroundTruthMatches |> dplyr::pull(Name),
-  .y = coGroundTruthMatches |> dplyr::pull(AdminLevel),
-  .f = \(location, adminLevel) {
+coMatchedGroundTruthLocations <- purrr::pmap_dfr(
+  .progress = "Matching Locations",
+  .l = list(
+    coGroundTruthMatches |> dplyr::pull(Name),
+    coGroundTruthMatches |> dplyr::pull(AdminLevel),
+    coGroundTruthMatches |> dplyr::pull(SubareaDescription)
+  ),
+  .f = \(location, adminLevel, subarea) {
     matchLocation(
       location = location,
       adminLevel = adminLevel,
-      locationMatches = coLocationMatches
+      subarea = subarea,
+      locationMatches = coLocationMatches,
+      precincts = coPrecincts,
+      urbanAreas = coUrbanAreas,
+      municipalities = coMunicipalities
     )
   }
 )
 
 ## pair ground truth locations with matched precincts ----
 coGroundTruthLocations <- coGroundTruthLocations |>
-  dplyr::left_join(y = coMatchedGroundTruthLocations, by = c("Name", "AdminLevel")) |>
-  dplyr::select(-MongeElkanDistance)
+  dplyr::left_join(y = coMatchedGroundTruthLocations, by = c("Name", "AdminLevel", "SubareaDescription")) |>
+  dplyr::select(-c(MongeElkanDistance, CosineDistance))
 
 ## format colorado ground truth requests ----
 coGroundTruthRequests <- purrr::map_dfr(
@@ -110,7 +125,14 @@ gaGroundTruthData <- jsonlite::read_json(
 ## import georgia location matches ----
 gaLocationMatches <- readRDS(file = file.path(dataPath, gaLocationMatchesFilename))
 
-# format georgia ground truth locations ----
+## import georgia boundaries data ----
+gaPrecincts <- alarmdata::alarm_census_vest(state = "GA", geometry = TRUE) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid()
+gaUrbanAreas <- tigris::urban_areas(year = 2020, filter_by = sf::st_union(gaPrecincts))
+gaMunicipalities <- tigris::places(state = "GA", year = 2020) |> dplyr::filter(CLASSFP == "C1")
+
+## format georgia ground truth locations ----
 gaGroundTruthLocations <- gaGroundTruthData |>
   dplyr::select(CommentID, LocationsMentioned) |>
   dplyr::mutate(CommentID = as.integer(CommentID)) |>
@@ -130,29 +152,37 @@ gaGroundTruthLocations <- gaGroundTruthData |>
 
 ## group georgia ground truth locations by unique locations to match ----
 gaGroundTruthMatches <- gaGroundTruthLocations |>
-  dplyr::select(-c(SubareaDescription, FullLocationName)) |>
-  dplyr::group_by(State, Name, AdminLevel) |>
+  dplyr::select(-FullLocationName) |>
+  dplyr::group_by(State, Name, AdminLevel, SubareaDescription) |>
   dplyr::summarise(Frequency = dplyr::n()) |>
   dplyr::ungroup() |>
   dplyr::arrange(dplyr::desc(Frequency))
 
 ## find location matches ----
-gaMatchedGroundTruthLocations <- purrr::map2_dfr(
-  .x = gaGroundTruthMatches |> dplyr::pull(Name),
-  .y = gaGroundTruthMatches |> dplyr::pull(AdminLevel),
-  .f = \(location, adminLevel) {
+gaMatchedGroundTruthLocations <- purrr::pmap_dfr(
+  .progress = "Matching Locations",
+  .l = list(
+    gaGroundTruthMatches |> dplyr::pull(Name),
+    gaGroundTruthMatches |> dplyr::pull(AdminLevel),
+    gaGroundTruthMatches |> dplyr::pull(SubareaDescription)
+  ),
+  .f = \(location, adminLevel, subarea) {
     matchLocation(
       location = location,
       adminLevel = adminLevel,
-      locationMatches = gaLocationMatches
+      subarea = subarea,
+      locationMatches = gaLocationMatches,
+      precincts = gaPrecincts,
+      urbanAreas = gaUrbanAreas,
+      municipalities = gaMunicipalities
     )
   }
 )
 
 ## pair ground truth locations with matched precincts ----
 gaGroundTruthLocations <- gaGroundTruthLocations |>
-  dplyr::left_join(y = gaMatchedGroundTruthLocations, by = c("Name", "AdminLevel")) |>
-  dplyr::select(-MongeElkanDistance)
+  dplyr::left_join(y = gaMatchedGroundTruthLocations, by = c("Name", "AdminLevel", "SubareaDescription")) |>
+  dplyr::select(-c(MongeElkanDistance, CosineDistance))
 
 # format georgia ground truth requests ----
 gaGroundTruthRequests <- purrr::map_dfr(
@@ -183,6 +213,13 @@ paGroundTruthData <- jsonlite::read_json(
 ## import pennsylvania location matches ----
 paLocationMatches <- readRDS(file = file.path(dataPath, paLocationMatchesFilename))
 
+## import pennsylvania boundaries data ----
+paPrecincts <- alarmdata::alarm_census_vest(state = "PA", geometry = TRUE) |>
+  sf::st_transform(crs = "NAD83") |>
+  sf::st_make_valid()
+paUrbanAreas <- tigris::urban_areas(year = 2020, filter_by = sf::st_union(paPrecincts))
+paMunicipalities <- tigris::places(state = "PA", year = 2020) |> dplyr::filter(CLASSFP == "C1")
+
 # format pennsylvania ground truth locations ----
 paGroundTruthLocations <- paGroundTruthData |>
   dplyr::select(CommentID, LocationsMentioned) |>
@@ -202,29 +239,37 @@ paGroundTruthLocations <- paGroundTruthData |>
 
 ## group pennsylvania ground truth locations by unique locations to match ----
 paGroundTruthMatches <- paGroundTruthLocations |>
-  dplyr::select(-c(SubareaDescription, FullLocationName)) |>
-  dplyr::group_by(State, Name, AdminLevel) |>
+  dplyr::select(-FullLocationName) |>
+  dplyr::group_by(State, Name, AdminLevel, SubareaDescription) |>
   dplyr::summarise(Frequency = dplyr::n()) |>
   dplyr::ungroup() |>
   dplyr::arrange(dplyr::desc(Frequency))
 
 ## find location matches ----
-paMatchedGroundTruthLocations <- purrr::map2_dfr(
-  .x = paGroundTruthMatches |> dplyr::pull(Name),
-  .y = paGroundTruthMatches |> dplyr::pull(AdminLevel),
-  .f = \(location, adminLevel) {
+paMatchedGroundTruthLocations <- purrr::pmap_dfr(
+  .progress = "Matching Locations",
+  .l = list(
+    paGroundTruthMatches |> dplyr::pull(Name),
+    paGroundTruthMatches |> dplyr::pull(AdminLevel),
+    paGroundTruthMatches |> dplyr::pull(SubareaDescription)
+  ),
+  .f = \(location, adminLevel, subarea) {
     matchLocation(
       location = location,
       adminLevel = adminLevel,
-      locationMatches = paLocationMatches
+      subarea = subarea,
+      locationMatches = paLocationMatches,
+      precincts = paPrecincts,
+      urbanAreas = paUrbanAreas,
+      municipalities = paMunicipalities
     )
   }
 )
 
 ## pair ground truth locations with matched precincts ----
 paGroundTruthLocations <- paGroundTruthLocations |>
-  dplyr::left_join(y = paMatchedGroundTruthLocations, by = c("Name", "AdminLevel")) |>
-  dplyr::select(-MongeElkanDistance)
+  dplyr::left_join(y = paMatchedGroundTruthLocations, by = c("Name", "AdminLevel", "SubareaDescription")) |>
+  dplyr::select(-c(MongeElkanDistance, CosineDistance))
 
 # format pennsylvania ground truth requests ----
 paGroundTruthRequests <- purrr::map_dfr(
