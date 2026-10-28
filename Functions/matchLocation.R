@@ -79,7 +79,7 @@ matchLocation <- function(
   if (nrow(locationMatch) == 0) {
     cli::cli_inform(message = glue::glue("No matches found for {location} ({adminLevel})"))
     locationMatch <- dplyr::tibble(Name = location, AdminLevel = adminLevel, Match = NA)
-  } else if (subarea != "NA") {
+  } else if (!is.na(locationMatch[["Match"]]) & subarea != "NA") {
     cli::cli_inform(message = glue::glue("Matching {subarea} precincts for {location} ({adminLevel})"))
     matchedPrecincts <- locationMatch |>
       dplyr::pull(Precincts) |>

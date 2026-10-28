@@ -21,7 +21,7 @@ assignSubareaPrecincts <- function(
   
   # check arguments ----
   stopifnot("sf" %in% class(precincts))
-  subarea <- match.arg(arg = subarea)
+  # subarea <- match.arg(arg = subarea)
   
   # assign subarea membership ----
   if (subarea == "Urban") {
