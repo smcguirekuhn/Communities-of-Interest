@@ -1,0 +1,93 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Redistricting and Congruence
+
+\qquad Existing literature has found that state legislatures are generally responsive to public opinion but not congruent with the concrete policies desired by public majorities [@LaxPhillips2012].
+Like many other policy issue areas, the clandestine practice of redistricting is likely not immune to this congruency gap.
+Partisan legislature redistricting outcomes often produce large "efficiency gaps" between statewide vote shares and resulting seat counts for each political party [@WarshawMcGheeMigurski2022].
+Redistricting, especially in recent cycles, has also widely reduced the frequency of both competitive electoral districts [@JasnyEtAl2025; @KennyEtAl2023] and majority-minority or majority-influence districts [@BarabasJerit2004].
+However, unlike most issue areas, redistricting decisions produce categorical and geographically-defined results on the same dimensional plane as any hypothetical, concrete public preference about redistricting.
+In other words, both policy and mass opinion can be mapped onto sets of precincts in a given state with measurable degrees of overlap.
+This makes redistricting a powerful arena for the study of congruence more broadly, especially with redistricting being so closely linked to the health of America's state and federal democracies [@Grumbach2023; @GelmanKing1994; @Fraga2016].
+
+\qquad Measuring congruence with communities of interest, however, requires that we understand what most members of the public would request of their redistricting institutions in the first place.
+This is no easy task.
+Public knowledge and opinions on redistricting, as a concept, are relatively sparse [@CooperEtAl2024; @McCarthy2022], with respondents often relying on partisan cues or judgements about the overall redistricting process.
+Evaluating public opinion on redistricting is further complicated by low levels of geographic literacy across the country [@McFarlane2024], meaning that citizens are unlikely to have the expertise to properly judge an entire state's district map.
+True opinions on a map among the public are likely localized and related to the partisan or nonpartisan factors of the communities Americans call home.
+A citizen might not have a good sense of how to divide up an entire metro area into state house districts, but they can probably comment on whether their neighborhood, city, school district, and county should be kept whole, combined with other areas, or separated from other areas.
+Place based identities are a powerful force in the United States [@ElderLueders2025], implying that residents of a community have some perception of the social, cultural, economic, and geographic dynamics that separate "where they live" from everywhere else.
+It is under these conditions that the concept of "Communities of Interest" can play a critical role in the translation of public opinion to geographic configurations that enacted maps can either be congruent or incongruent with.
+
+## Communities of Interest in Legislative Redistricting
+
+\qquad Nicholas Stephanopoulos [-@Stephanopoulos2012] articulates that a group of people constitute a community of interest (COI) if they (1) share a common geographic range, (2) share common socioeconomic or cultural interests, and (3) subjectively identify as members of a cohesive geographic community.
+Respecting communities of interest is typically one of several criteria that many boundary-drawing institutions are constitutionally obligated to respect [@Webster2013], including contiguity, compactness, population equality, and protection of minority voting populations.
+However, these criteria are difficult to balance, and some can even be contradictory.
+In fact, the "reapportionment revolution" of the 1960s, a series of Supreme Court decisions requiring that legislative redistricting strictly adhere to the criteria of population equality across districts, is credited with massively disrupting the ability of states to respect COIs despite the clear benefits of meeting both criteria simultaneously [@Stephanopoulos2012].
+State and federal courts are nonetheless receptive of arguments in favor of protecting COIs, often striking down maps in clear violation of the criteria.
+Furthermore, recent court decisions have diminished the prominence of the Voting Rights Act as a basis for striking down statewide maps that fail to appropriately represent minority populations [@ChenEtAl2022], leaving communities of interest as a possible line of defense for these populations to still litigate with.
+
+\qquad Thus, a burgeoning community of scholars, recognizing the utility offered by communities of interest as well as their importance in district plan litigation, have articulated a variety of methods for COI measurement.
+Some scholars have used contextual and behavioral characteristics of smaller geographic units within states [@KruseGaoMayer2026; @GimpelHarbridgeYong2020; @Makse2012; @Syme2025; @RossiterWongDelamater2018; @SwansonBryan2024], clustering units into cohesive groups and comparing district maps to group boundaries.
+For example, Kruse, Gao, and Mayer [-@KruseGaoMayer2026] use Facebook friendship networks and mobile device visits between Census block groups to construct COIs, while Maske sorts communities based on issue area initiative votes in Ohio [@Makse2012].
+These observational approaches present defensible solutions based on well-distributed data across entire states, and their sophisticated methods have yielded actionable insights, but they nonetheless ascribe community membership at a distance from the public's participation in the redistricting process.
+
+\qquad Other scholars, therefore, have constructed COIs based on grassroots input from the public, including the deployment of public mapping tools that allow respondents to "draw" their communities of interest from a bird's eye view [@ChenEtAl2022; @ChambersEtAl2022].
+These drawn communities of interest can then be compiled and analyzed using a variety of computational techniques.
+Chambers and colleagues cluster overlapping COIs based on their similarity across respondents, while Chen and colleagues introduce novel measures to evaluate how egregiously an enacted plan splits a given community.
+These studies provide a framework that boundary-drawing institutions can use to engage the public and better link redistricting with democratic participation.
+They also provide a closer estimation of the kind of communication flows between constituents and legislators that are likely to occur during the redistricting process.
+
+\qquad The most widespread attempts at measuring communities of interest, however, have been made the states themselves, with boundary-drawing institutions launching widespread outreach programs in recent redistricting cycles.
+Many institutions offer public hearings so that concerned citizens can deliver speeches and presentations to boundary drawers, and lengthy essay submissions or even complete district maps drawn using publicly available GIS software are common forms of participation.
+But the largest body of testimony collected in the most recent redistricting cycle came from state-run public web comment platforms, with submissions numbering in the hundreds or thousands for many states, especially those making use of an independent redistricting committee.
+Among these comments, communities of interest discussion often naturally takes center stage, assembling a rich mosaic of geographic configuration requests that span entire states.
+As such, these web comments provide the strongest link to date connecting politically engaged residents to the redistricting process, but questions remain regarding how well these comments represent the public and whether any requests are congruent with enacted maps.
+
+\qquad Are public commenters independent testifiers resembling a cross section of their communities, or do they form unrepresentative, coordinated networks of advocacy across space and time?
+Are redistricting institutions responsive to requests of a certain nature or popularity?
+Across states, what types of redistricting institutions are the most responsive to community of interest testimony?
+Answering these questions can lend insight to the ways that legislative institutions recruit and receive policy opinion and illuminate mechanisms explaining why congruence lags across policy areas more broadly.
+
+## Theories of Congruence with Public Comment
+
+\qquad Gabriella Subia's exploration of public participation during the creation of Colorado's eighth congressional district suggests that the state's IRC prioritized the representation of Hispanic voters, a competitive partisan balance, and the protection of various industries north of Denver, all of which were advocated for by both interest groups and local residents [@Subia2024].
+This case study aligns itself with the broader literature on public comment during rulemaking, which has generally found that institutions are responsive to those who participate [@Sahn2025; @Ingrams2023].
+However, another analysis by Olivia Rambo finds among a sample of comments submitted to the California Citizen's Redistricting Commission that certain interests were more likely to achieve their boundary drawing aims than others, and many comments were copies of templates distributed to the public by interest groups [@Rambo2021].
+This study is consistent with the idea that the most influential voices during the process of collecting public testimony are not representative of the population as a whole [@YackeeYackee2006], highlighting one source of disconnect between mass opinion and redistricting outcomes.
+Organized interests can recruit or inspire bundles of comments making similar requests from similar areas at similar times, either using templates [@Rambo2021] or encouraging commenters to express a request in their own words.
+Thus, we test the following two hypotheses about the nature of public web comment corpora:
+
+>H1: Across individual states, public web comment density and commenter demographics will not be representative of local community sizes and contexts.
+
+>H2: Across individual states, public web comments will not be independent, and commenters will span a network of advocacy detectable by clusters of spaciotemporal comment density.
+
+\qquad For an issue like redistricting, an issue that the public has a limited knowledge of [@CooperEtAl2024], interest groups can either advocate for policy that appropriately represents the interests of their corresponding communities, or they can try to pull a district plan farther away from the will of underrepresented communities.
+Other comments will appear organically among the public, with altruistic, independent commenters - whether they be active community members, academics, or political hobbyists - genuinely expressing the best interests of a local population.
+Under the relative anonymity of many web commenting platforms, a boundary-drawing institution might struggle to discern the motivations behind popular requests among the comments they receive.
+Furthermore, boundary-drawing institutions can defend their decisions against the threat of litigation or veto by claiming they're responsive to the input they received, arguing that the most outspoken voices during the redistricting process are well informed about the appropriate decisions for their communities more broadly.
+This line of reasoning leads to the following hypothesis:
+
+>H3: Within a state, congruence with some subset of public comment requests will be higher than what would be expected in the absence of public comments.
+
+\qquad Which requests, contingent on support of H3, should we expect to be more congruent than others?
+A single state's redistricting institution has a collective set of goals and a necessarily unique approach to synthesizing any public opinion they receive.
+Previous research has found that legislators will often disregard public input that they disagree with [@ButlerDynes2016], and boundary drawers must also balance a variety of other redistricting criteria besides adherence to communities of interest [@Webster2013].
+Thankfully, McCartan and colleagues have built measures based on a Nash equilibrium process to assess the extent that partisan actors have leeway over the creation of final maps - based on initial boundary drawing responsibilities, veto guardrails, and the likelihood of court challenges - from state to state [-@McCartanEtAl2026].
+Unsurprisingly, states with independent redistricting commissions tend to have the lowest "partisan leeway" scores, while states placing the responsibility solely in the hands of a partisan legislature have much higher scores.
+States with greater partisan leeway are likely to be choosier about the public community of interest comments they consider, adhering closely to clusters of requests that align with their broader agenda while completely discounting others.
+It may also be the case that systematic differences in congruence emerge based on the racial or geographic makeup of a request's commenters or the nature of the request itself.
+This leads to the following hypotheses:
+
+>H4: The association between request congruence and request popularity will be less predictable among states with greater partisan leeway over the redistricting process.
+
+>H5: The association between request congruence and compositional features of a request's commenters will be stronger among states with greater partisan leeway over the redistricting process.
+
+\qquad Support for each of these hypotheses can inform how congruence is disconnected from public opinion across many other issue areas [@LaxPhillips2012].
+Unlike these other issues, however, the geographic results of redistricting enable direct measurements of congruence with constituent requests, and the criteria of communities of interest serves as a vital link between credible mass opinion and actionable geographic configurations.
+Exploring the nature of testimony that institutions collect and respond to can inform how statehouse democracies, some more than others, unintentionally or deliberately misalign themselves with the will of the people.
