@@ -7,21 +7,21 @@ output:
 ## Redistricting and Congruence
 
 \qquad Existing literature has found that state legislatures are generally responsive to public opinion but not congruent with the concrete policies desired by public majorities [@LaxPhillips2012].
-Like many other policy issue areas, the clandestine practice of redistricting is likely not immune to this congruency gap.
+Like many other policy issue areas, the clandestine practice of redistricting is not immune to this congruency gap.
 Partisan legislature redistricting outcomes often produce large "efficiency gaps" between statewide vote shares and resulting seat counts for each political party [@WarshawMcGheeMigurski2022].
 Redistricting, especially in recent cycles, has also widely reduced the frequency of both competitive electoral districts [@JasnyEtAl2025; @KennyEtAl2023] and majority-minority or majority-influence districts [@BarabasJerit2004].
 However, unlike most issue areas, redistricting decisions produce categorical and geographically-defined results on the same dimensional plane as any hypothetical, concrete public preference about redistricting.
-In other words, both policy and mass opinion can be mapped onto sets of precincts in a given state with measurable degrees of overlap.
+Instead of trying to evaluate how the specific language of a piece of legislation translates onto individual policy preferences, which can be untethered by practical and semantic constraints, redistricting decisions present an opportunity for both policy and mass opinion can be mapped onto sets of precincts in a given state with measurable degrees of overlap.
 This makes redistricting a powerful arena for the study of congruence more broadly, especially with redistricting being so closely linked to the health of America's state and federal democracies [@Grumbach2023; @GelmanKing1994; @Fraga2016].
 
-\qquad Measuring congruence with communities of interest, however, requires that we understand what most members of the public would request of their redistricting institutions in the first place.
+\qquad Measuring congruence with redistricting decisions, however, requires that we understand what most members of the public would request of their boundary-drawing institutions in the first place.
 This is no easy task.
 Public knowledge and opinions on redistricting, as a concept, are relatively sparse [@CooperEtAl2024; @McCarthy2022], with respondents often relying on partisan cues or judgements about the overall redistricting process.
 Evaluating public opinion on redistricting is further complicated by low levels of geographic literacy across the country [@McFarlane2024], meaning that citizens are unlikely to have the expertise to properly judge an entire state's district map.
 True opinions on a map among the public are likely localized and related to the partisan or nonpartisan factors of the communities Americans call home.
 A citizen might not have a good sense of how to divide up an entire metro area into state house districts, but they can probably comment on whether their neighborhood, city, school district, and county should be kept whole, combined with other areas, or separated from other areas.
 Place based identities are a powerful force in the United States [@ElderLueders2025], implying that residents of a community have some perception of the social, cultural, economic, and geographic dynamics that separate "where they live" from everywhere else.
-It is under these conditions that the concept of "Communities of Interest" can play a critical role in the translation of public opinion to geographic configurations that enacted maps can either be congruent or incongruent with.
+It is under these conditions that a key redistricting criteria - the concept of "Communities of Interest" - can offer a critical advantage over other outcome heuristics in the translation of public opinion to geographic configurations that enacted maps can either be congruent or incongruent with.
 
 ## Communities of Interest in Legislative Redistricting
 
@@ -43,39 +43,41 @@ Chambers and colleagues cluster overlapping COIs based on their similarity acros
 These studies provide a framework that boundary-drawing institutions can use to engage the public and better link redistricting with democratic participation.
 They also provide a closer estimation of the kind of communication flows between constituents and legislators that are likely to occur during the redistricting process.
 
-\qquad The most widespread attempts at measuring communities of interest, however, have been made the states themselves, with boundary-drawing institutions launching widespread outreach programs in recent redistricting cycles.
+\qquad The most widespread attempts at measuring communities of interest, however, have thankfully been made the states themselves, with boundary-drawing institutions launching widespread outreach programs in recent redistricting cycles.
 Many institutions offer public hearings so that concerned citizens can deliver speeches and presentations to boundary drawers, and lengthy essay submissions or even complete district maps drawn using publicly available GIS software are common forms of participation.
 But the largest body of testimony collected in the most recent redistricting cycle came from state-run public web comment platforms, with submissions numbering in the hundreds or thousands for many states, especially those making use of an independent redistricting committee.
 Among these comments, communities of interest discussion often naturally takes center stage, assembling a rich mosaic of geographic configuration requests that span entire states.
 As such, these web comments provide the strongest link to date connecting politically engaged residents to the redistricting process, but questions remain regarding how well these comments represent the public and whether any requests are congruent with enacted maps.
 
-\qquad Are public commenters independent testifiers resembling a cross section of their communities, or do they form unrepresentative, coordinated networks of advocacy across space and time?
+\qquad Not only are these recent testimony gathering efforts widespread, but they also reflect, as with many other issue areas, the data that legislators themselves collect to gather opinions from constituents and make subsequent decisions, making public web comments ideally situated for answering several questions about if and why congruence lags during the redistricting process.
+Are public commenters independent testifiers resembling a cross section of their communities, or do they form unrepresentative, coordinated networks of advocacy across space and time?
 Are redistricting institutions responsive to requests of a certain nature or popularity?
 Across states, what types of redistricting institutions are the most responsive to community of interest testimony?
-Answering these questions can lend insight to the ways that legislative institutions recruit and receive policy opinion and illuminate mechanisms explaining why congruence lags across policy areas more broadly.
+Answers to each of these questions can lend insight to the broader study of public testimony, responsiveness, congruence, and democratic representation.
 
 ## Theories of Congruence with Public Comment
 
 \qquad Gabriella Subia's exploration of public participation during the creation of Colorado's eighth congressional district suggests that the state's IRC prioritized the representation of Hispanic voters, a competitive partisan balance, and the protection of various industries north of Denver, all of which were advocated for by both interest groups and local residents [@Subia2024].
 This case study aligns itself with the broader literature on public comment during rulemaking, which has generally found that institutions are responsive to those who participate [@Sahn2025; @Ingrams2023].
-However, another analysis by Olivia Rambo finds among a sample of comments submitted to the California Citizen's Redistricting Commission that certain interests were more likely to achieve their boundary drawing aims than others, and many comments were copies of templates distributed to the public by interest groups [@Rambo2021].
-This study is consistent with the idea that the most influential voices during the process of collecting public testimony are not representative of the population as a whole [@YackeeYackee2006], highlighting one source of disconnect between mass opinion and redistricting outcomes.
-Organized interests can recruit or inspire bundles of comments making similar requests from similar areas at similar times, either using templates [@Rambo2021] or encouraging commenters to express a request in their own words.
-Thus, we test the following two hypotheses about the nature of public web comment corpora:
+One source of district map incongruence, then, might derive from the fact that those who testify have their requests met, but they don't appropriately represent a state's constituency, leading to the following hypothesis:
 
 >H1: Across individual states, public web comment density and commenter demographics will not be representative of local community sizes and contexts.
 
->H2: Across individual states, public web comments will not be independent, and commenters will span a network of advocacy detectable by clusters of spaciotemporal comment density.
+\qquad Another analysis by Olivia Rambo finds among a sample of comments submitted to the California Citizen's Redistricting Commission that certain interests were more likely to achieve their boundary drawing aims than others, and many comments were copies of templates distributed to the public by interest groups [@Rambo2021].
+This study is consistent with the idea that even among those who participate, the most well-funded and well-coordinated voices during the process of collecting public testimony have the greatest influence [@YackeeYackee2006], highlighting a second source of disconnect between mass opinion and redistricting outcomes.
+These organized interests can recruit or inspire bundles of comments making similar requests from similar areas at similar times, either using templates [@Rambo2021] or encouraging commenters to express a request in their own words.
 
-\qquad For an issue like redistricting, an issue that the public has a limited knowledge of [@CooperEtAl2024], interest groups can either advocate for policy that appropriately represents the interests of their corresponding communities, or they can try to pull a district plan farther away from the will of underrepresented communities.
+\qquad Furthermore, for an issue like redistricting, an issue that the public has a limited knowledge of [@CooperEtAl2024], interest groups can either advocate for policy that appropriately represents the interests of their corresponding communities, or they can try to pull a district plan farther away from the will of underrepresented communities.
 Other comments will appear organically among the public, with altruistic, independent commenters - whether they be active community members, academics, or political hobbyists - genuinely expressing the best interests of a local population.
 Under the relative anonymity of many web commenting platforms, a boundary-drawing institution might struggle to discern the motivations behind popular requests among the comments they receive.
 Furthermore, boundary-drawing institutions can defend their decisions against the threat of litigation or veto by claiming they're responsive to the input they received, arguing that the most outspoken voices during the redistricting process are well informed about the appropriate decisions for their communities more broadly.
-This line of reasoning leads to the following hypothesis:
+Thus, we test the following two hypotheses about the nature of public web comment corpora:
+
+>H2: Across individual states, public web comments will not be independent, and commenters will span a network of advocacy detectable by clusters of spaciotemporal comment density.
 
 >H3: Within a state, congruence with some subset of public comment requests will be higher than what would be expected in the absence of public comments.
 
-\qquad Which requests, contingent on support of H3, should we expect to be more congruent than others?
+\qquad Which requests, contingent on support of H2 and H3, should we expect to be more congruent than others?
 A single state's redistricting institution has a collective set of goals and a necessarily unique approach to synthesizing any public opinion they receive.
 Previous research has found that legislators will often disregard public input that they disagree with [@ButlerDynes2016], and boundary drawers must also balance a variety of other redistricting criteria besides adherence to communities of interest [@Webster2013].
 Thankfully, McCartan and colleagues have built measures based on a Nash equilibrium process to assess the extent that partisan actors have leeway over the creation of final maps - based on initial boundary drawing responsibilities, veto guardrails, and the likelihood of court challenges - from state to state [-@McCartanEtAl2026].
