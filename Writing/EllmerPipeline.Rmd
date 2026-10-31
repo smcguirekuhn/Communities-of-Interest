@@ -4,7 +4,7 @@ output:
   html_document: default
 ---
 
-## Appendix A: Comment Data Extraction with Ellmer
+## Appendix A: Comment Data Extraction with Ellmer {#ellmer-pipeline}
 
 ```{r ellmer-pipeline-setup}
 
@@ -129,7 +129,7 @@ Subarea options included the following: "Northern", "Northeastern", "Eastern", "
 This relevance prompt and its associated rules were added based on edge cases observed during the process of reading randomly sampled comments.
 Since "contextual" locations are not part of a genuine geographic configuration requested by the commenter, they should not be included in downstream analysis steps, especially including the evaluation of district plan congruence with constituent opinion.
 
-## Stage Three - Location Relationship Extraction
+### Stage Three - Location Relationship Extraction
 
 For any comments identified as having multiple locations mentioned, a third set of `ellmer` prompts was used to extract the relationships between locations according to the commenter's request.
 Individual relationships were embedded in an array type `ellmer` output.
@@ -176,7 +176,7 @@ District type prompting consisted of the following:
 
 District types relevant to the location relationship were constrained to be one or more of the following: "State House", "State Senate", "Congressional", or "NA" when no district type was listed or when multiple types were being discussed simultaneously.
 
-## Validation
+### Validation
 
 For each state, 50 comments screened for the mention of communities of interest were randomly sampled and annotated by hand.
 These annotated comments followed the same rules as the prompting architecture described above, and from location mentions and requests among pairs of locations, a "Ground Truth" set of comments was constructed to validate `ellmer` output against.

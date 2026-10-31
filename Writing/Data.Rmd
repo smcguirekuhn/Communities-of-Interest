@@ -1,0 +1,74 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Public Comments in the 2021-2022 Redistricting Cycle (forthcoming)
+
+## Public Comment Data in Colorado
+
+\qquad Public web comment testimony for the 2021-2022 redistricting cycle exists in a variety of formats across as many platforms, and not all states collect enough comment data for statistical inference.
+Many of the states that collect a sufficient sample of public comments, furthermore, do not ask for commenters to provide any information about their home city, their county, their ZIP Code, or otherwise.
+This information provides important context for our evaluation of how well commenters represent the demographic makeup of their communities.
+Of the states asking for geographic identifiers, Colorado has by far the largest sample of commenters, with over 5800 responses collected between March 12th, 2021 and October 11th, 2021.
+A Colorado Open Records Act (CORA) request was filed to collect an initial batch of comment data, and the returned responses were combined with comments collected by a web scraper spanning a web comment archive for Colorado's Independent Redistricting Commission.
+The vast majorty of comment responses include a first and a last name of the commenter as well as their ZIP Code of residence.
+Figure \@ref(fig:colorado-commenter-map) illustrates the distribution of commenters by ZIP Code.
+
+```{r colorado-commenter-map, echo=FALSE, fig.cap="Collected Colorado web comments by ZIP Code with 2022 District boundaries overlaid", fig.align="center", out.height="40%", out.width="60%"}
+
+# display colorado commenter map ----
+knitr::include_graphics(path = "../Figures/Colorado/COCommenterMap.png")
+
+```
+
+\qquad Comment lengths range from a measly 4 characters to 32,464 characters, a veritable publication in of itself.
+Commenters weighed in about any number of redistricting concerns, many of which did not correspond to a request about any specific geographic configuration.
+One Coloradoan comments two words, "Simply Hogwash", in July of 2021, while many others referenced an attached map or letter, and others still commented on issues like district competitiveness or incumbency protection.
+These comments do not lend much to measurements of congruence with any empirical map, but thankfully, the majority of comments make requests regarding communities of interest, usually referencing specific locations throughout the state.
+The comment below, submitted in late August of 2021, reflects several of the nuanced geographic configurations that commenters discuss, including requesting that locations be kept whole, grouped together, or separated from other locations.
+
+\begin{singlespace}
+\begin{quote}
+\small\itshape
+To Whom It May Concern:
+
+I am very concerned about the preliminary State House Map presented to the public. The map as drawn makes little or no sense, discriminates against communities of color, and eliminates competitive districts, helping to demolish our free and fair democratic elections in El Paso County.
+
+Why are former House Districts 17 and 18 being broken up? Both House Districts are communities of interest. House District 18 is already geographically connected from Manitou Springs to Old Colorado City to downtown Colorado Springs. This area is comprised of older homes with similar interests and needs. House District 17 is another community of interest, serving the needs of Southeastern Colorado Springs. Destroying House District 17 is a disservice to the communities of color that lie within its boundaries. Both of these districts are competitive. Changing them would nullify that fact and certainly make them non-competitive.
+
+Furthermore, I am mystified by your delineation of the boundaries of the proposed House District 49. It comprises only half of the Tri-Lakes area, making absolutely no sense. The Tri-Lakes area is another community of interest and should be kept together as a geographically contiguous district. The Tri-Lakes area of Monument and Palmer Lake has totally different needs from Colorado Springs. Colorado Springs should definitely not be apportioned to the proposed House District 49.
+
+I hope that in the future this State House Map contains competitive districts and accommodates communities of interest, not blatant political opportunism and gerrymandering. This is still a representative democracy, a republic, and public officials such as yourselves need to act in a forthright fashion and champion the democratic ideals of our republic.
+
+Respectfully submitted,
+
+Charlotte gagne
+\end{quote}
+\end{singlespace}
+
+## Annotating Public Web Comments
+
+\qquad Figure \@ref(fig:example-comment-network) represents Charlotte's requests of the Colorado Independent Redistricting Commission as a network, with each distinct location as a node and edge representing pairwise relationships.
+Colorado's uniquely large and descriptive comment data makes it an ideal case study state for determining the distribution of commenter demographics as well as their networks of coordinated advocacy for particular requests.
+However, building networks of commenter requests requires that comments pass through three stages of annotation.
+The first stage assesses whether a comment discusses communities of interest and any specific locations pertaining to those communities.
+The second state involves extracting all named locations in a comment that pertain to a redistricting request.
+The third stage involves evaluating the relationships between these locations.
+From networks of relationships, not only can we identify clusters of commenters making similar requests across ZIP Codes and submission dates, but we can also measure the extent to which any given redistricting plan respects a particular request.
+
+```{r example-comment-network, echo=FALSE, fig.cap="Example network of geographic configurations requested by the commenter across the Colorado Springs Metro Area", fig.align="center", out.width="80%"}
+
+# display example comment network ----
+knitr::include_graphics(path = "../Figures/Colorado/ExampleCommentNetwork.png")
+
+```
+
+\qquad For each comment annotation stage, we look towards frontier methods of structured data extraction using large language models (LLMs).
+LLM-based annotation has emerged as a defensible method of extracting information from political texts, with a variety of approaches suggested based on experiments with major models [@OrnsteinBlasingameTruscott2025; @BenoitEtAl2026; @LiuShi2025; @HeseltineClemmVonHohenberg2024].
+Replicability, however, is of primary concern when using LLMs given their "black box" nature, which is why Barrie, Palmer, and Spirling advocate for the use of open source and open-weight models [-@BarriePalmerSpirling2025]
+Our approach therefore makes use of `ellmer`, a recently-developed R package for structured data extraction from free text [@ellmer], as well as Mistral AI's open source mistral-large-2512 model.
+The package allows for the integration of engineered prompts with a complex output schema, allowing us to constrain location name and relationship responses for compatibility with downstream analyses.
+LLM annotations were compared against a ground truth set of 50 comments for Colorado that was annotated by the reseearchers, as well as a ground truth set for every other state in the cross-state analysis, in order to refine precision, recall, and overall accuracy.
+Details about prompting language and validation tests can be found in Appendix \@ref(ellmer-pipeline).
