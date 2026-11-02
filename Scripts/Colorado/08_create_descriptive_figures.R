@@ -24,10 +24,11 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Colorado/"
 figurePath <- "./Figures/Colorado"
 coWebCommentsFilename <- "COWebComments.rds"
+coWebCommenterInfoFilename <- "COWebCommenterInfo.rds"
 allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
 allGroundTruthRequestsFilename <- "./Validation/GroundTruth/AllGroundTruthRequests.rds"
-coCommenterMapFilename <- "COCommenterMap.png"
 exampleCommentNetworkFilename <- "ExampleCommentNetwork.png"
+coCommenterMapFilename <- "COCommenterMap.png"
 zctaRacialSamplingFilename <- "ZCTARacialSampling.png"
 
 # import web comments ----
@@ -39,98 +40,7 @@ allGroundTruthLocations <- readRDS(file = file.path(allGroundTruthLocationsFilen
 # import all ground truth requests ----
 allGroundTruthRequests <- readRDS(file = file.path(allGroundTruthRequestsFilename))
 
-# hand code node centroids ----
-nodeCentroids <- dplyr::tibble(
-  name = c(
-    "Manitou Springs (City)",
-    "Old Colorado City (Neighborhood)",
-    "Downtown Colorado Springs (City)",
-    "Southeastern Colorado Springs (City)",
-    "Tri-Lakes area (Region)",
-    "Monument (Town)",
-    "Palmer Lake (Town)",
-    "Colorado Springs (City)",
-    "State House District 17 (State House District)",
-    "State House District 18 (State House District)"
-  ),
-  display = c(
-    "Manitou Springs",
-    "Old Colorado City",
-    "Downtown\nColorado Springs",
-    "Southeastern\nColorado Springs",
-    "Tri-Lakes area",
-    "Monument",
-    "Palmer Lake",
-    "Colorado Springs",
-    "State House\nDistrict 17",
-    "State House\nDistrict 18"
-  ),
-  x = c(1, 2, 2.5, 3.5, 2, 2, 1, 3, 4, 2),
-  y = c(2, 2, 1.5, 1, 4, 3.5, 4, 2, 1, 1.5)
-)
-
-# create comment requests matrix ----
-commentRequestsMatrix <- createRequestsMatrix(
-  locationNodes = allGroundTruthLocations |>
-    dplyr::filter(State == "Colorado", CommentID == 2242) |>
-    dplyr::pull(FullLocationName),
-  commentRequests = allGroundTruthRequests |>
-    dplyr::filter(State == "Colorado", CommentID == 2242)
-)
-
-commentRequestsMatrix$Separations <- commentRequestsMatrix$Separations |>
-  igraph::graph_from_adjacency_matrix(mode = "undirected") |>
-  tidygraph::as_tbl_graph() |>
-  tidygraph::activate(edges) |>
-  tidygraph::mutate(EdgeType = "Separated") |>
-  tidygraph::as_tibble()
-
-commentRequestsMatrix$Groupings <- commentRequestsMatrix$Groupings |>
-  igraph::graph_from_adjacency_matrix(mode = "undirected") |>
-  tidygraph::as_tbl_graph() |>
-  tidygraph::left_join(y = nodeCentroids, by = c("name")) |>
-  tidygraph::activate(edges) |>
-  tidygraph::mutate(EdgeType = "Grouped") |>
-  tidygraph::bind_edges(commentRequestsMatrix$Separations) |>
-  igraph::as.igraph()
-
-# create example comment network plot ----
-exampleCommentNetwork <- commentRequestsMatrix$Groupings |>
-  ggraph::ggraph(layout = "manual", x = x, y = y) +
-  ggraph::geom_edge_link(mapping = ggplot2::aes(color = EdgeType), alpha = 0.5, linewidth = 1.75) +
-  ggraph::geom_node_text(mapping = ggplot2::aes(label = display)) +
-  ggraph::scale_edge_color_manual(
-    values = c("Grouped" = "#BBBBBB", "Separated" = "#FF0000"),
-    name = "Edge Type"
-  ) +
-  ggplot2::coord_cartesian(clip = "off") +
-  ggplot2::labs(title = "Example Comment Location Network") +
-  ggraph::theme_graph() +
-  ggplot2::theme(
-    legend.position = "bottom",
-    legend.direction = "horizontal",
-    legend.title = ggplot2::element_text(hjust = 0.5),
-    legend.title.position = "top",
-    legend.justification = "center",
-    plot.title = ggplot2::element_text(
-      hjust = 0.5,
-      face = "bold",
-      size = 14
-    )
-  )
-
-# save example comment network ----
-ggplot2::ggsave(
-  filename = file.path(figurePath, exampleCommentNetworkFilename),
-  plot = exampleCommentNetwork,
-  width = 8, 
-  height = 6, 
-  units = "in", 
-  dpi = 600
-)
-
-
-# colorado zip code modeling ----
+# build commenter-level variables and local context variables ----
 
 ## import colorado zip code boundaries ----
 coZCTABoundaries <- tigris::zctas(state = "CO", year = 2010)
@@ -163,8 +73,9 @@ coZCTAs <- coZCTABoundaries |>
   dplyr::mutate(Rurality = rurality::get_ruca(zip = ZIPCode) |> dplyr::pull(primary_ruca)) |>
   dplyr::select(ZIPCode, dplyr::starts_with("Proportion"), `Total Population`, Rurality)
 
-## sort comment counts by zip code ----
-coWebCommentZCTAs <- coWebComments |>
+## format colorado web commenter zip codes ----
+coWebCommenterInfo <- coWebComments |>
+  dplyr::select(CommentID, Characters, COI, Date, Name, ZIPCode) |>
   dplyr::rowwise() |>
   dplyr::mutate(ZIPCode = strsplit(ZIPCode, split = "-")[[1]][1]) |>
   dplyr::filter(ZIPCode %in% coZCTAs[["ZIPCode"]]) |>
@@ -174,14 +85,170 @@ coWebCommentZCTAs <- coWebComments |>
       ZIPCode == "80497" ~ "80498",
       .default = ZIPCode
     )
+  )
+
+## format colorado web commenter last names ----
+coWebCommenterInfo <- coWebCommenterInfo |>
+  dplyr::mutate(
+    `Last Name` = Name |>
+      humaniformat::format_period() |>
+      humaniformat::format_reverse() |>
+      humaniformat::last_name() |>
+      stringr::str_to_lower() |>
+      stringr::str_remove("[[:punct:]]+$"),
+    .after = "Name"
   ) |>
+  tidyr::drop_na() |>
+  dplyr::filter(stringr::str_length(`Last Name`) > 1)
+
+## estimate race of commenters using wru modeling by zcta ----
+coWebCommenterInfo <- coWebCommenterInfo |>
+  zipWRUext2::zip_wru(
+    state = "COLORADO",
+    year1 = 2020,
+    zip_col = "ZIPCode",
+    surname_field = "Last Name"
+  ) |>
+  dplyr::rename(
+    `Last Name` = surname,
+    `WRU White` = pred.whi,
+    `WRU Black` = pred.bla,
+    `WRU Hispanic` = pred.his,
+    `WRU Asian` = pred.asi,
+    `WRU Other` = pred.oth
+  ) |>
+  dplyr::select(-surname.match) |>
+  dplyr::relocate(ZIPCode = zcta5, .after = "WRU Other") |>
+  tidyr::drop_na()
+
+## add zcta demographics to commenter info ----
+coWebCommenterInfo <- coWebCommenterInfo |>
+  dplyr::left_join(
+    y = coZCTAs |>
+      sf::st_point_on_surface() |>
+      dplyr::mutate(
+        Latitude = sf::st_coordinates(geometry)[, 2],
+        Longitude = sf::st_coordinates(geometry)[, 1]
+      ) |>
+      sf::st_drop_geometry(),
+    by = "ZIPCode"
+  )
+
+## arrange colorado web commenter info ----
+coWebCommenterInfo <- coWebCommenterInfo |>
+  dplyr::arrange(CommentID, Date) |>
+  tidyr::drop_na()
+
+## save colorado web commenter info ----
+coWebCommenterInfo |> saveRDS(file = file.path(dataPath, coWebCommenterInfoFilename))
+
+
+# example comment network ----
+
+## hand code node centroids ----
+nodeCentroids <- dplyr::tibble(
+  name = c(
+    "Manitou Springs (City)",
+    "Old Colorado City (Neighborhood)",
+    "Downtown Colorado Springs (City)",
+    "Southeastern Colorado Springs (City)",
+    "Tri-Lakes area (Region)",
+    "Monument (Town)",
+    "Palmer Lake (Town)",
+    "Colorado Springs (City)",
+    "State House District 17 (State House District)",
+    "State House District 18 (State House District)"
+  ),
+  display = c(
+    "Manitou Springs",
+    "Old Colorado City",
+    "Downtown\nColorado Springs",
+    "Southeastern\nColorado Springs",
+    "Tri-Lakes area",
+    "Monument",
+    "Palmer Lake",
+    "Colorado Springs",
+    "State House\nDistrict 17",
+    "State House\nDistrict 18"
+  ),
+  x = c(1, 2, 2.5, 3.5, 2, 2, 1, 3, 4, 2),
+  y = c(2, 2, 1.5, 1, 4, 3.5, 4, 2, 1, 1.5)
+)
+
+## create comment requests matrix ----
+commentRequestsMatrix <- createRequestsMatrix(
+  locationNodes = allGroundTruthLocations |>
+    dplyr::filter(State == "Colorado", CommentID == 2242) |>
+    dplyr::pull(FullLocationName),
+  commentRequests = allGroundTruthRequests |>
+    dplyr::filter(State == "Colorado", CommentID == 2242)
+)
+
+## format separations matrix ----
+commentRequestsMatrix$Separations <- commentRequestsMatrix$Separations |>
+  igraph::graph_from_adjacency_matrix(mode = "undirected") |>
+  tidygraph::as_tbl_graph() |>
+  tidygraph::activate(edges) |>
+  tidygraph::mutate(EdgeType = "Separated") |>
+  tidygraph::as_tibble()
+
+## format groupings matrix ----
+commentRequestsMatrix$Groupings <- commentRequestsMatrix$Groupings |>
+  igraph::graph_from_adjacency_matrix(mode = "undirected") |>
+  tidygraph::as_tbl_graph() |>
+  tidygraph::left_join(y = nodeCentroids, by = c("name")) |>
+  tidygraph::activate(edges) |>
+  tidygraph::mutate(EdgeType = "Grouped") |>
+  tidygraph::bind_edges(commentRequestsMatrix$Separations) |>
+  igraph::as.igraph()
+
+## create example comment network plot ----
+exampleCommentNetwork <- commentRequestsMatrix$Groupings |>
+  ggraph::ggraph(layout = "manual", x = x, y = y) +
+  ggraph::geom_edge_link(mapping = ggplot2::aes(color = EdgeType), alpha = 0.5, linewidth = 1.75) +
+  ggraph::geom_node_text(mapping = ggplot2::aes(label = display)) +
+  ggraph::scale_edge_color_manual(
+    values = c("Grouped" = "#BBBBBB", "Separated" = "#FF0000"),
+    name = "Edge Type"
+  ) +
+  ggplot2::coord_cartesian(clip = "off") +
+  ggplot2::labs(title = "Example Comment Location Network") +
+  ggraph::theme_graph() +
+  ggplot2::theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = ggplot2::element_text(hjust = 0.5),
+    legend.title.position = "top",
+    legend.justification = "center",
+    plot.title = ggplot2::element_text(
+      hjust = 0.5,
+      face = "bold",
+      size = 14
+    )
+  )
+
+## save example comment network ----
+ggplot2::ggsave(
+  filename = file.path(figurePath, exampleCommentNetworkFilename),
+  plot = exampleCommentNetwork,
+  width = 8, 
+  height = 6, 
+  units = "in", 
+  dpi = 600
+)
+
+
+# colorado zip code modeling ----
+
+## sort comment counts by zip code ----
+coWebCommentCounts <- coWebCommenterInfo |>
   dplyr::group_by(ZIPCode) |>
   dplyr::summarise(Comments = dplyr::n()) |>
   dplyr::ungroup()
 
 ## add comment counts to zip code boundaries ----
 coZCTAs <- coZCTAs |>
-  dplyr::left_join(coWebCommentZCTAs, by = "ZIPCode") |>
+  dplyr::left_join(coWebCommentCounts, by = "ZIPCode") |>
   tidyr::replace_na(replace = list(Comments = 0))
 
 
@@ -236,40 +303,11 @@ ggplot2::ggsave(
 
 # zcta racial sampling figure ----
 
-## add valid last names to commenter data ----
-coWebCommenterNames <- coWebComments |>
-  dplyr::rowwise() |>
-  dplyr::mutate(ZIPCode = strsplit(ZIPCode, split = "-")[[1]][1]) |>
-  dplyr::ungroup() |>
-  dplyr::filter(ZIPCode %in% coZCTAs[["ZIPCode"]]) |>
-  dplyr::select(Name, ZIPCode) |>
-  dplyr::mutate(
-    `Last Name` = Name |>
-      humaniformat::format_period() |>
-      humaniformat::format_reverse() |>
-      humaniformat::last_name() |>
-      stringr::str_to_lower() |>
-      stringr::str_remove("[[:punct:]]+$")
-  ) |>
-  tidyr::drop_na() |>
-  dplyr::filter(stringr::str_length(`Last Name`) > 1)
-
-## estimate race of commenters using wru modeling by zcta ----
-coWebCommenterRaceEstimates <- coWebCommenterNames |>
-  zipWRUext2::zip_wru(
-    state = "COLORADO",
-    year1 = 2020,
-    zip_col = "ZIPCode",
-    surname_field = "Last Name"
-  ) |>
-  dplyr::left_join(coZCTAs |> sf::st_drop_geometry(), by = c("zcta5" = "ZIPCode")) |>
-  tidyr::drop_na()
-
 ## set random seed ----
 set.seed(seed = 1998)
 
 ## simulate 1000 draws from racial probability distributions ----
-coWebCommenterRaceSimulations <- coWebCommenterRaceEstimates |>
+coWebCommenterRaceSimulations <- coWebCommenterInfo |>
   dplyr::rowwise() |>
   dplyr::mutate(
     `Simulated Race` = list(
@@ -280,7 +318,7 @@ coWebCommenterRaceSimulations <- coWebCommenterRaceEstimates |>
           sample(
             x = c("White", "Black", "Hispanic", "Asian", "Other"),
             size = 1000,
-            prob = dplyr::c_across(dplyr::starts_with("pred")),
+            prob = dplyr::c_across(dplyr::starts_with("WRU")),
             replace = TRUE
           ),
           sample(
@@ -302,7 +340,7 @@ zctaRacialSamplingFigure <- coWebCommenterRaceSimulations |>
   dplyr::mutate(
     `Simulated Race` = `Simulated Race` |>
       factor(levels = c("White", "Black", "Hispanic", "Asian", "Other")),
-    n = n/nrow(coWebCommenterRaceEstimates)
+    n = n/nrow(coWebCommenterInfo)
   ) |>
   ggplot2::ggplot() +
   ggplot2::geom_density(
