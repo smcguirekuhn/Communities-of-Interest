@@ -29,7 +29,7 @@ coWebCommentLocations <- readRDS(file = file.path(dataPath, coWebCommentLocation
 # evaluate location requests for each comment ----
 extractedWebCommentRequests <- purrr::map(
   .progress = "Evaluating Location Requests",
-  .x = coWebCommentLocations |> dplyr::pull(CommentID) |> unique(),
+  .x = coWebCommentLocations |> dplyr::pull(CommentID) |> unique(), # missed comment 1014
   .f = purrr::safely(.f = \(commentID) {
     
     ## assign location names ----
@@ -78,7 +78,53 @@ coWebCommentRequests <- extractedWebCommentRequests |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
   dplyr::arrange(CommentID) |>
   dplyr::distinct() |>
+  tidyr::drop_na() |>
   dplyr::mutate(State = "Colorado", .before = 1)
 
+# reconcile request transitivity ----
+coAdjustedWebCommentRequests <- purrr::map_dfr(
+  .progress = "Reconciling request transitivity",
+  .x = coWebCommentLocations |> dplyr::pull(CommentID) |> unique(),
+  .f = \(commentID) {
+    
+    ## create location graphs ----
+    locationGraphs <- createLocationGraphs(
+      locationNodes = coWebCommentRequests |>
+        dplyr::filter(CommentID == commentID) |>
+        tidyr::pivot_longer(cols = Location1:Location2, names_to = "Location", values_to = "Name") |>
+        dplyr::pull(name = Name) |>
+        as.character() |>
+        unique(),
+      requests = coWebCommentRequests |> dplyr::filter(CommentID == commentID)
+    )
+    
+    ## extract location graph edges ----
+    locationGraphEdges <- dplyr::bind_rows(
+      igraph::as_data_frame(locationGraphs[["GroupedGraph"]], what = "edges") |>
+        dplyr::mutate(
+          Location1 = pmin(from, to),
+          Location2 = pmax(from, to),
+          Request = "grouped",
+          .keep = "unused"
+        ),
+      igraph::as_data_frame(locationGraphs[["SeparatedGraph"]], what = "edges") |>
+        dplyr::mutate(
+          Location1 = pmin(from, to),
+          Location2 = pmax(from, to),
+          Request = "separated",
+          .keep = "unused"
+        )
+    ) |> dplyr::mutate(State = "Colorado", CommentID = commentID, .before = 1)
+    
+    ## return location graph edges ----
+    return(locationGraphEdges)
+  }
+)
+
+# add kept whole requests back into the reconciled set ----
+coAdjustedWebCommentRequests <- coAdjustedWebCommentRequests |>
+  dplyr::bind_rows(coWebCommentRequests |> dplyr::filter(Request == "kept whole")) |>
+  dplyr::arrange(CommentID)
+
 # save comment requests ----
-saveRDS(object = coWebCommentRequests, file = file.path(dataPath, coWebCommentRequestsFilename))
+saveRDS(object = coAdjustedWebCommentRequests, file = file.path(dataPath, coWebCommentRequestsFilename))
