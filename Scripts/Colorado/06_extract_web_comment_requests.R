@@ -17,18 +17,14 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 dataPath <- "./Data/Colorado/"
 coWebCommentsFilename <- "COWebComments.rds"
 coWebCommentLocationsFilename <- "COWebCommentLocations.rds"
-allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
 coWebCommentRequestsFilename <- "COWebCommentRequests.rds"
+allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
 
 # import web comments ----
 coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
 
 # import colorado comment data ----
 coWebCommentLocations <- readRDS(file = file.path(dataPath, coWebCommentLocationsFilename))
-
-# import colorado ground truth location names ----
-coWebCommentLocations <- readRDS(file = file.path(allGroundTruthLocationsFilename)) |>
-  dplyr::filter(State == "Colorado")
 
 # evaluate location requests for each comment ----
 extractedWebCommentRequests <- purrr::map(
@@ -43,17 +39,14 @@ extractedWebCommentRequests <- purrr::map(
       unique()
     
     ## evaluate comment location requests ----
-    if (length(locationNames) > 1) {
-      commentRequests <- extractCommentRequests(
-        comment = coWebComments |> dplyr::filter(CommentID == commentID) |> dplyr::pull(Comment),
-        locationNames = locationNames
-      )
-    } else {
-      commentRequests <- NULL
-    }
+    commentRequests <- extractCommentRequests(
+      comment = coWebComments |> dplyr::filter(CommentID == commentID) |> dplyr::pull(Comment),
+      locationNames = locationNames,
+      state = "Colorado"
+    )
     
     ## return comment location requests ----
-    Sys.sleep(time = 3)
+    Sys.sleep(time = 0.5)
     return(commentRequests)
   })
 )
@@ -67,7 +60,19 @@ cli::cli_inform(message = c(">" = glue::glue("Erroneous Comment Count: {errorCou
 
 # extract valid results and reformat ----
 coWebCommentRequests <- extractedWebCommentRequests |>
-  purrr::map(.f = \(webComment) webComment$result) |>
+  purrr::map(
+    .f = \(webComment) {
+      dplyr::bind_rows(
+        dplyr::bind_cols(webComment$result$PairwiseGroups, dplyr::tibble(Request = "grouped")),
+        dplyr::bind_cols(webComment$result$PairwiseSeparations, dplyr::tibble(Request = "separated")),
+        dplyr::bind_cols(
+          dplyr::tibble(Location1 = webComment$result$LocationsKeptWhole),
+          dplyr::tibble(Location2 = webComment$result$LocationsKeptWhole),
+          dplyr::tibble(Request = "kept whole")
+        )
+      )
+    }
+  ) |>
   purrr::set_names(nm = unique(coWebCommentLocations[["CommentID"]])) |>
   purrr::list_rbind(names_to = "CommentID") |>
   dplyr::mutate(CommentID = as.numeric(CommentID)) |>
