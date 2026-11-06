@@ -8,6 +8,7 @@ rm(list = ls())
 library(purrr)
 library(tidyr)
 library(dplyr)
+library(stringr)
 library(tigris)
 library(ggplot2)
 library(scales)
@@ -23,22 +24,51 @@ list.files(path = "./Functions", full.names = TRUE) |> purrr::walk(.f = source)
 # assign import and export destinations ----
 dataPath <- "./Data/Colorado/"
 figurePath <- "./Figures/Colorado"
+tablesPath <- "./Tables/Colorado"
 coWebCommentsFilename <- "COWebComments.rds"
+coWebCommentRequestsFilename <- "COWebCommentRequests.rds"
 coWebCommenterInfoFilename <- "COWebCommenterInfo.rds"
 allGroundTruthLocationsFilename <- "./Validation/GroundTruth/AllGroundTruthLocations.rds"
 allGroundTruthRequestsFilename <- "./Validation/GroundTruth/AllGroundTruthRequests.rds"
+requestSummaryTableFilename <- "RequestSummaryTable.rds"
 exampleCommentNetworkFilename <- "ExampleCommentNetwork.png"
 coCommenterMapFilename <- "COCommenterMap.png"
 zctaRacialSamplingFilename <- "ZCTARacialSampling.png"
 
-# import web comments ----
+# import colorado web comments ----
 coWebComments <- readRDS(file = file.path(dataPath, coWebCommentsFilename))
+
+# import colorado web comment requests ----
+coWebCommentRequests <- readRDS(file = file.path(dataPath, coWebCommentRequestsFilename))
 
 # import all ground truth locations ----
 allGroundTruthLocations <- readRDS(file = file.path(allGroundTruthLocationsFilename))
 
 # import all ground truth requests ----
 allGroundTruthRequests <- readRDS(file = file.path(allGroundTruthRequestsFilename))
+
+# descriptive table of requests ----
+
+## summarize pairwise requests ----
+coRequestSummary <- coWebCommentRequests |>
+  dplyr::group_by(Location1, Location2, Request) |>
+  dplyr::summarise(Commenters = dplyr::n()) |>
+  dplyr::ungroup() |>
+  dplyr::arrange(dplyr::desc(Commenters)) |>
+  dplyr::slice_head(n = 20) |>
+  dplyr::mutate(
+    Location1 = Location1 |> stringr::str_remove("\\s*\\([^)]+\\)$"),
+    Location2 = Location2 |> stringr::str_remove("\\s*\\([^)]+\\)$"),
+    Request = dplyr::case_when(
+      Request == "kept whole" ~ paste(Location1, Request),
+      Request == "grouped" ~ paste(Location1, Request, "with", Location2),
+      Request == "separated" ~ paste(Location1, Request, "from", Location2)
+    )
+  ) |>
+  dplyr::select(Request, Commenters)
+
+# save request summary ----
+coRequestSummary |> saveRDS(file = file.path(tablesPath, requestSummaryTableFilename))
 
 # build commenter-level variables and local context variables ----
 
@@ -396,6 +426,10 @@ ggplot2::ggsave(
 
 # spatial modeling by zcta ----
 
+## import hearing locations ----
+hearingLocations <- read.csv(file = file.path(dataPath, "RedistrictingHearingLocations.csv")) |>
+  dplyr::mutate(ZIP = as.character(ZIP))
+
 ## format relevant variables for modeling ----
 coZCTAs <- coZCTAs |>
   dplyr::mutate(
@@ -406,7 +440,8 @@ coZCTAs <- coZCTAs |>
       Rurality %in% c(4:6) ~ "Micropolitan Area",
       Rurality %in% c(7:9) ~ "Small Town Area",
       Rurality == 10 ~ "Rural Area",
-    ) |> factor(levels = c("Metropolitan Area", "Micropolitan Area", "Small Town Area", "Rural Area"))
+    ) |> factor(levels = c("Metropolitan Area", "Micropolitan Area", "Small Town Area", "Rural Area")),
+    `Hearing Held` = ZIPCode %in% hearingLocations[["ZIP"]]
   )
 
 ## create matrix of neighbor weights ----
@@ -418,7 +453,7 @@ neighborWeights <- spdep::nb2listw(
 
 ## fit full spatial error model ----
 spatialErrorModel <- spatialreg::errorsarlm(
-  formula = Comments ~ `Logged Population` + `Percent White` + `RUCA Code Category`,
+  formula = Comments ~ `Logged Population` + `Percent White` + `RUCA Code Category` + `Hearing Held`,
   data = coZCTAs,
   listw = neighborWeights,
   zero.policy = TRUE
@@ -429,7 +464,7 @@ summary(spatialErrorModel, Nagelkerke = TRUE)
 
 ## fit full spatial lag model ----
 spatialLagModel <- spatialreg::lagsarlm(
-  formula = Comments ~ `Logged Population` + `Percent White` + `RUCA Code Category`,
+  formula = Comments ~ `Logged Population` + `Percent White` + `RUCA Code Category` + `Hearing Held`,
   data = coZCTAs,
   listw = neighborWeights,
   zero.policy = TRUE
