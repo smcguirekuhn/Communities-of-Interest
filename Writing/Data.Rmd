@@ -67,8 +67,28 @@ knitr::include_graphics(path = "../Figures/Colorado/ExampleCommentNetwork.png")
 
 \qquad For each comment annotation stage, we look towards frontier methods of structured data extraction using large language models (LLMs).
 LLM-based annotation has emerged as a defensible method of extracting information from political texts, with a variety of approaches suggested based on experiments with major models [@OrnsteinBlasingameTruscott2025; @BenoitEtAl2026; @LiuShi2025; @HeseltineClemmVonHohenberg2024].
-Replicability, however, is of primary concern when using LLMs given their "black box" nature, which is why Barrie, Palmer, and Spirling advocate for the use of open source and open-weight models [-@BarriePalmerSpirling2025]
+Replicability, however, is of primary concern when using LLMs given their "black box" nature, which is why Barrie, Palmer, and Spirling advocate for the use of open source and open-weight models [-@BarriePalmerSpirling2025].
 Our approach therefore makes use of `ellmer`, a recently-developed R package for structured data extraction from free text [@ellmer], as well as Mistral AI's open source mistral-large-2512 model.
-The package allows for the integration of engineered prompts with a complex output schema, allowing us to constrain location name and relationship responses for compatibility with downstream analyses.
-LLM annotations were compared against a ground truth set of 50 comments for Colorado that was annotated by the reseearchers, as well as a ground truth set for every other state in the cross-state analysis, in order to refine precision, recall, and overall accuracy.
+The package enables the integration of engineered prompts with a complex output schema, allowing us to constrain location name and relationship responses for compatibility with downstream analyses.
+LLM annotations were compared against a ground truth set of 50 comments for Colorado that was annotated by the researchers, as well as a ground truth set for every other state in the cross-state analysis, in order to refine precision, recall, and overall accuracy.
 Details about prompting language and validation tests can be found in Appendix \@ref(ellmer-pipeline).
+
+\qquad Across 4095 comments pertaining to communities of interest in Colorado, our location extraction process returned over 2000 unique locations and over 24,000 mentions overall.
+Request extraction returned almost 50,000 total requests, with almost 20,000 being unique.
+Many pairwise or single location requests were made by hundreds of commenters.
+Table \@ref(tab:request-summary-table) summarizes the 20 most popular extracted requests.
+In Colorado, commenters seem to have emphasized the distinction of large regions of the state as well as key towns in Northern Colorado like Fort Collins and Boulder.
+
+```{r request-summary-table}
+
+# import request summary table ----
+tablePath <- "../Tables/Colorado"
+requestSummaryTableFilename <- "RequestSummaryTable.rds"
+readRDS(file = file.path(tablePath, requestSummaryTableFilename)) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Popular requests made by Colorado commenters"
+  ) |>
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```
